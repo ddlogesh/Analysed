@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Analysed</string>
+    <string name="title_activity_main2">Browse</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">dummy dummy</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="browse">Browse Analysed Through Multiple Categories</string>
+
+    <string name="analysed">Do you know what is Analysed?\nWhat we are trying to achieve?</string>
+    <string name="virtual">A Virtual Recruitment\nPlatform</string>
+    <string name="ans_virtual">\t\t\t\t\t\t\t\t\tRecruitment and hiring process has been a complex task for a long time and we plan to change that by helping recruiters through AI and provides them with virtual testing tools to lighten the burden of the struggle for both recruiters and job aspirants.</string>
+    <string name="differ">Our Vision</string>
+    <string name="ans_differ">\t\t\t\t\t\t\t\t\We are different from every other job searching platforms as we extensively provide tools and services to lighten the burden of the process.</string>
+    <string name="advan">Our Advantages</string>
+    <string name="ans_advan">\t\t\t\t\t\t\t\t\tOur advantages are that we put our belief into this essential cause and aim at using technology as a tool to fix the currently flawed recruitment process and job searching platforms.</string>
+    <string name="services">Our Services</string>
+    <string name="ans_services">\t\t\t\t\t\t\t\t\tWe do not augment that we transform your big dreams to reality, we just commence with little ones. Bridging the gap between a recruiter and an aspirant is our sole motive.</string>
+
+    <string name="about">About Us</string>
+    <string name="ans_about_1">\t\t\t\t\t\t\t\t\tWe work endlessly to bring together the two opposite extremes of the recruitment spectrum i.e, job seekers and recruiters. We bring them together on a common platform to lighten the burden of the recruiters.</string>
+    <string name="ans_about_2">\t\t\t\t\t\t\t\t\tWe\'re a virtual recruitment platform that performs human analytics with the help of artificial intelligence. Humans are the most complex of creatures and their qualities and capabilities and needs can not always be fulfilled or even analysed completely.</string>
+    <string name="ans_about_3">\t\t\t\t\t\t\t\t\tSo, We cater to the needs of recruiters by helping them play with their data using our AI tools. Job seekers can find the best of jobs on our platform, according to their practical skills and abilities.</string>
+
+    <string name="core">Our Core Values</string>
+    <string name="ans_core_1">\t\t\t\t\t\t\t\t\tJob aspirants need to upload their resume and other important details for the virtual recruitment drive.</string>
+    <string name="ans_core_2">\t\t\t\t\t\t\t\t\tAnalysed strides with an advanced technology to reduce the unemployment rate and bridge the gap between education and corporate requirements.</string>
+    <string name="ans_core_3">\t\t\t\t\t\t\t\t\tA recruiter will be able to create their own virtual recruitment cell and set parameters according to their needs and requirements.</string>
+    <string name="ans_about_4">\t\t\t\t\t\t\t\t\tWhile doing all this, we aim at revolutionizing the entire recruitment process in the country making it easy, less time consuming and cost effective for everyone. Contact us to get a demo to know more.</string>
+
+    <string name="next">&#x2794;</string>
+    <string name="contact_next">Contact Us &#x2794;</string>
+
+    <string name="terms1">Terms &#38; Conditions</string>
+    <string name="ans_terms1">\t\t\t\t\t\t\t\t\tBy accessing the website at http://analysed.in, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.</string>
+    <string name="terms2">License</string>
+    <string name="ans_terms2">\t\t\t\t\t\t\t\t\tPermission is granted to temporarily download one copy of the materials (information or software) on Analysed\'s website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:\n\t\t\t\t- modify or copy the materials;
+\n\t\t\t\t- use the materials for any commercial purpose, or for any public display (commercial or non-commercial);
+\n\t\t\t\t- attempt to decompile or reverse engineer any software contained on Analysed\'s website;
+\n\t\t\t\t- remove any copyright or other proprietary notations from the materials; or
+\n\t\t\t\t- transfer the materials to another person or \"mirror\" the materials on any other server.
+\n\t\t\t\t- This license shall automatically terminate if you violate any of these restrictions and may be terminated by Analysed at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.</string>
+    <string name="terms3">Disclaimer</string>
+    <string name="ans_terms3">\t\t\t\t\t\t\t\t\tThe materials on Analysed\'s website are provided on an \'as is\' basis. Analysed makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+\n\n\t\t\t\tFurther, Analysed does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.</string>
+    <string name="terms4">Limitations</string>
+    <string name="ans_terms4">\t\t\t\t\t\t\t\t\tIn no event shall Analysed or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Analysed\'s website, even if Analysed or a Analysed authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.</string>
+    <string name="terms5"> Accuracy of materials</string>
+    <string name="ans_terms5">\t\t\t\t\t\t\t\t\tThe materials appearing on Analysed\'s website could include technical, typographical, or photographic errors. Analysed does not warrant that any of the materials on its website are accurate, complete or current. Analysed may make changes to the materials contained on its website at any time without notice. However Analysed does not make any commitment to update the materials.</string>
+    <string name="terms6">Links</string>
+    <string name="ans_terms6">\t\t\t\t\t\t\t\t\tAnalysed has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Analysed of the site. Use of any such linked website is at the user\'s own risk.</string>
+    <string name="terms7">Modifications</string>
+    <string name="ans_terms7">\t\t\t\t\t\t\t\t\tAnalysed may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</string>
+    <string name="terms8">Governing Law</string>
+    <string name="ans_terms8">\t\t\t\t\t\t\t\t\tThese terms and conditions are governed by and construed in accordance with the laws of Hyderabad and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</string>
+
+    <string name="privacy1">Privacy Policy</string>
+    <string name="ans_privacy1">\t\t\t\t\t\t\t\t\tThis is the Privacy Policy of the analysed.in website (and any successor or other domains that we operate) and all content, services and products, including our mobile applications, that we provide (collectively, the \“Application\”). The Application is owned and operated by Analysed.in (together with our affiliates and subsidiaries, \“Analysed\”, \“we\”, \“us\”, \“our\” and terms of similar meaning). It describes the personal information that we collect from users of our Application as part of the normal operation of our Application, and how we use and disclose this information.
+\n\n\t\t\t\t\t\t\t\t\tIn this Privacy Policy, when we refer to \“Users\”, we mean our customers who use our Services to create their own Portfolios, and when we refer to \“End Users\” we mean the users, visitors and customers of our Users\’ Portfolios.
+\n\n\t\t\t\t\t\t\t\t\tThis Privacy Policy describes what we do with personal information that we collect and use for our own purposes (i.e., where we are a controller), such as User Account information and information about how you use and interact with our Services, including information you submit to our customer support as well as certain information relating to our Users\’ End Users.
+\n\n\t\t\t\t\t\t\t\t\tWe host and process Content for our Users, for their own use and for the use of their End Users. Our Users tell us what to do with their Content in relation to the Service, and in accordance with the Agreement and the operation of our Service we follow their instructions. This Privacy Policy does not describe what we do with Content on our Users\’ instructions (i.e., as their processor). If you are an End User of one of our Users\’ Portfolios and want to know how that User handles your information, you should check its privacy policy. If you want to know about what we do for our own purposes, read on.</string>
+    <string name="privacy2">How We Use Your Information</string>
+    <string name="ans_privacy2">\t\t\t\t\t\t\t\t\tWe use personal information in the file we maintain about you, and other information we obtain from your current and past activities on the Application, to provide to you the services offered by the Application; resolve service disputes; troubleshoot problems; measure consumer interest in our products and services; inform you about online and offline offers, products, services, events and updates; deliver information to you that, in some cases, is relevant to your interests, such as product news; customize your experience; detect and protect us against error, fraud and other criminal activity; enforce our Terms of Service; provide you with system or administrative messages, and as otherwise described to you at the time of collection.
+\n\n\t\t\t\t\t\t\t\t\tWe may also use personal information about you to improve our marketing and promotional efforts, to analyze Application usage, to improve our content and product offerings, and to customize the Application\'s content, layout, and services. These uses improve the Application and better tailor it to meet your needs, so as to provide you with a smooth, efficient, safe and customized experience while using the Application.
+\n\n\t\t\t\t\t\t\t\t\tPlease see below under \“How we Retain your Personal Information\” for information on what we do to account information when you terminate your account with us.</string>
+    <string name="privacy3">What Information Do We Collect?</string>
+    <string name="ans_privacy3">\t\t\t\t\t\t\t\t\tOur primary purpose in collecting personal information from you is to provide you with a safe, smooth, efficient, and customized experience. This allows us to provide services and features that most likely meet your needs, and to customize our service to make your experience safer and easier. We only collect personal information about you that we consider necessary for achieving this purpose.
+\n\n\t\t\t\t\t\t\t\t\tIn general, you can browse the Application without telling us who you are or revealing any personal information about yourself. Once you become a User, we require you to provide various contact and identity information and other personal information as indicated on the relevant forms on the Application, and you are no longer anonymous to us. Where possible, on these forms we indicate which fields are required and which fields are optional. In addition, as you use the Application, you can from time to time enter or send to us personal information.
+\n\n\t\t\t\t\t\t\t\t\tYou always have the option to not provide information by choosing not to become a User or by not using the particular feature of the Application for which the information is being collected.
+\n\n\t\t\t\t\t\t\t\t\tWe also automatically track certain information about you based upon your behaviour on our Application. We use this information to do internal research on our users\' demographics, interests, and behaviour to better understand, protect and serve you and our community. This information may include the URL that you just came from (whether this URL is on our Application or not), which URL you next go to (whether this URL is on our Application or not), your computer browser information, your IP address and your location.
+\n\n\t\t\t\t\t\t\t\t\tIf you are an End User of our Users’ Portfolios, we also get information about your interactions with their Portfolios, though we use this in anonymous, aggregated or pseudonymized form which does not focus on you individually. We use this data to evaluate, provide, protect or improve our Services (including by developing new products and services).
+\n\n\t\t\t\t\t\t\t\t\tIf you use a Third Party Service (such as Google) to register for an Account, the Third Party Service may provide us with your Third Party Service account information on your behalf, such as your name and email address (we don’t store passwords you use to access Third Party Services). Your privacy settings on the Third Party Service normally control what they share with us. Make sure you are comfortable with what they share by reviewing their privacy policies and, if necessary, modifying your privacy settings directly on the Third Party Service.
+\n\n\t\t\t\t\t\t\t\t\tWe do not collect or save your credit card information when you use your credit card to subscribe to our Application - when you subscribe to our Application, the payment processors that we use handle all credit card information. However, If you subscribe, we do obtain limited information about your payment card from our payment processors, such as the last four digits, the country of issuance and the expiration date. Currently, our payment processors are Braintree, PayPal and Bambora. Please consult their terms of use and privacy policies for more information about they use your personal information.
+\n\n\t\t\t\t\t\t\t\t\tFollowing your registration on the Application, you can review and change your information in your account area. If you disclose personal information on the Application and wish to have it removed, please contact us at the support contact information posted on the Application.</string>
+    <string name="privacy4">Our Disclosure of Your Information</string>
+    <string name="ans_privacy4">\t\t\t\t\t\t\t\t\tWe will not sell or rent your personally identifiable information to third parties without your explicit consent. The following describes some of the ways that your information may be disclosed in the normal scope of business to provide our services.</string>
+    <string name="privacy5">Legal Requests; Emergencies; Jurisdictions</string>
+    <string name="ans_privacy5">\t\t\t\t\t\t\t\t\tWe cooperate with law enforcement inquiries and demands for information that are made under force of law. We are also cognizant of the need to address emergencies. Therefore, we may disclose User and End User personal information (a) to any governmental authority as part of an investigation to determine our compliance with any applicable law, rule, or regulation (including privacy laws, rules, and regulations), (b) in response to a court order, subpoena, discovery request, or other lawful judicial or administrative proceeding, © as otherwise required under any applicable law, rule, or regulation, and (d) in good faith, to protect or defend our rights or property or those of other users or End Users.
+\n\n\t\t\t\t\t\t\t\t\tWe may also disclose personal information to the acquiror or its agents in the course of the sale of our business. If we do this, the disclosure will be subject to confidentiality arrangements customary in such transactions.</string>
+    <string name="privacy6">Security</string>
+    <string name="ans_privacy6">\t\t\t\t\t\t\t\t\tAnalysed.in strives to protect your personal information. For security of transactions, we use the Secure Sockets Layer (SSL) protocol, which encrypts any personal information you enter into registration forms on the Application. The encryption process protects your information, by scrambling it before it is sent to us from your computer. We also make commercially reasonable effort to ensure the security of your personal information on our system. Unfortunately, no data transmission over the Internet can be guaranteed to be 100% secure. As a result, while we strive to protect your personal information, we cannot warrant the security of any information you transmit to us.
+\n\n\t\t\t\t\t\t\t\t\tIf you are an End User of one of our Users’ Portfolios, you should contact them to exercise your rights with respect to any information they hold about you.</string>
+
+    <string name="appdev">Application Developer</string>
+    <string name="exec">Executives</string>
+    <string name="career">Career With Us</string>
+    <string name="ans_career">\t\t\t\t\t\t\t\t\tChanging the way our way country hires people and changing the entire recruitment process is not going to be a piece of cake but we\'re trying to work towards it and we believe together we can achieve it, as a team.
+\n\t\t\t\t\t\t\t\t\tWe\'re always in the lookout for superstars to join our young, energetic and highly motivated team so we can all grow together.</string>
+
+    <string name="about_me">\t\t\t\t\t\tI am an optimistic &#38; enthusiastic software developer seeking opportunities to learn &#38; work with new emerging technology &#38; updating myself.</string>
+
+    <string name="copyrights">Analysed Copyrights © 2019. All Rights Reserved.</string>
+</resources>

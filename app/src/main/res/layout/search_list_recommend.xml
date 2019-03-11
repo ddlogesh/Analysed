@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/search_card2">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/apple_icon" />
+
+    <TextView
+        android:id="@+id/tv_job_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UX Designer"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="@dimen/_15ssp"/>
+
+    <TextView
+        android:id="@+id/tv_job_ago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1w"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:textColor="#6B000000"
+        android:textSize="@dimen/_12ssp"/>
+    <TextView
+        android:id="@+id/tv_job_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apple"
+        android:layout_below="@+id/tv_job_title"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:textColor="#9C000000"
+        android:textSize="@dimen/_13ssp"/>
+
+    <TextView
+        android:id="@+id/tv_job_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mumbai"
+        android:drawableLeft="@drawable/ic_location"
+        android:layout_below="@+id/tv_job_company"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textColor="#6B000000"
+        android:textSize="@dimen/_11ssp"/>
+
+</RelativeLayout>

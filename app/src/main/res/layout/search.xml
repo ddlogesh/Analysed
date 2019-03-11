@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".search">
+
+    <ImageView
+        android:id="@+id/iv_home"
+        android:padding="7dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/ic_home"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, dummy!"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:padding="@dimen/_5sdp"
+        android:layout_toEndOf="@+id/iv_home"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+
+    <RelativeLayout
+        android:id="@+id/layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:background="@drawable/search_edit_text_back">
+
+        <EditText
+            android:id="@+id/ev_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_42sdp"
+            android:layout_marginRight="@dimen/_40sdp"
+            android:singleLine="true"
+            android:background="#00000000"
+            android:hint="Search job title"
+            android:textColor="#000000"
+            android:textColorHint="#24000000" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_135sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:background="@drawable/search_card"
+        android:layout_below="@+id/layout_search">
+
+        <TextView
+            android:id="@+id/tv_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recent Searches"
+            android:textColor="#000000"
+            android:textSize="@dimen/_14ssp"
+            android:shadowColor="#5C000000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="15"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"/>
+
+        <TextView
+            android:id="@+id/tv_see_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="SEE ALL"
+            android:textColor="#59000000"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_15sdp"/>
+
+        <ListView
+            android:id="@+id/search_list_recent"
+            android:layout_below="@+id/tv_recent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:scrollbars="none"
+            android:divider="@null"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_below="@+id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recommended Jobs"
+            android:textColor="#000000"
+            android:textSize="@dimen/_14ssp"
+            android:shadowColor="#5C000000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="15"
+            android:layout_marginLeft="@dimen/_18sdp"/>
+
+        <TextView
+            android:id="@+id/tv_see_all_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="SEE ALL"
+            android:textColor="#59000000"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:layout_marginRight="@dimen/_20sdp"/>
+
+        <ListView
+            android:id="@+id/search_list_recommend"
+            android:layout_below="@+id/tv_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:scrollbars="none"
+            android:divider="@null"/>
+    </RelativeLayout>
+
+</RelativeLayout>

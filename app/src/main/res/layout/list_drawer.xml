@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/nav_about"
+        android:background="@drawable/drawer_logo"/>
+
+    <TextView
+        android:id="@+id/tv_menu_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:layout_toLeftOf="@+id/iv_next"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:textColor="#000000"
+        android:textSize="@dimen/_14ssp"/>
+
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_next"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/_15sdp"/>
+
+</RelativeLayout>
