@@ -21,7 +21,7 @@
             android:paddingBottom="@dimen/_3sdp"
             android:text="Technique name"
             android:textColor="#ff000000"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="@dimen/_13ssp" />
 
         <View
             android:id="@id/view1"
@@ -45,6 +45,6 @@
             android:paddingBottom="@dimen/_3sdp"
             android:text="Hint for this technique"
             android:textColor="#ff000000"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="@dimen/_13ssp" />
     </RelativeLayout>
 </RelativeLayout>

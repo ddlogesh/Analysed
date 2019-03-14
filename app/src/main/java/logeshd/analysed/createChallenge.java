@@ -17,22 +17,12 @@ import logeshd.analysed.classes.itemDrawer;
 
 public class createChallenge extends AppCompatActivity {
 
-    /* renamed from: logeshd.ui.createChallenge$2 */
-    class C03812 implements OnClickListener {
-        C03812() {
-        }
-
-        public void onClick(View v) {
-            createChallenge.this.startActivity(new Intent(createChallenge.this.getApplicationContext(), dashboard.class));
-        }
-    }
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.create_challenge);
 
         final ListView l1 = (ListView) findViewById(R.id.create_challenge_tech_list);
-        ArrayList<itemDrawer> arr = new ArrayList();
+        ArrayList<itemDrawer> arr = new ArrayList<>();
         listCreateTech adapter = new listCreateTech(this, arr);
         adapter.clear();
         adapter.add(new itemDrawer("Technique1", "Hint1"));

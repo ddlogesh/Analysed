@@ -56,9 +56,10 @@ public class login extends AppCompatActivity {
         tv_login.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(),tour.class);
+                Intent i1=new Intent(getApplicationContext(),dashboard.class);
                 startActivity(i1);
                 Bungee.inAndOut(login.this);
+                //tour.class
             }
         });
         

@@ -14,7 +14,6 @@ public class RecyclerTouchListener implements OnItemTouchListener {
 
     public interface ClickListener {
         void onClick(View view, int i);
-
         void onLongClick(View view, int i);
     }
 
@@ -28,7 +27,6 @@ public class RecyclerTouchListener implements OnItemTouchListener {
             public void onLongPress(MotionEvent e) {
                 View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
                 if (child != null) {
-                    ClickListener clickListener = clickListener;
                     if (clickListener != null) {
                         clickListener.onLongClick(child, recyclerView.getChildPosition(child));
                     }

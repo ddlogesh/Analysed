@@ -24,14 +24,14 @@
             android:layout_centerInParent="true">
 
             <ImageView
-                android:id="@id/iv_dp"
+                android:id="@+id/iv_dp"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/sample_image" />
 
             <TextView
-                android:id="@id/tv_name"
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_dp"
@@ -41,7 +41,7 @@
                 android:textSize="@dimen/_15ssp" />
 
             <TextView
-                android:id="@id/tv_profession"
+                android:id="@+id/tv_profession"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_name"
@@ -63,7 +63,7 @@
             android:textSize="@dimen/_10ssp" />
 
         <TextView
-            android:id="@id/tv_progress"
+            android:id="@+id/tv_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/progress"
@@ -75,7 +75,7 @@
             android:textSize="@dimen/_10ssp" />
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-            android:id="@id/progress"
+            android:id="@+id/progress"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_5sdp"
             android:layout_alignParentBottom="true"
@@ -114,7 +114,7 @@
                     android:layout_marginRight="@dimen/_38sdp">
 
                     <TextView
-                        android:id="@id/tv_first_name1"
+                        android:id="@+id/tv_first_name1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -141,7 +141,7 @@
                         android:textSize="@dimen/_13ssp" />
 
                     <TextView
-                        android:id="@id/tv_last_name1"
+                        android:id="@+id/tv_last_name1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ev_first_name1"
@@ -169,7 +169,7 @@
                         android:textSize="@dimen/_13ssp" />
 
                     <TextView
-                        android:id="@id/tv_qualification"
+                        android:id="@+id/tv_qualification"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ev_last_name1"
@@ -195,7 +195,7 @@
                         android:textSize="@dimen/_13ssp" />
 
                     <TextView
-                        android:id="@id/tv_year_passing"
+                        android:id="@+id/tv_year_passing"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ev_qualification"
@@ -206,7 +206,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@id/ev_year_passing"
+                        android:id="@+id/ev_year_passing"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_year_passing"
@@ -221,7 +221,7 @@
                         android:textSize="@dimen/_13ssp" />
 
                     <TextView
-                        android:id="@id/tv_experience"
+                        android:id="@+id/tv_experience"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ev_year_passing"
@@ -247,7 +247,7 @@
                         android:textSize="@dimen/_13ssp" />
 
                     <TextView
-                        android:id="@id/tv_email"
+                        android:id="@+id/tv_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ev_experience"
@@ -274,7 +274,7 @@
                         android:textSize="@dimen/_13ssp" />
 
                     <TextView
-                        android:id="@id/tv_location"
+                        android:id="@+id/tv_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ev_email"
@@ -301,7 +301,7 @@
                         android:textSize="@dimen/_13ssp" />
 
                     <TextView
-                        android:id="@id/tv_mobile"
+                        android:id="@+id/tv_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ev_location"
@@ -358,13 +358,14 @@
                                     android:src="@drawable/profile_saved_icon1" />
 
                                 <RelativeLayout
+                                    android:layout_toRightOf="@+id/iv_profile_saved_icon1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/_12sdp"
                                     android:layout_marginTop="@dimen/_8sdp">
 
                                     <TextView
-                                        android:id="@id/tv_saved_count"
+                                        android:id="@+id/tv_saved_count"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="35"
@@ -403,13 +404,14 @@
                                     android:src="@drawable/profile_apply_icon" />
 
                                 <RelativeLayout
+                                    android:layout_toRightOf="@+id/iv_profile_apply_icon"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/_12sdp"
                                     android:layout_marginTop="@dimen/_8sdp">
 
                                     <TextView
-                                        android:id="@id/tv_applied_count"
+                                        android:id="@+id/tv_applied_count"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="124"
@@ -439,7 +441,7 @@
                     android:layout_marginBottom="@dimen/_10sdp">
 
                     <TextView
-                        android:id="@id/complete_button"
+                        android:id="@+id/complete_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"

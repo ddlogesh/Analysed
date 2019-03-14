@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_home"
             android:padding="@dimen/_5sdp"
             android:text="Create a Task"
             android:textColor="#ffffffff"
@@ -61,8 +62,8 @@
                     android:id="@+id/sp_speaker"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/_4sdp"
-                    android:textSize="@dimen/_10ssp" />
+                    android:gravity="center"
+                    android:textSize="@dimen/_13ssp" />
             </RelativeLayout>
 
             <EditText
@@ -76,11 +77,8 @@
                 android:hint="Task name"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_11sdp"
-                android:paddingTop="@dimen/_6sdp"
-                android:paddingRight="@dimen/_6sdp"
-                android:paddingBottom="@dimen/_6sdp"
                 android:textColorHint="#4a000000"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <EditText
                 android:id="@+id/ev_description"
@@ -93,11 +91,8 @@
                 android:hint="Description"
                 android:inputType="date"
                 android:paddingLeft="@dimen/_11sdp"
-                android:paddingTop="@dimen/_6sdp"
-                android:paddingRight="@dimen/_6sdp"
-                android:paddingBottom="@dimen/_6sdp"
                 android:textColorHint="#4a000000"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <EditText
                 android:id="@+id/ev_accuracy"
@@ -110,11 +105,8 @@
                 android:hint="Accuracy (in percentage)"
                 android:inputType="date"
                 android:paddingLeft="@dimen/_11sdp"
-                android:paddingTop="@dimen/_6sdp"
-                android:paddingRight="@dimen/_6sdp"
-                android:paddingBottom="@dimen/_6sdp"
                 android:textColorHint="#4a000000"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <EditText
                 android:id="@+id/ev_deadline"
@@ -128,11 +120,9 @@
                 android:hint="Deadline"
                 android:inputType="date"
                 android:paddingLeft="@dimen/_11sdp"
-                android:paddingTop="@dimen/_6sdp"
                 android:paddingRight="@dimen/_6sdp"
-                android:paddingBottom="@dimen/_6sdp"
                 android:textColorHint="#4a000000"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <EditText
                 android:id="@+id/ev_duration"
@@ -145,11 +135,8 @@
                 android:hint="Duration (in days)"
                 android:inputType="date"
                 android:paddingLeft="@dimen/_11sdp"
-                android:paddingTop="@dimen/_6sdp"
-                android:paddingRight="@dimen/_6sdp"
-                android:paddingBottom="@dimen/_6sdp"
                 android:textColorHint="#4a000000"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <TextView
                 android:id="@+id/tv_add"
@@ -161,7 +148,7 @@
                 android:gravity="center"
                 android:text="Add Techniques"
                 android:textColor="#ff000000"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <RelativeLayout
                 android:id="@+id/layout13"
@@ -179,11 +166,8 @@
                     android:hint="Technique name"
                     android:inputType="text"
                     android:paddingLeft="@dimen/_11sdp"
-                    android:paddingTop="@dimen/_6sdp"
-                    android:paddingRight="@dimen/_6sdp"
-                    android:paddingBottom="@dimen/_6sdp"
                     android:textColorHint="#4a000000"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_13ssp" />
 
                 <EditText
                     android:id="@+id/ev_hint"
@@ -196,11 +180,8 @@
                     android:hint="Hint for this technique"
                     android:inputType="text"
                     android:paddingLeft="@dimen/_11sdp"
-                    android:paddingTop="@dimen/_6sdp"
-                    android:paddingRight="@dimen/_6sdp"
-                    android:paddingBottom="@dimen/_6sdp"
                     android:textColorHint="#4a000000"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_13ssp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -223,13 +204,14 @@
                     android:paddingBottom="@dimen/_2sdp"
                     android:text="View"
                     android:textColor="#ffffffff"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <TextView
                     android:id="@+id/tv_plus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/tv_view"
                     android:background="@drawable/button_blue_gradient"
                     android:gravity="center"
                     android:paddingLeft="@dimen/_10sdp"
@@ -238,7 +220,7 @@
                     android:paddingBottom="@dimen/_2sdp"
                     android:text="Add"
                     android:textColor="#ffffffff"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_12ssp" />
             </RelativeLayout>
 
             <ListView
@@ -268,7 +250,7 @@
         android:paddingBottom="@dimen/_2sdp"
         android:text="Tasks"
         android:textColor="#ffffffff"
-        android:textSize="@dimen/_12ssp" />
+        android:textSize="@dimen/_14ssp" />
 
     <TextView
         android:id="@+id/tv_submit"

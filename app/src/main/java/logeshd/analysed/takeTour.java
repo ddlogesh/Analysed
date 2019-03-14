@@ -57,11 +57,11 @@ public class takeTour extends AppCompatActivity {
                 }
                 arr[k] = true;
                 if (k == 5) {
-                    tv_contact.setVisibility(View.GONE);
+                    tv_contact.setVisibility(View.VISIBLE);
                     tv_finish.setVisibility(View.VISIBLE);
                 }
                 else {
-                    tv_contact.setVisibility(View.VISIBLE);
+                    tv_contact.setVisibility(View.GONE);
                     tv_finish.setVisibility(View.GONE);
                 }
                 setSwiper();
@@ -84,11 +84,11 @@ public class takeTour extends AppCompatActivity {
                 }
                 arr[k] = true;
                 if (k == 5) {
-                    tv_contact.setVisibility(View.GONE);
+                    tv_contact.setVisibility(View.VISIBLE);
                     tv_finish.setVisibility(View.VISIBLE);
                 }
                 else {
-                    tv_contact.setVisibility(View.VISIBLE);
+                    tv_contact.setVisibility(View.GONE);
                     tv_finish.setVisibility(View.GONE);
                 }
                 setSwiper();

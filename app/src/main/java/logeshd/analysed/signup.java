@@ -74,8 +74,9 @@ public class signup extends AppCompatActivity {
         tv_signup.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), tour.class));
+                startActivity(new Intent(getApplicationContext(), dashboard.class));
                 Bungee.inAndOut(signup.this);
+                //tour.class
             }
         });
 

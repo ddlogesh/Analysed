@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_30sdp"
         android:gravity="center"
-        android:text="A Virtual Recruitment Platform"
+        android:text="@string/virtual"
         android:textColor="#ffffffff"
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold" />

@@ -65,7 +65,7 @@ public class createTask extends AppCompatActivity {
         TextView tv_view = (TextView) findViewById(R.id.tv_view);
         tv_view.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                l1.setVisibility(View.GONE);
+                l1.setVisibility(View.VISIBLE);
             }
         });
 
