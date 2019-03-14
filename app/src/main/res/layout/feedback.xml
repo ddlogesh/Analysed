@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
+
+    <RelativeLayout
+        android:id="@+id/layout_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@id/iv_cancel"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_cancel_white" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_cancel"
+            android:text="Cancel"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/_12ssp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_feed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@id/layout00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:background="@drawable/button_white_solid"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/tv_header1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Feedback Please!"
+                android:textColor="#ff458ddf"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_header2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_header1"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="Share ur feedback and we will get back to you within next 24 hours" />
+
+            <RelativeLayout
+                android:id="@+id/layout_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_header2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_7sdp">
+
+                <ImageView
+                    android:id="@+id/iv_emoji1"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:src="@drawable/sample_image" />
+
+                <ImageView
+                    android:id="@+id/iv_emoji2"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_toRightOf="@+id/iv_emoji1"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:src="@drawable/sample_image" />
+
+                <ImageView
+                    android:id="@+id/iv_emoji3"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_toRightOf="@+id/iv_emoji2"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:src="@drawable/sample_image" />
+
+                <ImageView
+                    android:id="@+id/iv_emoji4"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_toRightOf="@+id/iv_emoji3"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:src="@drawable/sample_image" />
+
+                <ImageView
+                    android:id="@+id/iv_emoji5"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_toRightOf="@+id/iv_emoji4"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:src="@drawable/sample_image" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/ev_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_below="@id/layout_emoji"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey"
+                android:gravity="top"
+                android:hint="Share your feedback!"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_10ssp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout00"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/button_light_grey_solid"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="Write to us"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/_16sdp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_done"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:background="@drawable/button_white_solid"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/iv_tick"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/sample_image" />
+
+            <TextView
+                android:id="@+id/tv_header11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_tick"
+                android:layout_centerHorizontal="true"
+                android:text="Thanks, Logesh"
+                android:textColor="#ff458ddf"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_header22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_header11"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Thanks for supporting us and we will get back to you within next 24 hours" />
+
+            <TextView
+                android:id="@+id/tv_goto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_header22"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/button_blue_gradient"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="Go to Dashboard"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/_16sdp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

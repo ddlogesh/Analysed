@@ -1,65 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/search_card2">
+    android:background="@drawable/button_white_solid">
 
     <ImageView
-        android:id="@+id/iv_icon"
+        android:id="@id/iv_icon"
         android:layout_width="@dimen/_35sdp"
         android:layout_height="@dimen/_35sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
         android:padding="@dimen/_6sdp"
-        android:src="@drawable/apple_icon" />
+        android:src="@drawable/facino_icon" />
 
     <TextView
-        android:id="@+id/tv_job_title"
+        android:id="@id/tv_job_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_toRightOf="@id/iv_icon"
         android:text="UX Designer"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_toRightOf="@+id/iv_icon"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="@dimen/_15ssp"/>
+        android:textColor="#ff000000"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_job_ago"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1w"
-        android:layout_marginTop="@dimen/_15sdp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:textColor="#6B000000"
-        android:textSize="@dimen/_12ssp"/>
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:text="1w"
+        android:textColor="#6b000000"
+        android:textSize="@dimen/_12ssp" />
+
     <TextView
-        android:id="@+id/tv_job_company"
+        android:id="@id/tv_job_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_job_title"
+        android:layout_toRightOf="@id/iv_icon"
+        android:paddingTop="@dimen/_2sdp"
+        android:paddingBottom="@dimen/_2sdp"
         android:text="Apple"
-        android:layout_below="@+id/tv_job_title"
-        android:layout_toRightOf="@+id/iv_icon"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        android:textColor="#9C000000"
-        android:textSize="@dimen/_13ssp"/>
+        android:textColor="#9c000000"
+        android:textSize="@dimen/_13ssp" />
+
+    <ImageView
+        android:id="@+id/iv_location_icon"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:layout_below="@id/tv_job_company"
+        android:layout_toRightOf="@id/iv_icon"
+        android:src="@drawable/ic_location" />
 
     <TextView
         android:id="@+id/tv_job_place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_job_company"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_toRightOf="@id/iv_location_icon"
         android:text="Mumbai"
-        android:drawableLeft="@drawable/ic_location"
-        android:layout_below="@+id/tv_job_company"
-        android:layout_toRightOf="@+id/iv_icon"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:textColor="#6B000000"
-        android:textSize="@dimen/_11ssp"/>
-
+        android:textColor="#6b000000"
+        android:textSize="@dimen/_11ssp" />
 </RelativeLayout>

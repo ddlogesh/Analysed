@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/text_bg_pink_curve">
+
+        <TextView
+            android:id="@id/ev_ways"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center|left"
+            android:paddingLeft="@dimen/_11sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingRight="@dimen/_11sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="Technique name"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/_10ssp" />
+
+        <View
+            android:id="@id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/ev_ways"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="#4d000000" />
+
+        <TextView
+            android:id="@id/ev_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ev_ways"
+            android:layout_centerHorizontal="true"
+            android:gravity="center|left"
+            android:paddingLeft="@dimen/_11sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingRight="@dimen/_11sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="Hint for this technique"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/_10ssp" />
+    </RelativeLayout>
+</RelativeLayout>

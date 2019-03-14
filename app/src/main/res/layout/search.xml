@@ -1,143 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    tools:context=".search">
+    android:background="#ffeeeeee"
+    android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/iv_home"
-        android:padding="7dp"
+        android:id="@id/iv_home"
         android:layout_width="@dimen/_35sdp"
         android:layout_height="@dimen/_40sdp"
-        android:src="@drawable/ic_home"/>
+        android:padding="@dimen/_7sdp"
+        android:src="@drawable/ic_home" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome, dummy!"
         android:layout_marginTop="@dimen/_4sdp"
         android:padding="@dimen/_5sdp"
-        android:layout_toEndOf="@+id/iv_home"
+        android:layout_toRightOf="@+id/iv_home"
+        android:text="Search for Jobs"
+        android:textColor="#ff000000"
         android:textSize="@dimen/_16ssp"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
+        android:textStyle="bold" />
 
     <RelativeLayout
-        android:id="@+id/layout_search"
+        android:id="@id/layout_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_title"
+        android:layout_below="@id/tv_title"
         android:background="@drawable/search_edit_text_back">
 
         <EditText
             android:id="@+id/ev_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_7sdp"
             android:layout_marginLeft="@dimen/_42sdp"
             android:layout_marginRight="@dimen/_40sdp"
-            android:singleLine="true"
             android:background="#00000000"
             android:hint="Search job title"
-            android:textColor="#000000"
+            android:padding="@dimen/_7sdp"
+            android:singleLine="true"
+            android:textColor="#ff000000"
             android:textColorHint="#24000000" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/layout0"
+        android:id="@id/layout0"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_135sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginRight="@dimen/_5sdp"
-        android:background="@drawable/search_card"
-        android:layout_below="@+id/layout_search">
+        android:layout_height="@dimen/_120sdp"
+        android:layout_below="@id/layout_search"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="@drawable/button_white_solid">
 
         <TextView
             android:id="@+id/tv_recent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:shadowColor="#5c000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="15.0"
             android:text="Recent Searches"
-            android:textColor="#000000"
-            android:textSize="@dimen/_14ssp"
-            android:shadowColor="#5C000000"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="15"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_15sdp"/>
+            android:textColor="#ff000000"
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/tv_see_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:text="SEE ALL"
             android:textColor="#59000000"
             android:textSize="@dimen/_12ssp"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/_14sdp"
-            android:layout_marginRight="@dimen/_15sdp"/>
+            android:textStyle="bold" />
 
         <ListView
             android:id="@+id/search_list_recent"
-            android:layout_below="@+id/tv_recent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/tv_recent"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_3sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:scrollbars="none"
-            android:divider="@null"/>
-
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:divider="@null"
+            android:scrollbars="none" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/layout1"
-        android:layout_below="@+id/layout0"
+        android:id="@id/layout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_recommend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Recommended Jobs"
-            android:textColor="#000000"
-            android:textSize="@dimen/_14ssp"
-            android:shadowColor="#5C000000"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="15"
-            android:layout_marginLeft="@dimen/_18sdp"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout0"
+        android:layout_marginTop="@dimen/_5sdp">
 
-        <TextView
-            android:id="@+id/tv_see_all_recommend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="SEE ALL"
-            android:textColor="#59000000"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="bold"
-            android:layout_marginRight="@dimen/_20sdp"/>
+        <RelativeLayout
+            android:id="@+id/layout_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_18sdp"
+                android:shadowColor="#5c000000"
+                android:shadowDx="0.0"
+                android:shadowDy="0.0"
+                android:shadowRadius="15.0"
+                android:text="Recommended Jobs"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tv_see_all_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:text="SEE ALL"
+                android:textColor="#59000000"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <ListView
             android:id="@+id/search_list_recommend"
-            android:layout_below="@+id/tv_recommend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_below="@id/layout_recommend"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_3sdp"
-            android:scrollbars="none"
-            android:divider="@null"/>
+            android:divider="@null"
+            android:dividerHeight="@dimen/_5sdp"
+            android:scrollbars="none" />
     </RelativeLayout>
-
 </RelativeLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/tour_1" />
+
+    <TextView
+        android:id="@+id/tv_contact"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_95sdp"
+        android:background="@drawable/button_blue_solid"
+        android:gravity="center"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:text="Contact Us"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_finish"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_45sdp"
+        android:background="@drawable/button_blue_solid"
+        android:gravity="center"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:text="Finish"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@id/layout0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_20sdp">
+
+        <ImageView
+            android:id="@id/iv_tab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/active_black_circle" />
+
+        <ImageView
+            android:id="@id/iv_tab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_tab1"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:background="@drawable/inactive_light_grey_circle" />
+
+        <ImageView
+            android:id="@id/iv_tab3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_tab2"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:background="@drawable/inactive_light_grey_circle" />
+
+        <ImageView
+            android:id="@+id/iv_tab4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_tab3"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:background="@drawable/inactive_light_grey_circle" />
+
+        <ImageView
+            android:id="@+id/iv_tab5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_tab4"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:background="@drawable/inactive_light_grey_circle" />
+
+        <ImageView
+            android:id="@+id/iv_tab6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_tab5"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:background="@drawable/inactive_light_grey_circle" />
+    </RelativeLayout>
+</RelativeLayout>

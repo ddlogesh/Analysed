@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="logeshd.ui">
+    package="logeshd.analysed">
 
     <application
         android:allowBackup="true"
@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".virtualRecruitment"
+            android:name="logeshd.analysed.virtualRecruitment"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".resumeSortingTool"
+            android:name="logeshd.analysed.resumeSortingTool"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".splashScreen"
+            android:name="logeshd.analysed.splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,45 +25,66 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".signup"
+            android:name="logeshd.analysed.signup"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".login"
+            android:name="logeshd.analysed.login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".privacy"
+            android:name="logeshd.analysed.takeTour"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".career"
+            android:name="logeshd.analysed.profileComplete"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".terms"
+            android:name="logeshd.analysed.jobListings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".aboutUs"
+            android:name="logeshd.analysed.profileView"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".tour"
+            android:name="logeshd.analysed.referral"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".dashboard"
+            android:name="logeshd.analysed.myDatabase"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".search"
+            android:name="logeshd.analysed.createTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".completeProfile"
+            android:name="logeshd.analysed.createChallenge"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".myJobs"
+            android:name="logeshd.analysed.shareProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".viewProfile"
+            android:name="logeshd.analysed.feedback"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name="logeshd.analysed.terms"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".aboutOrganization"
+            android:name="logeshd.analysed.tour"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="logeshd.analysed.dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="logeshd.analysed.search"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="logeshd.analysed.completeProfile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="logeshd.analysed.myJobs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="logeshd.analysed.viewProfile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="logeshd.analysed.aboutOrganization"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>

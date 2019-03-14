@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_65sdp">
+
+    <ImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:src="@drawable/sample_image" />
+
+    <View
+        android:id="@id/v_line"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_toEndOf="@+id/iv_profile"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="#2c000000" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_toEndOf="@+id/iv_profile"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/layout2"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_3sdp">
+
+            <TextView
+                android:id="@id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Logesh Dinakaran"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tv_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:paddingTop="@dimen/_2sdp"
+                android:text="App Developer"
+                android:textColor="#ffaca9a9"
+                android:textSize="@dimen/_10ssp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@id/layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_resume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/text_bg_pink_curve_less_corner"
+                android:drawableLeft="@drawable/ic_resume"
+                android:paddingLeft="@dimen/_6sdp"
+                android:paddingTop="@dimen/_1sdp"
+                android:paddingRight="@dimen/_6sdp"
+                android:paddingBottom="@dimen/_1sdp"
+                android:text="Resume"
+                android:textSize="@dimen/_8ssp" />
+
+            <ImageView
+                android:id="@id/iv_next"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_toEndOf="@+id/tv_resume"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:src="@drawable/ic_right_arrow" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
