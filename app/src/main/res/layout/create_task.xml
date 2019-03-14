@@ -42,7 +42,7 @@
         android:background="@drawable/card_light_white_solid">
 
         <RelativeLayout
-            android:id="@id/layout03"
+            android:id="@+id/layout03"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"

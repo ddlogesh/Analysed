@@ -170,13 +170,13 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@id/layout3"
+        android:id="@+id/layout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/layout2">
 
         <ListView
-            android:id="@id/job_list_timeline"
+            android:id="@+id/job_list_timeline"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"
