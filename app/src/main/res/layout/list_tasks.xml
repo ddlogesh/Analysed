@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_45sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="@drawable/button_white_solid">
+
+        <RadioButton
+            android:id="@+id/rb_task"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/tv_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_40sdp"
+            android:text="Meeting with Kiran"
+            android:singleLine="true"
+            android:textSize="@dimen/_14ssp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/rb_task"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Reminder"
+            android:textSize="@dimen/_8ssp"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:background="@drawable/to_do_button_blue"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

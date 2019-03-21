@@ -42,9 +42,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/referral_code_bg"
             android:layout_marginTop="@dimen/_70sdp"
-            android:background="#ffffffff"
-            android:padding="@dimen/_15sdp">
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingRight="@dimen/_25sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp">
 
             <TextView
                 android:id="@+id/tv_refer_code"
@@ -69,9 +72,25 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_code0"
+            android:layout_above="@+id/layout_bottom">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_30sdp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/referral_doll"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_bottom"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_200sdp"
-            android:layout_alignParentBottom="true"
-            android:background="#ffffffff">
+            android:background="#ffffff"
+            android:layout_alignParentBottom="true">
 
             <TextView
                 android:id="@id/tv_share_title"
@@ -96,7 +115,8 @@
                     android:id="@+id/iv_app1"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
-                    android:src="@drawable/sample_image" />
+                    android:background="@drawable/referral_gradient_solid"
+                    android:src="@drawable/facebook"/>
 
                 <TextView
                     android:id="@+id/tv_app1"
@@ -111,9 +131,10 @@
                     android:id="@+id/iv_app2"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
+                    android:src="@drawable/whatsapp"
                     android:layout_toRightOf="@+id/iv_app1"
                     android:layout_marginLeft="@dimen/_6sdp"
-                    android:src="@drawable/sample_image" />
+                    android:background="@drawable/referral_gradient_solid"/>
 
                 <TextView
                     android:id="@+id/tv_app2"
@@ -129,9 +150,10 @@
                     android:id="@+id/iv_app3"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
+                    android:src="@drawable/twitter"
                     android:layout_toRightOf="@+id/iv_app2"
                     android:layout_marginLeft="@dimen/_6sdp"
-                    android:src="@drawable/sample_image" />
+                    android:background="@drawable/referral_gradient_solid"/>
 
                 <TextView
                     android:id="@+id/tv_app3"
@@ -147,9 +169,10 @@
                     android:id="@+id/iv_app4"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
+                    android:src="@drawable/gmail"
                     android:layout_toRightOf="@+id/iv_app3"
                     android:layout_marginLeft="@dimen/_6sdp"
-                    android:src="@drawable/sample_image" />
+                    android:background="@drawable/referral_gradient_solid"/>
 
                 <TextView
                     android:id="@+id/tv_app4"
@@ -165,9 +188,10 @@
                     android:id="@+id/iv_app5"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
+                    android:src="@drawable/more"
                     android:layout_toRightOf="@+id/iv_app4"
                     android:layout_marginLeft="@dimen/_6sdp"
-                    android:src="@drawable/sample_image" />
+                    android:background="@drawable/referral_gradient_solid"/>
 
                 <TextView
                     android:id="@+id/tv_app5"
