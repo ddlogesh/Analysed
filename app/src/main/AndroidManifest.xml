@@ -9,9 +9,7 @@
         android:roundIcon="@drawable/sample_image"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".startHiring1"
-            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -21,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".signup"
             android:theme="@style/AppTheme.NoActionBar"
@@ -80,6 +79,9 @@
         <activity
             android:name=".resumeSortingTool"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".startHiring1"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
