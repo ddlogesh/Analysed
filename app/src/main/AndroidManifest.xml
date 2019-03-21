@@ -9,12 +9,7 @@
         android:roundIcon="@drawable/sample_image"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewStats"></activity>
-        <activity android:name=".viewSkills" />
-        <activity android:name=".myTasks" />
-        <activity android:name=".tasksList" />
-        <activity android:name=".view_jobs" />
-        <activity android:name=".toDoList" />
+
         <activity
             android:name=".splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -24,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".signup"
             android:theme="@style/AppTheme.NoActionBar"
@@ -86,6 +82,24 @@
         <activity
             android:name=".startHiring"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewStats"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".viewSkills"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".myTasks"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".tasksList"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".view_jobs"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".toDoList"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
