@@ -22,11 +22,10 @@ public class toDoList extends AppCompatActivity {
         TextView tv_date = (TextView) findViewById(R.id.tv_date);
         TextView tv_count = (TextView) findViewById(R.id.tv_count);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
 
-        tv_date.setTypeface(custom_font2);
-        tv_count.setTypeface(custom_font1);
+        tv_date.setTypeface(custom_font);
+        tv_count.setTypeface(custom_font);
 
         ListView l1 = (ListView) findViewById(R.id.list_task);
         final ArrayList<contactDetails> arr = new ArrayList();

@@ -150,6 +150,7 @@
         android:layout_below="@+id/layout1"
         android:textSize="@dimen/_13ssp"
         android:paddingBottom="@dimen/_3sdp"
+        android:textColor="#B4AFAF"
         android:text="5 Events"/>
 
     <ListView
