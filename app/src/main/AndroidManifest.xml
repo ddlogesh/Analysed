@@ -92,13 +92,13 @@
             android:name=".myTasks"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".tasksList"
+            android:name=".multiSelect"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".view_jobs"
+            android:name=".viewJobsPosted"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".toDoList"
+            android:name=".recruitmentStatus"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

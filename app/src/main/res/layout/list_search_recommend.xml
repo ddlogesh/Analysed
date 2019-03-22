@@ -66,4 +66,16 @@
         android:text="Mumbai"
         android:textColor="#6b000000"
         android:textSize="@dimen/_11ssp" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_below="@+id/tv_job_company"
+        android:text="PENDING"
+        android:textStyle="bold"
+        android:textColor="#07CC07"
+        android:textSize="@dimen/_12ssp" />
 </RelativeLayout>

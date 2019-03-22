@@ -13,7 +13,7 @@ public class profileView extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.profile_view);
+        setContentView((int) R.layout.view_profile);
 
         TextView tv_name = (TextView) findViewById(R.id.tv_name);
         TextView tv_profession = (TextView) findViewById(R.id.tv_profession);

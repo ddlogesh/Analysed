@@ -19,7 +19,7 @@ public class listSearchRecent extends ArrayAdapter<itemDrawer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         itemDrawer p = (itemDrawer) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.search_list_recent, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_search_recent, parent, false);
         }
 
         View v_line = convertView.findViewById(R.id.v_line);

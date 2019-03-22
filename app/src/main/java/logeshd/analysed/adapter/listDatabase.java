@@ -20,7 +20,7 @@ public class listDatabase extends ArrayAdapter<databaseDetails> {
     public View getView(int position, View convertView, ViewGroup parent) {
         databaseDetails p = (databaseDetails) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.my_database_list, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_applicant, parent, false);
         }
         View v_line = convertView.findViewById(R.id.v_line);
         TextView tv_name = (TextView) convertView.findViewById(R.id.tv_name);

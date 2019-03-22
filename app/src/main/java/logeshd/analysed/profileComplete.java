@@ -14,7 +14,7 @@ public class profileComplete extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.profile_complete);
+        setContentView((int) R.layout.complete_profile);
 
         TextView tv_text1 = (TextView) findViewById(R.id.tv_text1);
         TextView tv_progress1 = (TextView) findViewById(R.id.tv_progress1);

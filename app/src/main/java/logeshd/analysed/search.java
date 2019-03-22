@@ -21,17 +21,17 @@ public class search extends AppCompatActivity {
         ListView l1 = (ListView) findViewById(R.id.search_list_recent);
         listSearchRecent adapter = new listSearchRecent(this, new ArrayList());
         adapter.clear();
-        adapter.add(new itemDrawer("UX Designer"));
-        adapter.add(new itemDrawer("iOS App Developer"));
+        adapter.add(new itemDrawer("UX Designer","favicon",""));
+        adapter.add(new itemDrawer("iOS App Developer","favicon",""));
         l1.setAdapter(adapter);
 
         ListView l2 = (ListView) findViewById(R.id.search_list_recommend);
         listSearchRecommend adapter1 = new listSearchRecommend(this, new ArrayList());
         adapter1.clear();
-        adapter1.add(new itemDrawer("UX Designer"));
-        adapter1.add(new itemDrawer("Senior Designer"));
-        adapter1.add(new itemDrawer("Android App Developer"));
-        adapter1.add(new itemDrawer("Project Manager"));
+        adapter1.add(new itemDrawer("UX Designer","favicon",""));
+        adapter1.add(new itemDrawer("Senior Designer","favicon",""));
+        adapter1.add(new itemDrawer("Android App Developer","favicon",""));
+        adapter1.add(new itemDrawer("Project Manager","favicon",""));
         l2.setAdapter(adapter1);
 
         ((ImageView) findViewById(R.id.iv_home)).setOnClickListener(new OnClickListener() {

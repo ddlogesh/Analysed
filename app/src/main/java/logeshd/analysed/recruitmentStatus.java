@@ -8,16 +8,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import logeshd.analysed.adapter.listContacts;
 import logeshd.analysed.adapter.listTasks;
 import logeshd.analysed.classes.contactDetails;
 
-public class toDoList extends AppCompatActivity {
+public class recruitmentStatus extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.to_do_list);
+        setContentView(R.layout.multi_select);
 
         TextView tv_date = (TextView) findViewById(R.id.tv_date);
         TextView tv_count = (TextView) findViewById(R.id.tv_count);

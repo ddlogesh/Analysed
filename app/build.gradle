@@ -39,4 +39,6 @@ dependencies {
 
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
     implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
+    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 }
