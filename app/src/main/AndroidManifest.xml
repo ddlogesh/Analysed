@@ -105,6 +105,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".jobSeeker.viewTasks"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".events"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

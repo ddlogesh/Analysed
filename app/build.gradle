@@ -29,8 +29,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.github.pwittchen:swipe-rx2:0.3.0'
-    implementation 'com.mikhaellopez:circularprogressbar:2.0.0'
-
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
     implementation 'com.github.Binary-Finery:Bungee:master-SNAPSHOT'
 
@@ -38,7 +36,10 @@ dependencies {
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
-    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 
+    implementation 'com.mikhaellopez:circularprogressbar:2.0.0'
     implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+    implementation 'devlight.io:arcprogressstackview:1.0.4'
+
+    implementation 'com.savvi.datepicker:rangepicker:1.2.0'
 }
