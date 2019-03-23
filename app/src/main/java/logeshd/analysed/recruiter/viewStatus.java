@@ -14,12 +14,12 @@ import logeshd.analysed.recruiter.adapter.listStatus;
 import logeshd.analysed.classes.recStatus;
 import logeshd.analysed.jobSeeker.dashboard;
 
-public class status extends AppCompatActivity {
+public class viewStatus extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.r_status);
+        setContentView(R.layout.r_view_status);
 
         ListView l1 = (ListView) findViewById(R.id.list_task);
         final ArrayList<recStatus> arr = new ArrayList();

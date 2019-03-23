@@ -16,11 +16,11 @@ import logeshd.analysed.R;
 import logeshd.analysed.recruiter.adapter.listDatabase;
 import logeshd.analysed.jobSeeker.dashboard;
 
-public class database extends AppCompatActivity {
+public class viewDatabase extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.r_database);
+        setContentView(R.layout.r_view_database);
 
         ListView l1 = (ListView) findViewById(R.id.lv_database);
         listDatabase adapter = new listDatabase(this, new ArrayList());

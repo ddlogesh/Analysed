@@ -23,7 +23,7 @@ import logeshd.analysed.aboutOrganization;
 import logeshd.analysed.jobSeeker.adapter.listNavDrawer;
 import logeshd.analysed.classes.drawer;
 import logeshd.analysed.common.login;
-import logeshd.analysed.recruiter.database;
+import logeshd.analysed.recruiter.viewDatabase;
 import logeshd.analysed.recruiter.createChallenge;
 import logeshd.analysed.recruiter.createTask;
 import logeshd.analysed.common.referral;
@@ -64,7 +64,7 @@ public class dashboard extends AppCompatActivity {
                 } else if (data.equals("Start Hiring!")) {
                     i1 = new Intent(dashboard.this.getApplicationContext(), startHiring0.class);
                 } else if (data.equals("My Database")) {
-                    i1 = new Intent(dashboard.this.getApplicationContext(), database.class);
+                    i1 = new Intent(dashboard.this.getApplicationContext(), viewDatabase.class);
                 } else if (data.equals("Job Listings")) {
                     i1 = new Intent(dashboard.this.getApplicationContext(), viewJobs.class);
                 } else if (data.equals("Resume Sorting Tool")) {

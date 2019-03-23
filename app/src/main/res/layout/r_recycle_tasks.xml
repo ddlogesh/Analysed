@@ -4,16 +4,24 @@
     android:id="@+id/layout_bg"
     android:layout_width="@dimen/_150sdp"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/_15sdp"
-    android:paddingBottom="@dimen/_10sdp"
-    android:paddingLeft="@dimen/_10sdp"
-    android:paddingRight="@dimen/_10sdp"
     android:layout_margin="@dimen/_3sdp"
     android:background="@drawable/text_bg_dark_violet_curve_less_corner_fill">
 
+    <ImageView
+        android:id="@+id/iv_pic"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_margin="@dimen/_1sdp"
+        android:background="@drawable/button_white_solid_less_corner"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_pic"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp">
 
         <TextView
             android:id="@+id/tv_title"

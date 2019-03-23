@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import logeshd.analysed.R;
-import logeshd.analysed.jobSeeker.viewJobsApplied;
+import logeshd.analysed.recruiter.viewTasks;
 
 public class splashScreen extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class splashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i1=new Intent(getApplicationContext(), viewJobsApplied.class);
+                Intent i1=new Intent(getApplicationContext(), viewTasks.class);
                 startActivity(i1);
             }
         },100);

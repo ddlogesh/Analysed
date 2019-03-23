@@ -18,12 +18,12 @@ import logeshd.analysed.recruiter.adapter.recycleTasks;
 import logeshd.analysed.classes.recStatus;
 import logeshd.analysed.jobSeeker.dashboard;
 
-public class tasks extends AppCompatActivity {
+public class viewTasks extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.r_tasks);
+        setContentView(R.layout.r_view_tasks);
 
         final ArrayList<recStatus> item1 = new ArrayList<>();
         final RecyclerView rv_task = (RecyclerView) findViewById(R.id.rv_task);
