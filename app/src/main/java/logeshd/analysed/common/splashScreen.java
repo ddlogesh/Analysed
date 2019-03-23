@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import logeshd.analysed.R;
-import logeshd.analysed.recruiter.viewTasks;
+import logeshd.analysed.jobSeeker.viewTasks;
 
 public class splashScreen extends AppCompatActivity {
 

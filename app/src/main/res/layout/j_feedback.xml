@@ -136,7 +136,7 @@
             android:layout_below="@id/layout00"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/button_light_grey_solid"
+            android:background="@drawable/button_very_light_white_solid"
             android:paddingLeft="@dimen/_20sdp"
             android:paddingTop="@dimen/_3sdp"
             android:paddingRight="@dimen/_20sdp"

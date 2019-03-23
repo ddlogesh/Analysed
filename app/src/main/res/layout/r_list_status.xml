@@ -111,8 +111,8 @@
             android:layout_marginTop="@dimen/_5sdp"
             app:rcProgress="50"
             app:rcMax="100"
-            app:rcRadius="15dp"
-            app:rcBackgroundPadding="3dp"
+            app:rcRadius="@dimen/_15sdp"
+            app:rcBackgroundPadding="@dimen/_3sdp"
             app:rcReverse="false"
             app:rcProgressColor="#03F307"
             app:rcBackgroundColor="#ffffff" />

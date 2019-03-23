@@ -44,7 +44,7 @@ public class feedback extends AppCompatActivity {
                 if (ev_text.getEditableText().length() > 0) {
                     tv_write.setBackgroundResource(R.drawable.button_blue_gradient);
                 } else {
-                    tv_write.setBackgroundResource(R.drawable.button_light_grey_solid);
+                    tv_write.setBackgroundResource(R.drawable.button_very_light_white_solid);
                 }
             }
         });

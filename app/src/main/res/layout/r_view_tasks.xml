@@ -101,7 +101,6 @@
         android:layout_below="@+id/layout0"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
         android:orientation="horizontal" />
 
 </RelativeLayout>

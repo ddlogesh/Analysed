@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/sample_image"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".jobSeeker.viewTasks"></activity>
+
         <activity
             android:name=".common.splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".common.signup"
             android:theme="@style/AppTheme.NoActionBar"
@@ -102,6 +103,9 @@
         <activity
             android:name=".common.privacy"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".jobSeeker.viewTasks"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

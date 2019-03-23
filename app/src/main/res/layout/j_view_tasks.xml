@@ -4,8 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeeee"
     tools:context=".jobSeeker.viewTasks">
 
+    <RelativeLayout
+        android:id="@+id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:background="@drawable/background_gradient_corner">
 
+        <ImageView
+            android:id="@id/iv_home"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back_white" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_home"
+            android:text="Today Tasks"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textSize="@dimen/_20ssp"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:id="@+id/tv_task_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:background="@drawable/button_very_light_white_solid_less_corner"
+            android:textSize="@dimen/_12ssp"
+            android:layout_below="@+id/iv_home"
+            android:layout_alignParentRight="true"
+            android:textColor="#ffffff"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_task_count"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="This is the task you must done by today from 9AM to 6PM."
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="#CCFFFFFF"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout0"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:orientation="horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp"
+        android:layout_below="@+id/rv_task">
+
+        <TextView
+            android:id="@+id/tv_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed Task"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="#000000"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_comp_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:background="@drawable/button_grey_solid_less_corner"
+            android:textSize="@dimen/_12ssp"
+            android:layout_alignParentRight="true"
+            android:textColor="#A09898"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:id="@+id/list_task_comp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title1"
+            android:layout_margin="@dimen/_5sdp"
+            android:divider="@null"
+            android:scrollbars="none" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
