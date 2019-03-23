@@ -20,7 +20,7 @@ public class listJobTimeline extends ArrayAdapter<jobDetails> {
     public View getView(int position, View convertView, ViewGroup parent) {
         jobDetails p = (jobDetails) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.jobs_list_timeline, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_view_jobs, parent, false);
         }
         TextView tv_month = (TextView) convertView.findViewById(R.id.tv_month);
         TextView tv_day = (TextView) convertView.findViewById(R.id.tv_day);

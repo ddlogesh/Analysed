@@ -17,7 +17,7 @@ public class jobListings extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.job_listings);
+        setContentView((int) R.layout.j_view_jobs);
 
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
         TextView tv_invite = (TextView) findViewById(R.id.tv_invite);

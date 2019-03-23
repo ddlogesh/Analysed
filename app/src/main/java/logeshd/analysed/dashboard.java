@@ -24,7 +24,7 @@ public class dashboard extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.dashboard);
+        setContentView((int) R.layout.j_dashboard);
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 

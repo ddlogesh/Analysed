@@ -15,7 +15,7 @@ public class feedback extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.feedback);
+        setContentView((int) R.layout.j_feedback);
 
         final EditText ev_text = (EditText) findViewById(R.id.ev_text);
         final TextView tv_write = (TextView) findViewById(R.id.tv_write);

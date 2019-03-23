@@ -21,7 +21,7 @@ public class listDashboardDrawer extends ArrayAdapter<itemDrawer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         itemDrawer p = (itemDrawer) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_drawer, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_nav_drawer, parent, false);
         }
         Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
         TextView tv_menu_title = (TextView) convertView.findViewById(R.id.tv_menu_title);

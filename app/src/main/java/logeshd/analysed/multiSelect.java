@@ -1,50 +1,39 @@
 package logeshd.analysed;
 
-import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import logeshd.analysed.adapter.listRecStatus;
-import logeshd.analysed.classes.recStatusDetails;
+import logeshd.analysed.adapter.listTasks;
+import logeshd.analysed.classes.contactDetails;
 
 public class multiSelect extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recruitment_status);
+        setContentView(R.layout.multi_select);
+
+        TextView tv_date = (TextView) findViewById(R.id.tv_date);
+        TextView tv_count = (TextView) findViewById(R.id.tv_count);
+
+        Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+
+        tv_date.setTypeface(custom_font);
+        tv_count.setTypeface(custom_font);
 
         ListView l1 = (ListView) findViewById(R.id.list_task);
-        final ArrayList<recStatusDetails> arr = new ArrayList();
-        final listRecStatus adapter = new listRecStatus(this, arr);
+        final ArrayList<contactDetails> arr = new ArrayList();
+        final listTasks adapter = new listTasks(this, arr);
         adapter.clear();
-        adapter.add(new recStatusDetails(true,"Task1", "Desc1",1));
-        adapter.add(new recStatusDetails(true,"Task2", "Desc2",0));
-        adapter.add(new recStatusDetails(false,70));
-        adapter.add(new recStatusDetails(true,"Task3", "Desc3",-1));
+        adapter.add(new contactDetails("Meeting with Kiran", "Reminder", true));
+        adapter.add(new contactDetails("Wake Up", "Alarm", true));
+        adapter.add(new contactDetails("Meeting with Kiran", "Reminder", false));
+        adapter.add(new contactDetails("Wake Up", "Alarm", false));
         l1.setAdapter(adapter);
-
-        ImageView iv_home= findViewById(R.id.iv_home);
-        iv_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(),dashboard.class);
-                startActivity(i1);
-            }
-        });
-
-        ImageView iv_create= findViewById(R.id.iv_create);
-        iv_create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(),createTask.class);
-                startActivity(i1);
-            }
-        });
     }
 }

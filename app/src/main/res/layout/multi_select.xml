@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#ffffffff"
-    tools:context=".recruitmentStatus">
+    tools:context=".multiSelect">
 
     <RelativeLayout
         android:id="@id/layout0"

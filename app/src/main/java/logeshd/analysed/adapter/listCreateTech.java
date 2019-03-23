@@ -19,7 +19,7 @@ public class listCreateTech extends ArrayAdapter<itemDrawer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         itemDrawer p = (itemDrawer) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.create_tech_list, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_create_task, parent, false);
         }
         Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
         TextView ev_ways = (TextView) convertView.findViewById(R.id.ev_ways);

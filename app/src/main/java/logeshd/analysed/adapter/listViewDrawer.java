@@ -22,7 +22,7 @@ public class listViewDrawer extends ArrayAdapter<itemDrawer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         itemDrawer p= getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_drawer, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_nav_drawer, parent, false);
         }
 
         TextView tv_menu_title = (TextView) convertView.findViewById(R.id.tv_menu_title);

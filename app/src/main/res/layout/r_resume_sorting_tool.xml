@@ -92,6 +92,7 @@
                                 android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginRight="@dimen/_5sdp"
                                 android:orientation="horizontal" />
+
                         </RelativeLayout>
 
                         <android.support.v7.widget.RecyclerView

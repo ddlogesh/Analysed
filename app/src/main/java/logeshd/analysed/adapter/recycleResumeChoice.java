@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import logeshd.analysed.R;
 import logeshd.analysed.classes.itemDrawer;
 
@@ -29,7 +29,7 @@ public class recycleResumeChoice extends Adapter<recycleResumeChoice.MyViewHolde
     }
 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.resume_recycle_choice, parent, false));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_r_resume_choice, parent, false));
     }
 
     public void onBindViewHolder(MyViewHolder holder, int position) {

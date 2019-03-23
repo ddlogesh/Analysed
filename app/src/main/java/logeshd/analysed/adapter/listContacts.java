@@ -21,7 +21,7 @@ public class listContacts extends ArrayAdapter<contactDetails> {
     public View getView(int position, View convertView, ViewGroup parent) {
         contactDetails p = (contactDetails) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_contacts, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_invite, parent, false);
         }
 
         TextView tv_full_name= convertView.findViewById(R.id.tv_full_name);

@@ -12,6 +12,13 @@ public class recStatusDetails {
         this.status = status;
     }
 
+    public recStatusDetails(String title, String subTitle, int status, int progress) {
+        this.title = title;
+        this.subTitle = subTitle;
+        this.status = status;
+        this.progress = progress;
+    }
+
     public recStatusDetails(Boolean layoutStatus, int progress) {
         this.layoutStatus = layoutStatus;
         this.progress = progress;

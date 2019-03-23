@@ -1,11 +1,9 @@
 package logeshd.analysed;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
@@ -24,7 +22,7 @@ public class resumeSortingTool extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.resume_sorting_tool);
+        setContentView(R.layout.r_resume_sorting_tool);
 
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
         TextView tv_text1 = (TextView) findViewById(R.id.tv_text1);

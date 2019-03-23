@@ -19,7 +19,7 @@ public class createChallenge extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.create_challenge);
+        setContentView((int) R.layout.r_create_challenge);
 
         final ListView l1 = (ListView) findViewById(R.id.create_challenge_tech_list);
         ArrayList<itemDrawer> arr = new ArrayList<>();
