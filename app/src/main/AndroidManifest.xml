@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".splashScreen"
+            android:name=".common.splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,84 +21,87 @@
         </activity>
 
         <activity
-            android:name=".signup"
+            android:name=".common.signup"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".login"
+            android:name=".common.login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".takeTour"
+            android:name=".common.takeTour"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".profileComplete"
+            android:name=".jobSeeker.completeProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".jobListings"
+            android:name=".jobSeeker.viewJobs"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".profileView"
+            android:name=".jobSeeker.viewProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".referral"
+            android:name=".common.referral"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".myDatabase"
+            android:name=".recruiter.database"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".createTask"
+            android:name=".recruiter.createTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".createChallenge"
+            android:name=".recruiter.createChallenge"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".shareProfile"
+            android:name=".recruiter.shareProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".feedback"
+            android:name=".jobSeeker.feedback"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".terms"
+            android:name=".common.terms"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".tour"
+            android:name=".common.tour"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".dashboard"
+            android:name=".jobSeeker.dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".search"
+            android:name=".jobSeeker.search"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".aboutOrganization"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".virtualRecruitment"
+            android:name=".recruiter.startHiring0"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".resumeSortingTool"
+            android:name=".recruiter.resumeSortingTool"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".startHiring"
+            android:name=".recruiter.startHiring"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".viewStats"
+            android:name=".recruiter.viewStats"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".viewSkills"
+            android:name=".recruiter.viewSkills"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".myTasks"
+            android:name=".recruiter.tasks"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".recruitmentStatus"
+            android:name=".recruiter.status"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".viewJobsPosted"
+            android:name=".jobSeeker.viewJobsApplied"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".multiSelect"
+            android:name=".common.multiSelect"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".common.privacy"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    tools:context=".createTask">
+    tools:context=".recruiter.createTask">
 
     <RelativeLayout
         android:id="@+id/layout00"

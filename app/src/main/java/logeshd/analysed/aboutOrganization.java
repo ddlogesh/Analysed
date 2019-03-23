@@ -9,6 +9,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import logeshd.analysed.jobSeeker.dashboard;
+
 public class aboutOrganization extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class aboutOrganization extends AppCompatActivity {
         iv_home.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(),dashboard.class);
+                Intent i1=new Intent(getApplicationContext(), dashboard.class);
                 startActivity(i1);
             }
         });

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp">
+
+            <TextView
+                android:id="@id/tv_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="@string/privacy1"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@id/tv_msg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/ans_privacy1"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@id/tv_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_msg1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:gravity="center"
+                android:text="@string/privacy2"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@id/tv_msg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/ans_privacy2"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@id/tv_title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_msg2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:gravity="center"
+                android:text="@string/privacy3"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@id/tv_msg3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/ans_privacy3"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@id/tv_title4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_msg3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:gravity="center"
+                android:text="@string/privacy4"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_msg4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/ans_privacy4"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tv_title5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_msg4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:gravity="center"
+                android:text="@string/privacy5"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_msg5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/ans_privacy5"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tv_title6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_msg5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:gravity="center"
+                android:text="@string/privacy6"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_msg6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/ans_privacy6"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_12ssp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
