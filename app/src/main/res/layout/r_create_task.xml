@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    tools:context=".recruiter.createTask">
+
+    <RelativeLayout
+        android:id="@+id/layout00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@id/iv_home"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_home"
+            android:padding="@dimen/_5sdp"
+            android:text="Create a Task"
+            android:textColor="#000000"
+            android:textSize="@dimen/_16ssp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_create"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_30sdp"
+        android:background="@drawable/button_white_solid">
+
+        <RelativeLayout
+            android:id="@+id/layout03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <RelativeLayout
+                android:id="@+id/sp_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/text_bg_grey_curve">
+
+                <Spinner
+                    android:id="@+id/sp_speaker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/_13ssp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/ev_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@id/sp_layout1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey_curve"
+                android:hint="Task name"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_11sdp"
+                android:textColorHint="#4a000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <EditText
+                android:id="@+id/ev_description"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@id/ev_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey_curve"
+                android:hint="Description"
+                android:inputType="date"
+                android:paddingLeft="@dimen/_11sdp"
+                android:textColorHint="#4a000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <EditText
+                android:id="@+id/ev_accuracy"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@id/ev_description"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey_curve"
+                android:hint="Accuracy (in percentage)"
+                android:inputType="date"
+                android:paddingLeft="@dimen/_11sdp"
+                android:textColorHint="#4a000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <EditText
+                android:id="@+id/ev_deadline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@id/ev_accuracy"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey_curve"
+                android:drawableRight="@drawable/ic_date"
+                android:hint="Deadline"
+                android:inputType="date"
+                android:paddingLeft="@dimen/_11sdp"
+                android:paddingRight="@dimen/_6sdp"
+                android:textColorHint="#4a000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <EditText
+                android:id="@+id/ev_duration"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@id/ev_deadline"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey_curve"
+                android:hint="Duration (in days)"
+                android:inputType="date"
+                android:paddingLeft="@dimen/_11sdp"
+                android:textColorHint="#4a000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/tv_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ev_duration"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:text="Add Techniques"
+                android:visibility="gone"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <RelativeLayout
+                android:id="@+id/layout13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_add"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_7sdp">
+
+                <EditText
+                    android:id="@+id/ev_ways"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/text_bg_grey_curve"
+                    android:hint="Technique name"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/_11sdp"
+                    android:textColorHint="#4a000000"
+                    android:textSize="@dimen/_13ssp" />
+
+                <EditText
+                    android:id="@+id/ev_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_below="@id/ev_ways"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/text_bg_grey_curve"
+                    android:hint="Hint for this technique"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/_11sdp"
+                    android:textColorHint="#4a000000"
+                    android:textSize="@dimen/_13ssp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout13"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_7sdp">
+
+                <TextView
+                    android:id="@+id/tv_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_blue_gradient"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_1sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:text="View"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/tv_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/tv_view"
+                    android:background="@drawable/button_blue_gradient"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_1sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:text="Add"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/_12ssp" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/create_task_tech_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout11"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:divider="@null"
+                android:scrollbars="none"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout00"
+        android:layout_marginLeft="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/button_blue_solid"
+        android:gravity="center"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingTop="@dimen/_2sdp"
+        android:paddingRight="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_2sdp"
+        android:text="Tasks"
+        android:visibility="invisible"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/_14ssp" />
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/layout00"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/add_button"
+        android:gravity="center" />
+</RelativeLayout>

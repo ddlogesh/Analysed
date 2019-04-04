@@ -6,11 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
-
-import devlight.io.library.ArcProgressStackView;
 import logeshd.analysed.R;
-import logeshd.analysed.jobSeeker.dashboard;
 
 public class viewSkills extends AppCompatActivity {
 

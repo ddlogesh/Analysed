@@ -20,7 +20,7 @@ public class listViewJobs extends ArrayAdapter<job> {
     public View getView(int position, View convertView, ViewGroup parent) {
         job p = (job) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.j_list_view_jobs, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.r_list_job_listings, parent, false);
         }
         TextView tv_month = (TextView) convertView.findViewById(R.id.tv_month);
         TextView tv_day = (TextView) convertView.findViewById(R.id.tv_day);

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient">
+    android:background="#eeeeee">
 
     <RelativeLayout
         android:id="@id/layout00"
@@ -14,8 +14,8 @@
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_centerVertical="true"
-            android:padding="@dimen/_7sdp"
-            android:src="@drawable/ic_home_white" />
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@id/tv_title"
@@ -25,7 +25,7 @@
             android:layout_toRightOf="@+id/iv_home"
             android:padding="@dimen/_5sdp"
             android:text="Create a Challenge"
-            android:textColor="#ffffffff"
+            android:textColor="#000000"
             android:textSize="@dimen/_16ssp" />
     </RelativeLayout>
 
@@ -37,7 +37,7 @@
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginRight="@dimen/_30sdp"
-        android:background="@drawable/card_light_white_solid">
+        android:background="@drawable/button_white_solid">
 
         <RelativeLayout
             android:id="@+id/layout03"
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_24sdp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/text_bg_blue_curve"
+                android:background="@drawable/text_bg_grey_curve"
                 android:hint="Challenge name"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_11sdp"
@@ -67,7 +67,7 @@
                 android:layout_below="@id/ev_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/text_bg_blue_curve"
+                android:background="@drawable/text_bg_grey_curve"
                 android:hint="Description"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_11sdp"
@@ -81,7 +81,7 @@
                 android:layout_below="@id/ev_description"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/text_bg_blue_curve"
+                android:background="@drawable/text_bg_grey_curve"
                 android:drawableRight="@drawable/ic_date"
                 android:hint="Deadline"
                 android:inputType="date"
@@ -97,7 +97,7 @@
                 android:layout_below="@id/ev_deadline"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/text_bg_blue_curve"
+                android:background="@drawable/text_bg_grey_curve"
                 android:hint="Duration (in days)"
                 android:inputType="date"
                 android:paddingLeft="@dimen/_11sdp"
@@ -111,7 +111,7 @@
                 android:layout_below="@id/ev_duration"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/text_bg_blue_curve"
+                android:background="@drawable/text_bg_grey_curve"
                 android:hint="No. of winners"
                 android:inputType="date"
                 android:paddingLeft="@dimen/_11sdp"
@@ -210,6 +210,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center"
                 android:text="Add Techniques"
+                android:visibility="gone"
                 android:textColor="#ff000000"
                 android:textSize="@dimen/_13ssp" />
 
@@ -218,6 +219,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_add"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_7sdp">
 
                 <EditText
@@ -225,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_24sdp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/text_bg_blue_curve"
+                    android:background="@drawable/text_bg_grey_curve"
                     android:hint="Technique name"
                     android:inputType="text"
                     android:paddingLeft="@dimen/_11sdp"
@@ -239,7 +241,7 @@
                     android:layout_below="@id/ev_ways"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/text_bg_blue_curve"
+                    android:background="@drawable/text_bg_grey_curve"
                     android:hint="Hint for this technique"
                     android:inputType="text"
                     android:paddingLeft="@dimen/_11sdp"
@@ -252,6 +254,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/layout13"
+                android:visibility="gone"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_7sdp">
 
@@ -312,6 +315,7 @@
         android:paddingRight="@dimen/_16sdp"
         android:paddingBottom="@dimen/_2sdp"
         android:text="Challenges"
+        android:visibility="invisible"
         android:textColor="#ffffffff"
         android:textSize="@dimen/_14ssp" />
 
@@ -320,8 +324,7 @@
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_below="@id/layout00"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/_40sdp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/add_button"
         android:gravity="center" />
 </RelativeLayout>

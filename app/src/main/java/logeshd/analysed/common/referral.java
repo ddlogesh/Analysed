@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import logeshd.analysed.R;
 import logeshd.analysed.common.adapter.listReferral;
 import logeshd.analysed.classes.contact;
-import logeshd.analysed.jobSeeker.dashboard;
+import logeshd.analysed.recruiter.dashboard;
 
 public class referral extends AppCompatActivity {
 

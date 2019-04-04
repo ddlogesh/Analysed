@@ -21,13 +21,12 @@ import java.util.List;
 import logeshd.analysed.R;
 import logeshd.analysed.recruiter.adapter.listCreateTask;
 import logeshd.analysed.classes.drawer;
-import logeshd.analysed.jobSeeker.dashboard;
 
 public class createTask extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.j_create_task);
+        setContentView((int) R.layout.r_create_task);
 
         final ListView l1 = (ListView) findViewById(R.id.create_task_tech_list);
         ArrayList<drawer> arr = new ArrayList();

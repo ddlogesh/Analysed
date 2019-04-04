@@ -29,7 +29,7 @@
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/tv_finish"
+        android:id="@+id/tv_login"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -39,7 +39,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
-        android:text="Finish"
+        android:text="Login"
         android:textColor="#ffffffff"
         android:textSize="@dimen/_16sdp"
         android:textStyle="bold"

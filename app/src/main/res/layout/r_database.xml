@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <RelativeLayout
+        android:id="@id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_135sdp"
+        android:background="@drawable/background_gradient_corner">
+
+        <RelativeLayout
+            android:id="@id/layout01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@id/iv_home"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_back_white" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/iv_home"
+                android:text="My Database"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/_16ssp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@id/layout02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout01"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_30sdp">
+
+            <EditText
+                android:id="@+id/ev_skills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/text_bg_white_curve"
+                android:hint="Name"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_11sdp"
+                android:paddingTop="@dimen/_6sdp"
+                android:paddingRight="@dimen/_6sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:textColorHint="#85ffffff"
+                android:textSize="@dimen/_13ssp" />
+
+            <EditText
+                android:id="@+id/ev_qualification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ev_skills"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/text_bg_white_curve"
+                android:hint="Position"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_11sdp"
+                android:paddingTop="@dimen/_6sdp"
+                android:paddingRight="@dimen/_6sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:textColorHint="#85ffffff"
+                android:textSize="@dimen/_13ssp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_110sdp">
+
+        <TextView
+            android:id="@+id/tv_search_card1"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/search_button" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:divider="@null"
+        android:scrollbars="none" />
+</RelativeLayout>

@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import logeshd.analysed.R;
 import logeshd.analysed.recruiter.adapter.listCreateTask;
 import logeshd.analysed.classes.drawer;
-import logeshd.analysed.jobSeeker.dashboard;
 
 public class createChallenge extends AppCompatActivity {
 

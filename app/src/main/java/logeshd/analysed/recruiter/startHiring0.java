@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import logeshd.analysed.R;
-import logeshd.analysed.jobSeeker.dashboard;
 
 public class startHiring0 extends AppCompatActivity {
 

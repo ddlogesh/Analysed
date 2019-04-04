@@ -1,6 +1,7 @@
 package logeshd.analysed.recruiter.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +28,11 @@ public class listDatabase extends ArrayAdapter<database> {
         TextView tv_position = (TextView) convertView.findViewById(R.id.tv_position);
         TextView tv_resume = (TextView) convertView.findViewById(R.id.tv_resume);
 
-        Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
-        tv_name.setTypeface(custom_font);
-        tv_position.setTypeface(custom_font);
-        tv_resume.setTypeface(custom_font);
+        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_bold.ttf");
+        tv_name.setTypeface(custom_font1);
+        tv_position.setTypeface(custom_font1);
+        tv_resume.setTypeface(custom_font2);
 
         tv_name.setText(p.getName());
         tv_position.setText(p.getPosition());

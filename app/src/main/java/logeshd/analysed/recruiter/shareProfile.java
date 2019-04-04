@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import logeshd.analysed.R;
 import logeshd.analysed.recruiter.adapter.listShareProfile;
 import logeshd.analysed.classes.database;
-import logeshd.analysed.jobSeeker.dashboard;
 
 public class shareProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {

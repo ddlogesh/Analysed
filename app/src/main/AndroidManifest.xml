@@ -2,14 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="logeshd.analysed">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/sample_image"
+        android:icon="@drawable/app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/sample_image"
+        android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity
+            android:name=".tester"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".common.splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -19,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".common.signup"
             android:theme="@style/AppTheme.NoActionBar"
@@ -34,7 +41,7 @@
             android:name=".jobSeeker.completeProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".jobSeeker.viewJobs"
+            android:name=".recruiter.jobListings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".jobSeeker.viewProfile"
@@ -43,7 +50,7 @@
             android:name=".common.referral"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".recruiter.viewDatabase"
+            android:name=".recruiter.database"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".recruiter.createTask"
@@ -55,7 +62,7 @@
             android:name=".recruiter.shareProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".jobSeeker.feedback"
+            android:name=".common.feedback"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -66,6 +73,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".jobSeeker.dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".recruiter.dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".jobSeeker.search"
@@ -89,13 +99,7 @@
             android:name=".recruiter.viewSkills"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".recruiter.viewTasks"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".recruiter.viewStatus"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".jobSeeker.viewJobsApplied"
+            android:name=".recruiter.viewTasksStatus"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.multiSelect"
@@ -108,6 +112,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".events"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewChallengeStatus"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".common.profilePic"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

@@ -10,8 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import logeshd.analysed.R;
-import logeshd.analysed.jobSeeker.completeProfile;
-import logeshd.analysed.jobSeeker.dashboard;
+import logeshd.analysed.recruiter.dashboard;
 
 public class viewProfile extends AppCompatActivity {
 

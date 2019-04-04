@@ -15,10 +15,9 @@ import java.util.ArrayList;
 import logeshd.analysed.R;
 import logeshd.analysed.classes.drawer;
 import logeshd.analysed.classes.recStatus;
-import logeshd.analysed.jobSeeker.adapter.listSearchRecent;
 import logeshd.analysed.jobSeeker.adapter.listViewTasksComp;
 import logeshd.analysed.recruiter.adapter.recycleTasks;
-import logeshd.analysed.recruiter.createTask;
+import logeshd.analysed.recruiter.dashboard;
 
 public class viewTasks extends AppCompatActivity {
 

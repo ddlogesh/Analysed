@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/login_background"
     android:orientation="vertical">
 
@@ -59,8 +61,9 @@
                     android:layout_marginRight="@dimen/_20sdp"
                     android:background="@drawable/text_bg_grey_curve"
                     android:drawableRight="@drawable/ic_user"
-                    android:hint="Username/Email"
-                    android:inputType="text"
+                    android:hint="Email"
+                    android:text="support@analysed.in"
+                    android:inputType="textEmailAddress"
                     android:paddingLeft="@dimen/_11sdp"
                     android:paddingTop="@dimen/_6sdp"
                     android:paddingRight="@dimen/_6sdp"
@@ -80,6 +83,7 @@
                     android:background="@drawable/text_bg_grey_curve"
                     android:drawableRight="@drawable/ic_password"
                     android:hint="Password"
+                    android:text="akashsharma"
                     android:inputType="textPassword"
                     android:paddingLeft="@dimen/_11sdp"
                     android:paddingTop="@dimen/_6sdp"
@@ -177,4 +181,13 @@
             android:textColor="#ff458ddf"
             android:textSize="@dimen/_11ssp" />
     </RelativeLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#ffa779c4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
 </RelativeLayout>

@@ -91,4 +91,6 @@
     <string name="about_me">\t\t\t\t\t\tI am an optimistic &#38; enthusiastic software developer seeking opportunities to learn &#38; work with new emerging technology &#38; updating myself.</string>
 
     <string name="copyrights">Analysed Copyrights © 2019. All Rights Reserved.</string>
+    <string name="title_activity_dashboardd">dashboardd</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
 </resources>

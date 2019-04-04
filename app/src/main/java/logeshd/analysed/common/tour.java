@@ -13,7 +13,8 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
 import logeshd.analysed.R;
-import logeshd.analysed.jobSeeker.dashboard;
+import logeshd.analysed.recruiter.dashboard;
+import logeshd.analysed.utils.SharedPref;
 import spencerstudios.com.bungeelib.Bungee;
 
 public class tour extends AppCompatActivity {
@@ -74,7 +75,11 @@ public class tour extends AppCompatActivity {
                     tv_title.setText(tv_arr[2]);
                 }
                 else if (iv_img3.getVisibility() == View.VISIBLE) {
-                    startActivity(new Intent(getApplicationContext(), dashboard.class));
+                    if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
+                        startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
+                    else
+                        startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
+
                     Bungee.slideLeft(tour.this);
                 }
             }

@@ -24,15 +24,15 @@ public class takeTour extends AppCompatActivity {
     
     Swipe swipe;
     TextView tv_contact;
-    TextView tv_finish;
+    TextView tv_login;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.c_take_tour);
         
         tv_contact = (TextView) findViewById(R.id.tv_contact);
-        tv_finish = (TextView) findViewById(R.id.tv_finish);
-        tv_finish.setOnClickListener(new OnClickListener() {
+        tv_login = (TextView) findViewById(R.id.tv_login);
+        tv_login.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), login.class));
@@ -60,11 +60,11 @@ public class takeTour extends AppCompatActivity {
                 arr[k] = true;
                 if (k == 5) {
                     tv_contact.setVisibility(View.VISIBLE);
-                    tv_finish.setVisibility(View.VISIBLE);
+                    tv_login.setVisibility(View.VISIBLE);
                 }
                 else {
                     tv_contact.setVisibility(View.GONE);
-                    tv_finish.setVisibility(View.GONE);
+                    tv_login.setVisibility(View.GONE);
                 }
                 setSwiper();
                 return true;
@@ -87,11 +87,11 @@ public class takeTour extends AppCompatActivity {
                 arr[k] = true;
                 if (k == 5) {
                     tv_contact.setVisibility(View.VISIBLE);
-                    tv_finish.setVisibility(View.VISIBLE);
+                    tv_login.setVisibility(View.VISIBLE);
                 }
                 else {
                     tv_contact.setVisibility(View.GONE);
-                    tv_finish.setVisibility(View.GONE);
+                    tv_login.setVisibility(View.GONE);
                 }
                 setSwiper();
                 return true;

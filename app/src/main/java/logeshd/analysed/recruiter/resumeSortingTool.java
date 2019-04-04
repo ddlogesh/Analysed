@@ -19,7 +19,6 @@ import logeshd.analysed.recruiter.adapter.recycleResumeSelected;
 import logeshd.analysed.classes.touchListener;
 import logeshd.analysed.classes.touchListener.ClickListener;
 import logeshd.analysed.classes.drawer;
-import logeshd.analysed.jobSeeker.dashboard;
 
 public class resumeSortingTool extends AppCompatActivity {
 

@@ -9,13 +9,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import logeshd.analysed.jobSeeker.dashboard;
+import logeshd.analysed.recruiter.dashboard;
 
 public class aboutOrganization extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about_organization);
+        setContentView(R.layout.z_about_organization);
 
         TextView tv_title4 = (TextView) findViewById(R.id.tv_title4);
         TextView tv_profile_name = (TextView) findViewById(R.id.tv_profile_name);

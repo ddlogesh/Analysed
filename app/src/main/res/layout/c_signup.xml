@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/signup_background"
     android:orientation="vertical">
 
@@ -36,7 +37,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
                         android:text="Login"
                         android:textColor="#46000000"
                         android:textSize="@dimen/_17ssp"
@@ -47,8 +48,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginTop="@dimen/_3sdp"
-                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
                         android:text="Sign up"
                         android:textColor="#ffffffff"
                         android:textSize="@dimen/_17ssp"
@@ -57,15 +58,14 @@
                     <RelativeLayout
                         android:id="@id/layout1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_200sdp"
+                        android:layout_height="@dimen/_190sdp"
                         android:layout_marginLeft="@dimen/_18sdp"
                         android:layout_marginTop="@dimen/_45sdp"
-                        android:layout_marginRight="@dimen/_18sdp"
-                        android:visibility="visible">
+                        android:layout_marginRight="@dimen/_18sdp">
 
                         <RelativeLayout
                             android:id="@+id/layout_role"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true">
@@ -140,7 +140,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollbars="none"
-                            android:visibility="gone">
+                            android:visibility="visible">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -152,14 +152,34 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent">
 
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/iv_profile"
+                                        android:layout_width="@dimen/_50sdp"
+                                        android:layout_height="@dimen/_50sdp"
+                                        android:layout_centerHorizontal="true"
+                                        android:src="@drawable/icon_profile"/>
+
+                                    <ImageView
+                                        android:id="@+id/iv_edit"
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_alignBottom="@+id/iv_profile"
+                                        android:layout_alignEnd="@+id/iv_profile"
+                                        android:background="@drawable/contact_blue_solid"
+                                        android:padding="@dimen/_4sdp"
+                                        android:src="@drawable/ic_pencil_white"/>
+
                                     <EditText
                                         android:id="@+id/ev_first_name1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:background="@drawable/text_bg_grey_curve"
+                                        android:layout_below="@+id/iv_profile"
+                                        android:layout_marginTop="@dimen/_10sdp"
                                         android:drawableRight="@drawable/ic_user"
                                         android:hint="First name"
+                                        android:text="Gopal"
                                         android:inputType="text"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -178,6 +198,7 @@
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_user"
                                         android:hint="Last name"
+                                        android:text="G"
                                         android:inputType="text"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -247,6 +268,7 @@
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_email"
                                         android:hint="Email"
+                                        android:text="abxcdc@gmail.com"
                                         android:inputType="textEmailAddress"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -266,6 +288,7 @@
                                         android:drawableRight="@drawable/ic_location"
                                         android:hint="Preferred Job Location"
                                         android:inputType="text"
+                                        android:text="Chennai"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
                                         android:paddingRight="@dimen/_6sdp"
@@ -284,7 +307,26 @@
                                         android:drawableRight="@drawable/ic_mobile"
                                         android:hint="Mobile Number"
                                         android:inputType="phone"
+                                        android:text="1234512345"
                                         android:maxLength="10"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                    <EditText
+                                        android:id="@+id/ev_skills"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/ev_mobile"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:drawableRight="@drawable/ic_skill"
+                                        android:hint="Skills"
+                                        android:text="Php,HTML"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
                                         android:paddingRight="@dimen/_6sdp"
@@ -296,12 +338,13 @@
                                         android:id="@+id/ev_password1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_below="@id/ev_mobile"
+                                        android:layout_below="@id/ev_skills"
                                         android:layout_centerHorizontal="true"
                                         android:layout_marginTop="@dimen/_6sdp"
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_password"
                                         android:hint="Password"
+                                        android:text="asdfgh"
                                         android:inputType="textPassword"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -321,16 +364,36 @@
                                         android:drawableRight="@drawable/ic_password"
                                         android:hint="Confirm Password"
                                         android:inputType="textPassword"
+                                        android:text="asdfgh"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
                                         android:paddingRight="@dimen/_6sdp"
                                         android:paddingBottom="@dimen/_6sdp"
                                         android:textColorHint="#4a000000"
                                         android:textSize="@dimen/_13ssp" />
+
                                 </RelativeLayout>
                             </RelativeLayout>
                         </ScrollView>
                     </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_resume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_40sdp"
+                        android:background="@drawable/button_blue_solid"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_1sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        android:drawableRight="@drawable/ic_upload_white"
+                        android:text="Resume"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@id/tv_tour"
@@ -358,9 +421,20 @@
                     android:paddingRight="@dimen/_20sdp"
                     android:paddingBottom="@dimen/_3sdp"
                     android:text="Sign up"
+                    android:enabled="true"
                     android:textColor="#ffffffff"
                     android:textSize="@dimen/_16sdp"
                     android:textStyle="bold" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/pcircle"
+                    app:indicatorColor="#ffa779c4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerInParent="true"
+                    app:indicatorName="LineScaleIndicator" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -388,6 +462,7 @@
                     android:textColor="#ff458ddf"
                     android:textSize="@dimen/_11ssp" />
             </RelativeLayout>
+
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

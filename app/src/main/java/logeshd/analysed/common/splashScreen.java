@@ -6,7 +6,9 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import logeshd.analysed.R;
-import logeshd.analysed.events;
+import logeshd.analysed.jobSeeker.dashboard;
+import logeshd.analysed.tester;
+import logeshd.analysed.utils.SharedPref;
 
 public class splashScreen extends AppCompatActivity {
 
@@ -17,8 +19,14 @@ public class splashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i1=new Intent(getApplicationContext(), events.class);
-                startActivity(i1);
+                /*if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
+                    if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
+                        startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
+                    else
+                        startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
+                }
+                else*/
+                    startActivity(new Intent(getApplicationContext(), signup.class));
             }
         },100);
     }

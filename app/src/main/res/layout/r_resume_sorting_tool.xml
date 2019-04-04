@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient">
+    android:background="#eeeeee">
 
     <RelativeLayout
         android:id="@id/layout0"
@@ -14,8 +14,8 @@
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_centerVertical="true"
-            android:padding="@dimen/_7sdp"
-            android:src="@drawable/ic_home_white" />
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@id/tv_title"
@@ -25,7 +25,7 @@
             android:padding="@dimen/_5sdp"
             android:layout_toRightOf="@+id/iv_home"
             android:text="Resume Sorting Tool"
-            android:textColor="#ffffffff"
+            android:textColor="#000000"
             android:textSize="@dimen/_16ssp" />
     </RelativeLayout>
 
@@ -50,7 +50,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:background="@drawable/card_light_white_solid">
+                    android:background="@drawable/button_white_solid">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -143,7 +143,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:background="@drawable/card_light_white_solid">
+                    android:background="@drawable/button_white_solid">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -236,7 +236,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:background="@drawable/card_light_white_solid">
+                    android:background="@drawable/button_white_solid">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -329,7 +329,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:background="@drawable/card_light_white_solid">
+                    android:background="@drawable/button_white_solid">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
