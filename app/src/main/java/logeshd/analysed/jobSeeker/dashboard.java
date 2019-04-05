@@ -1,6 +1,7 @@
 package logeshd.analysed.jobSeeker;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -38,6 +39,8 @@ import logeshd.analysed.recruiter.resumeSortingTool;
 import logeshd.analysed.recruiter.shareProfile;
 import logeshd.analysed.recruiter.startHiring0;
 import logeshd.analysed.recruiter.viewTasksStatus;
+import logeshd.analysed.utils.CommonUtils;
+import logeshd.analysed.utils.SharedPref;
 import logeshd.analysed.viewChallengeStatus;
 
 public class dashboard extends AppCompatActivity {
@@ -48,6 +51,7 @@ public class dashboard extends AppCompatActivity {
         setContentView(R.layout.j_dashboard);
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        CommonUtils.setSnackBar(getWindow().getDecorView(), "Welcome as JobSeeker!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
 
         ListView l1 = (ListView) findViewById(R.id.list_slidermenu);
         listNavDrawer adapter = new listNavDrawer(this, new ArrayList<drawer>());
@@ -90,6 +94,7 @@ public class dashboard extends AppCompatActivity {
                 } else if (data.equals("About Us")) {
                     i1 = new Intent(dashboard.this.getApplicationContext(), aboutOrganization.class);
                 } else if (data.equals("Sign Out")) {
+                    SharedPref.putBoolean(getApplicationContext(),"is_logged_in",false);
                     i1 = new Intent(dashboard.this.getApplicationContext(), login.class);
                 }
                 if (i1 != null) {

@@ -65,7 +65,7 @@
 
                         <RelativeLayout
                             android:id="@+id/layout_role"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true">
@@ -140,7 +140,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollbars="none"
-                            android:visibility="visible">
+                            android:visibility="gone">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -179,7 +179,6 @@
                                         android:layout_marginTop="@dimen/_10sdp"
                                         android:drawableRight="@drawable/ic_user"
                                         android:hint="First name"
-                                        android:text="Gopal"
                                         android:inputType="text"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -198,7 +197,6 @@
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_user"
                                         android:hint="Last name"
-                                        android:text="G"
                                         android:inputType="text"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -268,7 +266,6 @@
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_email"
                                         android:hint="Email"
-                                        android:text="abxcdc@gmail.com"
                                         android:inputType="textEmailAddress"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -288,7 +285,6 @@
                                         android:drawableRight="@drawable/ic_location"
                                         android:hint="Preferred Job Location"
                                         android:inputType="text"
-                                        android:text="Chennai"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
                                         android:paddingRight="@dimen/_6sdp"
@@ -307,7 +303,6 @@
                                         android:drawableRight="@drawable/ic_mobile"
                                         android:hint="Mobile Number"
                                         android:inputType="phone"
-                                        android:text="1234512345"
                                         android:maxLength="10"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -326,7 +321,6 @@
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_skill"
                                         android:hint="Skills"
-                                        android:text="Php,HTML"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
                                         android:paddingRight="@dimen/_6sdp"
@@ -344,7 +338,6 @@
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_password"
                                         android:hint="Password"
-                                        android:text="asdfgh"
                                         android:inputType="textPassword"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
@@ -364,7 +357,6 @@
                                         android:drawableRight="@drawable/ic_password"
                                         android:hint="Confirm Password"
                                         android:inputType="textPassword"
-                                        android:text="asdfgh"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
                                         android:paddingRight="@dimen/_6sdp"
@@ -391,6 +383,7 @@
                         android:paddingBottom="@dimen/_1sdp"
                         android:drawableRight="@drawable/ic_upload_white"
                         android:text="Resume"
+                        android:visibility="gone"
                         android:textColor="#ffffffff"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold" />
@@ -421,7 +414,7 @@
                     android:paddingRight="@dimen/_20sdp"
                     android:paddingBottom="@dimen/_3sdp"
                     android:text="Sign up"
-                    android:enabled="true"
+                    android:enabled="false"
                     android:textColor="#ffffffff"
                     android:textSize="@dimen/_16sdp"
                     android:textStyle="bold" />
