@@ -51,7 +51,7 @@
                 android:paddingTop="@dimen/_2sdp"
                 android:singleLine="true"
                 android:text="App Developer"
-                android:textColor="#ffaca9a9"
+                android:textColor="#969292"
                 android:textSize="@dimen/_10ssp" />
         </RelativeLayout>
 

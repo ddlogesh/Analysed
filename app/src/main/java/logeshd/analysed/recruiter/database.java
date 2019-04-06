@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.wang.avi.AVLoadingIndicatorView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,18 +31,21 @@ import retrofit2.Response;
 
 public class database extends AppCompatActivity {
 
+    AVLoadingIndicatorView pcircle;
     TextView tv_no_data;
+    ListView l1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.r_database);
 
+        pcircle = (AVLoadingIndicatorView) findViewById(R.id.pcircle);
         tv_no_data=findViewById(R.id.tv_no_data);
+        l1 = (ListView) findViewById(R.id.lv_database);
 
         MainRepository.getService().getDatabase(SharedPref.getString(getApplicationContext(),"user_name")).enqueue(new Callback<List<databases>>() {
             @Override
             public void onResponse(Call<List<databases>> call, Response<List<databases>> response) {
-                ListView l1 = (ListView) findViewById(R.id.lv_database);
                 listDatabase adapter = new listDatabase(database.this, new ArrayList<databases>());
                 adapter.clear();
 
@@ -48,15 +54,24 @@ public class database extends AppCompatActivity {
                     for (databases d : dlist)
                         adapter.add(new databases(d.getId(), d.getFname(), d.getLname(), d.getPicture(), d.getPosition(),d.getQualification(),d.getYearofpassing(),d.getExperience(),d.getEmail(),d.getSkills()));
                     l1.setAdapter(adapter);
+
+                    l1.setVisibility(View.VISIBLE);
                     tv_no_data.setVisibility(View.GONE);
                 }
-                else
+                else {
+                    l1.setVisibility(View.GONE);
                     tv_no_data.setVisibility(View.VISIBLE);
+                }
+
+                pcircle.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<List<databases>> call, Throwable t) {
                 Log.d("ddlogesh",t.getMessage());
+                l1.setVisibility(View.GONE);
+                tv_no_data.setVisibility(View.VISIBLE);
+                pcircle.setVisibility(View.GONE);
             }
         });
 
@@ -78,10 +93,3 @@ public class database extends AppCompatActivity {
         });
     }
 }
-
-
-/*
-/var/www/analysed.in/analysed/webservices/js
-/var/www/analysed.in/analysed/Pages/jobseeker/images
-/var/www/analysed.in/analysed/Pages/jobseeker/documents
- */

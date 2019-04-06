@@ -1,96 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_60sdp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2.0">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.0">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true">
-
-                                <TextView
-                                    android:id="@+id/tv_month"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="May"
-                                    android:textColor="#9e5f5353"
-                                    android:textSize="@dimen/_10sdp" />
-
-                                <TextView
-                                    android:id="@+id/tv_day"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@id/tv_month"
-                                    android:gravity="center"
-                                    android:text="10"
-                                    android:textColor="#ff5f5353"
-                                    android:textSize="@dimen/_12sdp"
-                                    android:textStyle="bold" />
-                            </RelativeLayout>
-                        </RelativeLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.0" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/job_timeline" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/job_timeline_circle" />
-            </RelativeLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0" />
-    </LinearLayout>
+    android:layout_height="@dimen/_57sdp">
 
     <RelativeLayout
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:id="@+id/tv_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="May"
+                    android:textColor="#9e5f5353"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tv_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_month"
+                    android:layout_centerHorizontal="true"
+                    android:text="10"
+                    android:textColor="#ff5f5353"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@drawable/job_timeline" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/job_timeline_circle" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/_65sdp"
-        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_68sdp"
+        android:layout_marginRight="@dimen/_7sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:background="@drawable/button_white_solid">
+        android:background="@drawable/button_white_solid_less_corner">
 
         <ImageView
             android:id="@+id/iv_job_icon"
@@ -98,29 +74,44 @@
             android:layout_height="@dimen/_20sdp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_12sdp"
+            android:visibility="gone"
             android:src="@drawable/facino_icon" />
 
         <TextView
             android:id="@+id/tv_job_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_7sdp"
+            android:layout_toLeftOf="@+id/iv_next"
+            android:layout_marginRight="@dimen/_5sdp"
             android:text="UI Designer"
-            android:layout_toEndOf="@+id/iv_job_icon"
+            android:singleLine="true"
             android:textColor="#ff000000"
-            android:textSize="@dimen/_14ssp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_12ssp" />
 
         <TextView
-            android:id="@+id/tv_job_company"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_location"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_job_title"
-            android:layout_marginLeft="@dimen/_7sdp"
-            android:layout_toEndOf="@+id/iv_job_icon"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_7sdp"
+            android:layout_toLeftOf="@+id/iv_next"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:singleLine="true"
             android:paddingTop="@dimen/_2sdp"
-            android:text="Microsoft"
-            android:textSize="@dimen/_12ssp" />
+            android:text="Chennai"
+            android:textColor="#969292"
+            android:textSize="@dimen/_10ssp" />
+
+        <ImageView
+            android:id="@id/iv_next"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_right_arrow" />
     </RelativeLayout>
 </RelativeLayout>

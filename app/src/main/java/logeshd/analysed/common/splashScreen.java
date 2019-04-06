@@ -21,6 +21,7 @@ public class splashScreen extends AppCompatActivity {
             public void run() {
                 SharedPref.putInt(getApplicationContext(),"user_id",2);
                 SharedPref.putString(getApplicationContext(),"user_name","dummy@gmail.com");
+                //SharedPref.putString(getApplicationContext(),"logo","avatars/cb8840e2a342059429ed7dfb6529e88a.png");
                 /*if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
                     if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
@@ -28,7 +29,7 @@ public class splashScreen extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
                 }
                 else*/
-                    startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.database.class));
+                    startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.jobListings.class));
             }
         },100);
     }

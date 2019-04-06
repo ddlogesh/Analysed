@@ -3,6 +3,7 @@ package logeshd.analysed.service;
 import java.util.List;
 
 import logeshd.analysed.apis.databases;
+import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.apis.jobseekers;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.users;
@@ -47,5 +48,6 @@ public interface MainService {
     @GET("js/database.php")
     Call<List<databases>> getDatabase(@Query("username") String username);
 
-
+    @GET("js/joblisting.php")
+    Call<List<joblistings>> getJobListings(@Query("username") String username);
 }

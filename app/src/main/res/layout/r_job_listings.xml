@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#eeeeee">
 
     <RelativeLayout
@@ -51,11 +51,12 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_ongoing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:gravity="center"
-                        android:text="CURRENT"
+                        android:text="ONGOING"
                         android:textColor="#ffffffff"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
@@ -72,6 +73,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_completed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -155,5 +157,25 @@
             android:layout_height="match_parent"
             android:divider="@null"
             android:scrollbars="none" />
+
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No data Found!"
+        android:textStyle="bold"
+        android:textSize="@dimen/_20ssp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#ffa779c4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
 </RelativeLayout>

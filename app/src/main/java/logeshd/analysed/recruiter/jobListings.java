@@ -1,25 +1,51 @@
 package logeshd.analysed.recruiter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.wang.avi.AVLoadingIndicatorView;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import logeshd.analysed.R;
+import logeshd.analysed.apis.databases;
+import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.jobSeeker.adapter.listViewJobs;
 import logeshd.analysed.classes.job;
+import logeshd.analysed.recruiter.adapter.listDatabase;
+import logeshd.analysed.service.MainRepository;
+import logeshd.analysed.utils.SharedPref;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class jobListings extends AppCompatActivity {
+public class jobListings extends AppCompatActivity implements View.OnClickListener {
+
+    AVLoadingIndicatorView pcircle;
+    TextView tv_no_data,tv_ongoing,tv_completed;
+    ListView l1;
+    static int flag=1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.r_job_listings);
+
+        pcircle = (AVLoadingIndicatorView) findViewById(R.id.pcircle);
+        l1 = (ListView) findViewById(R.id.job_list_timeline);
+        
+        tv_no_data=findViewById(R.id.tv_no_data);
+        tv_ongoing=findViewById(R.id.tv_ongoing);       tv_ongoing.setOnClickListener(this);
+        tv_completed=findViewById(R.id.tv_completed);   tv_completed.setOnClickListener(this);
 
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
         TextView tv_invite = (TextView) findViewById(R.id.tv_invite);
@@ -30,20 +56,80 @@ public class jobListings extends AppCompatActivity {
         tv_invite.setTypeface(custom_font1);
         tv_title.setTypeface(custom_font2);
 
-        ListView l1 = (ListView) findViewById(R.id.job_list_timeline);
-        listViewJobs adapter = new listViewJobs(this, new ArrayList());
-        adapter.clear();
-        adapter.add(new job("apple_icon", "UX Designer", "Apple", "May", "10"));
-        adapter.add(new job("apple_icon", "Web Developer", "Microsoft", "Jun", "25"));
-        adapter.add(new job("apple_icon", "Software Developer", "Analysed", "Sep", "15"));
-        l1.setAdapter(adapter);
+        getList();
+    }
 
-        ((ImageView) findViewById(R.id.iv_home)).setOnClickListener(new OnClickListener() {
+    private void getList(){
+        l1.setVisibility(View.GONE);
+        pcircle.setVisibility(View.VISIBLE);
+
+        MainRepository.getService().getJobListings(SharedPref.getString(getApplicationContext(),"user_name")).enqueue(new Callback<List<joblistings>>() {
             @Override
-            public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(), dashboard.class);
-                startActivity(i1);
+            public void onResponse(Call<List<joblistings>> call, Response<List<joblistings>> response) {
+                listViewJobs adapter = new listViewJobs(jobListings.this, new ArrayList<joblistings>());
+                adapter.clear();
+
+                List<joblistings> dlist=response.body();
+                if(dlist!=null) {
+                    for (joblistings d : dlist) {
+                        if(flag==1 && d.getEndon()==null)
+                            adapter.add(new joblistings(d.getId(), d.getPosition(), d.getSkills_req(), d.getQual_req(), d.getExp_req(), d.getJob_location(), d.getJob_description(), d.getPackages(), d.getJob_time(), d.getPostedby(), d.getCreatedon(), d.getEndon()));
+                        else if(flag==2 && d.getEndon() != null)
+                            adapter.add(new joblistings(d.getId(), d.getPosition(), d.getSkills_req(), d.getQual_req(), d.getExp_req(), d.getJob_location(), d.getJob_description(), d.getPackages(), d.getJob_time(), d.getPostedby(), d.getCreatedon(), d.getEndon()));
+                    }
+                    if(adapter.isEmpty()) {
+                        l1.setVisibility(View.GONE);
+                        tv_no_data.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        l1.setAdapter(adapter);
+
+                        l1.setVisibility(View.VISIBLE);
+                        tv_no_data.setVisibility(View.GONE);
+                    }
+                }
+                else {
+                    l1.setVisibility(View.GONE);
+                    tv_no_data.setVisibility(View.VISIBLE);
+                }
+
+                pcircle.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onFailure(Call<List<joblistings>> call, Throwable t) {
+                Log.d("ddlogesh",t.getMessage());
+                l1.setVisibility(View.GONE);
+                tv_no_data.setVisibility(View.VISIBLE);
+                pcircle.setVisibility(View.GONE);
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_ongoing:
+                tv_ongoing.setTextColor(Color.parseColor("#ffffff"));
+                tv_completed.setTextColor(Color.parseColor("#74fdf4f4"));
+                flag=1;
+                getList();
+                break;
+            case R.id.tv_completed:
+                tv_ongoing.setTextColor(Color.parseColor("#74fdf4f4"));
+                tv_completed.setTextColor(Color.parseColor("#ffffff"));
+                flag=2;
+                getList();
+                break;
+            case R.id.iv_home:
+                startActivity(new Intent(getApplicationContext(), dashboard.class));
+                break;
+        }
+    }
 }
+
+/*
+/var/www/analysed.in/analysed/webservices/js
+/var/www/analysed.in/analysed/Pages/jobseeker/images
+/var/www/analysed.in/analysed/Pages/jobseeker/documents
+ */
