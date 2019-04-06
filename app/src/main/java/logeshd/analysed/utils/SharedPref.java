@@ -32,4 +32,8 @@ public class SharedPref {
     public static void putBoolean(Context context, String key,Boolean value){
         getSharePref(context).edit().putBoolean(key,value).apply();
     }
+
+    public static void remove(Context context,String key){
+        getSharePref(context).edit().remove(key).apply();
+    }
 }

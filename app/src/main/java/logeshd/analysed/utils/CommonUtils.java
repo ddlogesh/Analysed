@@ -44,18 +44,6 @@ import logeshd.analysed.common.signup;
 
 public class CommonUtils {
 
-    //Bitmap variable for transfering uploaded image between activity
-    private static Bitmap image=null;
-
-    public static Bitmap getImage() {
-        return image;
-    }
-
-    public static void setImage(Bitmap image) {
-        CommonUtils.image = image;
-    }
-
-    /************************************************************************/
     //Hides Keyboard
     public static void hideKeyboard(Activity activity){
         try {

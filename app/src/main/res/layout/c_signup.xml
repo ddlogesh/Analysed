@@ -65,7 +65,7 @@
 
                         <RelativeLayout
                             android:id="@+id/layout_role"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true">
@@ -140,7 +140,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollbars="none"
-                            android:visibility="gone">
+                            android:visibility="visible">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -321,6 +321,7 @@
                                         android:background="@drawable/text_bg_grey_curve"
                                         android:drawableRight="@drawable/ic_skill"
                                         android:hint="Skills"
+                                        android:singleLine="true"
                                         android:paddingLeft="@dimen/_11sdp"
                                         android:paddingTop="@dimen/_6sdp"
                                         android:paddingRight="@dimen/_6sdp"
@@ -383,7 +384,7 @@
                         android:paddingBottom="@dimen/_1sdp"
                         android:drawableRight="@drawable/ic_upload_white"
                         android:text="Resume"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:textColor="#ffffffff"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold" />
@@ -414,7 +415,7 @@
                     android:paddingRight="@dimen/_20sdp"
                     android:paddingBottom="@dimen/_3sdp"
                     android:text="Sign up"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:textColor="#ffffffff"
                     android:textSize="@dimen/_16sdp"
                     android:textStyle="bold" />

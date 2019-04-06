@@ -58,6 +58,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -80,7 +81,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import spencerstudios.com.bungeelib.Bungee;
 
-public class signup extends AppCompatActivity {
+public class signup extends AppCompatActivity implements View.OnClickListener{
 
     AVLoadingIndicatorView pcircle;
     CircleImageView iv_profile;
@@ -88,9 +89,9 @@ public class signup extends AppCompatActivity {
     ImageView iv_job_seekers,iv_recruiter,iv_edit;
     TextView tab_login,tab_signup,tv_role,tv_signup,tv_terms1,tv_terms2,tv_tour,tv_resume;
     Spinner sp_qualification,sp_year_passing,sp_experience;
-    int flag=-1;
+    int flag=0;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.c_signup);
 
@@ -142,84 +143,61 @@ public class signup extends AppCompatActivity {
 
         tv_terms2.setPaintFlags(tv_terms2.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tv_tour.setPaintFlags(tv_tour.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+    }
 
-        /************************************************************************************/
+    /************************************************************************************/
 
-        tv_tour.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_tour:
                 startActivity(new Intent(getApplicationContext(), takeTour.class));
                 Bungee.slideRight(signup.this);
-            }
-        });
+                break;
 
-        tab_login.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.tab_login:
                 startActivity(new Intent(getApplicationContext(), login.class));
                 Bungee.slideLeft(signup.this);
-            }
-        });
+                break;
 
-        tv_terms2.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.tv_terms2:
                 startActivity(new Intent(getApplicationContext(), terms.class));
                 Bungee.slideUp(signup.this);
-            }
-        });
+                break;
 
-        iv_edit.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.iv_edit:
                 if ((ContextCompat.checkSelfPermission(signup.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(signup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
                     startActivityForResult(CommonUtils.getPickImageChooserIntent(getApplicationContext()),200);
                 else
                     ActivityCompat.requestPermissions(signup.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
-            }
-        });
+                break;
 
-        tv_resume.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.tv_resume:
                 if ((ContextCompat.checkSelfPermission(signup.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(signup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
                     filePicker();
                 else
                     ActivityCompat.requestPermissions(signup.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 201);
-            }
-        });
+                break;
 
-        /************************************************************************************/
-
-        iv_job_seekers.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.iv_job_seekers:
                 ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
                 ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
                 tv_resume.setVisibility(View.VISIBLE);
                 tv_signup.setEnabled(true);
                 flag=0;
-            }
-        });
+                break;
 
-        iv_recruiter.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
+            case R.id.iv_recruiter:
+                ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
                 ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
                 tv_signup.setEnabled(true);
-                flag=1;*/
-            }
-        });
+                flag=1;
+                break;
 
-        /************************************************************************************/
-
-        tv_signup.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ev_first_name1.getEditableText().toString().length() == 0)
+            case R.id.tv_signup:
+                if (ev_first_name1.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "First name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_last_name1.getEditableText().toString().length() == 0)
+                else if (ev_last_name1.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Last name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if ((sp_qualification.getSelectedItem().toString()).equals("Qualification"))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Select qualification", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
@@ -227,11 +205,11 @@ public class signup extends AppCompatActivity {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Select year of passing", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if ((sp_experience.getSelectedItem().toString()).equals("Experience"))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Select experience", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_email.getEditableText().toString().length() == 0)
+                else if (ev_email.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Email id cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_location.getEditableText().toString().length() == 0)
+                else if (ev_location.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Location cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_mobile.getEditableText().toString().length() == 0)
+                else if (ev_mobile.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Mobile number cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (ev_skills.getEditableText().toString().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Skills cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
@@ -241,16 +219,16 @@ public class signup extends AppCompatActivity {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Confirm password cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (!((ev_password1.getEditableText().toString().trim()).equals(ev_password2.getEditableText().toString().trim())))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Password & confirm passwords should be the same", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if(SharedPref.getString(getApplicationContext(),"file_chosen") == null)
+                else if(SharedPref.getString(getApplicationContext(),"resume_file_name") == null)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your resume", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if(CommonUtils.getImage() == null)
+                else if(SharedPref.getString(getApplicationContext(),"profile_file_name") == null || !SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("user"))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your profile picture", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if(startProgress()) {
-                    users u=new users(ev_email.getEditableText().toString(),ev_password1.getEditableText().toString(),Integer.toString(flag),1);
+                    users u=new users(ev_email.getEditableText().toString().trim(),ev_password1.getEditableText().toString().trim(),Integer.toString(flag),1);
                     checkForSignupApi(u);
                 }
-            }
-        });
+                break;
+        }
     }
 
     /************************************************************************************/
@@ -381,25 +359,23 @@ public class signup extends AppCompatActivity {
         properties.offset = new File(DialogConfigs.STORAGE_DIR);
         properties.extensions = new String[]{"doc","docx","odt","pdf","txt","rtf"};
 
-        FilePickerDialog dialog = new FilePickerDialog(signup.this,properties);
+        final FilePickerDialog dialog = new FilePickerDialog(signup.this,properties);
+        dialog.setPositiveBtnName("DONE");
         dialog.setTitle("Choose a File");
         dialog.show();
 
         dialog.setDialogSelectionListener(new DialogSelectionListener() {
             @Override
             public void onSelectedFilePaths(String[] files) {
-                SharedPref.putString(getApplicationContext(),"file_chosen",files[0]);
-                Drawable img = getResources().getDrawable(R.drawable.ic_tick_white);
-                tv_resume.setCompoundDrawablesWithIntrinsicBounds(null, null, img, null);
+                uploadResume(files[0]);
             }
         });
     }
 
-    public String getFileContents(){
+    public String getFileContents(String path){
         try {
             String inp,text="";
 
-            String path=SharedPref.getString(getApplicationContext(),"file_chosen");
             File file=new File(path);
             if(!path.endsWith("pdf")) {
                 BufferedReader bf = new BufferedReader(new FileReader(file));
@@ -416,8 +392,139 @@ public class signup extends AppCompatActivity {
 
     /************************************************************************************/
 
-    private void checkForSignupApi(users u){
+    private void uploadProfilePic() {
+        iv_edit.setEnabled(false);
+        pcircle.setVisibility(View.VISIBLE);
 
+        File storageDir = getApplicationContext().getExternalCacheDir();
+        if (storageDir == null || !storageDir.exists()) {
+            storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/.Analysed");
+            if(!storageDir.exists())
+                storageDir.mkdirs();
+        }
+
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.US);
+        final File imageFile = new File(storageDir,"IMG" + sdf.format(new Date()) + ".jpg");
+        final File cacheFile = new File(storageDir,"profile.jpg");
+        try {
+            FileInputStream inStream = new FileInputStream(cacheFile);
+            FileOutputStream outStream = new FileOutputStream(imageFile);
+            FileChannel inChannel = inStream.getChannel();
+            FileChannel outChannel = outStream.getChannel();
+            inChannel.transferTo(0, inChannel.size(), outChannel);
+            inStream.close();
+            outStream.close();
+        }
+        catch (Exception e) {
+            Log.d("ddlogesh", e.getMessage());
+        }
+
+        if(imageFile.exists()) {
+            RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), imageFile);
+            MultipartBody.Part part = MultipartBody.Part.createFormData("file", imageFile.getName(), fileReqBody);
+
+            MainRepository.getService().uploadImageApi(part).enqueue(new Callback<status>() {
+                @Override
+                public void onResponse(Call<status> call, Response<status> response) {
+                    status a = response.body();
+                    if (a != null) {
+                        if (a.getCode() == 1) {
+                            Log.d("ddlogesh", a.getMessage());
+                            SharedPref.putString(getApplicationContext(), "profile_file_name", "user-images/" + imageFile.getName());
+                            iv_profile.setBorderWidth(5);
+                            iv_profile.setBorderColor(Color.parseColor("#ff33adff"));
+                            Bitmap bitmap = BitmapFactory.decodeFile(imageFile.getPath());
+                            iv_profile.setImageBitmap(bitmap);
+                            pcircle.setVisibility(View.GONE);
+                            iv_edit.setEnabled(true);
+                            //uploadResume();
+                        }
+                        else {
+                            Log.d("ddlogesh", a.getMessage());
+                            pcircle.setVisibility(View.GONE);
+                            iv_edit.setEnabled(false);
+                            CommonUtils.setSnackBar(getWindow().getDecorView(), "Profile picture uploading failed", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                        }
+                    }
+                    else {
+                        Log.d("ddlogesh", "Failed");
+                        pcircle.setVisibility(View.GONE);
+                        iv_edit.setEnabled(false);
+                        CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<status> call, Throwable t) {
+                    Log.d("ddlogesh", "Nope: " + t.getMessage());
+                    pcircle.setVisibility(View.GONE);
+                    iv_edit.setEnabled(false);
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                }
+            });
+        }
+        else{
+            Log.d("ddlogesh", "Failed");
+            pcircle.setVisibility(View.GONE);
+            iv_edit.setEnabled(false);
+            CommonUtils.setSnackBar(getWindow().getDecorView(), "Profile picture uploading failed", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+        }
+    }
+
+    private void uploadResume(final String f){
+        final File chosen_file=new File(f);
+        if(chosen_file.exists()) {
+            pcircle.setVisibility(View.VISIBLE);
+            tv_resume.setEnabled(false);
+            RequestBody fileReqBody = RequestBody.create(MediaType.parse("*/*"), chosen_file);
+            MultipartBody.Part part = MultipartBody.Part.createFormData("file", chosen_file.getName(), fileReqBody);
+
+            MainRepository.getService().uploadResumeApi(part).enqueue(new Callback<status>() {
+                @Override
+                public void onResponse(Call<status> call, Response<status> response) {
+                    status a = response.body();
+                    if (a != null) {
+                        if (a.getCode() == 1) {
+                            SharedPref.putString(getApplicationContext(), "resume_file_name", chosen_file.getName());
+                            SharedPref.putString(getApplicationContext(), "resume_file_content", getFileContents(f));
+                            Drawable img = getResources().getDrawable(R.drawable.ic_tick_white);
+                            tv_resume.setCompoundDrawablesWithIntrinsicBounds(null, null, img, null);
+                            pcircle.setVisibility(View.GONE);
+                            Log.d("ddlogesh", a.getMessage());
+                        }
+                        else {
+                            Log.d("ddlogesh", "Failed");
+                            pcircle.setVisibility(View.GONE);
+                            tv_resume.setEnabled(true);
+                            CommonUtils.setSnackBar(getWindow().getDecorView(), "Resume uploading failed, please use file size < 2MB", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                        }
+                    }
+                    else {
+                        Log.d("ddlogesh", "Failed");
+                        pcircle.setVisibility(View.GONE);
+                        tv_resume.setEnabled(true);
+                        CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<status> call, Throwable t) {
+                    Log.d("ddlogesh", "Nope: " + t.getMessage());
+                    pcircle.setVisibility(View.GONE);
+                    tv_resume.setEnabled(true);
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                }
+            });
+        }
+        else{
+            Log.d("ddlogesh", "Failed");
+            CommonUtils.setSnackBar(getWindow().getDecorView(), "Resume uploading failed", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+        }
+    }
+
+    private void checkForSignupApi(users u){
+        pcircle.setVisibility(View.VISIBLE);
+        tv_signup.setEnabled(false);
         MainRepository.getService().checkForSignupApi(u).enqueue(new Callback<status>() {
             @Override
             public void onResponse(Call<status> call, Response<status> response) {
@@ -425,8 +532,32 @@ public class signup extends AppCompatActivity {
                 if(a!=null) {
                     Log.d("ddlogesh", a.getMessage());
                     if(a.getMessage().equals("Successfully inserted")){
-                        SharedPref.putInt(getApplicationContext(),"user_id",a.getCode());
-                        uploadProfilePic();
+                        jobseekers j = new jobseekers();
+                        j.setUser_id(a.getCode());
+                        j.setFname(ev_first_name1.getEditableText().toString().trim());
+                        j.setLname(ev_last_name1.getEditableText().toString().trim());
+                        j.setEmail(ev_email.getEditableText().toString().trim());
+                        j.setLocation(ev_location.getEditableText().toString().trim());
+                        j.setSkills(ev_skills.getEditableText().toString().trim());
+                        j.setPhNumber(ev_mobile.getEditableText().toString().trim());
+                        j.setYearofpassing(sp_year_passing.getSelectedItem().toString());
+                        j.setPicture(SharedPref.getString(getApplicationContext(),"profile_file_name"));
+                        j.setResumename(SharedPref.getString(getApplicationContext(),"resume_file_name"));
+                        j.setResume(SharedPref.getString(getApplicationContext(),"resume_file_content"));
+
+                        String ex_split[] = sp_experience.getSelectedItem().toString().split(" ");
+                        j.setExperience(ex_split[0]);
+
+                        String str = sp_qualification.getSelectedItem().toString();
+                        if (str.startsWith("U"))
+                            str = "UG";
+                        else if (str.equals("Ph.D"))
+                            str = "PhD";
+                        else
+                            str = "PG";
+                        j.setQualification(str);
+
+                        signupApi(j);
                     }
                     else if(a.getMessage().equals("User already exists")) {
                         Log.d("ddlogesh", a.getMessage());
@@ -458,152 +589,26 @@ public class signup extends AppCompatActivity {
         });
     }
 
-    private void uploadProfilePic() {
-        try {
-            File storageDir = getApplicationContext().getExternalCacheDir();
-            if (storageDir == null || !storageDir.exists()) {
-                storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/.Analysed");
-                if(!storageDir.exists())
-                    storageDir.mkdirs();
-            }
-
-            SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.US);
-            final File imageFile = new File(storageDir,"IMG" + sdf.format(new Date()) + ".jpg");
-            try {
-                OutputStream fOut = new FileOutputStream(imageFile);
-                CommonUtils.getImage().compress(Bitmap.CompressFormat.JPEG, 100, fOut);
-                fOut.close();
-            }
-            catch (Exception e) {
-                Log.d("ddlogesh", e.getMessage());
-            }
-
-            RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), imageFile);
-            MultipartBody.Part part = MultipartBody.Part.createFormData("file", imageFile.getName(), fileReqBody);
-
-            MainRepository.getService().uploadImageApi(part).enqueue(new Callback<status>() {
-                @Override
-                public void onResponse(Call<status> call, Response<status> response) {
-                    status a = response.body();
-                    if (a != null) {
-                        if(a.getCode()==1) {
-                            Log.d("ddlogesh", a.getMessage());
-                            SharedPref.putString(getApplicationContext(),"profile_file_name","user-images/"+imageFile.getName());
-                            uploadResume();
-                        }
-                        else{
-                            Log.d("ddlogesh", a.getMessage());
-                            pcircle.setVisibility(View.GONE);
-                            tv_signup.setEnabled(true);
-                            CommonUtils.setSnackBar(getWindow().getDecorView(), "Profile picture uploading failed", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                        }
-                    }
-                    else {
-                        Log.d("ddlogesh", "Failed");
-                        pcircle.setVisibility(View.GONE);
-                        tv_signup.setEnabled(true);
-                        CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<status> call, Throwable t) {
-                    Log.d("ddlogesh", "Nope: " + t.getMessage());
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                    pcircle.setVisibility(View.GONE);
-                    tv_signup.setEnabled(true);
-                }
-            });
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            Log.d("ddlogesh",e.getMessage());
-            CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-            pcircle.setVisibility(View.GONE);
-            tv_signup.setEnabled(true);
-        }
-    }
-
-    private void uploadResume(){
-        final File chosen_file=new File(SharedPref.getString(getApplicationContext(),"file_chosen"));
-        RequestBody fileReqBody = RequestBody.create(MediaType.parse("*/*"), chosen_file);
-        MultipartBody.Part part = MultipartBody.Part.createFormData("file", chosen_file.getName(), fileReqBody);
-
-        MainRepository.getService().uploadResumeApi(part).enqueue(new Callback<status>() {
-            @Override
-            public void onResponse(Call<status> call, Response<status> response) {
-                status a = response.body();
-                if (a != null) {
-                    if(a.getCode()==1) {
-                        SharedPref.putString(getApplicationContext(), "resume_file_name", chosen_file.getName());
-                        Log.d("ddlogesh", a.getMessage());
-
-                        jobseekers j = new jobseekers();
-                        j.setUser_id(SharedPref.getInt(getApplicationContext(), "user_id"));
-                        j.setFname(ev_first_name1.getEditableText().toString());
-                        j.setLname(ev_last_name1.getEditableText().toString());
-                        j.setEmail(ev_email.getEditableText().toString());
-                        j.setLocation(ev_location.getEditableText().toString());
-                        j.setSkills(ev_skills.getEditableText().toString());
-                        j.setPhNumber(ev_mobile.getEditableText().toString());
-                        j.setYearofpassing(sp_year_passing.getSelectedItem().toString());
-                        j.setPicture(SharedPref.getString(getApplicationContext(),"profile_file_name"));
-                        j.setResumename(SharedPref.getString(getApplicationContext(),"resume_file_name"));
-                        j.setResume(getFileContents());
-
-                        String ex_split[] = sp_experience.getSelectedItem().toString().split(" ");
-                        j.setExperience(ex_split[0]);
-
-                        String str = sp_qualification.getSelectedItem().toString();
-                        if (str.startsWith("U"))
-                            str = "UG";
-                        else if (str.equals("Ph.D"))
-                            str = "PhD";
-                        else
-                            str = "PG";
-                        j.setQualification(str);
-
-                        signupApi(j);
-                    }
-                    else{
-                        Log.d("ddlogesh", "Failed");
-                        pcircle.setVisibility(View.GONE);
-                        tv_signup.setEnabled(true);
-                        CommonUtils.setSnackBar(getWindow().getDecorView(), "Resume uploading failed", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                    }
-                }
-                else {
-                    Log.d("ddlogesh", "Failed");
-                    pcircle.setVisibility(View.GONE);
-                    tv_signup.setEnabled(true);
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<status> call, Throwable t) {
-                Log.d("ddlogesh", "Nope: " + t.getMessage());
-                pcircle.setVisibility(View.GONE);
-                tv_signup.setEnabled(true);
-                CommonUtils.setSnackBar(getWindow().getDecorView(), "Server error, please try again later!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-            }
-        });
-    }
-
     private void signupApi(final jobseekers j){
-
         MainRepository.getService().signupApi(j).enqueue(new Callback<status>() {
             @Override
             public void onResponse(Call<status> call, Response<status> response) {
                 status a=response.body();
                 if(a!=null) {
                     if(a.getMessage().equals("Successfully inserted")){
+                        SharedPref.putInt(getApplicationContext(),"user_id",j.getUser_id());
                         SharedPref.putInt(getApplicationContext(),"user_role",flag);
                         SharedPref.putString(getApplicationContext(),"user_name",j.getEmail());
                         SharedPref.putString(getApplicationContext(),"f_name",j.getFname());
                         SharedPref.putString(getApplicationContext(),"l_name",j.getLname());
                         SharedPref.putBoolean(getApplicationContext(),"is_logged_in",true);
                         SharedPref.putInt(getApplicationContext(),"js_user_id",a.getCode());
+
+                        String[] keys={"profile_file_name","ev_skills","ev_mobile","ev_location","ev_email","ev_last_name1","ev_first_name1","resume_file_content","resume_file_name","profile_file_name"};
+                        for(int i=0;i<keys.length;i++)
+                            SharedPref.remove(getApplicationContext(),keys[i]);
+
+                        Log.d("ddlogesh", a.getMessage());
 
                         pcircle.setVisibility(View.GONE);
                         startActivity(new Intent(getApplicationContext(), tour.class));
@@ -637,13 +642,64 @@ public class signup extends AppCompatActivity {
     /************************************************************************************/
 
     @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (ev_first_name1.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"ev_first_name1",ev_first_name1.getEditableText().toString().trim());
+        if (ev_last_name1.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"ev_last_name1",ev_last_name1.getEditableText().toString().trim());
+        if (ev_email.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"ev_email",ev_email.getEditableText().toString().trim());
+        if (ev_location.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"ev_location",ev_location.getEditableText().toString().trim());
+        if (ev_mobile.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"ev_mobile",ev_mobile.getEditableText().toString().trim());
+        if (ev_skills.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"ev_skills",ev_skills.getEditableText().toString().trim());
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
 
-        if(CommonUtils.getImage()!=null) {
-            iv_profile.setImageBitmap(CommonUtils.getImage());
-            iv_profile.setBorderWidth(5);
-            iv_profile.setBorderColor(Color.parseColor("#ff33adff"));
+        if (SharedPref.getString(getApplicationContext(),"ev_first_name1") != null)
+            ev_first_name1.setText(SharedPref.getString(getApplicationContext(),"ev_first_name1"));
+        if (SharedPref.getString(getApplicationContext(),"ev_last_name1") != null)
+            ev_last_name1.setText(SharedPref.getString(getApplicationContext(),"ev_last_name1"));
+        if (SharedPref.getString(getApplicationContext(),"ev_email") != null)
+            ev_email.setText(SharedPref.getString(getApplicationContext(),"ev_email"));
+        if (SharedPref.getString(getApplicationContext(),"ev_location") != null)
+            ev_location.setText(SharedPref.getString(getApplicationContext(),"ev_location"));
+        if (SharedPref.getString(getApplicationContext(),"ev_mobile") != null)
+            ev_mobile.setText(SharedPref.getString(getApplicationContext(),"ev_mobile"));
+        if (SharedPref.getString(getApplicationContext(),"ev_skills") != null)
+            ev_skills.setText(SharedPref.getString(getApplicationContext(),"ev_skills"));
+
+        String profile_status=SharedPref.getString(getApplicationContext(),"profile_file_name");
+        if(profile_status != null){
+            if(profile_status.equals(""))
+                uploadProfilePic();
+            else{
+                iv_profile.setBorderWidth(5);
+                iv_profile.setBorderColor(Color.parseColor("#ff33adff"));
+
+                File storageDir = getApplicationContext().getExternalCacheDir();
+                if (storageDir == null || !storageDir.exists()) {
+                    storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/.Analysed");
+                    if(!storageDir.exists())
+                        storageDir.mkdirs();
+                }
+                File cacheFile = new File(storageDir,"profile.jpg");
+                Bitmap bitmap = BitmapFactory.decodeFile(cacheFile.getPath());
+                iv_profile.setImageBitmap(bitmap);
+            }
+        }
+
+        String resume_status=SharedPref.getString(getApplicationContext(),"resume_file_name");
+        if(resume_status != null){
+            Drawable img = getResources().getDrawable(R.drawable.ic_tick_white);
+            tv_resume.setCompoundDrawablesWithIntrinsicBounds(null, null, img, null);
         }
     }
 
