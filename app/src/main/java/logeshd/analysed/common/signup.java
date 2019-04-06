@@ -89,7 +89,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
     ImageView iv_job_seekers,iv_recruiter,iv_edit;
     TextView tab_login,tab_signup,tv_role,tv_signup,tv_terms1,tv_terms2,tv_tour,tv_resume;
     Spinner sp_qualification,sp_year_passing,sp_experience;
-    int flag=0;
+    int flag=-1;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
