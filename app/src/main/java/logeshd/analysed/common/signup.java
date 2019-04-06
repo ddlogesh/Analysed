@@ -97,12 +97,12 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
         pcircle = (AVLoadingIndicatorView) findViewById(R.id.pcircle);
         iv_profile=(CircleImageView)findViewById(R.id.iv_profile);
-        tv_tour = (TextView) findViewById(R.id.tv_tour);
-        tv_resume = (TextView) findViewById(R.id.tv_resume);
-        tv_signup = (TextView) findViewById(R.id.tv_signup);
+        tv_tour = (TextView) findViewById(R.id.tv_tour);        tv_tour.setOnClickListener(this);
+        tv_resume = (TextView) findViewById(R.id.tv_resume);    tv_resume.setOnClickListener(this);
+        tv_signup = (TextView) findViewById(R.id.tv_signup);    tv_signup.setOnClickListener(this);
         tv_terms1 = (TextView) findViewById(R.id.tv_terms1);
-        tv_terms2 = (TextView) findViewById(R.id.tv_terms2);
-        tab_login = (TextView) findViewById(R.id.tab_login);
+        tv_terms2 = (TextView) findViewById(R.id.tv_terms2);    tv_terms2.setOnClickListener(this);
+        tab_login = (TextView) findViewById(R.id.tab_login);    tab_login.setOnClickListener(this);
         tab_signup = (TextView) findViewById(R.id.tab_signup);
         tv_role = (TextView) findViewById(R.id.tv_role);
         
@@ -115,9 +115,9 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         ev_password1 = (EditText) findViewById(R.id.ev_password1);
         ev_password2 = (EditText) findViewById(R.id.ev_password2);
         
-        iv_job_seekers = (ImageView) findViewById(R.id.iv_job_seekers);
-        iv_recruiter = (ImageView) findViewById(R.id.iv_recruiter);
-        iv_edit = (ImageView) findViewById(R.id.iv_edit);
+        iv_job_seekers = (ImageView) findViewById(R.id.iv_job_seekers); iv_job_seekers.setOnClickListener(this);
+        iv_recruiter = (ImageView) findViewById(R.id.iv_recruiter);     iv_recruiter.setOnClickListener(this);
+        iv_edit = (ImageView) findViewById(R.id.iv_edit);               iv_edit.setOnClickListener(this);
 
         Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
@@ -143,92 +143,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
         tv_terms2.setPaintFlags(tv_terms2.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tv_tour.setPaintFlags(tv_tour.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-    }
-
-    /************************************************************************************/
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_tour:
-                startActivity(new Intent(getApplicationContext(), takeTour.class));
-                Bungee.slideRight(signup.this);
-                break;
-
-            case R.id.tab_login:
-                startActivity(new Intent(getApplicationContext(), login.class));
-                Bungee.slideLeft(signup.this);
-                break;
-
-            case R.id.tv_terms2:
-                startActivity(new Intent(getApplicationContext(), terms.class));
-                Bungee.slideUp(signup.this);
-                break;
-
-            case R.id.iv_edit:
-                if ((ContextCompat.checkSelfPermission(signup.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(signup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
-                    startActivityForResult(CommonUtils.getPickImageChooserIntent(getApplicationContext()),200);
-                else
-                    ActivityCompat.requestPermissions(signup.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
-                break;
-
-            case R.id.tv_resume:
-                if ((ContextCompat.checkSelfPermission(signup.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(signup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
-                    filePicker();
-                else
-                    ActivityCompat.requestPermissions(signup.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 201);
-                break;
-
-            case R.id.iv_job_seekers:
-                ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
-                ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
-                tv_resume.setVisibility(View.VISIBLE);
-                tv_signup.setEnabled(true);
-                flag=0;
-                break;
-
-            case R.id.iv_recruiter:
-                ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
-                ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
-                tv_signup.setEnabled(true);
-                flag=1;
-                break;
-
-            case R.id.tv_signup:
-                if (ev_first_name1.getEditableText().toString().trim().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "First name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_last_name1.getEditableText().toString().trim().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Last name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if ((sp_qualification.getSelectedItem().toString()).equals("Qualification"))
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Select qualification", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if ((sp_year_passing.getSelectedItem().toString()).equals("Year Of Passing"))
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Select year of passing", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if ((sp_experience.getSelectedItem().toString()).equals("Experience"))
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Select experience", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_email.getEditableText().toString().trim().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Email id cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_location.getEditableText().toString().trim().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Location cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_mobile.getEditableText().toString().trim().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Mobile number cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_skills.getEditableText().toString().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Skills cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_password1.getEditableText().toString().trim().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Password cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_password2.getEditableText().toString().trim().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Confirm password cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (!((ev_password1.getEditableText().toString().trim()).equals(ev_password2.getEditableText().toString().trim())))
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Password & confirm passwords should be the same", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if(SharedPref.getString(getApplicationContext(),"resume_file_name") == null)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your resume", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if(SharedPref.getString(getApplicationContext(),"profile_file_name") == null || !SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("user"))
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your profile picture", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if(startProgress()) {
-                    users u=new users(ev_email.getEditableText().toString().trim(),ev_password1.getEditableText().toString().trim(),Integer.toString(flag),1);
-                    checkForSignupApi(u);
-                }
-                break;
-        }
     }
 
     /************************************************************************************/
@@ -640,6 +554,90 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
     }
 
     /************************************************************************************/
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_tour:
+                startActivity(new Intent(getApplicationContext(), takeTour.class));
+                Bungee.slideRight(signup.this);
+                break;
+
+            case R.id.tab_login:
+                startActivity(new Intent(getApplicationContext(), login.class));
+                Bungee.slideLeft(signup.this);
+                break;
+
+            case R.id.tv_terms2:
+                startActivity(new Intent(getApplicationContext(), terms.class));
+                Bungee.slideUp(signup.this);
+                break;
+
+            case R.id.iv_edit:
+                if ((ContextCompat.checkSelfPermission(signup.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(signup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
+                    startActivityForResult(CommonUtils.getPickImageChooserIntent(getApplicationContext()),200);
+                else
+                    ActivityCompat.requestPermissions(signup.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
+                break;
+
+            case R.id.tv_resume:
+                if ((ContextCompat.checkSelfPermission(signup.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(signup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
+                    filePicker();
+                else
+                    ActivityCompat.requestPermissions(signup.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 201);
+                break;
+
+            case R.id.iv_job_seekers:
+                ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
+                ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
+                tv_resume.setVisibility(View.VISIBLE);
+                tv_signup.setEnabled(true);
+                flag=0;
+                break;
+
+            case R.id.iv_recruiter:
+                ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
+                ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
+                tv_signup.setEnabled(true);
+                flag=1;
+                break;
+
+            case R.id.tv_signup:
+                if (ev_first_name1.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "First name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (ev_last_name1.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Last name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if ((sp_qualification.getSelectedItem().toString()).equals("Qualification"))
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Select qualification", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if ((sp_year_passing.getSelectedItem().toString()).equals("Year Of Passing"))
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Select year of passing", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if ((sp_experience.getSelectedItem().toString()).equals("Experience"))
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Select experience", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (ev_email.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Email id cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (ev_location.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Location cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (ev_mobile.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Mobile number cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (ev_skills.getEditableText().toString().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Skills cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (ev_password1.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Password cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (ev_password2.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Confirm password cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (!((ev_password1.getEditableText().toString().trim()).equals(ev_password2.getEditableText().toString().trim())))
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Password & confirm passwords should be the same", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if(SharedPref.getString(getApplicationContext(),"resume_file_name") == null)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your resume", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if(SharedPref.getString(getApplicationContext(),"profile_file_name") == null || !SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("user"))
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your profile picture", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if(startProgress()) {
+                    users u=new users(ev_email.getEditableText().toString().trim(),ev_password1.getEditableText().toString().trim(),Integer.toString(flag),1);
+                    checkForSignupApi(u);
+                }
+                break;
+        }
+    }
 
     @Override
     protected void onPause() {

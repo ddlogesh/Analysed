@@ -1,10 +1,12 @@
 package logeshd.analysed.service;
 
+import java.util.List;
+
+import logeshd.analysed.apis.databases;
 import logeshd.analysed.apis.jobseekers;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.users;
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -41,4 +43,9 @@ public interface MainService {
     @Multipart
     @POST("js/resumeUpload.php")
     Call<status> uploadResumeApi(@Part MultipartBody.Part file);
+
+    @GET("js/database.php")
+    Call<List<databases>> getDatabase(@Query("username") String username);
+
+
 }

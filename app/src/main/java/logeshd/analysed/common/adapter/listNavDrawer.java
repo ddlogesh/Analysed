@@ -1,4 +1,4 @@
-package logeshd.analysed.jobSeeker.adapter;
+package logeshd.analysed.common.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

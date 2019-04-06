@@ -93,6 +93,16 @@
             android:background="@drawable/search_button" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No data Found!"
+        android:textStyle="bold"
+        android:textSize="@dimen/_20ssp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
     <ListView
         android:id="@+id/lv_database"
         android:layout_width="wrap_content"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_65sdp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_profile"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
@@ -49,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_name"
                 android:paddingTop="@dimen/_2sdp"
+                android:singleLine="true"
                 android:text="App Developer"
                 android:textColor="#ffaca9a9"
                 android:textSize="@dimen/_10ssp" />
@@ -62,7 +63,7 @@
             android:layout_centerVertical="true">
 
             <TextView
-                android:id="@+id/tv_resume"
+                android:id="@+id/tv_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -71,16 +72,17 @@
                 android:paddingTop="@dimen/_1sdp"
                 android:paddingRight="@dimen/_6sdp"
                 android:paddingBottom="@dimen/_1sdp"
-                android:textColor="#07CC07"
+                android:textColor="#FF518ADB"
                 android:textStyle="bold"
-                android:text="APPLIED"
+                android:visibility="gone"
+                android:text="VIEW"
                 android:textSize="@dimen/_10ssp" />
 
             <ImageView
                 android:id="@id/iv_next"
                 android:layout_width="@dimen/_22sdp"
                 android:layout_height="@dimen/_22sdp"
-                android:layout_toEndOf="@+id/tv_resume"
+                android:layout_toEndOf="@+id/tv_view"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:src="@drawable/ic_right_arrow" />
