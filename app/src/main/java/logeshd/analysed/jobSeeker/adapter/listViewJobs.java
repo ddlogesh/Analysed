@@ -100,10 +100,14 @@ public class listViewJobs extends ArrayAdapter<joblistings> {
                 tv_timings.setText(p.getJob_time());
                 tv_desc.setText(p.getJob_description());
 
-                if(p.getEndon()==null)
+                if(p.getEndon()==null) {
+                    tv_share.setVisibility(View.VISIBLE);
                     tv_close.setVisibility(View.VISIBLE);
-                else
+                }
+                else {
+                    tv_share.setVisibility(View.GONE);
                     tv_close.setVisibility(View.GONE);
+                }
 
                 iv_cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
