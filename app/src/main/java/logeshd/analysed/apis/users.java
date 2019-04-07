@@ -21,7 +21,7 @@ public class users {
     @SerializedName("UserRole")
     private String UserRole;
 
-    @SerializedName("reume")
+    @SerializedName("resume")
     private String resume;
 
     @SerializedName("verified")

@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,10 +14,9 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".tester"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -99,7 +98,7 @@
             android:name=".recruiter.viewSkills"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".recruiter.viewTasksStatus"
+            android:name=".recruiter.viewTasks"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.multiSelect"
@@ -114,11 +113,11 @@
             android:name=".events"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".viewChallengeStatus"
+            android:name=".recruiter.viewChallenges"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.profilePic"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

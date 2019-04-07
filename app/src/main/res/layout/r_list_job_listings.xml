@@ -87,7 +87,7 @@
             android:layout_marginRight="@dimen/_5sdp"
             android:text="UI Designer"
             android:singleLine="true"
-            android:textColor="#ff000000"
+            android:textColor="#000000"
             android:textSize="@dimen/_12ssp" />
 
         <TextView

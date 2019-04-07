@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import logeshd.analysed.R;
 import logeshd.analysed.recruiter.adapter.listCreateTask;
 import logeshd.analysed.classes.drawer;
+import logeshd.analysed.utils.SharedPref;
 
 public class createChallenge extends AppCompatActivity {
 
@@ -42,8 +43,7 @@ public class createChallenge extends AppCompatActivity {
         iv_home.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(), dashboard.class);
-                startActivity(i1);
+                onBackPressed();
             }
         });
 

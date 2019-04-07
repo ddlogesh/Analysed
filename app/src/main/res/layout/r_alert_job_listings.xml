@@ -47,9 +47,35 @@
             android:textColor="#FF518ADB"
             android:textSize="@dimen/_12ssp"/>
 
+        <TextView
+            android:id="@+id/tv_desc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_position"
+            android:text="Description"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:textSize="@dimen/_12ssp"/>
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_desc1"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="@dimen/_6sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingRight="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:textStyle="bold"
+            android:background="@drawable/text_bg_pink_curve_less_corner"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="#FF518ADB"
+            android:textSize="@dimen/_12ssp"/>
+
         <LinearLayout
             android:id="@+id/layout0"
-            android:layout_below="@+id/tv_position"
+            android:layout_below="@+id/tv_desc"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -164,35 +190,9 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_skill1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/layout0"
-            android:text="Skills Required"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:textSize="@dimen/_12ssp"/>
-
-        <TextView
-            android:id="@+id/tv_skill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_skill1"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="@dimen/_6sdp"
-            android:paddingTop="@dimen/_2sdp"
-            android:paddingRight="@dimen/_6sdp"
-            android:paddingBottom="@dimen/_2sdp"
-            android:textStyle="bold"
-            android:background="@drawable/text_bg_pink_curve_less_corner"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:textColor="#FF518ADB"
-            android:textSize="@dimen/_12ssp"/>
-
         <LinearLayout
             android:id="@+id/layout1"
-            android:layout_below="@+id/tv_skill"
+            android:layout_below="@+id/layout0"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -271,20 +271,20 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_desc1"
+            android:id="@+id/tv_skill1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout1"
-            android:text="Description"
+            android:text="Skills Required"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_7sdp"
             android:textSize="@dimen/_12ssp"/>
 
         <TextView
-            android:id="@+id/tv_desc"
+            android:id="@+id/tv_skill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_desc1"
+            android:layout_below="@+id/tv_skill1"
             android:layout_centerHorizontal="true"
             android:paddingLeft="@dimen/_6sdp"
             android:paddingTop="@dimen/_2sdp"
@@ -306,7 +306,7 @@
             android:paddingTop="@dimen/_3sdp"
             android:paddingRight="@dimen/_20sdp"
             android:paddingBottom="@dimen/_3sdp"
-            android:layout_below="@+id/tv_desc"
+            android:layout_below="@+id/tv_skill"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:text="Share job"

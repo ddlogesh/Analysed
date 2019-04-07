@@ -18,6 +18,7 @@ import logeshd.analysed.R;
 import logeshd.analysed.common.adapter.listReferral;
 import logeshd.analysed.classes.contact;
 import logeshd.analysed.recruiter.dashboard;
+import logeshd.analysed.utils.SharedPref;
 
 public class referral extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class referral extends AppCompatActivity {
         setContentView((int) R.layout.c_referral);
 
         ListView l1 = (ListView) findViewById(R.id.list_contact);
-        final ArrayList<contact> arr = new ArrayList();
+        final ArrayList<contact> arr = new ArrayList<contact>();
         final listReferral adapter = new listReferral(this, arr);
         adapter.clear();
         adapter.add(new contact("Logesh D", "9881294512", false));
@@ -34,6 +35,9 @@ public class referral extends AppCompatActivity {
         adapter.add(new contact("Sagar D", "9881294512", false));
         adapter.add(new contact("Vivek D", "9881294512", false));
         l1.setAdapter(adapter);
+
+        TextView tv_refer_code=findViewById(R.id.tv_refer_code);
+        tv_refer_code.setText(SharedPref.getString(getApplicationContext(),"referal"));
 
         ((TextView) findViewById(R.id.tv_invite)).setOnClickListener(new OnClickListener() {
             @Override

@@ -32,7 +32,8 @@ import retrofit2.Response;
 public class jobListings extends AppCompatActivity implements View.OnClickListener {
 
     AVLoadingIndicatorView pcircle;
-    TextView tv_no_data,tv_ongoing,tv_completed;
+    TextView tv_no_data,tv_ongoing,tv_completed,tv_title,tv_invite;
+    ImageView iv_home;
     ListView l1;
     static int flag=1;
 
@@ -47,8 +48,9 @@ public class jobListings extends AppCompatActivity implements View.OnClickListen
         tv_ongoing=findViewById(R.id.tv_ongoing);       tv_ongoing.setOnClickListener(this);
         tv_completed=findViewById(R.id.tv_completed);   tv_completed.setOnClickListener(this);
 
-        TextView tv_title = (TextView) findViewById(R.id.tv_title);
-        TextView tv_invite = (TextView) findViewById(R.id.tv_invite);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        tv_invite = (TextView) findViewById(R.id.tv_invite);
+        iv_home = (ImageView) findViewById(R.id.iv_home);   iv_home.setOnClickListener(this);
 
         Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
@@ -60,8 +62,11 @@ public class jobListings extends AppCompatActivity implements View.OnClickListen
     }
 
     private void getList(){
+        tv_no_data.setVisibility(View.GONE);
         l1.setVisibility(View.GONE);
         pcircle.setVisibility(View.VISIBLE);
+        tv_ongoing.setEnabled(false);
+        tv_completed.setEnabled(false);
 
         MainRepository.getService().getJobListings(SharedPref.getString(getApplicationContext(),"user_name")).enqueue(new Callback<List<joblistings>>() {
             @Override
@@ -94,6 +99,8 @@ public class jobListings extends AppCompatActivity implements View.OnClickListen
                 }
 
                 pcircle.setVisibility(View.GONE);
+                tv_ongoing.setEnabled(true);
+                tv_completed.setEnabled(true);
             }
 
             @Override
@@ -102,34 +109,56 @@ public class jobListings extends AppCompatActivity implements View.OnClickListen
                 l1.setVisibility(View.GONE);
                 tv_no_data.setVisibility(View.VISIBLE);
                 pcircle.setVisibility(View.GONE);
+                tv_ongoing.setEnabled(true);
+                tv_completed.setEnabled(true);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (SharedPref.getBoolean(getApplicationContext(), "is_task"))
+            tv_title.setText("Choose a job");
+        else
+            tv_title.setText("Jobs Posted");
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_ongoing:
-                tv_ongoing.setTextColor(Color.parseColor("#ffffff"));
-                tv_completed.setTextColor(Color.parseColor("#74fdf4f4"));
-                flag=1;
-                getList();
+                if(flag==2) {
+                    tv_ongoing.setTextColor(Color.parseColor("#ffffff"));
+                    tv_completed.setTextColor(Color.parseColor("#74fdf4f4"));
+                    flag = 1;
+                    getList();
+                }
                 break;
             case R.id.tv_completed:
-                tv_ongoing.setTextColor(Color.parseColor("#74fdf4f4"));
-                tv_completed.setTextColor(Color.parseColor("#ffffff"));
-                flag=2;
-                getList();
+                if(flag==1) {
+                    tv_ongoing.setTextColor(Color.parseColor("#74fdf4f4"));
+                    tv_completed.setTextColor(Color.parseColor("#ffffff"));
+                    flag = 2;
+                    getList();
+                }
                 break;
             case R.id.iv_home:
-                startActivity(new Intent(getApplicationContext(), dashboard.class));
+                onBackPressed();
                 break;
         }
     }
-}
 
-/*
-/var/www/analysed.in/analysed/webservices/js
-/var/www/analysed.in/analysed/Pages/jobseeker/images
-/var/www/analysed.in/analysed/Pages/jobseeker/documents
- */
+    @Override
+    public void onBackPressed() {
+        try {
+            SharedPref.remove(getApplicationContext(), "is_task");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        super.onBackPressed();
+    }
+}

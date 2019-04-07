@@ -351,7 +351,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                             iv_profile.setImageBitmap(bitmap);
                             pcircle.setVisibility(View.GONE);
                             iv_edit.setEnabled(true);
-                            //uploadResume();
                         }
                         else {
                             Log.d("ddlogesh", a.getMessage());
@@ -511,20 +510,24 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                 if(a!=null) {
                     if(a.getMessage().equals("Successfully inserted")){
                         SharedPref.putInt(getApplicationContext(),"user_id",j.getUser_id());
-                        SharedPref.putInt(getApplicationContext(),"user_role",flag);
                         SharedPref.putString(getApplicationContext(),"user_name",j.getEmail());
+                        SharedPref.putInt(getApplicationContext(),"user_role",flag);
+                        SharedPref.putInt(getApplicationContext(),"id",j.getId());
                         SharedPref.putString(getApplicationContext(),"f_name",j.getFname());
                         SharedPref.putString(getApplicationContext(),"l_name",j.getLname());
-                        SharedPref.putBoolean(getApplicationContext(),"is_logged_in",true);
-                        SharedPref.putInt(getApplicationContext(),"js_user_id",a.getCode());
+                        SharedPref.putString(getApplicationContext(),"phone",j.getPhNumber());
+                        SharedPref.putString(getApplicationContext(), "location", j.getLocation());
+                        SharedPref.putString(getApplicationContext(), "referal", j.getReferal());
 
-                        String[] keys={"profile_file_name","ev_skills","ev_mobile","ev_location","ev_email","ev_last_name1","ev_first_name1","resume_file_content","resume_file_name","profile_file_name"};
+                        String[] keys={"profile_file_name","ev_skills","ev_email","resume_file_content","resume_file_name"};
                         for(int i=0;i<keys.length;i++)
                             SharedPref.remove(getApplicationContext(),keys[i]);
 
                         Log.d("ddlogesh", a.getMessage());
 
+                        SharedPref.putBoolean(getApplicationContext(),"is_logged_in",true);
                         pcircle.setVisibility(View.GONE);
+
                         startActivity(new Intent(getApplicationContext(), tour.class));
                         Bungee.inAndOut(signup.this);
                     }
@@ -644,15 +647,15 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         super.onPause();
 
         if (ev_first_name1.getEditableText().toString().trim().length() > 0)
-            SharedPref.putString(getApplicationContext(),"ev_first_name1",ev_first_name1.getEditableText().toString().trim());
+            SharedPref.putString(getApplicationContext(),"f_name",ev_first_name1.getEditableText().toString().trim());
         if (ev_last_name1.getEditableText().toString().trim().length() > 0)
-            SharedPref.putString(getApplicationContext(),"ev_last_name1",ev_last_name1.getEditableText().toString().trim());
+            SharedPref.putString(getApplicationContext(),"l_name",ev_last_name1.getEditableText().toString().trim());
         if (ev_email.getEditableText().toString().trim().length() > 0)
             SharedPref.putString(getApplicationContext(),"ev_email",ev_email.getEditableText().toString().trim());
         if (ev_location.getEditableText().toString().trim().length() > 0)
-            SharedPref.putString(getApplicationContext(),"ev_location",ev_location.getEditableText().toString().trim());
+            SharedPref.putString(getApplicationContext(),"location",ev_location.getEditableText().toString().trim());
         if (ev_mobile.getEditableText().toString().trim().length() > 0)
-            SharedPref.putString(getApplicationContext(),"ev_mobile",ev_mobile.getEditableText().toString().trim());
+            SharedPref.putString(getApplicationContext(),"phone",ev_mobile.getEditableText().toString().trim());
         if (ev_skills.getEditableText().toString().trim().length() > 0)
             SharedPref.putString(getApplicationContext(),"ev_skills",ev_skills.getEditableText().toString().trim());
     }
@@ -661,16 +664,16 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
     protected void onResume() {
         super.onResume();
 
-        if (SharedPref.getString(getApplicationContext(),"ev_first_name1") != null)
-            ev_first_name1.setText(SharedPref.getString(getApplicationContext(),"ev_first_name1"));
-        if (SharedPref.getString(getApplicationContext(),"ev_last_name1") != null)
-            ev_last_name1.setText(SharedPref.getString(getApplicationContext(),"ev_last_name1"));
+        if (SharedPref.getString(getApplicationContext(),"f_name") != null)
+            ev_first_name1.setText(SharedPref.getString(getApplicationContext(),"f_name"));
+        if (SharedPref.getString(getApplicationContext(),"l_name") != null)
+            ev_last_name1.setText(SharedPref.getString(getApplicationContext(),"l_name"));
         if (SharedPref.getString(getApplicationContext(),"ev_email") != null)
             ev_email.setText(SharedPref.getString(getApplicationContext(),"ev_email"));
-        if (SharedPref.getString(getApplicationContext(),"ev_location") != null)
-            ev_location.setText(SharedPref.getString(getApplicationContext(),"ev_location"));
-        if (SharedPref.getString(getApplicationContext(),"ev_mobile") != null)
-            ev_mobile.setText(SharedPref.getString(getApplicationContext(),"ev_mobile"));
+        if (SharedPref.getString(getApplicationContext(),"location") != null)
+            ev_location.setText(SharedPref.getString(getApplicationContext(),"location"));
+        if (SharedPref.getString(getApplicationContext(),"phone") != null)
+            ev_mobile.setText(SharedPref.getString(getApplicationContext(),"phone"));
         if (SharedPref.getString(getApplicationContext(),"ev_skills") != null)
             ev_skills.setText(SharedPref.getString(getApplicationContext(),"ev_skills"));
 

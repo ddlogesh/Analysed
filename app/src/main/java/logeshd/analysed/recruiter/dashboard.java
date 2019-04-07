@@ -3,7 +3,6 @@ package logeshd.analysed.recruiter;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,11 +10,10 @@ import android.os.Environment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,9 +32,7 @@ import logeshd.analysed.common.login;
 import logeshd.analysed.common.feedback;
 import logeshd.analysed.jobSeeker.viewProfile;
 import logeshd.analysed.common.referral;
-import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
-import logeshd.analysed.viewChallengeStatus;
 
 public class dashboard extends AppCompatActivity implements View.OnClickListener{
 
@@ -49,6 +45,8 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.r_dashboard);
+
+        Log.d("ddlogesh","cam here3");
 
         iv_dash_card = (ImageView) findViewById(R.id.iv_dash_card);
         iv_menu = (ImageView) findViewById(R.id.iv_menu);           iv_menu.setOnClickListener(this);
@@ -88,12 +86,14 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                 File cacheFile = new File(storageDir, "profile.jpg");
                 Bitmap bitmap = BitmapFactory.decodeFile(cacheFile.getPath());
                 iv_dp.setImageBitmap(bitmap);
+                Log.d("ddlogesh","cam here4");
             }
             catch (Exception e){
                 //TODO:
                 //if profile_image from cache directory removed
                 //handle by giving request & downloading from server
                 e.printStackTrace();
+                Log.d("ddlogesh","cam here5: "+e.getMessage());
             }
 
             ListView l1 = (ListView) findViewById(R.id.list_slidermenu);
@@ -126,9 +126,9 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                     else if (data.equals("Resume Sorting Tool"))
                         startActivity(new Intent(dashboard.this.getApplicationContext(), resumeSortingTool.class));
                     else if (data.equals("Tasks"))
-                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewTasksStatus.class));
+                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewTasks.class));
                     else if (data.equals("Challenges"))
-                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewChallengeStatus.class));
+                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewChallenges.class));
                     else if (data.equals("Share Profile"))
                         startActivity(new Intent(dashboard.this.getApplicationContext(), shareProfile.class));
                     else if (data.equals("Referral"))
@@ -136,7 +136,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                     else if (data.equals("About Us"))
                         startActivity(new Intent(dashboard.this.getApplicationContext(), aboutOrganization.class));
                     else if (data.equals("Sign Out")) {
-                        SharedPref.putBoolean(getApplicationContext(),"is_logged_in",false);
+                        SharedPref.removeAll(getApplicationContext());
                         startActivity(new Intent(dashboard.this.getApplicationContext(), login.class));
                     }
                 }

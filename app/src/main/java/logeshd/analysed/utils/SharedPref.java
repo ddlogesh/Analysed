@@ -36,4 +36,8 @@ public class SharedPref {
     public static void remove(Context context,String key){
         getSharePref(context).edit().remove(key).apply();
     }
+
+    public static void removeAll(Context context){
+        getSharePref(context).edit().clear().apply();
+    }
 }

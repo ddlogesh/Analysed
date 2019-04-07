@@ -1,6 +1,5 @@
 package logeshd.analysed.jobSeeker;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -32,9 +31,9 @@ import logeshd.analysed.recruiter.jobListings;
 import logeshd.analysed.recruiter.resumeSortingTool;
 import logeshd.analysed.recruiter.shareProfile;
 import logeshd.analysed.recruiter.startHiring0;
-import logeshd.analysed.recruiter.viewTasksStatus;
+import logeshd.analysed.recruiter.viewTasks;
 import logeshd.analysed.utils.SharedPref;
-import logeshd.analysed.viewChallengeStatus;
+import logeshd.analysed.recruiter.viewChallenges;
 
 public class dashboard extends AppCompatActivity implements View.OnClickListener{
 
@@ -105,9 +104,9 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                     else if (data.equals("Resume Sorting Tool"))
                         startActivity(new Intent(dashboard.this.getApplicationContext(), resumeSortingTool.class));
                     else if (data.equals("Tasks"))
-                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewTasksStatus.class));
+                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewTasks.class));
                     else if (data.equals("Challenges"))
-                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewChallengeStatus.class));
+                        startActivity(new Intent(dashboard.this.getApplicationContext(), viewChallenges.class));
                     else if (data.equals("Share Profile"))
                         startActivity(new Intent(dashboard.this.getApplicationContext(), shareProfile.class));
                     else if (data.equals("Referral"))

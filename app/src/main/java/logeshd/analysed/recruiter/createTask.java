@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -19,8 +20,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import logeshd.analysed.R;
+import logeshd.analysed.apis.jobseekers;
 import logeshd.analysed.recruiter.adapter.listCreateTask;
 import logeshd.analysed.classes.drawer;
+import logeshd.analysed.service.MainRepository;
+import logeshd.analysed.service.MainService;
+import logeshd.analysed.utils.SharedPref;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class createTask extends AppCompatActivity {
 
@@ -29,31 +37,32 @@ public class createTask extends AppCompatActivity {
         setContentView((int) R.layout.r_create_task);
 
         final ListView l1 = (ListView) findViewById(R.id.create_task_tech_list);
-        ArrayList<drawer> arr = new ArrayList();
-        listCreateTask adapter = new listCreateTask(this, arr);
+        listCreateTask adapter = new listCreateTask(this, new ArrayList<drawer>());
         adapter.clear();
         adapter.add(new drawer("Technique1", "Hint1"));
         adapter.add(new drawer("Technique2", "Hint2"));
         l1.setAdapter(adapter);
 
         Spinner sp_speaker = (Spinner) findViewById(R.id.sp_speaker);
-        List<String> list1 = new ArrayList();
-        list1.add("Logesh");
-        list1.add("Vivek");
-        list1.add("Nandan");
+        List<String> list1 = new ArrayList<String>();
+        final int count = SharedPref.getInt(getApplicationContext(),"seekers_count");
+        for(int i=1;i<=count;i++){
+            list1.add(SharedPref.getString(getApplicationContext(),"seekers_name"+Integer.toString(i)));
+            SharedPref.getString(getApplicationContext(),"seekers_email"+Integer.toString(i));
+        }
         list1.add("Select speaker");
         ArrayAdapter<String> sp_adapter = new ArrayAdapter<String>(this, R.layout.t_spinner_item, list1) {
             public int getCount() {
-                return 3;
+                return count;
             }
         };
         sp_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_speaker.setAdapter(sp_adapter);
-        sp_speaker.setSelection(3);
+        sp_speaker.setSelection(count);
         sp_speaker.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 3) {
+                if (position != count) {
                     ((TextView) parent.getChildAt(0)).setTextColor(ViewCompat.MEASURED_STATE_MASK);
                 }
             }
@@ -75,8 +84,7 @@ public class createTask extends AppCompatActivity {
         iv_home.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(), dashboard.class);
-                startActivity(i1);
+                onBackPressed();
             }
         });
 
@@ -110,5 +118,15 @@ public class createTask extends AppCompatActivity {
         ev_duration.setTypeface(custom_font3);
         ev_ways.setTypeface(custom_font3);
         ev_hint.setTypeface(custom_font3);
+    }
+
+    @Override
+    public void onBackPressed() {
+        int count = SharedPref.getInt(getApplicationContext(),"seekers_count");
+        for(int i=1;i<=count;i++){
+            SharedPref.remove(getApplicationContext(),"seekers_name"+Integer.toString(i));
+            SharedPref.remove(getApplicationContext(),"seekers_email"+Integer.toString(i));
+        }
+        super.onBackPressed();
     }
 }

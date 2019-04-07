@@ -2,10 +2,13 @@ package logeshd.analysed.service;
 
 import java.util.List;
 
+import logeshd.analysed.apis.challenge;
 import logeshd.analysed.apis.databases;
 import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.apis.jobseekers;
+import logeshd.analysed.apis.userDetails;
 import logeshd.analysed.apis.status;
+import logeshd.analysed.apis.task;
 import logeshd.analysed.apis.users;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -29,7 +32,7 @@ public interface MainService {
     Call<status> uploader(@Body demo d);*/
 
     @GET("js/validateUser.php")
-    Call<users> loginApi(@Query("username") String username, @Query("password") String password);
+    Call<userDetails> loginApi(@Query("username") String username, @Query("password") String password);
 
     @POST("js/signup.php")
     Call<status> checkForSignupApi(@Body users u);
@@ -50,4 +53,13 @@ public interface MainService {
 
     @GET("js/joblisting.php")
     Call<List<joblistings>> getJobListings(@Query("username") String username);
+
+    @GET("js/r_viewTasks.php")
+    Call<List<task>> getAssignedTasks(@Query("username") String username);
+
+    @GET("js/createTasks.php")
+    Call<List<jobseekers>> getJobseekers(@Query("jobid") int jobid);
+
+    @GET("js/r_viewChallenges.php")
+    Call<List<challenge>> getAssignedChallenges(@Query("username") String username);
 }
