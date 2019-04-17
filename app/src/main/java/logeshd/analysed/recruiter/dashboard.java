@@ -17,22 +17,42 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
 import logeshd.analysed.aboutOrganization;
+import logeshd.analysed.apis.status;
 import logeshd.analysed.common.adapter.listNavDrawer;
 import logeshd.analysed.classes.drawer;
 import logeshd.analysed.common.login;
 import logeshd.analysed.common.feedback;
-import logeshd.analysed.jobSeeker.viewProfile;
+import logeshd.analysed.common.tour;
 import logeshd.analysed.common.referral;
+import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.SharedPref;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import spencerstudios.com.bungeelib.Bungee;
 
 public class dashboard extends AppCompatActivity implements View.OnClickListener{
 
@@ -45,8 +65,6 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.r_dashboard);
-
-        Log.d("ddlogesh","cam here3");
 
         iv_dash_card = (ImageView) findViewById(R.id.iv_dash_card);
         iv_menu = (ImageView) findViewById(R.id.iv_menu);           iv_menu.setOnClickListener(this);
@@ -70,10 +88,59 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
         tv_name.setTypeface(custom_font1);
     }
 
+    public class dpUpdate extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            MainRepository.getService().getProfilePicApi(SharedPref.getString(getApplicationContext(),"user_name"),"1").enqueue(new Callback<status>() {
+                @Override
+                public void onResponse(Call<status> call, Response<status> response) {
+                    status a=response.body();
+                    if(a!=null) {
+                        if (a.getCode()==1) {
+                            String url = "http://analysed.in/analysed/Pages/" + a.getMessage();
+                            Glide.with(dashboard.this).asBitmap().load(url).into(new SimpleTarget<Bitmap>() {
+                                @Override
+                                public void onResourceReady(Bitmap image, Transition<? super Bitmap> transition) {
+                                    File storageDir = getApplicationContext().getExternalCacheDir();
+                                    if (storageDir == null || !storageDir.exists()) {
+                                        storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/.Analysed");
+                                        if(!storageDir.exists())
+                                            storageDir.mkdirs();
+                                    }
+
+                                    try {
+                                        final File cacheFile = new File(storageDir, "profile.jpg");
+                                        iv_dp.setImageBitmap(image);
+                                        OutputStream fOut = new FileOutputStream(cacheFile);
+                                        image.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+                                        fOut.close();
+                                    }
+                                    catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<status> call, Throwable t) {
+                    Log.d("ddlogesh",t.getMessage());
+                    t.printStackTrace();
+                }
+            });
+            return null;
+        }
+    }
+
     public class updates extends AsyncTask<Void,Void,Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            dpUpdate dp=new dpUpdate();
             tv_name.setText(SharedPref.getString(getApplicationContext(),"f_name")+ " " + SharedPref.getString(getApplicationContext(),"l_name"));
 
             try {
@@ -84,16 +151,17 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                         storageDir.mkdirs();
                 }
                 File cacheFile = new File(storageDir, "profile.jpg");
-                Bitmap bitmap = BitmapFactory.decodeFile(cacheFile.getPath());
-                iv_dp.setImageBitmap(bitmap);
-                Log.d("ddlogesh","cam here4");
+                if(cacheFile.exists()) {
+                    Bitmap bitmap = BitmapFactory.decodeFile(cacheFile.getPath());
+                    iv_dp.setImageBitmap(bitmap);
+                }
+                else
+                    dp.execute();
             }
             catch (Exception e){
-                //TODO:
-                //if profile_image from cache directory removed
-                //handle by giving request & downloading from server
+                dp.execute();
                 e.printStackTrace();
-                Log.d("ddlogesh","cam here5: "+e.getMessage());
+                Log.d("ddlogesh","came02: "+e.getMessage());
             }
 
             ListView l1 = (ListView) findViewById(R.id.list_slidermenu);
@@ -142,6 +210,24 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                 }
             });
 
+            try {
+                SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                if (SharedPref.getString(getApplicationContext(), "is_today") != null) {
+                    String d = SharedPref.getString(getApplicationContext(), "is_today");
+                    Date old_date = sdf.parse(d);
+                    if ((new Date().getTime() - old_date.getTime()) > 86400000) {
+                        new dpUpdate().execute();
+                        SharedPref.putString(getApplicationContext(), "is_today", sdf.format(new Date()));
+                    }
+                }
+                else{
+                    new dpUpdate().execute();
+                    SharedPref.putString(getApplicationContext(), "is_today", sdf.format(new Date()));
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
             return null;
         }
     }

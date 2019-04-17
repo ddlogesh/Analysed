@@ -21,16 +21,16 @@ public class splashScreen extends AppCompatActivity {
 
             @Override
             public void run() {
-                if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
+                /*if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
                     if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
                     else
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
                 }
-                else
-                    startActivity(new Intent(getApplicationContext(), login.class));
+                else*/
+                    startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.viewProfile.class));
             }
-        },3500);
+        },100);
     }
 
     //3500
@@ -42,5 +42,6 @@ public class splashScreen extends AppCompatActivity {
 
 cd C:\Users\Logesh Dinakaran\AppData\Local\Android\Sdk\platform-tools
 adb tcpip 5555
-adb connect 10.90.113.238:5555
+adb shell ifconfig
+adb connect 10.108.90.96:5555
  */

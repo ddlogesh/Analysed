@@ -46,6 +46,9 @@
             android:name=".jobSeeker.viewProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".recruiter.viewProfile"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".common.referral"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <RelativeLayout
+        android:id="@id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_130sdp"
+        android:background="@drawable/background_gradient">
+
+        <ImageView
+            android:id="@id/iv_home"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_back_white" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/iv_dp"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/sample_image" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_dp"
+                android:layout_centerHorizontal="true"
+                android:text="Logesh D"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/_15ssp" />
+
+            <TextView
+                android:id="@+id/tv_profession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:layout_centerHorizontal="true"
+                android:text="UI/UX Designer"
+                android:textColor="#ffe2dcdc"
+                android:textSize="@dimen/_10ssp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout0"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_38sdp"
+                    android:layout_marginRight="@dimen/_38sdp">
+
+                    <TextView
+                        android:id="@+id/tv_first_name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="FIRST NAME"
+                        android:textColor="#518ADB"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/ev_first_name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_first_name1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:background="@drawable/text_bg_blue_curve"
+                        android:drawableRight="@drawable/ic_edit"
+                        android:inputType="text"
+                        android:text="Logesh"
+                        android:enabled="false"
+                        android:paddingLeft="@dimen/_11sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv_first_name1"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_below="@+id/tv_first_name1"
+                        android:layout_alignParentRight="true" />
+
+                    <TextView
+                        android:id="@+id/tv_last_name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ev_first_name1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="LAST NAME"
+                        android:textColor="#518ADB"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@id/ev_last_name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_last_name1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:background="@drawable/text_bg_blue_curve"
+                        android:drawableRight="@drawable/ic_edit"
+                        android:inputType="text"
+                        android:enabled="false"
+                        android:paddingLeft="@dimen/_11sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv_last_name1"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_below="@+id/tv_last_name1"
+                        android:layout_alignParentRight="true" />
+
+                    <TextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ev_last_name1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="EMAIL ID"
+                        android:textColor="#518ADB"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@id/ev_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_email"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:background="@drawable/text_bg_blue_curve"
+                        android:drawableRight="@drawable/ic_email"
+                        android:enabled="false"
+                        android:paddingLeft="@dimen/_11sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_organisation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ev_email"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="ORGANIZATION"
+                        android:textColor="#518ADB"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/ev_organisation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_organisation"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:background="@drawable/text_bg_blue_curve"
+                        android:drawableRight="@drawable/ic_edit"
+                        android:inputType="text"
+                        android:enabled="false"
+                        android:paddingLeft="@dimen/_11sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv_organisation"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_below="@+id/tv_organisation"
+                        android:layout_alignParentRight="true" />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ev_organisation"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="ADDRESS"
+                        android:textColor="#518ADB"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/ev_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_address"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:background="@drawable/text_bg_blue_curve"
+                        android:drawableRight="@drawable/ic_edit"
+                        android:inputType="text"
+                        android:enabled="false"
+                        android:paddingLeft="@dimen/_11sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv_address"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_below="@+id/tv_address"
+                        android:layout_alignParentRight="true" />
+
+                    <TextView
+                        android:id="@+id/tv_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ev_address"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="MOBILE NUMBER"
+                        android:textColor="#518ADB"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@id/ev_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_mobile"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:background="@drawable/text_bg_blue_curve"
+                        android:drawableRight="@drawable/ic_edit"
+                        android:paddingLeft="@dimen/_11sdp"
+                        android:inputType="phone"
+                        android:enabled="false"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv_mobile"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_below="@+id/tv_mobile"
+                        android:layout_alignParentRight="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>

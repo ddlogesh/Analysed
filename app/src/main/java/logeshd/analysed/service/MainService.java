@@ -31,8 +31,20 @@ public interface MainService {
     @POST("js/upload1.php")
     Call<status> uploader(@Body demo d);*/
 
+    /*********************************************************************************/
+    //Common Activities
+
+    @GET("js/getProfile.php")
+    Call<status> getProfilePicApi(@Query("email") String email, @Query("userRole") String userRole);
+
+    /*********************************************************************************/
+    //Login
+
     @GET("js/validateUser.php")
     Call<userDetails> loginApi(@Query("username") String username, @Query("password") String password);
+
+    /*********************************************************************************/
+    //Signup
 
     @POST("js/signup.php")
     Call<status> checkForSignupApi(@Body users u);
@@ -47,6 +59,9 @@ public interface MainService {
     @Multipart
     @POST("js/resumeUpload.php")
     Call<status> uploadResumeApi(@Part MultipartBody.Part file);
+
+    /*********************************************************************************/
+    //Recruiters Dashboard
 
     @GET("js/database.php")
     Call<List<databases>> getDatabase(@Query("username") String username);
