@@ -21,22 +21,23 @@ public class splashScreen extends AppCompatActivity {
 
             @Override
             public void run() {
-                /*if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
+                if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
                     if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
                     else
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
                 }
-                else*/
-                    startActivity(new Intent(getApplicationContext(), signup.class));
+                else
+                    startActivity(new Intent(getApplicationContext(), login.class));
             }
-        },100);
+        },3500);
     }
 
     //3500
 }
 
 /*
+/var/www/analysed.in/analysed/webservices/common
 /var/www/analysed.in/analysed/webservices/jobseeker
 /var/www/analysed.in/analysed/webservices/recruiter
 /var/www/analysed.in/analysed/Pages/dashboard

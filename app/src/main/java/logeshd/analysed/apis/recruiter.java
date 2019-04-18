@@ -36,6 +36,8 @@ public class recruiter {
     @SerializedName("picture")
     private String picture;
 
+    public recruiter() { }
+
     public recruiter(int id, String created_at, String fname, String lname, String referal, String email, String phone, String organisation, String designation, String address, String picture) {
         this.id = id;
         this.created_at = created_at;

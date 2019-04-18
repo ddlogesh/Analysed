@@ -161,7 +161,6 @@ public class login extends AppCompatActivity {
             public void onResponse(Call<userDetails> call, Response<userDetails> response) {
                 userDetails d=response.body();
                 if(d!=null){
-                    SharedPref.putInt(getApplicationContext(),"user_id",d.getUser_id());
                     SharedPref.putString(getApplicationContext(),"user_name",ev_name.getEditableText().toString().trim());
                     SharedPref.putInt(getApplicationContext(),"user_role",Integer.parseInt(d.getUserRole()));
                     SharedPref.putInt(getApplicationContext(),"id",d.getId());
@@ -179,6 +178,7 @@ public class login extends AppCompatActivity {
                     }
                     else {
                         url = "http://analysed.in/analysed/Pages/jobseeker/" + d.getPicture();
+                        SharedPref.putInt(getApplicationContext(),"user_id",d.getUser_id());
                         SharedPref.putString(getApplicationContext(), "location", d.getLocation());
                         SharedPref.putString(getApplicationContext(),"phone",d.getPhNumber());
                     }

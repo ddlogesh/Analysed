@@ -51,6 +51,7 @@ import java.util.Locale;
 import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
 import logeshd.analysed.apis.jobseekers;
+import logeshd.analysed.apis.recruiter;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.users;
 import logeshd.analysed.service.MainRepository;
@@ -68,7 +69,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
     AVLoadingIndicatorView pcircle;
     CircleImageView iv_profile;
-    EditText ev_email,ev_first_name1,ev_last_name1,ev_location,ev_mobile,ev_skills,ev_password1,ev_password2;
+    EditText ev_email,ev_first_name1,ev_last_name1,ev_location,ev_mobile,ev_skills,ev_password1,ev_password2,ev_designation,ev_organisation;
     ImageView iv_job_seekers,iv_recruiter,iv_edit;
     TextView tab_login,tab_signup,tv_role,tv_signup,tv_terms1,tv_terms2,tv_tour,tv_resume;
     Spinner sp_qualification,sp_year_passing,sp_experience;
@@ -97,7 +98,9 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         ev_skills = (EditText) findViewById(R.id.ev_skills);
         ev_password1 = (EditText) findViewById(R.id.ev_password1);
         ev_password2 = (EditText) findViewById(R.id.ev_password2);
-        
+        ev_designation = (EditText) findViewById(R.id.ev_designation);
+        ev_organisation = (EditText) findViewById(R.id.ev_organisation);
+
         iv_job_seekers = (ImageView) findViewById(R.id.iv_job_seekers); iv_job_seekers.setOnClickListener(this);
         iv_recruiter = (ImageView) findViewById(R.id.iv_recruiter);     iv_recruiter.setOnClickListener(this);
         iv_edit = (ImageView) findViewById(R.id.iv_edit);               iv_edit.setOnClickListener(this);
@@ -121,6 +124,8 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         ev_mobile.setTypeface(custom_font1);
         ev_password1.setTypeface(custom_font1);
         ev_password2.setTypeface(custom_font1);
+        ev_designation.setTypeface(custom_font1);
+        ev_organisation.setTypeface(custom_font1);
 
         new signUpUpdates().execute();
 
@@ -328,7 +333,10 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                     if (a != null) {
                         if (a.getCode() == 1) {
                             Log.d("ddlogesh", a.getMessage());
-                            SharedPref.putString(getApplicationContext(), "profile_file_name", "user-images/" + imageFile.getName());
+                            if(flag==0)
+                                SharedPref.putString(getApplicationContext(), "profile_file_name", "user-images/" + imageFile.getName());
+                            else if(flag==1)
+                                SharedPref.putString(getApplicationContext(), "profile_file_name", "avatars/" + imageFile.getName());
                             iv_profile.setBorderWidth(5);
                             iv_profile.setBorderColor(Color.parseColor("#ff33adff"));
                             Bitmap bitmap = BitmapFactory.decodeFile(imageFile.getPath());
@@ -429,40 +437,55 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                 if(a!=null) {
                     Log.d("ddlogesh", a.getMessage());
                     if(a.getMessage().equals("Successfully inserted")){
-                        jobseekers j = new jobseekers();
-                        j.setUser_id(a.getCode());
-                        j.setFname(ev_first_name1.getEditableText().toString().trim());
-                        j.setLname(ev_last_name1.getEditableText().toString().trim());
-                        j.setEmail(ev_email.getEditableText().toString().trim());
-                        j.setLocation(ev_location.getEditableText().toString().trim());
-                        j.setSkills(ev_skills.getEditableText().toString().trim());
-                        j.setPhNumber(ev_mobile.getEditableText().toString().trim());
-                        j.setYearofpassing(sp_year_passing.getSelectedItem().toString());
-                        j.setPicture(SharedPref.getString(getApplicationContext(),"profile_file_name"));
-                        j.setResumename(SharedPref.getString(getApplicationContext(),"resume_file_name"));
-                        j.setResume(SharedPref.getString(getApplicationContext(),"resume_file_content"));
+                        if(flag==0) {
+                            jobseekers j = new jobseekers();
+                            j.setUser_id(a.getCode());
+                            j.setFname(ev_first_name1.getEditableText().toString().trim());
+                            j.setLname(ev_last_name1.getEditableText().toString().trim());
+                            j.setEmail(ev_email.getEditableText().toString().trim());
+                            j.setLocation(ev_location.getEditableText().toString().trim());
+                            j.setSkills(ev_skills.getEditableText().toString().trim());
+                            j.setPhNumber(ev_mobile.getEditableText().toString().trim());
+                            j.setYearofpassing(sp_year_passing.getSelectedItem().toString());
+                            j.setPicture(SharedPref.getString(getApplicationContext(), "profile_file_name"));
+                            j.setResumename(SharedPref.getString(getApplicationContext(), "resume_file_name"));
+                            j.setResume(SharedPref.getString(getApplicationContext(), "resume_file_content"));
 
-                        String str1 = sp_experience.getSelectedItem().toString();
-                        if(str1.equals("0-2 Years"))
-                            str1 = "1";
-                        else if(str1.equals("2-4 Years"))
-                            str1 = "2";
-                        else if(str1.equals("4+ Years"))
-                            str1 = "3";
-                        else
-                            str1 = "0";
-                        j.setExperience(str1);
+                            String str1 = sp_experience.getSelectedItem().toString();
+                            if (str1.equals("0-2 Years"))
+                                str1 = "1";
+                            else if (str1.equals("2-4 Years"))
+                                str1 = "2";
+                            else if (str1.equals("4+ Years"))
+                                str1 = "3";
+                            else
+                                str1 = "0";
+                            j.setExperience(str1);
 
-                        String str = sp_qualification.getSelectedItem().toString();
-                        if (str.startsWith("U"))
-                            str = "UG";
-                        else if (str.equals("Ph.D"))
-                            str = "PHD";
-                        else
-                            str = "PG";
-                        j.setQualification(str);
+                            String str = sp_qualification.getSelectedItem().toString();
+                            if (str.startsWith("U"))
+                                str = "UG";
+                            else if (str.equals("Ph.D"))
+                                str = "PHD";
+                            else
+                                str = "PG";
+                            j.setQualification(str);
 
-                        signupApi(j);
+                            signupJSApi(j);
+                        }
+                        else if(flag==1){
+                            recruiter r = new recruiter();
+                            r.setFname(ev_first_name1.getEditableText().toString().trim());
+                            r.setLname(ev_last_name1.getEditableText().toString().trim());
+                            r.setEmail(ev_email.getEditableText().toString().trim());
+                            r.setPhone(ev_mobile.getEditableText().toString().trim());
+                            r.setOrganisation(ev_organisation.getEditableText().toString().trim());
+                            r.setDesignation(ev_designation.getEditableText().toString().trim());
+                            r.setAddress(ev_location.getEditableText().toString().trim());
+                            r.setPicture(SharedPref.getString(getApplicationContext(), "profile_file_name"));
+
+                            signupRCApi(r);
+                        }
                     }
                     else if(a.getMessage().equals("User already exists")) {
                         Log.d("ddlogesh", a.getMessage());
@@ -494,8 +517,8 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         });
     }
 
-    private void signupApi(final jobseekers j){
-        MainRepository.getService().signupApi(j).enqueue(new Callback<status>() {
+    private void signupJSApi(final jobseekers j){
+        MainRepository.getService().signupJSApi(j).enqueue(new Callback<status>() {
             @Override
             public void onResponse(Call<status> call, Response<status> response) {
                 status a=response.body();
@@ -510,6 +533,59 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                         SharedPref.putString(getApplicationContext(),"phone",j.getPhNumber());
                         SharedPref.putString(getApplicationContext(), "location", j.getLocation());
                         SharedPref.putString(getApplicationContext(), "referal", j.getReferal());
+
+                        String[] keys={"profile_file_name","ev_skills","ev_email","resume_file_content","resume_file_name"};
+                        for(int i=0;i<keys.length;i++)
+                            SharedPref.remove(getApplicationContext(),keys[i]);
+
+                        Log.d("ddlogesh", a.getMessage());
+
+                        SharedPref.putBoolean(getApplicationContext(),"is_logged_in",true);
+                        pcircle.setVisibility(View.GONE);
+
+                        startActivity(new Intent(getApplicationContext(), tour.class));
+                        Bungee.inAndOut(signup.this);
+                    }
+                    else {
+                        Log.d("ddlogesh", a.getMessage());
+                        tv_signup.setEnabled(true);
+                        pcircle.setVisibility(View.GONE);
+                        CommonUtils.setSnackBar(getWindow().getDecorView(), "Sorry, error in signing-up!", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                    }
+                }
+                else {
+                    Log.d("ddlogesh", "Failed");
+                    tv_signup.setEnabled(true);
+                    pcircle.setVisibility(View.GONE);
+                    CommonUtils.setSnackBar(getWindow().getDecorView(),"Server error, please try again later!",R.drawable.ic_alert_white,"#ffa779c4",Color.WHITE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<status> call, Throwable t) {
+                Log.d("ddlogesh","Nope " + t.getMessage());
+                pcircle.setVisibility(View.GONE);
+                tv_signup.setEnabled(true);
+                CommonUtils.setSnackBar(getWindow().getDecorView(),"Server error, please try again later!",R.drawable.ic_alert_white,"#ffa779c4",Color.WHITE);
+            }
+        });
+    }
+
+    private void signupRCApi(final recruiter r){
+        MainRepository.getService().signupRCApi(r).enqueue(new Callback<status>() {
+            @Override
+            public void onResponse(Call<status> call, Response<status> response) {
+                status a=response.body();
+                if(a!=null) {
+                    if(a.getMessage().equals("Successfully inserted")){
+                        SharedPref.putString(getApplicationContext(),"user_name",r.getEmail());
+                        SharedPref.putInt(getApplicationContext(),"user_role",flag);
+                        SharedPref.putInt(getApplicationContext(),"id",r.getId());
+                        SharedPref.putString(getApplicationContext(),"f_name",r.getFname());
+                        SharedPref.putString(getApplicationContext(),"l_name",r.getLname());
+                        SharedPref.putString(getApplicationContext(),"phone",r.getPhone());
+                        SharedPref.putString(getApplicationContext(), "location", r.getAddress());
+                        SharedPref.putString(getApplicationContext(), "referal", r.getReferal());
 
                         String[] keys={"profile_file_name","ev_skills","ev_email","resume_file_content","resume_file_name"};
                         for(int i=0;i<keys.length;i++)
@@ -597,6 +673,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                 ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
                 ((RelativeLayout) findViewById(R.id.layout_js)).setVisibility(View.GONE);
                 ((RelativeLayout) findViewById(R.id.layout_rc)).setVisibility(View.VISIBLE);
+                ev_location.setHint("Address");
                 tv_signup.setEnabled(true);
                 flag=1;
                 break;
@@ -606,19 +683,25 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "First name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (ev_last_name1.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Last name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if ((sp_qualification.getSelectedItem().toString()).equals("Qualification"))
+                else if (flag==1 && ev_organisation.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Organisation name cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (flag==1 && ev_designation.getEditableText().toString().trim().length() == 0)
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Designation cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (flag==0 && (sp_qualification.getSelectedItem().toString()).equals("Qualification"))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Select qualification", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if ((sp_year_passing.getSelectedItem().toString()).equals("Year Of Passing"))
+                else if (flag==0 && (sp_year_passing.getSelectedItem().toString()).equals("Year Of Passing"))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Select year of passing", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if ((sp_experience.getSelectedItem().toString()).equals("Experience"))
+                else if (flag==0 && (sp_experience.getSelectedItem().toString()).equals("Experience"))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Select experience", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (ev_email.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Email id cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
+                else if (flag==1 && (ev_email.getEditableText().toString().trim().contains("gmail") || ev_email.getEditableText().toString().trim().contains("yahoo")))
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "Please use your business email", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (ev_location.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Location cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (ev_mobile.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Mobile number cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if (ev_skills.getEditableText().toString().length() == 0)
+                else if (flag==0 && ev_skills.getEditableText().toString().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Skills cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (ev_password1.getEditableText().toString().trim().length() == 0)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Password cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
@@ -626,9 +709,9 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Confirm password cannot be empty", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if (!((ev_password1.getEditableText().toString().trim()).equals(ev_password2.getEditableText().toString().trim())))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Password & confirm passwords should be the same", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if(SharedPref.getString(getApplicationContext(),"resume_file_name") == null)
+                else if(flag==0 && SharedPref.getString(getApplicationContext(),"resume_file_name") == null)
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your resume", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
-                else if(SharedPref.getString(getApplicationContext(),"profile_file_name") == null || !SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("user"))
+                else if(SharedPref.getString(getApplicationContext(),"profile_file_name") == null || (!SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("user") && !SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("avatars")))
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "Please upload your profile picture", R.drawable.ic_alert_white, "#ffa779c4", Color.WHITE);
                 else if(startProgress()) {
                     users u=new users(ev_email.getEditableText().toString().trim(),ev_password1.getEditableText().toString().trim(),Integer.toString(flag),1);
@@ -654,6 +737,10 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             SharedPref.putString(getApplicationContext(),"phone",ev_mobile.getEditableText().toString().trim());
         if (ev_skills.getEditableText().toString().trim().length() > 0)
             SharedPref.putString(getApplicationContext(),"ev_skills",ev_skills.getEditableText().toString().trim());
+        if (ev_designation.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"designation",ev_designation.getEditableText().toString().trim());
+        if (ev_organisation.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"organisation",ev_organisation.getEditableText().toString().trim());
     }
 
     @Override
@@ -672,6 +759,10 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             ev_mobile.setText(SharedPref.getString(getApplicationContext(),"phone"));
         if (SharedPref.getString(getApplicationContext(),"ev_skills") != null)
             ev_skills.setText(SharedPref.getString(getApplicationContext(),"ev_skills"));
+        if (SharedPref.getString(getApplicationContext(),"designation") != null)
+            ev_designation.setText(SharedPref.getString(getApplicationContext(),"designation"));
+        if (SharedPref.getString(getApplicationContext(),"organisation") != null)
+            ev_organisation.setText(SharedPref.getString(getApplicationContext(),"organisation"));
 
         String profile_status=SharedPref.getString(getApplicationContext(),"profile_file_name");
         if(profile_status != null){

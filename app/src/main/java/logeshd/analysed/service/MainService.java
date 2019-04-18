@@ -6,6 +6,7 @@ import logeshd.analysed.apis.challenge;
 import logeshd.analysed.apis.databases;
 import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.apis.jobseekers;
+import logeshd.analysed.apis.recruiter;
 import logeshd.analysed.apis.userDetails;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.task;
@@ -48,7 +49,10 @@ public interface MainService {
     Call<status> checkForSignupApi(@Body users u);
 
     @POST("common/signup1.php")
-    Call<status> signupApi(@Body jobseekers j);
+    Call<status> signupJSApi(@Body jobseekers j);
+
+    @POST("common/signup2.php")
+    Call<status> signupRCApi(@Body recruiter r);
 
     @Multipart
     @POST("common/profileUpload.php")

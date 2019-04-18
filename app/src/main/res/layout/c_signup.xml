@@ -294,14 +294,14 @@
                                             android:layout_height="wrap_content">
 
                                             <EditText
-                                                android:id="@+id/ev_designation"
+                                                android:id="@+id/ev_organisation"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_centerHorizontal="true"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:background="@drawable/text_bg_grey_curve"
                                                 android:drawableRight="@drawable/ic_user"
-                                                android:hint="Designation"
+                                                android:hint="Organisation"
                                                 android:inputType="text"
                                                 android:singleLine="true"
                                                 android:paddingLeft="@dimen/_11sdp"
@@ -312,15 +312,15 @@
                                                 android:textSize="@dimen/_13ssp" />
 
                                             <EditText
-                                                android:id="@+id/ev_organisation"
+                                                android:id="@+id/ev_designation"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_centerHorizontal="true"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:background="@drawable/text_bg_grey_curve"
-                                                android:layout_below="@+id/ev_designation"
                                                 android:drawableRight="@drawable/ic_user"
-                                                android:hint="Organisation"
+                                                android:layout_below="@+id/ev_organisation"
+                                                android:hint="Designation"
                                                 android:inputType="text"
                                                 android:singleLine="true"
                                                 android:paddingLeft="@dimen/_11sdp"
