@@ -39,6 +39,8 @@ public class joblistings {
     @SerializedName("endon")
     private String endon;
 
+    public joblistings() { }
+
     public joblistings(int id, String position, String skills_req, String qual_req, String exp_req, String job_location, String job_description, String packages, String job_time, String postedby, String createdon, String endon) {
         this.id = id;
         this.position = position;

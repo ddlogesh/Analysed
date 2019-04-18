@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -28,12 +29,18 @@ import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import spencerstudios.com.bungeelib.Bungee;
 
-public class database extends AppCompatActivity {
+public class database extends AppCompatActivity implements View.OnClickListener{
 
     AVLoadingIndicatorView pcircle;
     TextView tv_no_data;
+    ImageView iv_search;
+    EditText ev_name,ev_position;
     ListView l1;
+
+    List<databases> dlist;
+    listDatabase adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,13 +53,13 @@ public class database extends AppCompatActivity {
         MainRepository.getService().getDatabase(SharedPref.getString(getApplicationContext(),"user_name")).enqueue(new Callback<List<databases>>() {
             @Override
             public void onResponse(Call<List<databases>> call, Response<List<databases>> response) {
-                listDatabase adapter = new listDatabase(database.this, new ArrayList<databases>());
+                adapter = new listDatabase(database.this, new ArrayList<databases>());
                 adapter.clear();
 
-                List<databases> dlist=response.body();
+                dlist=response.body();
                 if(dlist!=null) {
                     for (databases d : dlist)
-                        adapter.add(new databases(d.getId(), d.getFname(), d.getLname(), d.getPicture(), d.getPosition(),d.getQualification(),d.getYearofpassing(),d.getExperience(),d.getEmail(),d.getSkills()));
+                        adapter.add(new databases(d.getId(), d.getFname(), d.getLname(), d.getPicture(), d.getPosition(), d.getQualification(), d.getYearofpassing(), d.getExperience() ,d.getLocation(), d.getEmail(), d.getSkills()));
                     l1.setAdapter(adapter);
 
                     l1.setVisibility(View.VISIBLE);
@@ -76,20 +83,85 @@ public class database extends AppCompatActivity {
         });
 
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
-        EditText ev_skills = (EditText) findViewById(R.id.ev_skills);
-        EditText ev_qualification = (EditText) findViewById(R.id.ev_qualification);
+        ev_name = (EditText) findViewById(R.id.ev_name);
+        ev_position = (EditText) findViewById(R.id.ev_position);
 
         Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        tv_title.setTypeface(Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf"));
-        ev_skills.setTypeface(custom_font1);
-        ev_qualification.setTypeface(custom_font1);
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
 
-        ((ImageView) findViewById(R.id.iv_home)).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i1=new Intent(getApplicationContext(), dashboard.class);
-                startActivity(i1);
-            }
-        });
+        tv_title.setTypeface(custom_font2);
+        ev_name.setTypeface(custom_font1);
+        ev_position.setTypeface(custom_font1);
+
+        iv_search = (ImageView) findViewById(R.id.iv_search);           iv_search.setOnClickListener(this);
+        ImageView iv_home = (ImageView) findViewById(R.id.iv_home);     iv_home.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_search:
+                String name = ev_name.getEditableText().toString().trim().toLowerCase();
+                String position = ev_position.getEditableText().toString().trim().toLowerCase();
+
+                if(name.length()>0 || position.length()>0) {
+                    if (dlist != null) {
+                        adapter.clear();
+                        Log.d("ddlogesh", "clicked" + position);
+
+                        for (databases d : dlist) {
+                            String fname = d.getFname().toLowerCase();
+                            String lname = d.getLname().toLowerCase();
+                            String pos = d.getPosition().toLowerCase();
+
+                            Boolean a1=fname.contains(name);
+                            Boolean a2=lname.contains(name);
+                            Boolean b=pos.contains(position);
+
+                            if (name.length()>0 && position.length()>0 && (a1 || a2) && b)
+                                adapter.add(new databases(d.getId(), d.getFname(), d.getLname(), d.getPicture(), d.getPosition(), d.getQualification(), d.getYearofpassing(), d.getExperience(), d.getLocation(), d.getEmail(), d.getSkills()));
+                            else if (name.length()>0 && position.length()==0 && (a1 || a2))
+                                adapter.add(new databases(d.getId(), d.getFname(), d.getLname(), d.getPicture(), d.getPosition(), d.getQualification(), d.getYearofpassing(), d.getExperience(), d.getLocation(), d.getEmail(), d.getSkills()));
+                            else if (name.length()==0 && position.length()>0 && b)
+                                adapter.add(new databases(d.getId(), d.getFname(), d.getLname(), d.getPicture(), d.getPosition(), d.getQualification(), d.getYearofpassing(), d.getExperience(), d.getLocation(), d.getEmail(), d.getSkills()));
+                        }
+                        if (adapter.isEmpty()) {
+                            l1.setVisibility(View.GONE);
+                            tv_no_data.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            l1.setAdapter(adapter);
+                            l1.setVisibility(View.VISIBLE);
+                            tv_no_data.setVisibility(View.GONE);
+                        }
+                    }
+                    else {
+                        l1.setVisibility(View.GONE);
+                        tv_no_data.setVisibility(View.VISIBLE);
+                    }
+                }
+                else
+                    Toast.makeText(this, "Both name and position cannot be empty!", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.iv_home:
+                onBackPressed();
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        String name = ev_name.getEditableText().toString().trim();
+        String position = ev_position.getEditableText().toString().trim();
+
+        if(name.length()>0 || position.length()>0) {
+            Intent intent=new Intent(getApplicationContext(),database.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            Bungee.fade(database.this);
+        }
+        else
+            super.onBackPressed();
     }
 }

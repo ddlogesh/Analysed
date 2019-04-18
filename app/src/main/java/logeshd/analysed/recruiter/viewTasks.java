@@ -57,7 +57,7 @@ public class viewTasks extends AppCompatActivity implements View.OnClickListener
                 List<task> dlist=response.body();
                 if(dlist != null) {
                     for (task d : dlist)
-                        adapter.add(new task(d.getId(), d.getEmail(), d.getTaskId(), d.getSeeker_email(), d.getTask_name(),d.getTask_desription(),d.getTask_end(),d.getTask_time(),d.getEnd_task(),d.getFile(),d.getT_score(),d.getScore(),d.getC_date()));
+                        adapter.add(d);
                     l1.setAdapter(adapter);
 
                     l1.setVisibility(View.VISIBLE);
@@ -66,6 +66,7 @@ public class viewTasks extends AppCompatActivity implements View.OnClickListener
                 else {
                     l1.setVisibility(View.GONE);
                     tv_no_data.setVisibility(View.VISIBLE);
+                    Log.d("ddlogesh","empty");
                 }
 
                 pcircle.setVisibility(View.GONE);

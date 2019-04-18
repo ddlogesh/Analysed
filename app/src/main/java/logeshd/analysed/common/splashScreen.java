@@ -28,7 +28,7 @@ public class splashScreen extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
                 }
                 else*/
-                    startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.viewProfile.class));
+                    startActivity(new Intent(getApplicationContext(), signup.class));
             }
         },100);
     }
@@ -37,7 +37,8 @@ public class splashScreen extends AppCompatActivity {
 }
 
 /*
-/var/www/analysed.in/analysed/webservices/js
+/var/www/analysed.in/analysed/webservices/jobseeker
+/var/www/analysed.in/analysed/webservices/recruiter
 /var/www/analysed.in/analysed/Pages/dashboard
 
 cd C:\Users\Logesh Dinakaran\AppData\Local\Android\Sdk\platform-tools

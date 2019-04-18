@@ -57,8 +57,23 @@ public class viewChallenges extends AppCompatActivity implements View.OnClickLis
 
                 List<challenge> dlist=response.body();
                 if(dlist != null) {
-                    for (challenge d : dlist)
-                        adapter.add(new challenge(d.getId(), d.getEmail(), d.getChallengeId(), d.getChallenge_end(), d.getChallenge_name(),d.getChallenge_description(),d.getWinners(),d.getChallenge_time(),d.getEnd_challenge(),d.getSeeker_email(),d.getFile(),d.getT_score(),d.getScore()));
+                    for (challenge d : dlist) {
+                        challenge c=new challenge();
+                        c.setId(d.getId());
+                        c.setEmail(d.getEmail());
+                        c.setChallengeId(d.getChallengeId());
+                        c.setChallenge_end(d.getChallenge_end());
+                        c.setChallenge_name(d.getChallenge_name());
+                        c.setChallenge_description(d.getChallenge_description());
+                        c.setWinners(d.getWinners());
+                        c.setChallenge_time(d.getChallenge_time());
+                        c.setEnd_challenge(d.getEnd_challenge());
+                        c.setSeeker_email(d.getSeeker_email());
+                        c.setFile(d.getFile());
+                        c.setT_score(d.getT_score());
+                        c.setScore(d.getScore());
+                        adapter.add(c);
+                    }
                     l1.setAdapter(adapter);
 
                     l1.setVisibility(View.VISIBLE);

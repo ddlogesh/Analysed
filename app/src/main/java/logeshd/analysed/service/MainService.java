@@ -11,8 +11,11 @@ import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.task;
 import logeshd.analysed.apis.users;
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -22,59 +25,67 @@ import retrofit2.http.Query;
 public interface MainService {
     String BASE_URL = "http://analysed.in/analysed/webservices/";
 
-    /*@GET("js/getAll.php")
-    Call<List<demo>> loadChanges();
-
-    @GET("js/getSingle1.php")
-    Call<List<demo>> getSingle(@Query("id") String id);
-
-    @POST("js/upload1.php")
-    Call<status> uploader(@Body demo d);*/
-
     /*********************************************************************************/
-    //Common Activities
+    //Common-Tools
 
-    @GET("js/getProfile.php")
+    @GET("common/getProfilePic.php")
     Call<status> getProfilePicApi(@Query("email") String email, @Query("userRole") String userRole);
 
-    /*********************************************************************************/
-    //Login
+    @GET("common/getProfile.php")
+    Call<userDetails> getProfileApi(@Query("email") String email, @Query("userRole") String userRole);
 
-    @GET("js/validateUser.php")
+    @FormUrlEncoded
+    @POST("common/editProfile.php")
+    Call<String> editProfileApi(@Field("title") String title, @Field("text") String text, @Field("userRole") String userRole, @Field("email") String email);
+
+    /*********************************************************************************/
+    //Common
+
+    @GET("common/login.php")
     Call<userDetails> loginApi(@Query("username") String username, @Query("password") String password);
 
-    /*********************************************************************************/
-    //Signup
-
-    @POST("js/signup.php")
+    @POST("common/signup.php")
     Call<status> checkForSignupApi(@Body users u);
 
-    @POST("js/signup1.php")
+    @POST("common/signup1.php")
     Call<status> signupApi(@Body jobseekers j);
 
     @Multipart
-    @POST("js/profileUpload.php")
-    Call<status> uploadImageApi(@Part MultipartBody.Part file);
+    @POST("common/profileUpload.php")
+    Call<status> uploadImageApi(@Part MultipartBody.Part file, @Part("userRole") RequestBody userRole);
 
     @Multipart
-    @POST("js/resumeUpload.php")
+    @POST("common/resumeUpload.php")
     Call<status> uploadResumeApi(@Part MultipartBody.Part file);
 
     /*********************************************************************************/
     //Recruiters Dashboard
 
-    @GET("js/database.php")
+    @POST("recruiter/createJob.php")
+    Call<status> createJob(@Body joblistings j);
+
+    @GET("recruiter/database.php")
     Call<List<databases>> getDatabase(@Query("username") String username);
 
-    @GET("js/joblisting.php")
+    @GET("recruiter/joblisting.php")
     Call<List<joblistings>> getJobListings(@Query("username") String username);
 
-    @GET("js/r_viewTasks.php")
+    @FormUrlEncoded
+    @POST("recruiter/closeJob.php")
+    Call<String> closeJob(@Field("id") int id);
+
+    @GET("recruiter/viewTask.php")
     Call<List<task>> getAssignedTasks(@Query("username") String username);
 
-    @GET("js/createTasks.php")
+    @GET("recruiter/createTask.php")
     Call<List<jobseekers>> getJobseekers(@Query("jobid") int jobid);
 
-    @GET("js/r_viewChallenges.php")
+    @POST("recruiter/createTask1.php")
+    Call<status> createTask(@Body task t);
+
+    @GET("recruiter/viewChallenge.php")
     Call<List<challenge>> getAssignedChallenges(@Query("username") String username);
+
+    @POST("recruiter/createChallenge.php")
+    Call<status> createChallenge(@Body challenge c);
 }

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#eeeeee">
 
     <RelativeLayout
@@ -62,12 +63,12 @@
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Recruiters Name"
-                        android:inputType="text"
+                        android:enabled="false"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
-                        android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -79,12 +80,12 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Organization name"
-                        android:inputType="text"
+                        android:enabled="false"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
-                        android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -96,12 +97,12 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Designation"
-                        android:inputType="text"
+                        android:enabled="false"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
-                        android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -119,6 +120,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -136,6 +138,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -153,6 +156,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -170,6 +174,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -187,6 +192,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -204,6 +210,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -221,6 +228,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -239,6 +247,7 @@
                         android:paddingRight="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:textColorHint="#4a000000"
+                        android:textColor="#000000"
                         android:textSize="@dimen/_13ssp" />
                 </RelativeLayout>
             </ScrollView>
@@ -251,4 +260,13 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/add_button" />
     </RelativeLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#ffa779c4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
 </RelativeLayout>

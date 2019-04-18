@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#eeeeee"
     tools:context=".recruiter.createTask">
 
@@ -35,9 +36,9 @@
         android:id="@id/layout0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/tv_create"
+        android:layout_alignTop="@id/tv_submit"
         android:layout_marginLeft="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_30sdp"
         android:background="@drawable/button_white_solid">
 
@@ -59,7 +60,7 @@
                 android:background="@drawable/text_bg_grey_curve">
 
                 <Spinner
-                    android:id="@+id/sp_speaker"
+                    android:id="@+id/sp_seeker"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -89,7 +90,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/text_bg_grey_curve"
                 android:hint="Description"
-                android:inputType="date"
+                android:inputType="text"
                 android:paddingLeft="@dimen/_11sdp"
                 android:textColorHint="#4a000000"
                 android:textSize="@dimen/_13ssp" />
@@ -103,7 +104,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/text_bg_grey_curve"
                 android:hint="Accuracy (in percentage)"
-                android:inputType="date"
+                android:inputType="number"
                 android:paddingLeft="@dimen/_11sdp"
                 android:textColorHint="#4a000000"
                 android:textSize="@dimen/_13ssp" />
@@ -118,7 +119,6 @@
                 android:background="@drawable/text_bg_grey_curve"
                 android:drawableRight="@drawable/ic_date"
                 android:hint="Deadline"
-                android:inputType="date"
                 android:paddingLeft="@dimen/_11sdp"
                 android:paddingRight="@dimen/_6sdp"
                 android:textColorHint="#4a000000"
@@ -134,12 +134,42 @@
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/text_bg_grey_curve"
                 android:hint="Duration (in days)"
-                android:inputType="date"
+                android:inputType="number"
                 android:paddingLeft="@dimen/_11sdp"
                 android:textColorHint="#4a000000"
                 android:textSize="@dimen/_13ssp" />
 
-            <TextView
+            <EditText
+                android:id="@+id/ev_ways"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@id/ev_duration"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey_curve"
+                android:hint="Way of doing"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_11sdp"
+                android:textColorHint="#4a000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <EditText
+                android:id="@+id/ev_hint"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@id/ev_ways"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/text_bg_grey_curve"
+                android:hint="Hint for task"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_11sdp"
+                android:textColorHint="#4a000000"
+                android:textSize="@dimen/_13ssp" />
+
+            <!--<TextView
                 android:id="@+id/tv_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -235,11 +265,11 @@
                 android:layout_marginTop="@dimen/_7sdp"
                 android:divider="@null"
                 android:scrollbars="none"
-                android:visibility="gone" />
+                android:visibility="gone" />-->
         </RelativeLayout>
     </RelativeLayout>
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -255,7 +285,7 @@
         android:text="Tasks"
         android:visibility="invisible"
         android:textColor="#ffffffff"
-        android:textSize="@dimen/_14ssp" />
+        android:textSize="@dimen/_14ssp" />-->
 
     <TextView
         android:id="@+id/tv_submit"
@@ -265,4 +295,13 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/add_button"
         android:gravity="center" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#ffa779c4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
 </RelativeLayout>

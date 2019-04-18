@@ -27,13 +27,16 @@ public class databases {
     @SerializedName("Experience")
     private String Experience;
 
+    @SerializedName("location")
+    private String location;
+
     @SerializedName("Email")
     private String Email;
 
     @SerializedName("skills")
     private String skills;
 
-    public databases(String id, String fname, String lname, String picture, String position, String qualification, String yearofpassing, String experience, String email, String skills) {
+    public databases(String id, String fname, String lname, String picture, String position, String qualification, String yearofpassing, String experience, String location, String email, String skills) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
@@ -42,6 +45,7 @@ public class databases {
         Qualification = qualification;
         this.yearofpassing = yearofpassing;
         Experience = experience;
+        this.location = location;
         Email = email;
         this.skills = skills;
     }
@@ -108,6 +112,14 @@ public class databases {
 
     public void setExperience(String experience) {
         Experience = experience;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getEmail() {

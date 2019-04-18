@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import logeshd.analysed.R;
 import logeshd.analysed.apis.task;
@@ -52,19 +53,24 @@ public class listTaskStatus extends ArrayAdapter<task> {
         tv_sub_title.setTypeface(custom_font1);
         tv_live.setTypeface(custom_font3);
 
-        tv_title.setText(p.getTask_name());
-        tv_sub_title.setText(p.getTask_desription());
-        tv_duration.setText(p.getTask_time()+" hours");
-        tv_email.setText(p.getSeeker_email());
+        try {
+            tv_title.setText(p.getTask_name());
+            tv_sub_title.setText(p.getTask_desription());
+            tv_duration.setText(p.getTask_time() + " hours");
+            tv_email.setText(p.getSeeker_email());
 
-        if(p.getEnd_task().equals("x")){
-            tv_live.setVisibility(View.VISIBLE);
-            iv_status.setVisibility(View.GONE);
+            if (p.getEnd_task().equals("x")) {
+                tv_live.setVisibility(View.VISIBLE);
+                iv_status.setVisibility(View.GONE);
 
+            }
+            else {
+                tv_live.setVisibility(View.GONE);
+                iv_status.setVisibility(View.VISIBLE);
+            }
         }
-        else{
-            tv_live.setVisibility(View.GONE);
-            iv_status.setVisibility(View.VISIBLE);
+        catch (Exception e){
+            e.printStackTrace();
         }
 
         tv_more.setOnClickListener(new View.OnClickListener() {

@@ -2,6 +2,8 @@ package logeshd.analysed.apis;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class task {
     @SerializedName("id")
     private int id;
@@ -14,6 +16,12 @@ public class task {
 
     @SerializedName("seeker_email")
     private String seeker_email;
+
+    @SerializedName("seeker_email_list")
+    private List<String> seeker_email_list;
+
+    @SerializedName("task_acc")
+    private String task_acc;
 
     @SerializedName("task_name")
     private String task_name;
@@ -42,21 +50,17 @@ public class task {
     @SerializedName("c_date")
     private String c_date;
 
-    public task(int id, String email, String taskId, String seeker_email, String task_name, String task_desription, String task_end, String task_time, String end_task, String file, int t_score, int score, String c_date) {
-        this.id = id;
-        this.email = email;
-        this.taskId = taskId;
-        this.seeker_email = seeker_email;
-        this.task_name = task_name;
-        this.task_desription = task_desription;
-        this.task_end = task_end;
-        this.task_time = task_time;
-        this.end_task = end_task;
-        this.file = file;
-        this.t_score = t_score;
-        this.score = score;
-        this.c_date = c_date;
-    }
+    /****************************************************************************************/
+
+    @SerializedName("way")
+    private String way;
+
+    @SerializedName("hint")
+    private String hint;
+
+    /****************************************************************************************/
+
+    public task() { }
 
     public int getId() {
         return id;
@@ -88,6 +92,22 @@ public class task {
 
     public void setSeeker_email(String seeker_email) {
         this.seeker_email = seeker_email;
+    }
+
+    public List<String> getSeeker_email_list() {
+        return seeker_email_list;
+    }
+
+    public void setSeeker_email_list(List<String> seeker_email_list) {
+        this.seeker_email_list = seeker_email_list;
+    }
+
+    public String getTask_acc() {
+        return task_acc;
+    }
+
+    public void setTask_acc(String task_acc) {
+        this.task_acc = task_acc;
     }
 
     public String getTask_name() {
@@ -160,5 +180,21 @@ public class task {
 
     public void setC_date(String c_date) {
         this.c_date = c_date;
+    }
+
+    public String getWay() {
+        return way;
+    }
+
+    public void setWay(String way) {
+        this.way = way;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
     }
 }

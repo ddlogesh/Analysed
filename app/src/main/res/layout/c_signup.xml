@@ -206,61 +206,137 @@
                                         android:textSize="@dimen/_13ssp" />
 
                                     <RelativeLayout
-                                        android:id="@id/sp_layout1"
-                                        android:layout_width="match_parent"
+                                        android:id="@+id/layout_choice"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_below="@id/ev_last_name1"
-                                        android:layout_centerHorizontal="true"
-                                        android:layout_marginTop="@dimen/_6sdp"
-                                        android:background="@drawable/text_bg_grey_curve">
+                                        android:layout_below="@id/ev_last_name1">
 
-                                        <Spinner
-                                            android:id="@+id/sp_qualification"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="@dimen/_30sdp"
-                                            android:padding="@dimen/_6sdp"
-                                            android:textSize="@dimen/_13ssp" />
-                                    </RelativeLayout>
+                                        <RelativeLayout
+                                            android:id="@+id/layout_js"
+                                            android:visibility="visible"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content">
 
-                                    <RelativeLayout
-                                        android:id="@+id/sp_layout2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/sp_layout1"
-                                        android:layout_centerHorizontal="true"
-                                        android:layout_marginTop="@dimen/_6sdp"
-                                        android:background="@drawable/text_bg_grey_curve">
+                                            <RelativeLayout
+                                                android:id="@id/sp_layout1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve">
 
-                                        <Spinner
-                                            android:id="@+id/sp_year_passing"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="@dimen/_30sdp"
-                                            android:padding="@dimen/_6sdp"
-                                            android:textSize="@dimen/_13ssp" />
-                                    </RelativeLayout>
+                                                <Spinner
+                                                    android:id="@+id/sp_qualification"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_30sdp"
+                                                    android:padding="@dimen/_6sdp"
+                                                    android:textSize="@dimen/_13ssp" />
+                                            </RelativeLayout>
 
-                                    <RelativeLayout
-                                        android:id="@+id/sp_layout3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/sp_layout2"
-                                        android:layout_centerHorizontal="true"
-                                        android:layout_marginTop="@dimen/_6sdp"
-                                        android:background="@drawable/text_bg_grey_curve">
+                                            <RelativeLayout
+                                                android:id="@+id/sp_layout2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/sp_layout1"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve">
 
-                                        <Spinner
-                                            android:id="@+id/sp_experience"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="@dimen/_30sdp"
-                                            android:padding="@dimen/_6sdp"
-                                            android:textSize="@dimen/_13ssp" />
+                                                <Spinner
+                                                    android:id="@+id/sp_year_passing"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_30sdp"
+                                                    android:padding="@dimen/_6sdp"
+                                                    android:textSize="@dimen/_13ssp" />
+                                            </RelativeLayout>
+
+                                            <RelativeLayout
+                                                android:id="@+id/sp_layout3"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/sp_layout2"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve">
+
+                                                <Spinner
+                                                    android:id="@+id/sp_experience"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_30sdp"
+                                                    android:padding="@dimen/_6sdp"
+                                                    android:textSize="@dimen/_13ssp" />
+                                            </RelativeLayout>
+
+                                            <EditText
+                                                android:id="@+id/ev_skills"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/sp_layout3"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve"
+                                                android:drawableRight="@drawable/ic_skill"
+                                                android:hint="Skills"
+                                                android:singleLine="true"
+                                                android:paddingLeft="@dimen/_11sdp"
+                                                android:paddingTop="@dimen/_6sdp"
+                                                android:paddingRight="@dimen/_6sdp"
+                                                android:paddingBottom="@dimen/_6sdp"
+                                                android:textColorHint="#4a000000"
+                                                android:textSize="@dimen/_13ssp" />
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/layout_rc"
+                                            android:visibility="gone"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content">
+
+                                            <EditText
+                                                android:id="@+id/ev_designation"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve"
+                                                android:drawableRight="@drawable/ic_user"
+                                                android:hint="Designation"
+                                                android:inputType="text"
+                                                android:singleLine="true"
+                                                android:paddingLeft="@dimen/_11sdp"
+                                                android:paddingTop="@dimen/_6sdp"
+                                                android:paddingRight="@dimen/_6sdp"
+                                                android:paddingBottom="@dimen/_6sdp"
+                                                android:textColorHint="#4a000000"
+                                                android:textSize="@dimen/_13ssp" />
+
+                                            <EditText
+                                                android:id="@+id/ev_organisation"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve"
+                                                android:layout_below="@+id/ev_designation"
+                                                android:drawableRight="@drawable/ic_user"
+                                                android:hint="Organisation"
+                                                android:inputType="text"
+                                                android:singleLine="true"
+                                                android:paddingLeft="@dimen/_11sdp"
+                                                android:paddingTop="@dimen/_6sdp"
+                                                android:paddingRight="@dimen/_6sdp"
+                                                android:paddingBottom="@dimen/_6sdp"
+                                                android:textColorHint="#4a000000"
+                                                android:textSize="@dimen/_13ssp" />
+                                        </RelativeLayout>
                                     </RelativeLayout>
 
                                     <EditText
                                         android:id="@+id/ev_email"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_below="@id/sp_layout3"
+                                        android:layout_below="@id/layout_choice"
                                         android:layout_centerHorizontal="true"
                                         android:layout_marginTop="@dimen/_6sdp"
                                         android:background="@drawable/text_bg_grey_curve"
@@ -312,28 +388,10 @@
                                         android:textSize="@dimen/_13ssp" />
 
                                     <EditText
-                                        android:id="@+id/ev_skills"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/ev_mobile"
-                                        android:layout_centerHorizontal="true"
-                                        android:layout_marginTop="@dimen/_6sdp"
-                                        android:background="@drawable/text_bg_grey_curve"
-                                        android:drawableRight="@drawable/ic_skill"
-                                        android:hint="Skills"
-                                        android:singleLine="true"
-                                        android:paddingLeft="@dimen/_11sdp"
-                                        android:paddingTop="@dimen/_6sdp"
-                                        android:paddingRight="@dimen/_6sdp"
-                                        android:paddingBottom="@dimen/_6sdp"
-                                        android:textColorHint="#4a000000"
-                                        android:textSize="@dimen/_13ssp" />
-
-                                    <EditText
                                         android:id="@+id/ev_password1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_below="@id/ev_skills"
+                                        android:layout_below="@id/ev_mobile"
                                         android:layout_centerHorizontal="true"
                                         android:layout_marginTop="@dimen/_6sdp"
                                         android:background="@drawable/text_bg_grey_curve"
@@ -384,7 +442,7 @@
                         android:paddingBottom="@dimen/_1sdp"
                         android:drawableRight="@drawable/ic_upload_white"
                         android:text="Resume"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         android:textColor="#ffffffff"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold" />

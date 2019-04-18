@@ -57,21 +57,17 @@ public class challenge {
     @SerializedName("other")
     private String other;
 
-    public challenge(int id, String email, String challengeId, String challenge_end, String challenge_name, String challenge_description, String winners, String challenge_time, String end_challenge, String seeker_email, String file, int t_score, int score) {
-        this.id = id;
-        this.email = email;
-        this.challengeId = challengeId;
-        this.challenge_end = challenge_end;
-        this.challenge_name = challenge_name;
-        this.challenge_description = challenge_description;
-        this.winners = winners;
-        this.challenge_time = challenge_time;
-        this.end_challenge = end_challenge;
-        this.seeker_email = seeker_email;
-        this.file = file;
-        this.t_score = t_score;
-        this.score = score;
-    }
+    /****************************************************************************************/
+
+    @SerializedName("way")
+    private String way;
+
+    @SerializedName("hint")
+    private String hint;
+
+    /****************************************************************************************/
+
+    public challenge() {}
 
     public int getId() {
         return id;
@@ -215,5 +211,21 @@ public class challenge {
 
     public void setOther(String other) {
         this.other = other;
+    }
+
+    public String getWay() {
+        return way;
+    }
+
+    public void setWay(String way) {
+        this.way = way;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
     }
 }

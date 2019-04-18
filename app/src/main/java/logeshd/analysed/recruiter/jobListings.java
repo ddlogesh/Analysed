@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -21,13 +22,13 @@ import logeshd.analysed.R;
 import logeshd.analysed.apis.databases;
 import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.jobSeeker.adapter.listViewJobs;
-import logeshd.analysed.classes.job;
 import logeshd.analysed.recruiter.adapter.listDatabase;
 import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import spencerstudios.com.bungeelib.Bungee;
 
 public class jobListings extends AppCompatActivity implements View.OnClickListener {
 

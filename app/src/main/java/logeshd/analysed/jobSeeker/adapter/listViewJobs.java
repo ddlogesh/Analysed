@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import android.os.health.ServiceHealthStats;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -34,13 +35,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
 import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.apis.jobseekers;
+import logeshd.analysed.common.login;
 import logeshd.analysed.recruiter.createTask;
+import logeshd.analysed.recruiter.jobListings;
 import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import spencerstudios.com.bungeelib.Bungee;
 
 public class listViewJobs extends ArrayAdapter<joblistings> {
     public listViewJobs(Context context, ArrayList<joblistings> history) {
@@ -105,7 +109,7 @@ public class listViewJobs extends ArrayAdapter<joblistings> {
                 TextView tv_timings = (TextView) dialogView.findViewById(R.id.tv_timings);
                 TextView tv_desc = (TextView) dialogView.findViewById(R.id.tv_desc);
                 final TextView tv_share = (TextView) dialogView.findViewById(R.id.tv_share);
-                TextView tv_close = (TextView) dialogView.findViewById(R.id.tv_close);
+                final TextView tv_close = (TextView) dialogView.findViewById(R.id.tv_close);
 
                 tv_position.setText(p.getPosition());
                 tv_qualification.setText(p.getQual_req());
@@ -155,6 +159,7 @@ public class listViewJobs extends ArrayAdapter<joblistings> {
                                             SharedPref.putString(getContext(),"seekers_name"+Integer.toString(i),dlist.get(i-1).getFname());
                                             SharedPref.putString(getContext(),"seekers_email"+Integer.toString(i),dlist.get(i-1).getEmail());
                                         }
+                                        alertDialog.dismiss();
                                         getContext().startActivity(new Intent(getContext(), createTask.class));
                                     }
                                     else
@@ -179,7 +184,27 @@ public class listViewJobs extends ArrayAdapter<joblistings> {
                 tv_close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        MainRepository.getService().closeJob(p.getId()).enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                            }
 
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+
+                            }
+                        });
+                        Toast.makeText(getContext(), "Job Closed!", Toast.LENGTH_SHORT).show();
+                        alertDialog.dismiss();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent=new Intent(getContext(),jobListings.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                getContext().startActivity(intent);
+                                Bungee.fade(getContext());
+                            }
+                        },1000);
                     }
                 });
             }

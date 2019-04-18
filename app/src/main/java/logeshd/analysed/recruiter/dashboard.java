@@ -3,6 +3,7 @@ package logeshd.analysed.recruiter;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
 import logeshd.analysed.aboutOrganization;
 import logeshd.analysed.apis.status;
+import logeshd.analysed.apis.userDetails;
 import logeshd.analysed.common.adapter.listNavDrawer;
 import logeshd.analysed.classes.drawer;
 import logeshd.analysed.common.login;
@@ -48,6 +50,7 @@ import logeshd.analysed.common.feedback;
 import logeshd.analysed.common.tour;
 import logeshd.analysed.common.referral;
 import logeshd.analysed.service.MainRepository;
+import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -136,6 +139,58 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
         }
     }
 
+    public class getProfile extends AsyncTask<Void,Void,Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            MainRepository.getService().getProfileApi(SharedPref.getString(getApplicationContext(), "user_name"), "1").enqueue(new Callback<userDetails>() {
+                @Override
+                public void onResponse(Call<userDetails> call, Response<userDetails> response) {
+                    userDetails d = response.body();
+                    if (d != null) {
+                        SharedPref.putString(getApplicationContext(), "f_name", d.getFname());
+                        SharedPref.putString(getApplicationContext(), "l_name", d.getLname());
+                        SharedPref.putString(getApplicationContext(), "referal", d.getReferal());
+
+                        String url = "http://analysed.in/analysed/Pages/" + d.getPicture();
+                        SharedPref.putString(getApplicationContext(), "designation", d.getDesignation());
+                        SharedPref.putString(getApplicationContext(), "organisation", d.getOrganisation());
+                        SharedPref.putString(getApplicationContext(), "location", d.getAddress());
+                        SharedPref.putString(getApplicationContext(), "phone", d.getPhone());
+
+                        Glide.with(dashboard.this).asBitmap().load(url).into(new SimpleTarget<Bitmap>() {
+                            @Override
+                            public void onResourceReady(Bitmap image, Transition<? super Bitmap> transition) {
+                                File storageDir = getApplicationContext().getExternalCacheDir();
+                                if (storageDir == null || !storageDir.exists()) {
+                                    storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/.Analysed");
+                                    if (!storageDir.exists())
+                                        storageDir.mkdirs();
+                                }
+
+                                try {
+                                    final File cacheFile = new File(storageDir, "profile.jpg");
+                                    OutputStream fOut = new FileOutputStream(cacheFile);
+                                    image.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+                                    fOut.close();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        Log.d("ddlogesh","came here");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<userDetails> call, Throwable t) {
+                    t.printStackTrace();
+                }
+            });
+            return null;
+        }
+    }
+
     public class updates extends AsyncTask<Void,Void,Void> {
 
         @Override
@@ -216,12 +271,12 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                     String d = SharedPref.getString(getApplicationContext(), "is_today");
                     Date old_date = sdf.parse(d);
                     if ((new Date().getTime() - old_date.getTime()) > 86400000) {
-                        new dpUpdate().execute();
+                        new getProfile().execute();
                         SharedPref.putString(getApplicationContext(), "is_today", sdf.format(new Date()));
                     }
                 }
                 else{
-                    new dpUpdate().execute();
+                    new getProfile().execute();
                     SharedPref.putString(getApplicationContext(), "is_today", sdf.format(new Date()));
                 }
             }

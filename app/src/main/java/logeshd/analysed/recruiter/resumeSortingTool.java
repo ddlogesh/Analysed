@@ -1,211 +1,225 @@
 package logeshd.analysed.recruiter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.LayoutManager;
+import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.wang.avi.AVLoadingIndicatorView;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import logeshd.analysed.R;
-import logeshd.analysed.recruiter.adapter.recycleResumeChoice;
-import logeshd.analysed.recruiter.adapter.recycleResumeSelected;
-import logeshd.analysed.classes.touchListener;
-import logeshd.analysed.classes.touchListener.ClickListener;
-import logeshd.analysed.classes.drawer;
+import logeshd.analysed.apis.databases;
+import logeshd.analysed.recruiter.adapter.listDatabase;
+import logeshd.analysed.service.MainRepository;
+import logeshd.analysed.utils.SharedPref;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import spencerstudios.com.bungeelib.Bungee;
 
-public class resumeSortingTool extends AppCompatActivity {
+public class resumeSortingTool extends AppCompatActivity implements View.OnClickListener{
+
+    AVLoadingIndicatorView pcircle;
+    TextView tv_no_data;
+    ImageView iv_search;
+    EditText ev_skill,ev_location;
+    Spinner sp_qualification,sp_experience;
+    ListView l1;
+
+    List<databases> dlist;
+    listDatabase adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.r_resume_sorting_tool);
 
-        TextView tv_title = (TextView) findViewById(R.id.tv_title);
-        TextView tv_text1 = (TextView) findViewById(R.id.tv_text1);
-        TextView tv_text2 = (TextView) findViewById(R.id.tv_text2);
-        TextView tv_text3 = (TextView) findViewById(R.id.tv_text3);
-        TextView tv_text4 = (TextView) findViewById(R.id.tv_text4);
+        pcircle = (AVLoadingIndicatorView) findViewById(R.id.pcircle);
+        tv_no_data=findViewById(R.id.tv_no_data);
+        l1 = (ListView) findViewById(R.id.lv_database);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
-
-        tv_title.setTypeface(custom_font1);
-        tv_text1.setTypeface(custom_font2);
-        tv_text2.setTypeface(custom_font2);
-        tv_text3.setTypeface(custom_font2);
-        tv_text4.setTypeface(custom_font2);
-
-        ((ImageView) findViewById(R.id.iv_home)).setOnClickListener(new OnClickListener() {
+        sp_qualification = (Spinner) findViewById(R.id.sp_qualification);
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("Under graduate");
+        list1.add("Post graduate");
+        list1.add("Ph.D");
+        list1.add("Qualification");
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(resumeSortingTool.this, R.layout.t_spinner_item_light_white, list1) {
+            public int getCount() {
+                return 3;
+            }
+        };
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_qualification.setAdapter(adapter1);
+        sp_qualification.setSelection(3);
+        sp_qualification.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), dashboard.class));
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position != 3) {
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#ffffff"));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
-        /***********************************************************************************************/
+        /************************************************************************************/
 
-        final ArrayList<drawer> item1 = new ArrayList<>();
-        final RecyclerView rv_card1 = (RecyclerView) findViewById(R.id.rv_card1);
-        final recycleResumeChoice adapter1 = new recycleResumeChoice(item1);
-        LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card1.setLayoutManager(mLayoutManager);
-        rv_card1.setAdapter(adapter1);
-
-        item1.add(new drawer("UI/UX"));
-        item1.add(new drawer("C"));
-        item1.add(new drawer("C++"));
-        item1.add(new drawer("Android"));
-        item1.add(new drawer("HTML"));
-        adapter1.notifyDataSetChanged();
-
-        /**********************************************************************/
-
-        final ArrayList<drawer> item11 = new ArrayList<>();
-        final RecyclerView rv_card11 = (RecyclerView) findViewById(R.id.rv_card11);
-        final recycleResumeSelected adapter11 = new recycleResumeSelected(item11);
-        LayoutManager mLayoutManager11 = new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card11.setLayoutManager(mLayoutManager11);
-        rv_card11.setAdapter(adapter11);
-        adapter11.notifyDataSetChanged();
-
-        rv_card1.addOnItemTouchListener(new touchListener(getApplicationContext(), rv_card1, new ClickListener() {
-            public void onClick(View view, int position) {
-                drawer items = (drawer) item1.get(position);
-                item1.remove(position);
-                item11.add(new drawer(items.getTitle()));
-                adapter1.notifyDataSetChanged();
-                adapter11.notifyDataSetChanged();
-                rv_card11.smoothScrollToPosition(item11.size() - 1);
+        sp_experience = (Spinner) findViewById(R.id.sp_experience);
+        ArrayList<String> list3 = new ArrayList<>();
+        list3.add("0 Year");
+        list3.add("0-2 Years");
+        list3.add("2-4 Years");
+        list3.add("4+ Years");
+        list3.add("Experience");
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(resumeSortingTool.this, R.layout.t_spinner_item_light_white, list3) {
+            public int getCount() {
+                return 4;
+            }
+        };
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_experience.setAdapter(adapter2);
+        sp_experience.setSelection(4);
+        sp_experience.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position != 4) {
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#ffffff"));
+                }
             }
 
-            public void onLongClick(View view, int position) {
+            public void onNothingSelected(AdapterView<?> adapterView) {
             }
-        }));
+        });
 
-        /***********************************************************************************************/
+        /************************************************************************************/
 
-        final ArrayList<drawer> item2 = new ArrayList<>();
-        final RecyclerView rv_card2 = (RecyclerView) findViewById(R.id.rv_card2);
-        final recycleResumeChoice adapter2 = new recycleResumeChoice(item2);
-        LayoutManager mLayoutManager2 = new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card2.setLayoutManager(mLayoutManager2);
-        rv_card2.setAdapter(adapter2);
+        MainRepository.getService().getDatabase(SharedPref.getString(getApplicationContext(),"user_name")).enqueue(new Callback<List<databases>>() {
+            @Override
+            public void onResponse(Call<List<databases>> call, Response<List<databases>> response) {
+                adapter = new listDatabase(resumeSortingTool.this, new ArrayList<databases>());
 
-        item2.add(new drawer("B.Tech"));
-        item2.add(new drawer("M.Tech"));
-        item2.add(new drawer("Ph.d"));
-        item2.add(new drawer("B.Sc"));
-        item2.add(new drawer("B.E"));
-        adapter2.notifyDataSetChanged();
-
-        /**********************************************************************/
-
-        final ArrayList<drawer> item22 = new ArrayList<>();
-        final RecyclerView rv_card22 = (RecyclerView) findViewById(R.id.rv_card22);
-        final recycleResumeSelected adapter22 = new recycleResumeSelected(item22);
-        LayoutManager mLayoutManager22= new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card22.setLayoutManager(mLayoutManager22);
-        rv_card22.setAdapter(adapter22);
-        adapter22.notifyDataSetChanged();
-
-        rv_card2.addOnItemTouchListener(new touchListener(getApplicationContext(), rv_card2, new ClickListener() {
-            public void onClick(View view, int position) {
-                drawer items = (drawer) item2.get(position);
-                item2.remove(position);
-                item22.add(new drawer(items.getTitle()));
-                adapter2.notifyDataSetChanged();
-                adapter22.notifyDataSetChanged();
-                rv_card22.smoothScrollToPosition(item22.size() - 1);
+                dlist=response.body();
+                if(dlist!=null) {
+                    l1.setVisibility(View.VISIBLE);
+                    tv_no_data.setVisibility(View.GONE);
+                }
+                else {
+                    l1.setVisibility(View.GONE);
+                    tv_no_data.setVisibility(View.VISIBLE);
+                }
+                pcircle.setVisibility(View.GONE);
             }
 
-            public void onLongClick(View view, int position) {
+            @Override
+            public void onFailure(Call<List<databases>> call, Throwable t) {
+                Log.d("ddlogesh",t.getMessage());
+                l1.setVisibility(View.GONE);
+                tv_no_data.setVisibility(View.VISIBLE);
+                pcircle.setVisibility(View.GONE);
             }
-        }));
+        });
 
-        /***********************************************************************************************/
+        TextView tv_title = (TextView) findViewById(R.id.tv_title);
+        ev_skill = (EditText) findViewById(R.id.ev_skill);
+        ev_location = (EditText) findViewById(R.id.ev_location);
 
-        final ArrayList<drawer> item3 = new ArrayList<>();
-        final RecyclerView rv_card3 = (RecyclerView) findViewById(R.id.rv_card3);
-        final recycleResumeChoice adapter3 = new recycleResumeChoice(item3);
-        LayoutManager mLayoutManager3 = new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card3.setLayoutManager(mLayoutManager3);
-        rv_card3.setAdapter(adapter3);
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
 
-        item3.add(new drawer("3 months"));
-        item3.add(new drawer("6 months"));
-        item3.add(new drawer("1 year"));
-        item3.add(new drawer("2 years"));
-        item3.add(new drawer("3 years"));
-        adapter3.notifyDataSetChanged();
+        tv_title.setTypeface(custom_font2);
+        ev_skill.setTypeface(custom_font1);
+        ev_location.setTypeface(custom_font1);
 
-        /**********************************************************************/
+        iv_search = (ImageView) findViewById(R.id.iv_search);           iv_search.setOnClickListener(this);
+        ImageView iv_home = (ImageView) findViewById(R.id.iv_home);     iv_home.setOnClickListener(this);
+    }
 
-        final ArrayList<drawer> item33 = new ArrayList<>();
-        final RecyclerView rv_card33 = (RecyclerView) findViewById(R.id.rv_card33);
-        final recycleResumeSelected adapter33 = new recycleResumeSelected(item33);
-        LayoutManager mLayoutManager33= new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card33.setLayoutManager(mLayoutManager33);
-        rv_card33.setAdapter(adapter33);
-        adapter33.notifyDataSetChanged();
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_search:
+                String skill = ev_skill.getEditableText().toString().trim().toLowerCase();
+                String location = ev_location.getEditableText().toString().trim().toLowerCase();
 
-        rv_card3.addOnItemTouchListener(new touchListener(getApplicationContext(), rv_card3, new ClickListener() {
-            public void onClick(View view, int position) {
-                drawer items = (drawer) item3.get(position);
-                item3.remove(position);
-                item33.add(new drawer(items.getTitle()));
-                adapter3.notifyDataSetChanged();
-                adapter33.notifyDataSetChanged();
-                rv_card33.smoothScrollToPosition(item33.size() - 1);
-            }
+                String experience = sp_experience.getSelectedItem().toString();
+                if(experience.equals("0-2 Years"))
+                    experience = "1";
+                else if(experience.equals("2-4 Years"))
+                    experience = "2";
+                else if(experience.equals("4+ Years"))
+                    experience = "3";
+                else if(experience.equals("0 Year"))
+                    experience = "0";
+                else
+                    experience = "";
 
-            public void onLongClick(View view, int position) {
-            }
-        }));
+                String qualification = sp_qualification.getSelectedItem().toString();
+                if (qualification.startsWith("U"))
+                    qualification = "ug";
+                else if (qualification.equals("Ph.D"))
+                    qualification = "phd";
+                else if (qualification.startsWith("P"))
+                    qualification = "pg";
+                else
+                    qualification = "";
 
-        /***********************************************************************************************/
+                if(skill.length()==0)
+                    Toast.makeText(this, "Skill cannot be empty!", Toast.LENGTH_SHORT).show();
+                else if(qualification.length()==0)
+                    Toast.makeText(this, "Select qualification!", Toast.LENGTH_SHORT).show();
+                else if(experience.length()==0)
+                    Toast.makeText(this, "Select experience!", Toast.LENGTH_SHORT).show();
+                else if(location.length()==0)
+                    Toast.makeText(this, "Location cannot be empty!", Toast.LENGTH_SHORT).show();
+                else{
+                    if (dlist != null) {
+                        adapter.clear();
 
-        final ArrayList<drawer> item4 = new ArrayList<>();
-        final RecyclerView rv_card4 = (RecyclerView) findViewById(R.id.rv_card4);
-        final recycleResumeChoice adapter4 = new recycleResumeChoice(item4);
-        LayoutManager mLayoutManager4 = new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card4.setLayoutManager(mLayoutManager4);
-        rv_card4.setAdapter(adapter4);
+                        for (databases d : dlist) {
+                            String sk = d.getSkills().toLowerCase();
+                            String qual = d.getQualification().toLowerCase();
+                            String exp = d.getExperience().toLowerCase();
+                            String loc = d.getLocation().toLowerCase();
 
-        item4.add(new drawer("Hyderabad"));
-        item4.add(new drawer("Pune"));
-        item4.add(new drawer("Chennai"));
-        item4.add(new drawer("Mumbai"));
-        item4.add(new drawer("Delhi"));
-        adapter4.notifyDataSetChanged();
+                            if (sk.contains(skill) && qual.contains(qualification) && exp.equals(experience) && loc.contains(location))
+                                adapter.add(new databases(d.getId(), d.getFname(), d.getLname(), d.getPicture(), d.getPosition(), d.getQualification(), d.getYearofpassing(), d.getExperience(), d.getLocation(), d.getEmail(), d.getSkills()));
+                        }
+                        if (adapter.isEmpty()) {
+                            l1.setVisibility(View.GONE);
+                            tv_no_data.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            l1.setAdapter(adapter);
+                            l1.setVisibility(View.VISIBLE);
+                            tv_no_data.setVisibility(View.GONE);
+                        }
+                    }
+                    else {
+                        l1.setVisibility(View.GONE);
+                        tv_no_data.setVisibility(View.VISIBLE);
+                    }
+                }
 
-        /**********************************************************************/
-
-        final ArrayList<drawer> item44 = new ArrayList<>();
-        final RecyclerView rv_card44 = (RecyclerView) findViewById(R.id.rv_card44);
-        final recycleResumeSelected adapter44 = new recycleResumeSelected(item44);
-        LayoutManager mLayoutManager44= new LinearLayoutManager(getApplicationContext(), 0, false);
-        rv_card44.setLayoutManager(mLayoutManager44);
-        rv_card44.setAdapter(adapter44);
-        adapter44.notifyDataSetChanged();
-
-        rv_card4.addOnItemTouchListener(new touchListener(getApplicationContext(), rv_card4, new ClickListener() {
-            public void onClick(View view, int position) {
-                drawer items = (drawer) item4.get(position);
-                item4.remove(position);
-                item44.add(new drawer(items.getTitle()));
-                adapter4.notifyDataSetChanged();
-                adapter44.notifyDataSetChanged();
-                rv_card44.smoothScrollToPosition(item44.size() - 1);
-            }
-
-            public void onLongClick(View view, int position) {
-            }
-        }));
+                break;
+            case R.id.iv_home:
+                onBackPressed();
+                break;
+        }
     }
 }

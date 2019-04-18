@@ -15,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".tester"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".common.splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

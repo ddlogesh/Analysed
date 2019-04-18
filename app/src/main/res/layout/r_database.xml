@@ -47,7 +47,7 @@
             android:layout_marginRight="@dimen/_30sdp">
 
             <EditText
-                android:id="@+id/ev_skills"
+                android:id="@+id/ev_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -59,13 +59,14 @@
                 android:paddingRight="@dimen/_6sdp"
                 android:paddingBottom="@dimen/_6sdp"
                 android:textColorHint="#85ffffff"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/_13ssp" />
 
             <EditText
-                android:id="@+id/ev_qualification"
+                android:id="@+id/ev_position"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ev_skills"
+                android:layout_below="@id/ev_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/text_bg_white_curve"
@@ -76,6 +77,7 @@
                 android:paddingRight="@dimen/_6sdp"
                 android:paddingBottom="@dimen/_6sdp"
                 android:textColorHint="#85ffffff"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/_13ssp" />
         </RelativeLayout>
     </RelativeLayout>
@@ -87,8 +89,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_110sdp">
 
-        <TextView
-            android:id="@+id/tv_search_card1"
+        <ImageView
+            android:id="@+id/iv_search"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:background="@drawable/search_button" />

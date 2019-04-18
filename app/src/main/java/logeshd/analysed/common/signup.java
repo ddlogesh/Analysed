@@ -2,35 +2,25 @@ package logeshd.analysed.common;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.CursorLoader;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -40,7 +30,6 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.angads25.filepicker.controller.DialogSelectionListener;
 import com.github.angads25.filepicker.model.DialogConfigs;
@@ -48,16 +37,11 @@ import com.github.angads25.filepicker.model.DialogProperties;
 import com.github.angads25.filepicker.view.FilePickerDialog;
 import com.wang.avi.AVLoadingIndicatorView;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -70,7 +54,6 @@ import logeshd.analysed.apis.jobseekers;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.users;
 import logeshd.analysed.service.MainRepository;
-import logeshd.analysed.service.MainService;
 import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
 import okhttp3.MediaType;
@@ -158,7 +141,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             list1.add("Post graduate");
             list1.add("Ph.D");
             list1.add("Qualification");
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(signup.this, R.layout.t_spinner_item, list1) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(signup.this, R.layout.t_spinner_item_light_black, list1) {
                 public int getCount() {
                     return 3;
                 }
@@ -210,7 +193,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             list2.add("2020");
             list2.add("2021");
             list2.add("Year Of Passing");
-            ArrayAdapter adapter2 = new ArrayAdapter<String>(signup.this, R.layout.t_spinner_item, list2) {
+            ArrayAdapter adapter2 = new ArrayAdapter<String>(signup.this, R.layout.t_spinner_item_light_black, list2) {
                 public int getCount() {
                     return 25;
                 }
@@ -241,7 +224,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             list3.add("2-4 Years");
             list3.add("4+ Years");
             list3.add("Experience");
-            adapter2 = new ArrayAdapter<String>(signup.this, R.layout.t_spinner_item, list3) {
+            adapter2 = new ArrayAdapter<String>(signup.this, R.layout.t_spinner_item_light_black, list3) {
                 public int getCount() {
                     return 4;
                 }
@@ -335,9 +318,10 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
         if(imageFile.exists()) {
             RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), imageFile);
+            RequestBody userRole = RequestBody.create(MediaType.parse("text/plain"), Integer.toString(flag));
             MultipartBody.Part part = MultipartBody.Part.createFormData("file", imageFile.getName(), fileReqBody);
 
-            MainRepository.getService().uploadImageApi(part).enqueue(new Callback<status>() {
+            MainRepository.getService().uploadImageApi(part, userRole).enqueue(new Callback<status>() {
                 @Override
                 public void onResponse(Call<status> call, Response<status> response) {
                     status a = response.body();
@@ -458,14 +442,22 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                         j.setResumename(SharedPref.getString(getApplicationContext(),"resume_file_name"));
                         j.setResume(SharedPref.getString(getApplicationContext(),"resume_file_content"));
 
-                        String ex_split[] = sp_experience.getSelectedItem().toString().split(" ");
-                        j.setExperience(ex_split[0]);
+                        String str1 = sp_experience.getSelectedItem().toString();
+                        if(str1.equals("0-2 Years"))
+                            str1 = "1";
+                        else if(str1.equals("2-4 Years"))
+                            str1 = "2";
+                        else if(str1.equals("4+ Years"))
+                            str1 = "3";
+                        else
+                            str1 = "0";
+                        j.setExperience(str1);
 
                         String str = sp_qualification.getSelectedItem().toString();
                         if (str.startsWith("U"))
                             str = "UG";
                         else if (str.equals("Ph.D"))
-                            str = "PhD";
+                            str = "PHD";
                         else
                             str = "PG";
                         j.setQualification(str);
@@ -593,6 +585,8 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             case R.id.iv_job_seekers:
                 ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
                 ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
+                ((RelativeLayout) findViewById(R.id.layout_js)).setVisibility(View.VISIBLE);
+                ((RelativeLayout) findViewById(R.id.layout_rc)).setVisibility(View.GONE);
                 tv_resume.setVisibility(View.VISIBLE);
                 tv_signup.setEnabled(true);
                 flag=0;
@@ -601,6 +595,8 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             case R.id.iv_recruiter:
                 ((RelativeLayout) findViewById(R.id.layout_role)).setVisibility(View.GONE);
                 ((ScrollView) findViewById(R.id.layout_scroll)).setVisibility(View.VISIBLE);
+                ((RelativeLayout) findViewById(R.id.layout_js)).setVisibility(View.GONE);
+                ((RelativeLayout) findViewById(R.id.layout_rc)).setVisibility(View.VISIBLE);
                 tv_signup.setEnabled(true);
                 flag=1;
                 break;
