@@ -34,7 +34,7 @@
             android:textSize="@dimen/_14ssp" />
 
         <TextView
-            android:id="@id/tv_mobile"
+            android:id="@+id/tv_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_full_name"

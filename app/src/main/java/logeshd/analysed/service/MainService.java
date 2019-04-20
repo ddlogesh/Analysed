@@ -32,6 +32,9 @@ public interface MainService {
     @GET("common/getProfilePic.php")
     Call<status> getProfilePicApi(@Query("email") String email, @Query("userRole") String userRole);
 
+    @GET("common/getResume.php")
+    Call<status> getResumeApi(@Query("email") String email);
+
     @GET("common/getProfile.php")
     Call<userDetails> getProfileApi(@Query("email") String email, @Query("userRole") String userRole);
 
@@ -78,7 +81,7 @@ public interface MainService {
     @POST("recruiter/closeJob.php")
     Call<String> closeJob(@Field("id") int id);
 
-    @GET("recruiter/viewTask.php")
+    @GET("recruiter/viewTasks.php")
     Call<List<task>> getAssignedTasks(@Query("username") String username);
 
     @GET("recruiter/createTask.php")
@@ -87,9 +90,18 @@ public interface MainService {
     @POST("recruiter/createTask1.php")
     Call<status> createTask(@Body task t);
 
-    @GET("recruiter/viewChallenge.php")
+    @GET("recruiter/viewChallenges.php")
     Call<List<challenge>> getAssignedChallenges(@Query("username") String username);
 
     @POST("recruiter/createChallenge.php")
     Call<status> createChallenge(@Body challenge c);
+
+    /*********************************************************************************/
+    //Jobseekers Dashboard
+
+    @GET("jobseeker/viewTasks.php")
+    Call<List<task>> getTasks(@Query("username") String username);
+
+    @GET("jobseeker/viewChallenges.php")
+    Call<List<challenge>> getChallenges();
 }

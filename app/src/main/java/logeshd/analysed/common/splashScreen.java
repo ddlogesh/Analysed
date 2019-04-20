@@ -2,8 +2,21 @@ package logeshd.analysed.common;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.channels.FileChannel;
 
 import logeshd.analysed.R;
 import logeshd.analysed.recruiter.createTask;
@@ -21,16 +34,16 @@ public class splashScreen extends AppCompatActivity {
 
             @Override
             public void run() {
-                if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
+                /*if(SharedPref.getBoolean(getApplicationContext(),"is_logged_in")){
                     if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
                     else
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
                 }
-                else
-                    startActivity(new Intent(getApplicationContext(), login.class));
+                else*/
+                    startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.viewChallenges.class));
             }
-        },3500);
+        },100);
     }
 
     //3500
@@ -40,6 +53,7 @@ public class splashScreen extends AppCompatActivity {
 /var/www/analysed.in/analysed/webservices/common
 /var/www/analysed.in/analysed/webservices/jobseeker
 /var/www/analysed.in/analysed/webservices/recruiter
+
 /var/www/analysed.in/analysed/Pages/dashboard
 
 cd C:\Users\Logesh Dinakaran\AppData\Local\Android\Sdk\platform-tools

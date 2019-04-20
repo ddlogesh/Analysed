@@ -54,7 +54,7 @@
                 android:id="@+id/layout_more"
                 android:layout_below="@+id/tv_sub_title"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -186,7 +186,7 @@
                         android:paddingLeft="@dimen/_5sdp"
                         android:paddingRight="@dimen/_2sdp"
                         android:layout_centerHorizontal="true"
-                        android:drawableRight="@drawable/ic_download_white"
+                        android:drawableRight="@drawable/ic_download_white_small"
                         android:layout_below="@+id/layout_done1"
                         android:layout_marginTop="@dimen/_7sdp"
                         android:text="Download File"

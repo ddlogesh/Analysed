@@ -14,6 +14,7 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".common.splashScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -37,6 +38,15 @@
             android:name=".jobSeeker.completeProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".jobSeeker.scoreBoard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".jobSeeker.viewChallenges"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".jobSeeker.viewSkills"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".recruiter.jobListings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -44,7 +54,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".recruiter.viewProfile"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.referral"
             android:theme="@style/AppTheme.NoActionBar" />

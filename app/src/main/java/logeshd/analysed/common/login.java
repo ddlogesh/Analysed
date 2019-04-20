@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -35,9 +36,11 @@ import com.bumptech.glide.request.transition.Transition;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.nio.channels.FileChannel;
 
 import logeshd.analysed.R;
 import logeshd.analysed.apis.status;
@@ -159,7 +162,7 @@ public class login extends AppCompatActivity {
         MainRepository.getService().loginApi(username,password).enqueue(new Callback<userDetails>() {
             @Override
             public void onResponse(Call<userDetails> call, Response<userDetails> response) {
-                userDetails d=response.body();
+                final userDetails d=response.body();
                 if(d!=null){
                     SharedPref.putString(getApplicationContext(),"user_name",ev_name.getEditableText().toString().trim());
                     SharedPref.putInt(getApplicationContext(),"user_role",Integer.parseInt(d.getUserRole()));
@@ -181,6 +184,58 @@ public class login extends AppCompatActivity {
                         SharedPref.putInt(getApplicationContext(),"user_id",d.getUser_id());
                         SharedPref.putString(getApplicationContext(), "location", d.getLocation());
                         SharedPref.putString(getApplicationContext(),"phone",d.getPhNumber());
+
+                        String str2 = d.getQualification();
+                        if (str2.equals("UG"))
+                            str2 = "Under graduate";
+                        else if (str2.equals("PG"))
+                            str2 = "Post graduate";
+                        else if (str2.equals("PHD"))
+                            str2 = "Ph.D";
+                        SharedPref.putString(getApplicationContext(),"qualification",str2);
+
+                        SharedPref.putString(getApplicationContext(),"year_passing",d.getYearofpassing());
+
+                        String str1 = d.getExperience();
+                        if (str1.equals("1"))
+                            str1 = "0-2 Years";
+                        else if (str1.equals("2"))
+                            str1 = "2-4 Years";
+                        else if (str1.equals("3"))
+                            str1 = "4+ Years";
+                        else
+                            str1 = "0 Year";
+                        SharedPref.putString(getApplicationContext(),"experience",str1);
+
+                        SharedPref.putString(getApplicationContext(),"resume_file_name",d.getResumename());
+                        SharedPref.putString(getApplicationContext(),"resume_file_content",d.getResume());
+
+                        String url1="http://analysed.in/analysed/Pages/jobseeker/documents/" + d.getResumename();
+                        Glide.with(login.this).asFile().load(url1).into(new SimpleTarget<File>() {
+                            @Override
+                            public void onResourceReady(@NonNull File resource, @Nullable Transition<? super File> transition) {
+                                File storageDir = getApplicationContext().getExternalCacheDir();
+                                if (storageDir == null || !storageDir.exists()) {
+                                    storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/.Analysed");
+                                    if(!storageDir.exists())
+                                        storageDir.mkdirs();
+                                }
+
+                                final File cacheFile = new File(storageDir,d.getResumename());
+                                try {
+                                    FileInputStream inStream = new FileInputStream(resource);
+                                    FileOutputStream outStream = new FileOutputStream(cacheFile);
+                                    FileChannel inChannel = inStream.getChannel();
+                                    FileChannel outChannel = outStream.getChannel();
+                                    inChannel.transferTo(0, inChannel.size(), outChannel);
+                                    inStream.close();
+                                    outStream.close();
+                                }
+                                catch (Exception e) {
+                                    Log.d("ddlogesh", e.getMessage());
+                                }
+                            }
+                        });
                     }
 
                     Glide.with(login.this).asBitmap().load(url).into(new SimpleTarget<Bitmap>() {

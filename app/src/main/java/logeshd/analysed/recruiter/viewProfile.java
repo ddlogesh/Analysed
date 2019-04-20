@@ -108,6 +108,8 @@ public class viewProfile extends AppCompatActivity implements View.OnClickListen
         new updates().execute();
     }
 
+    /************************************************************************************/
+
     public class updates extends AsyncTask<Void,Void,Void>{
 
         @Override
@@ -214,6 +216,8 @@ public class viewProfile extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    /************************************************************************************/
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -297,6 +301,8 @@ public class viewProfile extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
+
+    /************************************************************************************/
 
     @Override
     protected void onActivityResult(int  requestCode, int resultCode, Intent data) {

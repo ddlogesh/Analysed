@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_bg"
     android:layout_width="@dimen/_150sdp"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/_200sdp"
     android:layout_margin="@dimen/_3sdp"
     android:background="@drawable/text_bg_dark_violet_curve_less_corner_fill">
 
     <ImageView
         android:id="@+id/iv_pic"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_70sdp"
         android:layout_margin="@dimen/_1sdp"
         android:background="@drawable/button_white_solid_less_corner"/>
 
@@ -28,12 +28,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Task 1"
+            android:gravity="center"
             android:textStyle="bold"
             android:textColor="#ffffff"
             android:paddingLeft="@dimen/_5sdp"
             android:paddingRight="@dimen/_5sdp"
             android:layout_centerHorizontal="true"
-            android:textSize="@dimen/_16ssp"/>
+            android:textSize="@dimen/_12ssp"/>
 
         <RelativeLayout
             android:id="@+id/layout0"
@@ -49,11 +50,10 @@
                 android:paddingLeft="@dimen/_3sdp"
                 android:paddingRight="@dimen/_3sdp"
                 android:paddingTop="@dimen/_3sdp"
-                android:paddingBottom="@dimen/_5sdp"
-                android:text="Task analysis is the analysis of how a task is accomplished, including a detailed description of both manual and mental activities"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text=""
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/text_bg_grey"
-                android:textColor="#000000"
+                android:textColor="#CCFFFFFF"
                 android:textSize="@dimen/_10ssp"/>
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -64,6 +64,7 @@
                 android:layout_marginRight="@dimen/_2sdp"
                 android:layout_marginBottom="@dimen/_1sdp"
                 android:layout_alignBottom="@+id/tv_desc"
+                android:visibility="gone"
                 app:rcProgress="50"
                 app:rcMax="100"
                 app:rcRadius="@dimen/_10sdp"
@@ -73,7 +74,7 @@
                 app:rcBackgroundColor="#AF9A9A" />
         </RelativeLayout>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/tv_count"
             android:layout_below="@+id/layout0"
             android:layout_width="wrap_content"
@@ -82,6 +83,7 @@
             android:paddingLeft="@dimen/_3sdp"
             android:paddingRight="@dimen/_3sdp"
             android:text="Count: 5"
+            android:visibility="gone"
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:textColor="#FFFFFF"
@@ -93,6 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_count"
             android:text="LIVE"
+            android:visibility="gone"
             android:textStyle="bold"
             android:textSize="@dimen/_12ssp"
             android:gravity="center"
@@ -103,7 +106,7 @@
             android:paddingRight="@dimen/_5sdp"
             android:paddingTop="@dimen/_1sdp"
             android:paddingBottom="@dimen/_1sdp"
-            android:background="@drawable/text_bg_green_curve_less_width"/>
+            android:background="@drawable/text_bg_green_curve_less_width"/>-->
 
     </RelativeLayout>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#eeeeee"
     tools:context=".jobSeeker.viewTasks">
 
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_home"
-            android:text="Today Tasks"
+            android:text="My Tasks"
             android:textStyle="bold"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_20sdp"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_task_count"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="This is the task you must done by today from 9AM to 6PM."
+            android:text="This is the task you must done before deadline"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:textSize="@dimen/_10ssp"
@@ -63,14 +63,39 @@
 
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_task"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layout0"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:orientation="horizontal" />
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/tv_no_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No data Found!"
+            android:textStyle="bold"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="gone"
+            android:layout_centerInParent="true"/>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/pcircle"
+            app:indicatorColor="#ffa779c4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            app:indicatorName="LineScaleIndicator" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:orientation="horizontal" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -80,7 +105,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         android:padding="@dimen/_5sdp"
-        android:layout_below="@+id/rv_task">
+        android:layout_below="@+id/layout1">
 
         <TextView
             android:id="@+id/tv_title1"
@@ -108,14 +133,38 @@
             android:paddingBottom="@dimen/_3sdp"
             android:textStyle="bold"/>
 
-        <ListView
-            android:id="@+id/list_task_comp"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_title1"
-            android:layout_margin="@dimen/_5sdp"
-            android:divider="@null"
-            android:scrollbars="none" />
+            android:layout_below="@id/tv_title1">
+
+            <TextView
+                android:id="@+id/tv_no_data1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No data Found!"
+                android:textStyle="bold"
+                android:textSize="@dimen/_16ssp"
+                android:visibility="gone"
+                android:layout_centerInParent="true"/>
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/pcircle1"
+                app:indicatorColor="#ffa779c4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_centerInParent="true"
+                app:indicatorName="LineScaleIndicator" />
+
+            <ListView
+                android:id="@+id/list_task_comp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:divider="@null"
+                android:scrollbars="none" />
+        </RelativeLayout>
 
     </RelativeLayout>
 

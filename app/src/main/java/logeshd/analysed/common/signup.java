@@ -337,10 +337,12 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                                 SharedPref.putString(getApplicationContext(), "profile_file_name", "user-images/" + imageFile.getName());
                             else if(flag==1)
                                 SharedPref.putString(getApplicationContext(), "profile_file_name", "avatars/" + imageFile.getName());
+
                             iv_profile.setBorderWidth(5);
                             iv_profile.setBorderColor(Color.parseColor("#ff33adff"));
                             Bitmap bitmap = BitmapFactory.decodeFile(imageFile.getPath());
                             iv_profile.setImageBitmap(bitmap);
+
                             pcircle.setVisibility(View.GONE);
                             iv_edit.setEnabled(true);
                         }
@@ -381,6 +383,28 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         if(chosen_file.exists()) {
             pcircle.setVisibility(View.VISIBLE);
             tv_resume.setEnabled(false);
+
+            File storageDir = getApplicationContext().getExternalCacheDir();
+            if (storageDir == null || !storageDir.exists()) {
+                storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/.Analysed");
+                if(!storageDir.exists())
+                    storageDir.mkdirs();
+            }
+
+            final File cacheFile = new File(storageDir,chosen_file.getName());
+            try {
+                FileInputStream inStream = new FileInputStream(chosen_file);
+                FileOutputStream outStream = new FileOutputStream(cacheFile);
+                FileChannel inChannel = inStream.getChannel();
+                FileChannel outChannel = outStream.getChannel();
+                inChannel.transferTo(0, inChannel.size(), outChannel);
+                inStream.close();
+                outStream.close();
+            }
+            catch (Exception e) {
+                Log.d("ddlogesh", e.getMessage());
+            }
+
             RequestBody fileReqBody = RequestBody.create(MediaType.parse("*/*"), chosen_file);
             MultipartBody.Part part = MultipartBody.Part.createFormData("file", chosen_file.getName(), fileReqBody);
 
@@ -392,9 +416,11 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                         if (a.getCode() == 1) {
                             SharedPref.putString(getApplicationContext(), "resume_file_name", chosen_file.getName());
                             SharedPref.putString(getApplicationContext(), "resume_file_content", getFileContents(f));
+
                             Drawable img = getResources().getDrawable(R.drawable.ic_tick_white);
                             tv_resume.setCompoundDrawablesWithIntrinsicBounds(null, null, img, null);
                             pcircle.setVisibility(View.GONE);
+
                             Log.d("ddlogesh", a.getMessage());
                         }
                         else {
@@ -533,8 +559,11 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                         SharedPref.putString(getApplicationContext(),"phone",j.getPhNumber());
                         SharedPref.putString(getApplicationContext(), "location", j.getLocation());
                         SharedPref.putString(getApplicationContext(), "referal", j.getReferal());
+                        SharedPref.putString(getApplicationContext(),"qualification",sp_qualification.getSelectedItem().toString());
+                        SharedPref.putString(getApplicationContext(),"year_passing",sp_year_passing.getSelectedItem().toString());
+                        SharedPref.putString(getApplicationContext(),"experience",sp_experience.getSelectedItem().toString());
 
-                        String[] keys={"profile_file_name","ev_skills","ev_email","resume_file_content","resume_file_name"};
+                        String[] keys={"profile_file_name","ev_email"};
                         for(int i=0;i<keys.length;i++)
                             SharedPref.remove(getApplicationContext(),keys[i]);
 
@@ -587,7 +616,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                         SharedPref.putString(getApplicationContext(), "location", r.getAddress());
                         SharedPref.putString(getApplicationContext(), "referal", r.getReferal());
 
-                        String[] keys={"profile_file_name","ev_skills","ev_email","resume_file_content","resume_file_name"};
+                        String[] keys={"profile_file_name","ev_email"};
                         for(int i=0;i<keys.length;i++)
                             SharedPref.remove(getApplicationContext(),keys[i]);
 
@@ -729,18 +758,21 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             SharedPref.putString(getApplicationContext(),"f_name",ev_first_name1.getEditableText().toString().trim());
         if (ev_last_name1.getEditableText().toString().trim().length() > 0)
             SharedPref.putString(getApplicationContext(),"l_name",ev_last_name1.getEditableText().toString().trim());
+
+        if (ev_skills.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"skills",ev_skills.getEditableText().toString().trim());
+
+        if (ev_designation.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"designation",ev_designation.getEditableText().toString().trim());
+        if (ev_organisation.getEditableText().toString().trim().length() > 0)
+            SharedPref.putString(getApplicationContext(),"organisation",ev_organisation.getEditableText().toString().trim());
+
         if (ev_email.getEditableText().toString().trim().length() > 0)
             SharedPref.putString(getApplicationContext(),"ev_email",ev_email.getEditableText().toString().trim());
         if (ev_location.getEditableText().toString().trim().length() > 0)
             SharedPref.putString(getApplicationContext(),"location",ev_location.getEditableText().toString().trim());
         if (ev_mobile.getEditableText().toString().trim().length() > 0)
             SharedPref.putString(getApplicationContext(),"phone",ev_mobile.getEditableText().toString().trim());
-        if (ev_skills.getEditableText().toString().trim().length() > 0)
-            SharedPref.putString(getApplicationContext(),"ev_skills",ev_skills.getEditableText().toString().trim());
-        if (ev_designation.getEditableText().toString().trim().length() > 0)
-            SharedPref.putString(getApplicationContext(),"designation",ev_designation.getEditableText().toString().trim());
-        if (ev_organisation.getEditableText().toString().trim().length() > 0)
-            SharedPref.putString(getApplicationContext(),"organisation",ev_organisation.getEditableText().toString().trim());
     }
 
     @Override
@@ -751,18 +783,21 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             ev_first_name1.setText(SharedPref.getString(getApplicationContext(),"f_name"));
         if (SharedPref.getString(getApplicationContext(),"l_name") != null)
             ev_last_name1.setText(SharedPref.getString(getApplicationContext(),"l_name"));
+
+        if (SharedPref.getString(getApplicationContext(),"skills") != null)
+            ev_skills.setText(SharedPref.getString(getApplicationContext(),"skills"));
+
+        if (SharedPref.getString(getApplicationContext(),"designation") != null)
+            ev_designation.setText(SharedPref.getString(getApplicationContext(),"designation"));
+        if (SharedPref.getString(getApplicationContext(),"organisation") != null)
+            ev_organisation.setText(SharedPref.getString(getApplicationContext(),"organisation"));
+
         if (SharedPref.getString(getApplicationContext(),"ev_email") != null)
             ev_email.setText(SharedPref.getString(getApplicationContext(),"ev_email"));
         if (SharedPref.getString(getApplicationContext(),"location") != null)
             ev_location.setText(SharedPref.getString(getApplicationContext(),"location"));
         if (SharedPref.getString(getApplicationContext(),"phone") != null)
             ev_mobile.setText(SharedPref.getString(getApplicationContext(),"phone"));
-        if (SharedPref.getString(getApplicationContext(),"ev_skills") != null)
-            ev_skills.setText(SharedPref.getString(getApplicationContext(),"ev_skills"));
-        if (SharedPref.getString(getApplicationContext(),"designation") != null)
-            ev_designation.setText(SharedPref.getString(getApplicationContext(),"designation"));
-        if (SharedPref.getString(getApplicationContext(),"organisation") != null)
-            ev_organisation.setText(SharedPref.getString(getApplicationContext(),"organisation"));
 
         String profile_status=SharedPref.getString(getApplicationContext(),"profile_file_name");
         if(profile_status != null){
@@ -837,7 +872,8 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 }
 
 /*
-/var/www/analysed.in/analysed/webservices/js
-/var/www/analysed.in/analysed/Pages/jobseeker/images
 /var/www/analysed.in/analysed/Pages/jobseeker/documents
+
+/var/www/analysed.in/analysed/Pages/jobseeker
+/var/www/analysed.in/analysed/Pages
  */
