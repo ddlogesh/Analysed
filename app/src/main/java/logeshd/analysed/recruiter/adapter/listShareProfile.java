@@ -20,7 +20,7 @@ public class listShareProfile extends ArrayAdapter<database> {
     public View getView(int position, View convertView, ViewGroup parent) {
         database p = (database) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.r_list_share_profile, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.z_list_share_profile, parent, false);
         }
 
         ImageView iv_profile_image = convertView.findViewById(R.id.iv_profile_image);

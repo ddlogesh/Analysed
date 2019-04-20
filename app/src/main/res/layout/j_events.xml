@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#eeeeee"
+    tools:context=".jobSeeker.events">
+
+    <RelativeLayout
+        android:id="@+id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:background="@drawable/background_gradient_corner">
+
+        <ImageView
+            android:id="@id/iv_home"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back_white" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_home"
+            android:text="My Events"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textSize="@dimen/_20ssp"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:id="@+id/tv_e_book_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:background="@drawable/button_very_light_white_solid_less_corner"
+            android:textSize="@dimen/_12ssp"
+            android:layout_below="@+id/iv_home"
+            android:layout_alignParentRight="true"
+            android:textColor="#ffffff"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_e_book_count"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Attend more events and get more experience!"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="#CCFFFFFF"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_e_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_below="@+id/layout0"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No data Found!"
+        android:textStyle="bold"
+        android:textSize="@dimen/_16ssp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#ffa779c4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
+
+    <com.savvi.rangedatepicker.CalendarPickerView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendar_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_280sdp"
+        app:tsquare_dividerColor="#00000000"
+        app:tsquare_headerTextColor="@color/colorAccent" />
+
+</RelativeLayout>

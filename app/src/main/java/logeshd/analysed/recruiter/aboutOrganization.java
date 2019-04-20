@@ -1,4 +1,4 @@
-package logeshd.analysed;
+package logeshd.analysed.recruiter;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import logeshd.analysed.R;
 import logeshd.analysed.recruiter.dashboard;
 
 public class aboutOrganization extends AppCompatActivity {

@@ -4,9 +4,11 @@ import java.util.List;
 
 import logeshd.analysed.apis.challenge;
 import logeshd.analysed.apis.databases;
+import logeshd.analysed.apis.e_book;
 import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.apis.jobseekers;
 import logeshd.analysed.apis.recruiter;
+import logeshd.analysed.apis.skills;
 import logeshd.analysed.apis.userDetails;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.task;
@@ -104,4 +106,10 @@ public interface MainService {
 
     @GET("jobseeker/viewChallenges.php")
     Call<List<challenge>> getChallenges();
+
+    @GET("jobseeker/viewSkills.php")
+    Call<skills> getSkillsApi(@Query("email") String email, @Query("user_id") int user_id);
+
+    @GET("jobseeker/getEvents.php")
+    Call<List<e_book>> getEventsApi(@Query("seeker_email") String seeker_email);
 }

@@ -13,7 +13,7 @@ public class viewSkills extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.r_view_skills);
+        setContentView(R.layout.z_view_skills);
 
         ((ImageView) findViewById(R.id.iv_home)).setOnClickListener(new View.OnClickListener() {
             @Override

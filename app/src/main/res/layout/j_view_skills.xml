@@ -1,9 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#eeeeee"
     tools:context=".jobSeeker.viewSkills">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_230sdp"
+        android:background="@drawable/background_gradient_corner">
+
+        <ImageView
+            android:id="@id/iv_home"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back_white" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_65sdp">
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/pb_total"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible"
+                app:cpb_background_progressbar_color="#D8D8D8"
+                app:cpb_progress="0"
+                app:cpb_progress_max="100"
+                app:cpb_progressbar_color="#ffffff"
+                app:cpb_progressbar_width="@dimen/_10sdp" />
+
+            <RelativeLayout
+                android:id="@+id/layout_count"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:id="@+id/tv_total_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_32sdp"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"/>
+
+                <TextView
+                    android:id="@+id/tv_pt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_18sdp"
+                    android:layout_alignBottom="@+id/tv_total_percent"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/tv_total_percent"
+                    android:visibility="gone"
+                    android:text="%"
+                    android:textColor="#ffffff"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_os"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/layout_count"
+                android:text="Overall Skills"
+                android:visibility="invisible"
+                android:textColor="#eeeeee"
+                android:textSize="@dimen/_10sdp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_180sdp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/button_white_solid">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_t_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_24ssp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Total Task\nsolved"
+                    android:gravity="center"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_below="@+id/tv_t_count" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_add2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_24ssp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:text="123"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="text text\ntext"
+                    android:gravity="center"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_below="@+id/tv_add2" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_below="@+id/layout0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/button_white_solid">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_tf"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Task solved from"
+                android:textSize="@dimen/_12ssp"/>
+
+            <LinearLayout
+                android:layout_below="@+id/tv_tf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RelativeLayout
+                            android:id="@+id/layout11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_marginRight="@dimen/_20sdp">
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/pb_rec"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="invisible"
+                                app:cpb_background_progressbar_color="#D8D8D8"
+                                app:cpb_progress="0"
+                                app:cpb_progress_max="100"
+                                app:cpb_progressbar_color="#ff7498fe"
+                                app:cpb_progressbar_width="@dimen/_6sdp" />
+
+                            <TextView
+                                android:id="@+id/tv_r_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:textColor="#000000"
+                                android:textSize="@dimen/_24ssp"
+                                android:textStyle="bold"/>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tv_rec"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_below="@+id/layout11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recruiter"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_16ssp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tv_rec_percent"
+                            android:layout_below="@+id/tv_rec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#A09E9E"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <RelativeLayout
+                            android:id="@+id/layout12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_marginRight="@dimen/_20sdp">
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/pb_challenge"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="invisible"
+                                app:cpb_background_progressbar_color="#D8D8D8"
+                                app:cpb_progress="0"
+                                app:cpb_progress_max="100"
+                                app:cpb_progressbar_color="#ff7498fe"
+                                app:cpb_progressbar_width="@dimen/_6sdp" />
+
+                            <TextView
+                                android:id="@+id/tv_c_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:textColor="#000000"
+                                android:textSize="@dimen/_24ssp"
+                                android:textStyle="bold"/>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tv_challenge"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_below="@+id/layout12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Challenges"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_16ssp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tv_challenge_percent"
+                            android:layout_below="@+id/tv_challenge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#A09E9E"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#ffa779c4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
+
+</RelativeLayout>

@@ -19,7 +19,7 @@ public class listCreateTask extends ArrayAdapter<drawer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         drawer p = (drawer) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.r_list_create_task, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.z_list_create_task, parent, false);
         }
         Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
         TextView ev_ways = (TextView) convertView.findViewById(R.id.ev_ways);

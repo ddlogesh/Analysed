@@ -81,22 +81,27 @@ public class scoreBoard extends AppCompatActivity implements View.OnClickListene
                         if (adapter.isEmpty()) {
                             l1.setVisibility(View.GONE);
                             tv_no_data.setVisibility(View.VISIBLE);
+                            pcircle.setVisibility(View.GONE);
+                            tv_recruiter.setEnabled(true);
+                            tv_challenge.setEnabled(true);
                         }
                         else {
                             l1.setAdapter(adapter);
                             l1.setVisibility(View.VISIBLE);
                             tv_no_data.setVisibility(View.GONE);
+                            pcircle.setVisibility(View.GONE);
+                            tv_recruiter.setEnabled(true);
+                            tv_challenge.setEnabled(true);
                         }
                     }
                     else {
                         l1.setVisibility(View.GONE);
                         tv_no_data.setVisibility(View.VISIBLE);
+                        pcircle.setVisibility(View.GONE);
+                        tv_recruiter.setEnabled(true);
+                        tv_challenge.setEnabled(true);
                         Log.d("ddlogesh", "empty");
                     }
-
-                    pcircle.setVisibility(View.GONE);
-                    tv_recruiter.setEnabled(true);
-                    tv_challenge.setEnabled(true);
                 }
 
                 @Override
@@ -127,22 +132,27 @@ public class scoreBoard extends AppCompatActivity implements View.OnClickListene
                         if (adapter.isEmpty()) {
                             l1.setVisibility(View.GONE);
                             tv_no_data.setVisibility(View.VISIBLE);
+                            pcircle.setVisibility(View.GONE);
+                            tv_recruiter.setEnabled(true);
+                            tv_challenge.setEnabled(true);
                         }
                         else {
                             l1.setAdapter(adapter);
                             l1.setVisibility(View.VISIBLE);
                             tv_no_data.setVisibility(View.GONE);
+                            pcircle.setVisibility(View.GONE);
+                            tv_recruiter.setEnabled(true);
+                            tv_challenge.setEnabled(true);
                         }
                     }
                     else {
                         l1.setVisibility(View.GONE);
                         tv_no_data.setVisibility(View.VISIBLE);
+                        pcircle.setVisibility(View.GONE);
+                        tv_recruiter.setEnabled(true);
+                        tv_challenge.setEnabled(true);
                         Log.d("ddlogesh", "empty");
                     }
-
-                    pcircle.setVisibility(View.GONE);
-                    tv_recruiter.setEnabled(true);
-                    tv_challenge.setEnabled(true);
                 }
 
                 @Override

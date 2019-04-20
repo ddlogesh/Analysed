@@ -1,4 +1,4 @@
-package logeshd.analysed.recruiter;
+package logeshd.analysed.common;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +12,12 @@ import java.util.ArrayList;
 import logeshd.analysed.R;
 import logeshd.analysed.recruiter.adapter.listShareProfile;
 import logeshd.analysed.classes.database;
+import logeshd.analysed.recruiter.dashboard;
 
 public class shareProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.r_share_profile);
+        setContentView((int) R.layout.c_share_profile);
 
         ListView l1 = (ListView) findViewById(R.id.list_people);
         listShareProfile adapter = new listShareProfile(this, new ArrayList());

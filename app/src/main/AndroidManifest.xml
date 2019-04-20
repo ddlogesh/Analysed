@@ -68,7 +68,7 @@
             android:name=".recruiter.createChallenge"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".recruiter.shareProfile"
+            android:name=".common.shareProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.feedback"
@@ -90,19 +90,13 @@
             android:name=".jobSeeker.search"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".aboutOrganization"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".recruiter.startHiring0"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".recruiter.resumeSortingTool"
+            android:name=".recruiter.aboutOrganization"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".recruiter.startHiring"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".recruiter.viewStats"
+            android:name=".recruiter.resumeSortingTool"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".recruiter.viewSkills"
@@ -120,7 +114,7 @@
             android:name=".jobSeeker.viewTasks"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".events"
+            android:name=".jobSeeker.events"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".recruiter.viewChallenges"

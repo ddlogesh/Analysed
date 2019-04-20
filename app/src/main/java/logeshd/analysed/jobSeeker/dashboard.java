@@ -47,10 +47,10 @@ import logeshd.analysed.common.feedback;
 import logeshd.analysed.common.login;
 import logeshd.analysed.common.referral;
 import logeshd.analysed.common.adapter.listNavDrawer;
-import logeshd.analysed.recruiter.shareProfile;
+import logeshd.analysed.common.shareProfile;
 import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.SharedPref;
-import logeshd.analysed.recruiter.viewChallenges;
+import logeshd.analysed.jobSeeker.viewChallenges;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -362,13 +362,13 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                     else if (data.equals("Tasks"))
                         startActivity(new Intent(getApplicationContext(), viewTasks.class));
                     else if (data.equals("Skills"))
-                        startActivity(new Intent(getApplicationContext(), viewTasks.class));
+                        startActivity(new Intent(getApplicationContext(), viewSkills.class));
                     else if (data.equals("Events"))
-                        startActivity(new Intent(getApplicationContext(), viewTasks.class));
+                        startActivity(new Intent(getApplicationContext(), events.class));
                     else if (data.equals("Challenges"))
                         startActivity(new Intent(getApplicationContext(), viewChallenges.class));
-                    else if (data.equals("Portfolio"))
-                        startActivity(new Intent(getApplicationContext(), viewChallenges.class));
+                    else if (data.equals("Portfolio"));
+                        //startActivity(new Intent(getApplicationContext(), viewChallenges.class));
                     else if (data.equals("Share Profile"))
                         startActivity(new Intent(getApplicationContext(), shareProfile.class));
                     else if (data.equals("Referral"))

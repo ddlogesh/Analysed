@@ -3,7 +3,6 @@ package logeshd.analysed.recruiter;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -28,34 +27,26 @@ import com.daimajia.androidanimations.library.YoYo;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
-import logeshd.analysed.aboutOrganization;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.userDetails;
 import logeshd.analysed.common.adapter.listNavDrawer;
 import logeshd.analysed.classes.drawer;
 import logeshd.analysed.common.login;
 import logeshd.analysed.common.feedback;
-import logeshd.analysed.common.tour;
 import logeshd.analysed.common.referral;
+import logeshd.analysed.common.shareProfile;
 import logeshd.analysed.service.MainRepository;
-import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import spencerstudios.com.bungeelib.Bungee;
 
 public class dashboard extends AppCompatActivity implements View.OnClickListener{
 
@@ -241,7 +232,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                     if (data.equals("Dashboard"))
                         drawer.closeDrawer((int) GravityCompat.START);
                     else if (data.equals("Start Hiring!"))
-                        startActivity(new Intent(dashboard.this.getApplicationContext(), startHiring0.class));
+                        startActivity(new Intent(dashboard.this.getApplicationContext(), startHiring.class));
                     else if (data.equals("Job Listings"))
                         startActivity(new Intent(dashboard.this.getApplicationContext(), jobListings.class));
                     else if (data.equals("Database"))

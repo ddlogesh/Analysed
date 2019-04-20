@@ -29,7 +29,7 @@ public class recycleResumeSelected extends Adapter<recycleResumeSelected.MyViewH
     }
 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.r_recycle_resume_selected, parent, false));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.z_recycle_resume_selected, parent, false));
     }
 
     public void onBindViewHolder(MyViewHolder holder, int position) {

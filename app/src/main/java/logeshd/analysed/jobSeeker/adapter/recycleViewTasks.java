@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +20,6 @@ import java.util.Locale;
 
 import logeshd.analysed.R;
 import logeshd.analysed.apis.task;
-import logeshd.analysed.classes.recStatus;
 
 public class recycleViewTasks extends RecyclerView.Adapter<recycleViewTasks.MyViewHolder> {
     private Context context;

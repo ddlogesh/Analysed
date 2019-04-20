@@ -22,7 +22,7 @@ public class listMultiSelect extends ArrayAdapter<contact> {
     public View getView(int position, View convertView, ViewGroup parent) {
         contact p = (contact) getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.c_list_multi_select, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.z_list_multi_select, parent, false);
         }
 
         TextView tv_task= convertView.findViewById(R.id.tv_task);
