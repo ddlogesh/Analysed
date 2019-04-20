@@ -54,7 +54,7 @@
                 android:id="@+id/layout_more"
                 android:layout_below="@+id/tv_sub_title"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
