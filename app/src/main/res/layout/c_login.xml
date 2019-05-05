@@ -10,7 +10,7 @@
         android:id="@+id/iv_logo"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/app_icon_white" />
 
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/iv_logo"
         android:layout_marginLeft="@dimen/_35sdp"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_35sdp">
 
         <ImageView
@@ -109,98 +109,214 @@
             android:background="@drawable/button_black_solid_shadow" />
 
         <RelativeLayout
-            android:id="@+id/layout_signup"
-            android:layout_width="wrap_content"
+            android:id="@+id/layout_social"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_below="@+id/tv_login">
 
-            <TextView
-                android:id="@+id/tv_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="First time here? "
-                android:textColor="#ffffff"
-                android:fontFamily="@font/arial"
-                android:textSize="@dimen/_11ssp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_toLeftOf="@+id/tv_text2"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="#88C2C0C0"/>
 
             <TextView
-                android:id="@+id/tv_signup"
+                android:id="@+id/tv_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_text"
-                android:text=" Sign up."
-                android:fontFamily="@font/arial"
-                android:textColor="#88AFDF"
-                android:textSize="@dimen/_11ssp" />
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="or continue with"
+                android:textSize="@dimen/_11ssp"
+                android:textColor="#88C2C0C0"
+                android:fontFamily="@font/arial" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_toRightOf="@+id/tv_text2"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_centerVertical="true"
+                android:background="#88C2C0C0"/>
+
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_tour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Want to explore more?"
-            android:visibility="gone"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_below="@+id/layout_signup"
-            android:fontFamily="@font/arial"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/_11ssp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_22sdp">
-
-        <TextView
-            android:id="@+id/tv_text"
+        <RelativeLayout
+            android:id="@+id/layout_social_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textColor="#ffffff"
-            android:text="By signing in, you agree to our"
-            android:fontFamily="@font/arial"
-            android:textSize="@dimen/_11ssp" />
+            android:layout_below="@+id/layout_social"
+            android:layout_marginTop="@dimen/_15sdp">
+
+            <ImageView
+                android:id="@+id/iv_app1"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_google"
+                android:padding="@dimen/_1sdp"
+                android:background="@drawable/referral_gradient_solid"/>
+
+            <ImageView
+                android:id="@+id/iv_app2"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_facebook"
+                android:padding="@dimen/_1sdp"
+                android:layout_toRightOf="@+id/iv_app1"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:background="@drawable/referral_gradient_solid"/>
+
+            <ImageView
+                android:id="@+id/iv_app3"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_linkedin"
+                android:padding="@dimen/_1sdp"
+                android:layout_toRightOf="@+id/iv_app2"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:background="@drawable/referral_gradient_solid"/>
+
+            <ImageView
+                android:id="@+id/iv_app4"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_twitter"
+                android:padding="@dimen/_1sdp"
+                android:layout_toRightOf="@+id/iv_app3"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:background="@drawable/referral_gradient_solid"/>
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_text"
-            android:layout_centerHorizontal="true">
+            android:layout_centerInParent="true"
+            android:layout_above="@+id/layout_terms"
+            android:layout_below="@+id/layout_social_icon">
 
-            <TextView
-                android:id="@+id/tv_terms"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="terms &amp; conditions"
-                android:fontFamily="@font/arial"
-                android:textColor="#88AFDF"
-                android:textSize="@dimen/_11ssp" />
+                android:layout_centerInParent="true">
+
+                <RelativeLayout
+                    android:id="@+id/layout_signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First time here? "
+                        android:textColor="#ffffff"
+                        android:fontFamily="@font/arial"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_signup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_text"
+                        android:text=" Sign up."
+                        android:fontFamily="@font/arial"
+                        android:textColor="#88AFDF"
+                        android:textSize="@dimen/_11ssp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_below="@+id/layout_signup">
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Want to explore more,"
+                        android:fontFamily="@font/arial"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_tour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_text"
+                        android:text=" Take a tour!"
+                        android:fontFamily="@font/arial"
+                        android:textColor="#88AFDF"
+                        android:textSize="@dimen/_11ssp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/tv_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" | "
-                android:layout_toRightOf="@+id/tv_terms"
-                android:fontFamily="@font/arial"
+                android:layout_centerHorizontal="true"
                 android:textColor="#ffffff"
+                android:text="By signing in, you agree to our"
+                android:fontFamily="@font/arial"
                 android:textSize="@dimen/_11ssp" />
 
-            <TextView
-                android:id="@+id/tv_privacy"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="privacy policy"
-                android:layout_toRightOf="@+id/tv_text"
-                android:fontFamily="@font/arial"
-                android:textColor="#88AFDF"
-                android:textSize="@dimen/_11ssp" />
+                android:layout_below="@id/tv_text"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/tv_terms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="terms &amp; conditions"
+                    android:fontFamily="@font/arial"
+                    android:textColor="#88AFDF"
+                    android:textSize="@dimen/_11ssp" />
+
+                <TextView
+                    android:id="@+id/tv_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" | "
+                    android:layout_toRightOf="@+id/tv_terms"
+                    android:fontFamily="@font/arial"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_11ssp" />
+
+                <TextView
+                    android:id="@+id/tv_privacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="privacy policy"
+                    android:layout_toRightOf="@+id/tv_text"
+                    android:fontFamily="@font/arial"
+                    android:textColor="#88AFDF"
+                    android:textSize="@dimen/_11ssp" />
+            </RelativeLayout>
+
         </RelativeLayout>
 
     </RelativeLayout>
