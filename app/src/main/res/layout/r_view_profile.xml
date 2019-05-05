@@ -184,7 +184,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_1sdp"
                         android:background="@drawable/text_bg_blue_curve"
-                        android:drawableRight="@drawable/ic_email"
+                        android:drawableRight="@drawable/ic_email_white"
                         android:enabled="false"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"

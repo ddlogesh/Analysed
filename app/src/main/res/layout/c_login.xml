@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@id/iv_home"
+        android:id="@+id/iv_logo"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
         android:layout_marginTop="@dimen/_40sdp"
@@ -17,7 +17,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/iv_home"
+        android:layout_below="@+id/iv_logo"
         android:layout_marginLeft="@dimen/_35sdp"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginRight="@dimen/_35sdp">
@@ -28,7 +28,7 @@
             android:layout_height="@dimen/_40sdp"
             android:background="#272E3C"
             android:padding="@dimen/_12sdp"
-            android:src="@drawable/ic_user_white" />
+            android:src="@drawable/ic_email_white" />
 
         <EditText
             android:id="@id/ev_name"
@@ -83,6 +83,18 @@
             android:src="@drawable/ic_eye_view" />
 
         <TextView
+            android:id="@+id/tv_forgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot password?"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@+id/ev_password"
+            android:fontFamily="@font/arial"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_11ssp" />
+
+        <TextView
             android:id="@+id/tv_login"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_65sdp"
@@ -123,61 +135,18 @@
                 android:textSize="@dimen/_11ssp" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/layout_forgot"
+        <TextView
+            android:id="@+id/tv_tour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:text="Want to explore more?"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_below="@+id/layout_signup">
-
-            <TextView
-                android:id="@+id/tv_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forgot password, "
-                android:fontFamily="@font/arial"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/_11ssp" />
-
-            <TextView
-                android:id="@+id/tv_forgot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_text"
-                android:fontFamily="@font/arial"
-                android:text=" Click here."
-                android:textColor="#88AFDF"
-                android:textSize="@dimen/_11ssp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_tour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_below="@+id/layout_forgot">
-
-            <TextView
-                android:id="@+id/tv_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Want to explore more, "
-                android:fontFamily="@font/arial"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/_11ssp" />
-
-            <TextView
-                android:id="@+id/tv_tour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_text"
-                android:fontFamily="@font/arial"
-                android:text=" Take a tour."
-                android:textColor="#88AFDF"
-                android:textSize="@dimen/_11ssp" />
-        </RelativeLayout>
+            android:layout_below="@+id/layout_signup"
+            android:fontFamily="@font/arial"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_11ssp" />
 
     </RelativeLayout>
 
@@ -198,16 +167,42 @@
             android:fontFamily="@font/arial"
             android:textSize="@dimen/_11ssp" />
 
-        <TextView
-            android:id="@+id/tv_terms"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_text"
-            android:layout_centerHorizontal="true"
-            android:text="terms and conditions"
-            android:fontFamily="@font/arial"
-            android:textColor="#88AFDF"
-            android:textSize="@dimen/_11ssp" />
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/tv_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="terms &amp; conditions"
+                android:fontFamily="@font/arial"
+                android:textColor="#88AFDF"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" | "
+                android:layout_toRightOf="@+id/tv_terms"
+                android:fontFamily="@font/arial"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:id="@+id/tv_privacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="privacy policy"
+                android:layout_toRightOf="@+id/tv_text"
+                android:fontFamily="@font/arial"
+                android:textColor="#88AFDF"
+                android:textSize="@dimen/_11ssp" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
     <com.wang.avi.AVLoadingIndicatorView

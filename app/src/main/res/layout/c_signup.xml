@@ -1,15 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/signup_background"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:src="@drawable/ic_back_white" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3.5" />
+        android:layout_below="@+id/iv_logo"
+        android:layout_marginLeft="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_35sdp">
+
+        <RelativeLayout
+            android:id="@+id/layout0"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_65sdp">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New\nAccount"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/_26ssp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/arial_bold" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:id="@+id/tv_step_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="@dimen/_18ssp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/arial_bold" />
+
+                <TextView
+                    android:id="@+id/tv_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" / "
+                    android:layout_alignBottom="@+id/tv_step_count"
+                    android:layout_toRightOf="@+id/tv_step_count"
+                    android:textColor="#ffffff"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:fontFamily="@font/arial"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:layout_alignBottom="@+id/tv_step_count"
+                    android:layout_toRightOf="@+id/tv_text1"
+                    android:textColor="#ffffff"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:fontFamily="@font/arial_bold"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/tv_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STEPS"
+                    android:layout_below="@+id/tv_step_count"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/arial_bold"
+                    android:textSize="@dimen/_8ssp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout0"
+            android:layout_marginTop="@dimen/_20sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                app:civ_border_color="#ffffff"
+                app:civ_border_width="@dimen/_2sdp"
+                android:src="@drawable/ic_user_white"/>
+
+            <ImageView
+                android:id="@+id/iv_edit"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignBottom="@+id/iv_profile"
+                android:layout_alignEnd="@+id/iv_profile"
+                android:background="@drawable/contact_black_solid"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/ic_pencil_white"/>
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload a profile picture"
+                android:textColor="#ffffff"
+                android:layout_toRightOf="@+id/iv_profile"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/arial"
+                android:textSize="@dimen/_11ssp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_first_name1"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/layout1"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="#272E3C"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_user_white" />
+
+        <EditText
+            android:id="@+id/ev_first_name1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:hint="First name"
+            android:paddingLeft="@dimen/_10sdp"
+            android:inputType="textEmailAddress"
+            android:layout_toRightOf="@+id/iv_first_name1"
+            android:layout_below="@+id/layout1"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="#515769"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/arial"
+            android:textColorHint="#88C2C0C0"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/iv_last_name1"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/ev_first_name1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="#272E3C"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_user_white" />
+
+        <EditText
+            android:id="@+id/ev_last_name1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:hint="Last name"
+            android:paddingLeft="@dimen/_10sdp"
+            android:inputType="textEmailAddress"
+            android:layout_toRightOf="@+id/iv_last_name1"
+            android:layout_below="@+id/ev_first_name1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="#515769"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/arial"
+            android:textColorHint="#88C2C0C0"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/iv_email"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/ev_last_name1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="#272E3C"
+            android:padding="@dimen/_12sdp"
+            android:src="@drawable/ic_email_white" />
+
+        <EditText
+            android:id="@+id/ev_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:hint="Email"
+            android:paddingLeft="@dimen/_10sdp"
+            android:inputType="textEmailAddress"
+            android:layout_toRightOf="@+id/iv_email"
+            android:layout_below="@+id/ev_last_name1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="#515769"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/arial"
+            android:textColorHint="#88C2C0C0"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/iv_password"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="#272E3C"
+            android:layout_below="@+id/iv_email"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:src="@drawable/ic_password_white" />
+
+        <EditText
+            android:id="@+id/ev_password"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            android:hint="Password"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/iv_password"
+            android:layout_toLeftOf="@+id/iv_eye"
+            android:layout_below="@+id/ev_email"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="textPassword"
+            android:background="#515769"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/arial"
+            android:textColorHint="#88C2C0C0"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/iv_eye"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/ev_email"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:background="#515769"
+            android:src="@drawable/ic_eye_view" />
+
+        <TextView
+            android:id="@+id/tv_signup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_65sdp"
+            android:text="Next"
+            android:layout_below="@+id/ev_password"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_12sdp"
+            android:textSize="@dimen/_24ssp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:fontFamily="@font/arial_bold"
+            android:background="@drawable/button_black_solid_shadow" />
+
+        <RelativeLayout
+            android:id="@+id/layout_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_signup">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not the first time here? "
+                android:textColor="#ffffff"
+                android:fontFamily="@font/arial"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_text"
+                android:text=" Log in."
+                android:fontFamily="@font/arial"
+                android:textColor="#88AFDF"
+                android:textSize="@dimen/_11ssp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#88AFDF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
 
     <!--<LinearLayout
         android:layout_width="match_parent"
@@ -517,4 +803,4 @@
 
         </RelativeLayout>
     </LinearLayout>-->
-</LinearLayout>
+</RelativeLayout>
