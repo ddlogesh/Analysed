@@ -20,7 +20,6 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -33,8 +32,6 @@ import com.github.angads25.filepicker.model.DialogConfigs;
 import com.github.angads25.filepicker.model.DialogProperties;
 import com.github.angads25.filepicker.view.FilePickerDialog;
 import com.wang.avi.AVLoadingIndicatorView;
-
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -51,7 +48,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.common.profilePic;
-import logeshd.analysed.common.signup;
 import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import logeshd.analysed.R;
+import logeshd.analysed.utils.SharedPref;
 import spencerstudios.com.bungeelib.Bungee;
 
 public class terms extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class terms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.c_terms);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
 
         for (int i = 0; i < 8; i++) {
@@ -34,14 +35,24 @@ public class terms extends AppCompatActivity {
         ((ImageView) findViewById(R.id.bt_back)).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), login.class));
-                Bungee.slideDown(terms.this);
+                onBackPressed();
             }
         });
     }
 
     public void onBackPressed() {
-        startActivity(new Intent(this, login.class));
+        if(SharedPref.getInt(getApplicationContext(),"back_flag")==1) {
+            SharedPref.remove(getApplicationContext(),"back_flag");
+            startActivity(new Intent(getApplicationContext(), signup4_j.class));
+        }
+        else if(SharedPref.getInt(getApplicationContext(),"back_flag")==2) {
+            SharedPref.remove(getApplicationContext(),"back_flag");
+            startActivity(new Intent(getApplicationContext(), signup3_r.class));
+        }
+        else{
+            SharedPref.remove(getApplicationContext(),"back_flag");
+            startActivity(new Intent(getApplicationContext(), login.class));
+        }
         Bungee.slideDown(this);
     }
 }

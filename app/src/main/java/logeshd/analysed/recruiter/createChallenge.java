@@ -1,7 +1,6 @@
 package logeshd.analysed.recruiter;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -15,31 +14,23 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
 import logeshd.analysed.R;
 import logeshd.analysed.apis.challenge;
 import logeshd.analysed.apis.status;
-import logeshd.analysed.common.signup;
-import logeshd.analysed.common.tour;
-import logeshd.analysed.recruiter.adapter.listCreateTask;
-import logeshd.analysed.classes.drawer;
 import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import spencerstudios.com.bungeelib.Bungee;
 
 public class createChallenge extends AppCompatActivity {
 

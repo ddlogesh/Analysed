@@ -18,10 +18,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_95sdp"
-        android:background="@drawable/button_blue_solid"
+        android:background="@drawable/button_black_solid"
         android:gravity="center"
         android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_6sdp"
         android:text="Contact Us"
         android:textColor="#ffffffff"
         android:textSize="@dimen/_16sdp"
@@ -35,12 +35,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_45sdp"
-        android:background="@drawable/button_blue_solid"
+        android:background="@drawable/text_black_curve"
         android:gravity="center"
         android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_6sdp"
         android:text="Login"
-        android:textColor="#ffffffff"
+        android:textColor="#000000"
         android:textSize="@dimen/_16sdp"
         android:textStyle="bold"
         android:visibility="gone" />
@@ -105,4 +105,5 @@
             android:layout_marginLeft="@dimen/_5sdp"
             android:background="@drawable/inactive_light_grey_circle" />
     </RelativeLayout>
+
 </RelativeLayout>

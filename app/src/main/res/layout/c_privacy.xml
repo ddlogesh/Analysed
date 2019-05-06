@@ -5,15 +5,27 @@
     android:background="#ffffffff">
 
     <ImageView
-        android:id="@+id/bt_back"
+        android:id="@id/bt_back"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
         android:padding="@dimen/_3sdp"
         android:src="@drawable/ic_back" />
 
+    <TextView
+        android:id="@id/tv_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/_3sdp"
+        android:text="@string/privacy1"
+        android:textColor="#ff000000"
+        android:textSize="@dimen/_18ssp"
+        android:textStyle="bold" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/bt_back"
         android:scrollbars="none">
 
         <RelativeLayout
@@ -23,22 +35,9 @@
             android:layout_marginRight="@dimen/_10sdp">
 
             <TextView
-                android:id="@id/tv_title1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:gravity="center"
-                android:text="@string/privacy1"
-                android:textColor="#ff000000"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@id/tv_msg1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_title1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:text="@string/ans_privacy1"

@@ -1,95 +1,96 @@
 package logeshd.analysed.common;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
 import logeshd.analysed.R;
-import logeshd.analysed.recruiter.dashboard;
 import logeshd.analysed.utils.SharedPref;
 import spencerstudios.com.bungeelib.Bungee;
 
 public class tour extends AppCompatActivity {
-    private static final String TAG = "ddlogesh1";
-    ImageView iv_img1,iv_img2,iv_img3,iv_next,iv_tab1,iv_tab2,iv_tab3;
-
-    private int[] tv_arr = new int[]{R.string.virtual, R.string.differ, R.string.services};
-    private TextView tv_title;
+    private boolean[] arr = new boolean[]{true, false, false};
+    private int[] img_arr;
+    ImageView iv_bg;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.c_tour);
-        
-        tv_title = (TextView) findViewById(R.id.tv_title);
-        iv_next = (ImageView) findViewById(R.id.iv_next);
-        iv_img1 = (ImageView) findViewById(R.id.iv_img1);
-        iv_img2 = (ImageView) findViewById(R.id.iv_img2);
-        iv_img3 = (ImageView) findViewById(R.id.iv_img3);
-        iv_tab1 = (ImageView) findViewById(R.id.iv_tab1);
-        iv_tab2 = (ImageView) findViewById(R.id.iv_tab2);
-        iv_tab3 = (ImageView) findViewById(R.id.iv_tab3);
-        
-        tv_title.setTypeface(Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf"));
-        
-        iv_next.setOnClickListener(new OnClickListener() {
+        setContentView(R.layout.c_tour);
+
+        iv_bg = findViewById(R.id.iv_bg);
+
+        if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
+            img_arr = new int[]{R.drawable.tour_r_1, R.drawable.tour_r_2, R.drawable.tour_r_3};
+        else
+            img_arr = new int[]{R.drawable.tour_j_1, R.drawable.tour_j_2, R.drawable.tour_j_3};
+
+        iv_bg.setImageResource(img_arr[0]);
+
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                if (iv_img1.getVisibility() == View.VISIBLE) {
-                    YoYo.with(Techniques.SlideOutLeft).duration(500).playOn(iv_img1);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            iv_img1.setVisibility(View.GONE);
-                        }
-                    }, 500);
+            public void run() {
+                arr[0] = false;
+                arr[1] = true;
+                setSwiper();
 
-                    iv_img2.setVisibility(View.VISIBLE);
-                    YoYo.with(Techniques.SlideInRight).duration(500).playOn(iv_img2);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        arr[1] = false;
+                        arr[2] = true;
+                        setSwiper();
 
-                    iv_tab1.setBackgroundResource(R.drawable.button_very_light_white_solid);
-                    iv_tab2.setBackgroundResource(R.drawable.button_white_solid);
-                    tv_title.setText(tv_arr[1]);
-                }
-                else if (iv_img2.getVisibility() == View.VISIBLE) {
-                    YoYo.with(Techniques.SlideOutLeft).duration(500).playOn(iv_img2);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            iv_img2.setVisibility(View.GONE);
-                        }
-                    }, 500);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
+                                    startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
+                                else
+                                    startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
 
-                    iv_img3.setVisibility(View.VISIBLE);
-                    YoYo.with(Techniques.SlideInRight).duration(500).playOn(iv_img3);
-
-                    iv_tab2.setBackgroundResource(R.drawable.button_very_light_white_solid);
-                    iv_tab3.setBackgroundResource(R.drawable.button_white_solid);
-                    tv_title.setText(tv_arr[2]);
-                }
-                else if (iv_img3.getVisibility() == View.VISIBLE) {
-                    if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
-                        startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
-                    else
-                        startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
-
-                    Bungee.slideLeft(tour.this);
-                }
+                                Bungee.slideLeft(tour.this);
+                            }
+                        },1500);
+                    }
+                },1500);
             }
-        });
+        },1500);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
+            startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
+        else
+            startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
+    }
+
+    private void setSwiper() {
+        int i;
+        for (i = 0; i < 3; i++) {
+            if (arr[i]) {
+                iv_bg.setImageResource(img_arr[i]);
+                ((ImageView) findViewById(getResources().getIdentifier("iv_tab"+Integer.toString(i + 1), "id", getPackageName()))).setBackgroundResource(R.drawable.active_black_circle);
+                YoYo.with(Techniques.SlideInRight).duration(500).playOn(iv_bg);
+            }
+            else
+                ((ImageView) findViewById(getResources().getIdentifier("iv_tab"+Integer.toString(i + 1), "id", getPackageName()))).setBackgroundResource(R.drawable.inactive_light_grey_circle);
+        }
     }
 
     public void onBackPressed() {
-        Intent intent1 = new Intent(Intent.ACTION_MAIN);
-        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent1.addCategory(Intent.CATEGORY_HOME);
-        startActivity(intent1);
+        if(SharedPref.getInt(getApplicationContext(),"user_role") == 1)
+            startActivity(new Intent(getApplicationContext(), logeshd.analysed.recruiter.dashboard.class));
+        else
+            startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
+
+        Bungee.slideLeft(tour.this);
     }
 }

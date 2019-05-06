@@ -1,38 +1,24 @@
 package logeshd.analysed.common;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.androidadvance.topsnackbar.TSnackbar;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
@@ -42,28 +28,23 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.net.URL;
 import java.nio.channels.FileChannel;
 
 import logeshd.analysed.R;
-import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.userDetails;
-import logeshd.analysed.apis.users;
 import logeshd.analysed.service.MainRepository;
-import logeshd.analysed.service.MainService;
 import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Url;
 import spencerstudios.com.bungeelib.Bungee;
 
 public class login extends AppCompatActivity implements View.OnClickListener {
 
     AVLoadingIndicatorView pcircle;
     EditText ev_name, ev_password;
-    TextView tv_forgot, tv_login, tv_terms, tv_signup, tv_tour;
+    TextView tv_forgot, tv_login, tv_terms, tv_signup, tv_tour, tv_privacy;
     ImageView iv_eye;
 
     static boolean flag_eye=true;
@@ -80,6 +61,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         tv_terms = findViewById(R.id.tv_terms);     tv_terms.setOnClickListener(this);
         tv_signup = findViewById(R.id.tv_signup);   tv_signup.setOnClickListener(this);
         tv_tour = findViewById(R.id.tv_tour);       tv_tour.setOnClickListener(this);
+        tv_privacy = findViewById(R.id.tv_privacy); tv_privacy.setOnClickListener(this);
 
         iv_eye = findViewById(R.id.iv_eye);         iv_eye.setOnClickListener(this);
         pcircle = findViewById(R.id.pcircle);
@@ -215,19 +197,6 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     /************************************************************************************/
 
-    private Boolean startProgress(){
-        CommonUtils.hideKeyboard(login.this);
-        if(CommonUtils.alerter(getApplicationContext())) {
-            CommonUtils.setSnackBar(getWindow().getDecorView(), "\tPlease check your internet connection", R.drawable.ic_alert_white, "#ff0000", Color.WHITE);
-            return false;
-        }
-        else {
-            pcircle.setVisibility(View.VISIBLE);
-            tv_login.setEnabled(false);
-            return true;
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         if (grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED)
@@ -236,31 +205,28 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             loginApi(ev_name.getEditableText().toString(), ev_password.getEditableText().toString());
     }
 
-    /*******************************************************************/
-
-    public void onBackPressed() {
-        Intent intent1 = new Intent(Intent.ACTION_MAIN);
-        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent1.addCategory(Intent.CATEGORY_HOME);
-        startActivity(intent1);
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_forgot:
                 break;
             case R.id.tv_terms:
+                SharedPref.putInt(getApplicationContext(),"back_flag",0);
                 startActivity(new Intent(getApplicationContext(),terms.class));
                 Bungee.slideUp(login.this);
                 break;
             case R.id.tv_signup:
-                startActivity(new Intent(getApplicationContext(),signup.class));
+                startActivity(new Intent(getApplicationContext(), signup1.class));
                 Bungee.slideLeft(login.this);
                 break;
             case R.id.tv_tour:
                 startActivity(new Intent(getApplicationContext(),takeTour.class));
                 Bungee.slideLeft(login.this);
+                break;
+            case R.id.tv_privacy:
+                SharedPref.putInt(getApplicationContext(),"back_flag",0);
+                startActivity(new Intent(getApplicationContext(),privacy.class));
+                Bungee.slideUp(login.this);
                 break;
             case R.id.iv_eye:
                 if(flag_eye) {
@@ -290,5 +256,27 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 }
                 break;
         }
+    }
+
+    /*******************************************************************/
+
+    private Boolean startProgress(){
+        CommonUtils.hideKeyboard(login.this);
+        if(CommonUtils.alerter(getApplicationContext())) {
+            CommonUtils.setSnackBar(getWindow().getDecorView(), "\tPlease check your internet connection", R.drawable.ic_alert_white, "#ff0000", Color.WHITE);
+            return false;
+        }
+        else {
+            pcircle.setVisibility(View.VISIBLE);
+            tv_login.setEnabled(false);
+            return true;
+        }
+    }
+
+    public void onBackPressed() {
+        Intent intent1 = new Intent(Intent.ACTION_MAIN);
+        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent1.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent1);
     }
 }

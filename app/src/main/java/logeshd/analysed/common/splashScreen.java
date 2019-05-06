@@ -2,27 +2,10 @@ package logeshd.analysed.common;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.channels.FileChannel;
 
 import logeshd.analysed.R;
-import logeshd.analysed.recruiter.createTask;
-import logeshd.analysed.recruiter.jobListings;
-import logeshd.analysed.recruiter.viewChallenges;
-import logeshd.analysed.utils.SharedPref;
 
 public class splashScreen extends AppCompatActivity {
 
@@ -41,7 +24,7 @@ public class splashScreen extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
                 }
                 else*/
-                    startActivity(new Intent(getApplicationContext(), login.class));
+                    startActivity(new Intent(getApplicationContext(), signup1.class));
             }
         },100);
     }

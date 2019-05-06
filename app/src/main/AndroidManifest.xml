@@ -25,7 +25,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".common.signup"
+            android:name=".common.signup1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".common.signup2"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".common.signup3_r"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".common.signup3_j"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".common.signup4_j"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
@@ -45,7 +60,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".jobSeeker.viewSkills"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".recruiter.jobListings"
             android:theme="@style/AppTheme.NoActionBar" />

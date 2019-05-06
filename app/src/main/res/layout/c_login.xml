@@ -91,7 +91,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_below="@+id/ev_password"
             android:fontFamily="@font/arial"
-            android:textColor="#ffffff"
+            android:textColor="#88AFDF"
             android:textSize="@dimen/_11ssp" />
 
         <TextView

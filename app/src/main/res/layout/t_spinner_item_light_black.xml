@@ -6,6 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:paddingLeft="@dimen/_6sdp"
+    android:paddingLeft="@dimen/_5sdp"
     android:textSize="@dimen/_13ssp"
-    android:textColor="#4A000000" />
+    android:textColor="#88C2C0C0" />

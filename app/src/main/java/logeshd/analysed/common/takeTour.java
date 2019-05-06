@@ -36,7 +36,7 @@ public class takeTour extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), login.class));
-                Bungee.inAndOut(takeTour.this);
+                Bungee.slideLeft(takeTour.this);
             }
         });
         
@@ -127,11 +127,10 @@ public class takeTour extends AppCompatActivity {
             if (arr[i]) {
                 iv_bg.setImageResource(img_arr[i]);
                 ((ImageView) findViewById(getResources().getIdentifier("iv_tab"+Integer.toString(i + 1), "id", getPackageName()))).setBackgroundResource(R.drawable.active_black_circle);
-                if (left == 1) {
+                if (left == 1)
                     YoYo.with(Techniques.SlideInRight).duration(500).playOn(iv_bg);
-                } else if (left == 0) {
+                else if (left == 0)
                     YoYo.with(Techniques.SlideInLeft).duration(500).playOn(iv_bg);
-                }
             }
         }
     }
@@ -143,6 +142,6 @@ public class takeTour extends AppCompatActivity {
 
     public void onBackPressed() {
         startActivity(new Intent(getApplicationContext(), login.class));
-        Bungee.inAndOut(this);
+        Bungee.slideLeft(this);
     }
 }
