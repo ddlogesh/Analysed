@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_gradient"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:src="@drawable/ic_back_white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_back"
+        android:layout_marginLeft="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_35sdp">
+
+        <RelativeLayout
+            android:id="@+id/layout0"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_65sdp">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New\nAccount"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/_26ssp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/arial_bold" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:id="@+id/tv_step_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="@dimen/_18ssp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/arial_bold" />
+
+                <TextView
+                    android:id="@+id/tv_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" / "
+                    android:layout_alignBottom="@+id/tv_step_count"
+                    android:layout_toRightOf="@+id/tv_step_count"
+                    android:textColor="#ffffff"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:fontFamily="@font/arial"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:layout_alignBottom="@+id/tv_step_count"
+                    android:layout_toRightOf="@+id/tv_text1"
+                    android:textColor="#ffffff"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:fontFamily="@font/arial_bold"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/tv_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STEPS"
+                    android:layout_below="@+id/tv_step_count"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/arial_bold"
+                    android:textSize="@dimen/_8ssp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please let us know whether you are actively seeking for a new job or wish to hire someone, who fits for your requirements using AI tools."
+            android:textColor="#ffffff"
+            android:fontFamily="@font/arial"
+            android:layout_below="@+id/layout0"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_11ssp" />
+
+        <TextView
+            android:id="@+id/tv_signup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_65sdp"
+            android:text="Next"
+            android:paddingBottom="@dimen/_12sdp"
+            android:textSize="@dimen/_24ssp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:fontFamily="@font/arial_bold"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_black_solid_shadow" />
+
+    </RelativeLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pcircle"
+        app:indicatorColor="#88AFDF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:indicatorName="LineScaleIndicator" />
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@id/layout0"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_340sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_330sdp"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
+                    android:background="@drawable/signup_card">
+
+                    <TextView
+                        android:id="@id/tab_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:text="Login"
+                        android:textColor="#46000000"
+                        android:textSize="@dimen/_17ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@id/tab_signup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:text="Sign up"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/_17ssp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:id="@id/layout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_190sdp"
+                        android:layout_marginLeft="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_45sdp"
+                        android:layout_marginRight="@dimen/_18sdp">
+
+                        <RelativeLayout
+                            android:id="@+id/layout_role"
+                            android:visibility="visible"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                            <TextView
+                                android:id="@+id/tv_role"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="Select your role"
+                                android:textColor="#ff458ddf"
+                                android:textSize="@dimen/_16ssp" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_role"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/_10sdp">
+
+                                <RelativeLayout
+                                    android:id="@id/layout01"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <ImageView
+                                        android:id="@+id/iv_job_seekers"
+                                        android:layout_width="@dimen/_70sdp"
+                                        android:layout_height="@dimen/_70sdp"
+                                        android:background="@drawable/button_white_solid"
+                                        android:padding="@dimen/_7sdp"
+                                        android:src="@drawable/nav_profile" />
+
+                                    <TextView
+                                        android:id="@+id/tv_job_seekers"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/iv_job_seekers"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Job Seekers"
+                                        android:textSize="@dimen/_10ssp" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/layout01"
+                                    android:layout_marginLeft="@dimen/_20sdp">
+
+                                    <ImageView
+                                        android:id="@+id/iv_recruiter"
+                                        android:layout_width="@dimen/_70sdp"
+                                        android:layout_height="@dimen/_70sdp"
+                                        android:background="@drawable/button_white_solid"
+                                        android:padding="@dimen/_7sdp"
+                                        android:src="@drawable/nav_recruitment" />
+
+                                    <TextView
+                                        android:id="@+id/tv_recruiter"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/iv_recruiter"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Recruiter"
+                                        android:textSize="@dimen/_10ssp" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <ScrollView
+                            android:id="@+id/layout_scroll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="none"
+                            android:visibility="gone">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_20sdp"
+                                android:layout_marginRight="@dimen/_20sdp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/iv_profile"
+                                        android:layout_width="@dimen/_50sdp"
+                                        android:layout_height="@dimen/_50sdp"
+                                        android:layout_centerHorizontal="true"
+                                        android:src="@drawable/icon_profile"/>
+
+                                    <ImageView
+                                        android:id="@+id/iv_edit"
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_alignBottom="@+id/iv_profile"
+                                        android:layout_alignEnd="@+id/iv_profile"
+                                        android:background="@drawable/contact_blue_solid"
+                                        android:padding="@dimen/_4sdp"
+                                        android:src="@drawable/ic_pencil_white"/>
+
+                                    <EditText
+                                        android:id="@+id/ev_first_name1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:layout_below="@+id/iv_profile"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:drawableRight="@drawable/ic_user_white"
+                                        android:hint="First name"
+                                        android:inputType="text"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                    <EditText
+                                        android:id="@+id/ev_last_name1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/ev_first_name1"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:drawableRight="@drawable/ic_user_white"
+                                        android:hint="Last name"
+                                        android:inputType="text"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                    <RelativeLayout
+                                        android:id="@+id/layout_choice"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/ev_last_name1">
+
+                                        <RelativeLayout
+                                            android:id="@+id/layout_js"
+                                            android:visibility="visible"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content">
+
+                                            <RelativeLayout
+                                                android:id="@id/sp_layout1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve">
+
+                                                <Spinner
+                                                    android:id="@+id/sp_qualification"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_30sdp"
+                                                    android:padding="@dimen/_6sdp"
+                                                    android:textSize="@dimen/_13ssp" />
+                                            </RelativeLayout>
+
+                                            <RelativeLayout
+                                                android:id="@+id/sp_layout2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/sp_layout1"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve">
+
+                                                <Spinner
+                                                    android:id="@+id/sp_year_passing"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_30sdp"
+                                                    android:padding="@dimen/_6sdp"
+                                                    android:textSize="@dimen/_13ssp" />
+                                            </RelativeLayout>
+
+                                            <RelativeLayout
+                                                android:id="@+id/sp_layout3"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/sp_layout2"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve">
+
+                                                <Spinner
+                                                    android:id="@+id/sp_experience"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_30sdp"
+                                                    android:padding="@dimen/_6sdp"
+                                                    android:textSize="@dimen/_13ssp" />
+                                            </RelativeLayout>
+
+                                            <EditText
+                                                android:id="@+id/ev_skills"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/sp_layout3"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve"
+                                                android:drawableRight="@drawable/ic_skill"
+                                                android:hint="Skills"
+                                                android:singleLine="true"
+                                                android:paddingLeft="@dimen/_11sdp"
+                                                android:paddingTop="@dimen/_6sdp"
+                                                android:paddingRight="@dimen/_6sdp"
+                                                android:paddingBottom="@dimen/_6sdp"
+                                                android:textColorHint="#4a000000"
+                                                android:textSize="@dimen/_13ssp" />
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/layout_rc"
+                                            android:visibility="gone"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content">
+
+                                            <EditText
+                                                android:id="@+id/ev_organisation"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve"
+                                                android:drawableRight="@drawable/ic_user_white"
+                                                android:hint="Organisation"
+                                                android:inputType="text"
+                                                android:singleLine="true"
+                                                android:paddingLeft="@dimen/_11sdp"
+                                                android:paddingTop="@dimen/_6sdp"
+                                                android:paddingRight="@dimen/_6sdp"
+                                                android:paddingBottom="@dimen/_6sdp"
+                                                android:textColorHint="#4a000000"
+                                                android:textSize="@dimen/_13ssp" />
+
+                                            <EditText
+                                                android:id="@+id/ev_designation"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginTop="@dimen/_6sdp"
+                                                android:background="@drawable/text_bg_grey_curve"
+                                                android:drawableRight="@drawable/ic_user_white"
+                                                android:layout_below="@+id/ev_organisation"
+                                                android:hint="Designation"
+                                                android:inputType="text"
+                                                android:singleLine="true"
+                                                android:paddingLeft="@dimen/_11sdp"
+                                                android:paddingTop="@dimen/_6sdp"
+                                                android:paddingRight="@dimen/_6sdp"
+                                                android:paddingBottom="@dimen/_6sdp"
+                                                android:textColorHint="#4a000000"
+                                                android:textSize="@dimen/_13ssp" />
+                                        </RelativeLayout>
+                                    </RelativeLayout>
+
+                                    <EditText
+                                        android:id="@+id/ev_email"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/layout_choice"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:drawableRight="@drawable/ic_email"
+                                        android:hint="Email"
+                                        android:inputType="textEmailAddress"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                    <EditText
+                                        android:id="@+id/ev_location"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/ev_email"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:drawableRight="@drawable/ic_location"
+                                        android:hint="Preferred Job Location"
+                                        android:inputType="text"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                    <EditText
+                                        android:id="@+id/ev_mobile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/ev_location"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:drawableRight="@drawable/ic_mobile"
+                                        android:hint="Mobile Number"
+                                        android:inputType="phone"
+                                        android:maxLength="10"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                    <EditText
+                                        android:id="@+id/ev_password1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/ev_mobile"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:drawableRight="@drawable/ic_password_white"
+                                        android:hint="Password"
+                                        android:inputType="textPassword"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                    <EditText
+                                        android:id="@+id/ev_password2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/ev_password1"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="@dimen/_6sdp"
+                                        android:background="@drawable/text_bg_grey_curve"
+                                        android:drawableRight="@drawable/ic_password_white"
+                                        android:hint="Confirm Password"
+                                        android:inputType="textPassword"
+                                        android:paddingLeft="@dimen/_11sdp"
+                                        android:paddingTop="@dimen/_6sdp"
+                                        android:paddingRight="@dimen/_6sdp"
+                                        android:paddingBottom="@dimen/_6sdp"
+                                        android:textColorHint="#4a000000"
+                                        android:textSize="@dimen/_13ssp" />
+
+                                </RelativeLayout>
+                            </RelativeLayout>
+                        </ScrollView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_resume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_40sdp"
+                        android:background="@drawable/button_blue_solid"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_1sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        android:drawableRight="@drawable/ic_upload_white"
+                        android:text="Resume"
+                        android:visibility="gone"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@id/tv_tour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="@dimen/_45sdp"
+                        android:layout_marginBottom="@dimen/_50sdp"
+                        android:text="Take a tour!"
+                        android:textColor="#69675b5b"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_310sdp"
+                    android:background="@drawable/button_blue_gradient"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="Sign up"
+                    android:enabled="true"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/pcircle"
+                    app:indicatorColor="#ffa779c4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerInParent="true"
+                    app:indicatorName="LineScaleIndicator" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_20sdp">
+
+                <TextView
+                    android:id="@id/tv_terms1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="By signing up, you agree to our"
+                    android:textSize="@dimen/_11ssp" />
+
+                <TextView
+                    android:id="@id/tv_terms2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_terms1"
+                    android:layout_centerHorizontal="true"
+                    android:text="terms and conditions"
+                    android:textColor="#ff458ddf"
+                    android:textSize="@dimen/_11ssp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </LinearLayout>-->
+</RelativeLayout>
