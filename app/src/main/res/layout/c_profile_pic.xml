@@ -27,6 +27,7 @@
             android:layout_centerVertical="true"
             android:padding="@dimen/_5sdp"
             android:layout_toRightOf="@+id/iv_home"
+            android:fontFamily="@font/arial"
             android:text="Choose your Profile Picture"
             android:textColor="#ffffffff"
             android:textSize="@dimen/_16ssp" />
@@ -56,6 +57,7 @@
                 android:layout_height="match_parent"
                 android:text="CANCEL"
                 android:gravity="center"
+                android:fontFamily="@font/arial"
                 android:textColor="#ffffffff"
                 android:textSize="@dimen/_12sdp"
                 android:textStyle="bold" />
@@ -69,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="DONE"
+                android:fontFamily="@font/arial"
                 android:gravity="center"
                 android:textColor="#ffffffff"
                 android:textSize="@dimen/_12sdp"

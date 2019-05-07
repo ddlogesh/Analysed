@@ -166,8 +166,13 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                                 image.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
                                 fOut.close();
 
+                                SharedPref.removeAll(getApplicationContext(),"login");
+                                SharedPref.removeAll(getApplicationContext(),"signup");
+                                SharedPref.remove(getApplicationContext(),"profile_file_name");
+
                                 SharedPref.putBoolean(getApplicationContext(),"is_logged_in",true);
                                 pcircle.setVisibility(View.GONE);
+
                                 startActivity(new Intent(getApplicationContext(), tour.class));
                                 Bungee.inAndOut(login.this);
                             }
@@ -206,25 +211,56 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (SharedPref.getString(getApplicationContext(),"login","ev_name") != null)
+            ev_name.setText(SharedPref.getString(getApplicationContext(),"login","ev_name"));
+        if (SharedPref.getString(getApplicationContext(),"login","ev_password") != null)
+            ev_password.setText(SharedPref.getString(getApplicationContext(),"login","ev_password"));
+
+        SharedPref.removeAll(getApplicationContext(),"login");
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_forgot:
+                SharedPref.removeAll(getApplicationContext(),"login");
                 break;
             case R.id.tv_terms:
+                if (ev_name.getEditableText().toString().trim().length() > 0)
+                    SharedPref.putString(getApplicationContext(),"login", "ev_name", ev_name.getEditableText().toString().trim());
+                if (ev_password.getEditableText().toString().trim().length() > 0)
+                    SharedPref.putString(getApplicationContext(),"login", "ev_password", ev_password.getEditableText().toString().trim());
                 SharedPref.putInt(getApplicationContext(),"back_flag",0);
+
                 startActivity(new Intent(getApplicationContext(),terms.class));
                 Bungee.slideUp(login.this);
                 break;
             case R.id.tv_signup:
+                SharedPref.removeAll(getApplicationContext(),"login");
+                SharedPref.removeAll(getApplicationContext(),"signup");
+
                 startActivity(new Intent(getApplicationContext(), signup1.class));
-                Bungee.slideLeft(login.this);
+                Bungee.slideUp(login.this);
                 break;
             case R.id.tv_tour:
+                if (ev_name.getEditableText().toString().trim().length() > 0)
+                    SharedPref.putString(getApplicationContext(),"login", "ev_name", ev_name.getEditableText().toString().trim());
+                if (ev_password.getEditableText().toString().trim().length() > 0)
+                    SharedPref.putString(getApplicationContext(),"login", "ev_password", ev_password.getEditableText().toString().trim());
+
                 startActivity(new Intent(getApplicationContext(),takeTour.class));
                 Bungee.slideLeft(login.this);
                 break;
             case R.id.tv_privacy:
+                if (ev_name.getEditableText().toString().trim().length() > 0)
+                    SharedPref.putString(getApplicationContext(),"login", "ev_name", ev_name.getEditableText().toString().trim());
+                if (ev_password.getEditableText().toString().trim().length() > 0)
+                    SharedPref.putString(getApplicationContext(),"login", "ev_password", ev_password.getEditableText().toString().trim());
                 SharedPref.putInt(getApplicationContext(),"back_flag",0);
+
                 startActivity(new Intent(getApplicationContext(),privacy.class));
                 Bungee.slideUp(login.this);
                 break;

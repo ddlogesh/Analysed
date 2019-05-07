@@ -50,13 +50,13 @@ public interface MainService {
     @GET("common/login.php")
     Call<userDetails> loginApi(@Query("username") String username, @Query("password") String password);
 
-    @POST("common/signup2.php")
+    @POST("common/signup.php")
     Call<status> checkForSignupApi(@Body users u);
 
-    @POST("common/signup2.php")
+    @POST("common/signup1.php")
     Call<status> signupJSApi(@Body jobseekers j);
 
-    @POST("common/signup3_r.php")
+    @POST("common/signup2.php")
     Call<status> signupRCApi(@Body recruiter r);
 
     @Multipart

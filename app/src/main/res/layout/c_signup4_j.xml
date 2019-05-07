@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/iv_logo"
+        android:id="@+id/iv_back"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_30sdp"
@@ -17,7 +17,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/iv_logo"
+        android:layout_below="@+id/iv_back"
         android:layout_marginLeft="@dimen/_35sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_35sdp">
@@ -48,7 +48,7 @@
                     android:id="@+id/tv_step_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"
+                    android:text="3"
                     android:textSize="@dimen/_18ssp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/arial_bold" />
@@ -69,7 +69,7 @@
                     android:id="@+id/tv_text2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"
+                    android:text="3"
                     android:layout_alignBottom="@+id/tv_step_count"
                     android:layout_toRightOf="@+id/tv_text1"
                     android:textColor="#ffffff"
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/resume_remove"/>
+                android:src="@drawable/resume_upload"/>
 
             <TextView
                 android:id="@+id/tv_file_name"
@@ -128,7 +128,7 @@
                 android:layout_above="@+id/tv_resume"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:text="resume.pdf"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:fontFamily="@font/arial"
                 android:textSize="@dimen/_11ssp" />
 
@@ -136,7 +136,7 @@
                 android:id="@+id/tv_resume"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Remove Resume"
+                android:text="Upload Resume"
                 android:textSize="@dimen/_12ssp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="@dimen/_40sdp"
@@ -147,7 +147,7 @@
                 android:textColor="#ffffff"
                 android:gravity="center"
                 android:fontFamily="@font/arial"
-                android:background="@drawable/button_red_solid" />
+                android:background="@drawable/button_green_solid" />
 
         </RelativeLayout>
 
@@ -160,6 +160,8 @@
             android:textSize="@dimen/_24ssp"
             android:textColor="#ffffff"
             android:gravity="center"
+            android:visibility="invisible"
+            android:enabled="false"
             android:fontFamily="@font/arial_bold"
             android:layout_alignParentBottom="true"
             android:background="@drawable/button_black_solid_shadow" />

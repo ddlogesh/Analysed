@@ -375,6 +375,8 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                         startActivity(new Intent(getApplicationContext(), referral.class));
                     else if (data.equals("Sign Out")) {
                         SharedPref.removeAll(getApplicationContext());
+                        SharedPref.removeAll(getApplicationContext(),"login");
+                        SharedPref.removeAll(getApplicationContext(),"signup");
                         startActivity(new Intent(getApplicationContext(), login.class));
                     }
                 }

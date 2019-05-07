@@ -6,12 +6,13 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import logeshd.analysed.R;
+import logeshd.analysed.utils.SharedPref;
 
 public class splashScreen extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.c_splash_screen);
+        setContentView(R.layout.c_splash_screen);
 
         new Handler().postDelayed(new Runnable() {
 
@@ -24,7 +25,7 @@ public class splashScreen extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), logeshd.analysed.jobSeeker.dashboard.class));
                 }
                 else*/
-                    startActivity(new Intent(getApplicationContext(), signup1.class));
+                    startActivity(new Intent(getApplicationContext(), login.class));
             }
         },100);
     }
@@ -42,5 +43,5 @@ public class splashScreen extends AppCompatActivity {
 cd C:\Users\Logesh Dinakaran\AppData\Local\Android\Sdk\platform-tools
 adb tcpip 5555
 adb shell ifconfig
-adb connect 100.102.247.58:5555
+adb connect 10.228.181.128:5555
  */

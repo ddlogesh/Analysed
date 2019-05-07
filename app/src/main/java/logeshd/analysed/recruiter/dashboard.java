@@ -251,6 +251,8 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                         startActivity(new Intent(dashboard.this.getApplicationContext(), aboutOrganization.class));
                     else if (data.equals("Sign Out")) {
                         SharedPref.removeAll(getApplicationContext());
+                        SharedPref.removeAll(getApplicationContext(),"login");
+                        SharedPref.removeAll(getApplicationContext(),"signup");
                         startActivity(new Intent(dashboard.this.getApplicationContext(), login.class));
                     }
                 }

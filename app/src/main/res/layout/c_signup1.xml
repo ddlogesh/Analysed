@@ -39,7 +39,7 @@
             android:fontFamily="@font/arial_bold" />
 
         <TextView
-            android:id="@+id/tv_text3"
+            android:id="@+id/tv_signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign In"
@@ -137,7 +137,7 @@
             android:textSize="@dimen/_11ssp" />
 
         <TextView
-            android:id="@+id/tv_signup"
+            android:id="@+id/tv_next"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_65sdp"
             android:text="Next"
@@ -145,6 +145,7 @@
             android:textSize="@dimen/_24ssp"
             android:textColor="#ffffff"
             android:gravity="center"
+            android:visibility="gone"
             android:fontFamily="@font/arial_bold"
             android:layout_alignParentBottom="true"
             android:background="@drawable/button_black_solid_shadow" />
@@ -186,7 +187,7 @@
             android:layout_height="@dimen/_80sdp"
             android:layout_below="@+id/tv_text"
             android:layout_marginTop="@dimen/_15sdp"
-            android:background="@drawable/signup_tab_left_selected">
+            android:background="@drawable/signup_tab_left_unselected">
 
             <ImageView
                 android:layout_width="@dimen/_40sdp"
@@ -197,6 +198,7 @@
                 android:src="@drawable/ic_employee" />
 
             <TextView
+                android:id="@+id/tv_tab1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recruiter"
@@ -205,12 +207,13 @@
                 android:layout_centerHorizontal="true"
                 android:paddingBottom="@dimen/_15sdp"
                 android:paddingLeft="@dimen/_25sdp"
-                android:textColor="#ffffff"
+                android:textColor="#000000"
                 android:fontFamily="@font/arial_bold" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/layout_tab2"
             android:layout_width="@dimen/_210sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_below="@+id/layout_tab1"
@@ -228,6 +231,7 @@
                 android:src="@drawable/ic_user" />
 
             <TextView
+                android:id="@+id/tv_tab2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Job Seeker"

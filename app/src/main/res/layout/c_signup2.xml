@@ -48,7 +48,7 @@
                     android:id="@+id/tv_step_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"
+                    android:text="1"
                     android:textSize="@dimen/_18ssp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/arial_bold" />
@@ -66,10 +66,10 @@
                     android:textSize="@dimen/_10ssp" />
 
                 <TextView
-                    android:id="@+id/tv_text2"
+                    android:id="@+id/tv_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"
+                    android:text="3"
                     android:layout_alignBottom="@+id/tv_step_count"
                     android:layout_toRightOf="@+id/tv_text1"
                     android:textColor="#ffffff"
@@ -117,7 +117,7 @@
                 android:src="@drawable/ic_pencil_white"/>
 
             <TextView
-                android:id="@+id/tv_text"
+                android:id="@+id/tv_upload_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Upload a profile picture"
@@ -148,6 +148,7 @@
             android:inputType="text"
             android:layout_toRightOf="@+id/iv_first_name1"
             android:layout_below="@+id/layout1"
+            android:singleLine="true"
             android:layout_marginTop="@dimen/_30sdp"
             android:background="#515769"
             android:textColor="#ffffff"
@@ -175,6 +176,7 @@
             android:layout_toRightOf="@+id/iv_last_name1"
             android:layout_below="@+id/ev_first_name1"
             android:layout_marginTop="@dimen/_10sdp"
+            android:singleLine="true"
             android:background="#515769"
             android:textColor="#ffffff"
             android:fontFamily="@font/arial"
@@ -198,6 +200,7 @@
             android:hint="Email"
             android:paddingLeft="@dimen/_10sdp"
             android:inputType="textEmailAddress"
+            android:singleLine="true"
             android:layout_toRightOf="@+id/iv_email"
             android:layout_below="@+id/ev_last_name1"
             android:layout_marginTop="@dimen/_10sdp"
@@ -223,6 +226,7 @@
             android:layout_height="@dimen/_40sdp"
             android:hint="Password"
             android:paddingLeft="@dimen/_10sdp"
+            android:singleLine="true"
             android:layout_toRightOf="@+id/iv_password"
             android:layout_toLeftOf="@+id/iv_eye"
             android:layout_below="@+id/ev_email"
@@ -246,7 +250,7 @@
             android:src="@drawable/ic_eye_view" />
 
         <TextView
-            android:id="@+id/tv_signup"
+            android:id="@+id/tv_next"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_65sdp"
             android:text="Next"
