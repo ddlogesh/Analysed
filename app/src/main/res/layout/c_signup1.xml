@@ -166,7 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Please let us know whether you wish to hire someone or actively seeking for a new job."
-            android:textColor="#000000"
+            android:textColor="#80000000"
             android:fontFamily="@font/arial"
             android:textSize="@dimen/_11ssp" />
 
