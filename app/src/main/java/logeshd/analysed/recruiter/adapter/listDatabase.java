@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
@@ -23,7 +20,6 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
 import logeshd.analysed.apis.databases;
-import logeshd.analysed.classes.database;
 
 public class listDatabase extends ArrayAdapter<databases> {
     public listDatabase(Context context, ArrayList<databases> history) {
@@ -43,7 +39,7 @@ public class listDatabase extends ArrayAdapter<databases> {
         //TextView tv_view = (TextView) convertView.findViewById(R.id.tv_view);
         CircleImageView iv_profile = (CircleImageView) convertView.findViewById(R.id.iv_profile);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
         tv_name.setTypeface(custom_font1);
         tv_position.setTypeface(custom_font1);

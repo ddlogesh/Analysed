@@ -1,6 +1,5 @@
 package logeshd.analysed.recruiter;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -29,7 +28,6 @@ import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import spencerstudios.com.bungeelib.Bungee;
 
 public class resumeSortingTool extends AppCompatActivity implements View.OnClickListener{
 
@@ -139,8 +137,8 @@ public class resumeSortingTool extends AppCompatActivity implements View.OnClick
         ev_skill = (EditText) findViewById(R.id.ev_skill);
         ev_location = (EditText) findViewById(R.id.ev_location);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_title.setTypeface(custom_font2);
         ev_skill.setTypeface(custom_font1);

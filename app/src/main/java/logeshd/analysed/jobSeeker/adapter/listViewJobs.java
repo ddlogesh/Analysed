@@ -1,14 +1,11 @@
 package logeshd.analysed.jobSeeker.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
-import android.os.health.ServiceHealthStats;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -17,13 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,15 +24,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import logeshd.analysed.R;
 import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.apis.jobseekers;
-import logeshd.analysed.common.login;
 import logeshd.analysed.recruiter.createTask;
 import logeshd.analysed.recruiter.jobListings;
 import logeshd.analysed.service.MainRepository;
-import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,7 +55,7 @@ public class listViewJobs extends ArrayAdapter<joblistings> {
         RelativeLayout layout = (RelativeLayout) convertView.findViewById(R.id.layout);
 
         Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato.ttf");
 
         tv_job_title.setTypeface(custom_font1);
         tv_location.setTypeface(custom_font2);

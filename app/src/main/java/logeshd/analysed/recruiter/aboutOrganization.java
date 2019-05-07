@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import logeshd.analysed.R;
-import logeshd.analysed.recruiter.dashboard;
 
 public class aboutOrganization extends AppCompatActivity {
 
@@ -30,8 +29,8 @@ public class aboutOrganization extends AppCompatActivity {
         TextView tv_hire = (TextView) findViewById(R.id.tv_hire);
         ImageView iv_home = (ImageView) findViewById(R.id.iv_home);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
         Typeface custom_font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
 
         tv_title4.setTypeface(custom_font2);

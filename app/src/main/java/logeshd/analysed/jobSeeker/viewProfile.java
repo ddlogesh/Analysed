@@ -100,9 +100,9 @@ public class viewProfile extends AppCompatActivity implements View.OnClickListen
         TextView tv_applied_count = (TextView) findViewById(R.id.tv_applied_count);
         TextView tv_title3 = (TextView) findViewById(R.id.tv_title3);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_name.setTypeface(custom_font2);
         tv_profession.setTypeface(custom_font1);

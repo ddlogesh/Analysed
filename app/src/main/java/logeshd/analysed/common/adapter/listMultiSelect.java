@@ -29,7 +29,7 @@ public class listMultiSelect extends ArrayAdapter<contact> {
         TextView tv_tag= convertView.findViewById(R.id.tv_tag);
 
         Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato.ttf");
 
         tv_task.setTypeface(custom_font1);
         tv_tag.setTypeface(custom_font2);

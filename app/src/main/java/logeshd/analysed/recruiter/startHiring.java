@@ -60,8 +60,8 @@ public class startHiring extends AppCompatActivity {
         EditText ev_description = (EditText) findViewById(R.id.ev_description);
         ImageView iv_post = (ImageView) findViewById(R.id.iv_post);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
 
         @Override
         protected void onPreExecute() {

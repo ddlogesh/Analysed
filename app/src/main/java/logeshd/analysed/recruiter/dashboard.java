@@ -76,7 +76,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
         new updates().execute();
 
         Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_dashboard.setTypeface(custom_font2);
         tv_name.setTypeface(custom_font1);

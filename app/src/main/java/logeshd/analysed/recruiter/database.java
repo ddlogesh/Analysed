@@ -3,13 +3,9 @@ package logeshd.analysed.recruiter;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -86,8 +82,8 @@ public class database extends AppCompatActivity implements View.OnClickListener{
         ev_name = (EditText) findViewById(R.id.ev_name);
         ev_position = (EditText) findViewById(R.id.ev_position);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_title.setTypeface(custom_font2);
         ev_name.setTypeface(custom_font1);

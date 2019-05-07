@@ -2,7 +2,6 @@ package logeshd.analysed.recruiter.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import logeshd.analysed.R;
 import logeshd.analysed.apis.task;
@@ -45,9 +41,9 @@ public class listTaskStatus extends ArrayAdapter<task> {
         final RelativeLayout layout_done= convertView.findViewById(R.id.layout_done);
         final ImageView iv_status= convertView.findViewById(R.id.iv_status);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font3 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font3 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_title.setTypeface(custom_font2);
         tv_sub_title.setTypeface(custom_font1);

@@ -26,7 +26,7 @@
             android:text="Welcome to"
             android:textSize="@dimen/_12ssp"
             android:textColor="#88C2C0C0"
-            android:fontFamily="@font/arial" />
+            android:fontFamily="@font/lato" />
 
         <TextView
             android:id="@+id/tv_text2"
@@ -36,7 +36,7 @@
             android:text="Analysed"
             android:textSize="@dimen/_26ssp"
             android:textColor="#88AFDF"
-            android:fontFamily="@font/arial_bold" />
+            android:fontFamily="@font/lato_bold" />
 
         <TextView
             android:id="@+id/tv_signin"
@@ -52,7 +52,7 @@
             android:textSize="@dimen/_14ssp"
             android:textColor="#ffffff"
             android:gravity="center"
-            android:fontFamily="@font/arial_bold"
+            android:fontFamily="@font/lato_bold"
             android:background="@drawable/text_bg_white_curve" />
 
         <RelativeLayout
@@ -69,7 +69,7 @@
                 android:layout_centerVertical="true"
                 android:textSize="@dimen/_26ssp"
                 android:textColor="#ffffff"
-                android:fontFamily="@font/arial_bold" />
+                android:fontFamily="@font/lato_bold" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
                     android:text="1"
                     android:textSize="@dimen/_18ssp"
                     android:textColor="#ffffff"
-                    android:fontFamily="@font/arial_bold" />
+                    android:fontFamily="@font/lato_bold" />
 
                 <TextView
                     android:id="@+id/tv_text1"
@@ -96,7 +96,7 @@
                     android:layout_toRightOf="@+id/tv_step_count"
                     android:textColor="#ffffff"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/_10ssp" />
 
                 <TextView
@@ -108,7 +108,7 @@
                     android:layout_toRightOf="@+id/tv_text1"
                     android:textColor="#ffffff"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:fontFamily="@font/arial_bold"
+                    android:fontFamily="@font/lato_bold"
                     android:textSize="@dimen/_10ssp" />
 
                 <TextView
@@ -118,7 +118,7 @@
                     android:text="STEPS"
                     android:layout_below="@+id/tv_step_count"
                     android:textColor="#ffffff"
-                    android:fontFamily="@font/arial_bold"
+                    android:fontFamily="@font/lato_bold"
                     android:textSize="@dimen/_8ssp" />
 
             </RelativeLayout>
@@ -135,7 +135,7 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:visibility="gone"
-            android:fontFamily="@font/arial_bold"
+            android:fontFamily="@font/lato_bold"
             android:layout_alignParentBottom="true"
             android:background="@drawable/button_black_solid_shadow" />
 
@@ -151,7 +151,7 @@
         android:layout_marginRight="@dimen/_15sdp"
         android:layout_alignBottom="@+id/iv_back"
         android:textColor="#000000"
-        android:fontFamily="@font/arial_bold" />
+        android:fontFamily="@font/lato_bold" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
             android:text="Please let us know whether you wish to hire someone or actively seeking for a new job."
             android:textColor="#80000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textSize="@dimen/_11ssp" />
 
         <RelativeLayout
@@ -197,7 +197,7 @@
                 android:paddingBottom="@dimen/_15sdp"
                 android:paddingLeft="@dimen/_25sdp"
                 android:textColor="#000000"
-                android:fontFamily="@font/arial_bold" />
+                android:fontFamily="@font/lato_bold" />
 
         </RelativeLayout>
 
@@ -230,7 +230,7 @@
                 android:paddingBottom="@dimen/_15sdp"
                 android:paddingRight="@dimen/_25sdp"
                 android:textColor="#000000"
-                android:fontFamily="@font/arial_bold" />
+                android:fontFamily="@font/lato_bold" />
 
         </RelativeLayout>
 

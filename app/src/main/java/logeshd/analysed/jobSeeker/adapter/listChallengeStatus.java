@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -38,7 +37,7 @@ public class listChallengeStatus extends ArrayAdapter<challenge> {
         TextView tv_sub_title= convertView.findViewById(R.id.tv_sub_title);
         TextView tv_score= convertView.findViewById(R.id.tv_score);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
 
         tv_title.setTypeface(custom_font2);

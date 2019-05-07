@@ -41,7 +41,7 @@
             android:layout_toRightOf="@+id/iv_name"
             android:background="#F1F3F4"
             android:textColor="#000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
@@ -68,7 +68,7 @@
             android:inputType="textPassword"
             android:background="#F1F3F4"
             android:textColor="#000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
@@ -91,7 +91,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_below="@+id/ev_password"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textColor="#0B7FFA"
             android:textSize="@dimen/_11ssp" />
 
@@ -106,7 +106,7 @@
             android:textSize="@dimen/_18ssp"
             android:textColor="#ffffff"
             android:gravity="center"
-            android:fontFamily="@font/arial_bold"
+            android:fontFamily="@font/lato_bold"
             android:background="@drawable/button_black_solid_shadow" />
 
         <RelativeLayout
@@ -136,7 +136,7 @@
                 android:text="or continue with"
                 android:textSize="@dimen/_11ssp"
                 android:textColor="#C2C0C0"
-                android:fontFamily="@font/arial" />
+                android:fontFamily="@font/lato" />
 
             <View
                 android:layout_width="match_parent"
@@ -223,7 +223,7 @@
                         android:layout_height="wrap_content"
                         android:text="First time here? "
                         android:textColor="#80000000"
-                        android:fontFamily="@font/arial"
+                        android:fontFamily="@font/lato"
                         android:textSize="@dimen/_11ssp" />
 
                     <TextView
@@ -232,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/tv_text"
                         android:text=" Sign up."
-                        android:fontFamily="@font/arial"
+                        android:fontFamily="@font/lato"
                         android:textColor="#0B7FFA"
                         android:textSize="@dimen/_11ssp" />
 
@@ -250,7 +250,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Want to explore more,"
-                        android:fontFamily="@font/arial"
+                        android:fontFamily="@font/lato"
                         android:textColor="#80000000"
                         android:textSize="@dimen/_11ssp" />
 
@@ -260,7 +260,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/tv_text"
                         android:text=" Take a tour!"
-                        android:fontFamily="@font/arial"
+                        android:fontFamily="@font/lato"
                         android:textColor="#0B7FFA"
                         android:textSize="@dimen/_11ssp" />
                 </RelativeLayout>
@@ -283,7 +283,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="#80000000"
                 android:text="By signing in, you agree to our"
-                android:fontFamily="@font/arial"
+                android:fontFamily="@font/lato"
                 android:textSize="@dimen/_11ssp" />
 
             <RelativeLayout
@@ -298,7 +298,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:text="terms &amp; conditions"
                     android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
@@ -309,7 +309,7 @@
                     android:layout_height="wrap_content"
                     android:text=" | "
                     android:layout_toRightOf="@+id/tv_terms"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:textColor="#80000000"
                     android:textSize="@dimen/_11ssp" />
 
@@ -319,7 +319,7 @@
                     android:layout_height="wrap_content"
                     android:text="privacy policy"
                     android:layout_toRightOf="@+id/tv_text"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
             </RelativeLayout>

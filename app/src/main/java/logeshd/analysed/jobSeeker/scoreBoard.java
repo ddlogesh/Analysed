@@ -1,6 +1,5 @@
 package logeshd.analysed.jobSeeker;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -50,7 +49,7 @@ public class scoreBoard extends AppCompatActivity implements View.OnClickListene
         tv_title = (TextView) findViewById(R.id.tv_title);
         iv_home=findViewById(R.id.iv_home);             iv_home.setOnClickListener(this);
 
-        Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
         tv_title.setTypeface(custom_font);
 
         getList();

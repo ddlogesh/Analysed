@@ -22,7 +22,7 @@ public class multiSelect extends AppCompatActivity {
         TextView tv_date = (TextView) findViewById(R.id.tv_date);
         TextView tv_count = (TextView) findViewById(R.id.tv_count);
 
-        Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_date.setTypeface(custom_font);
         tv_count.setTypeface(custom_font);

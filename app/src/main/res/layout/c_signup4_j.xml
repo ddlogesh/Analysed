@@ -35,7 +35,7 @@
                 android:layout_centerVertical="true"
                 android:textSize="@dimen/_26ssp"
                 android:textColor="#000000"
-                android:fontFamily="@font/arial_bold" />
+                android:fontFamily="@font/lato_bold" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                     android:text="3"
                     android:textSize="@dimen/_18ssp"
                     android:textColor="#000000"
-                    android:fontFamily="@font/arial_bold" />
+                    android:fontFamily="@font/lato_bold" />
 
                 <TextView
                     android:id="@+id/tv_text1"
@@ -62,7 +62,7 @@
                     android:layout_toRightOf="@+id/tv_step_count"
                     android:textColor="#000000"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/_10ssp" />
 
                 <TextView
@@ -74,7 +74,7 @@
                     android:layout_toRightOf="@+id/tv_text1"
                     android:textColor="#000000"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:fontFamily="@font/arial_bold"
+                    android:fontFamily="@font/lato_bold"
                     android:textSize="@dimen/_10ssp" />
 
                 <TextView
@@ -84,7 +84,7 @@
                     android:text="STEPS"
                     android:layout_below="@+id/tv_step_count"
                     android:textColor="#000000"
-                    android:fontFamily="@font/arial_bold"
+                    android:fontFamily="@font/lato_bold"
                     android:textSize="@dimen/_8ssp" />
 
             </RelativeLayout>
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:text="Please upload your resume. We will use to find the right opportunities for you."
             android:textColor="#80000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:layout_below="@+id/layout0"
             android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_11ssp" />
@@ -129,7 +129,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:text="resume.pdf"
                 android:visibility="gone"
-                android:fontFamily="@font/arial"
+                android:fontFamily="@font/lato"
                 android:textSize="@dimen/_11ssp" />
 
             <TextView
@@ -146,7 +146,7 @@
                 android:paddingBottom="@dimen/_5sdp"
                 android:textColor="#ffffff"
                 android:gravity="center"
-                android:fontFamily="@font/arial"
+                android:fontFamily="@font/lato"
                 android:background="@drawable/button_green_solid" />
 
         </RelativeLayout>
@@ -162,7 +162,7 @@
             android:gravity="center"
             android:visibility="invisible"
             android:enabled="false"
-            android:fontFamily="@font/arial_bold"
+            android:fontFamily="@font/lato_bold"
             android:layout_alignParentBottom="true"
             android:background="@drawable/button_black_solid_shadow" />
 
@@ -181,7 +181,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="#80000000"
                 android:text="By signing up, you agree to our"
-                android:fontFamily="@font/arial"
+                android:fontFamily="@font/lato"
                 android:textSize="@dimen/_11ssp" />
 
             <RelativeLayout
@@ -197,7 +197,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="0dp"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:text="terms &amp; conditions"
                     android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
@@ -208,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:text=" | "
                     android:layout_toRightOf="@+id/tv_terms"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:textColor="#80000000"
                     android:textSize="@dimen/_11ssp" />
 
@@ -218,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:text="privacy policy"
                     android:layout_toRightOf="@+id/tv_text"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
             </RelativeLayout>

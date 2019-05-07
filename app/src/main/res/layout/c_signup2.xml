@@ -35,7 +35,7 @@
                 android:layout_centerVertical="true"
                 android:textSize="@dimen/_26ssp"
                 android:textColor="#000000"
-                android:fontFamily="@font/arial_bold" />
+                android:fontFamily="@font/lato_bold" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                     android:text="1"
                     android:textSize="@dimen/_18ssp"
                     android:textColor="#000000"
-                    android:fontFamily="@font/arial_bold" />
+                    android:fontFamily="@font/lato_bold" />
 
                 <TextView
                     android:id="@+id/tv_text1"
@@ -62,7 +62,7 @@
                     android:layout_toRightOf="@+id/tv_step_count"
                     android:textColor="#000000"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:fontFamily="@font/arial"
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/_10ssp" />
 
                 <TextView
@@ -74,7 +74,7 @@
                     android:layout_toRightOf="@+id/tv_text1"
                     android:textColor="#000000"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:fontFamily="@font/arial_bold"
+                    android:fontFamily="@font/lato_bold"
                     android:textSize="@dimen/_10ssp" />
 
                 <TextView
@@ -84,7 +84,7 @@
                     android:text="STEPS"
                     android:layout_below="@+id/tv_step_count"
                     android:textColor="#000000"
-                    android:fontFamily="@font/arial_bold"
+                    android:fontFamily="@font/lato_bold"
                     android:textSize="@dimen/_8ssp" />
 
             </RelativeLayout>
@@ -125,7 +125,7 @@
                 android:layout_toRightOf="@+id/iv_profile"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/arial"
+                android:fontFamily="@font/lato"
                 android:textSize="@dimen/_11ssp" />
         </RelativeLayout>
 
@@ -152,7 +152,7 @@
             android:layout_marginTop="@dimen/_30sdp"
             android:background="#F1F3F4"
             android:textColor="#000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
@@ -179,7 +179,7 @@
             android:singleLine="true"
             android:background="#F1F3F4"
             android:textColor="#000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
@@ -206,7 +206,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="#F1F3F4"
             android:textColor="#000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
@@ -234,7 +234,7 @@
             android:inputType="textPassword"
             android:background="#F1F3F4"
             android:textColor="#000000"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/lato"
             android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
@@ -258,7 +258,7 @@
             android:textSize="@dimen/_18ssp"
             android:textColor="#ffffff"
             android:gravity="center"
-            android:fontFamily="@font/arial_bold"
+            android:fontFamily="@font/lato_bold"
             android:layout_alignParentBottom="true"
             android:background="@drawable/button_black_solid_shadow" />
 

@@ -20,8 +20,8 @@ public class terms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.c_terms);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
 
         for (int i = 0; i < 8; i++) {
             TextView title = (TextView) findViewById(getResources().getIdentifier("tv_title"+Integer.toString(i + 1), "id", getPackageName()));

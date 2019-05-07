@@ -33,8 +33,8 @@ public class completeProfile extends AppCompatActivity {
         TextView tv_details3 = (TextView) findViewById(R.id.tv_details3);
 
         Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        tv_text1.setTypeface(Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf"));
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
+        tv_text1.setTypeface(Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf"));
 
         tv_progress1.setTypeface(custom_font2);
         tv_progress2.setTypeface(custom_font2);

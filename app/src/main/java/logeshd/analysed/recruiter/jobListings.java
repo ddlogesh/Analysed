@@ -1,14 +1,11 @@
 package logeshd.analysed.recruiter;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,16 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import logeshd.analysed.R;
-import logeshd.analysed.apis.databases;
 import logeshd.analysed.apis.joblistings;
 import logeshd.analysed.jobSeeker.adapter.listViewJobs;
-import logeshd.analysed.recruiter.adapter.listDatabase;
 import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.SharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import spencerstudios.com.bungeelib.Bungee;
 
 public class jobListings extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,8 +47,8 @@ public class jobListings extends AppCompatActivity implements View.OnClickListen
         tv_invite = (TextView) findViewById(R.id.tv_invite);
         iv_home = (ImageView) findViewById(R.id.iv_home);   iv_home.setOnClickListener(this);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_invite.setTypeface(custom_font1);
         tv_title.setTypeface(custom_font2);

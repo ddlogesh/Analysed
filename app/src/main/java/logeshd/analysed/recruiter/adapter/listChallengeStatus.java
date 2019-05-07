@@ -41,9 +41,9 @@ public class listChallengeStatus extends ArrayAdapter<challenge> {
         final RelativeLayout layout_done= convertView.findViewById(R.id.layout_done);
         final ImageView iv_status= convertView.findViewById(R.id.iv_status);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font3 = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font3 = Typeface.createFromAsset(getContext().getAssets(), "fonts/lato_bold.ttf");
 
         tv_title.setTypeface(custom_font2);
         tv_sub_title.setTypeface(custom_font1);

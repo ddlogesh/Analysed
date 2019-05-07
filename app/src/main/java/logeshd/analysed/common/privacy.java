@@ -18,8 +18,8 @@ public class privacy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.c_privacy);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
 
         for (int i = 0; i < 6; i++) {
             int t_id = getResources().getIdentifier("tv_title"+Integer.toString(i + 1), "id", getPackageName());

@@ -71,9 +71,9 @@ public class createChallenge extends AppCompatActivity {
         CheckBox ck_hire = (CheckBox) findViewById(R.id.ck_hire);
         CheckBox ck_other = (CheckBox) findViewById(R.id.ck_other);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
 
         @Override
         protected void onPreExecute() {

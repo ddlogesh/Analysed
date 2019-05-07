@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -14,11 +13,9 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,11 +28,8 @@ import java.util.List;
 import java.util.Locale;
 
 import logeshd.analysed.R;
-import logeshd.analysed.apis.challenge;
 import logeshd.analysed.apis.status;
 import logeshd.analysed.apis.task;
-import logeshd.analysed.recruiter.adapter.listCreateTask;
-import logeshd.analysed.classes.drawer;
 import logeshd.analysed.service.MainRepository;
 import logeshd.analysed.utils.CommonUtils;
 import logeshd.analysed.utils.SharedPref;
@@ -79,8 +73,8 @@ public class createTask extends AppCompatActivity {
         EditText ev_ways = (EditText) findViewById(R.id.ev_ways);
         EditText ev_hint = (EditText) findViewById(R.id.ev_hint);
 
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_bold.ttf");
-        Typeface custom_font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
+        Typeface custom_font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato.ttf");
 
         @Override
         protected void onPreExecute() {
