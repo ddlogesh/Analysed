@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_gradient"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_centerHorizontal="true"
 
-        android:src="@drawable/app_icon_white" />
+        android:src="@drawable/app_icon" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,10 +39,10 @@
             android:paddingLeft="@dimen/_10sdp"
             android:inputType="textEmailAddress"
             android:layout_toRightOf="@+id/iv_name"
-            android:background="#515769"
-            android:textColor="#ffffff"
+            android:background="#F1F3F4"
+            android:textColor="#000000"
             android:fontFamily="@font/arial"
-            android:textColorHint="#88C2C0C0"
+            android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
         <ImageView
@@ -66,10 +66,10 @@
             android:layout_below="@+id/ev_name"
             android:layout_marginTop="@dimen/_10sdp"
             android:inputType="textPassword"
-            android:background="#515769"
-            android:textColor="#ffffff"
+            android:background="#F1F3F4"
+            android:textColor="#000000"
             android:fontFamily="@font/arial"
-            android:textColorHint="#88C2C0C0"
+            android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
         <ImageView
@@ -80,7 +80,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:padding="@dimen/_12sdp"
-            android:background="#515769"
+            android:background="#F1F3F4"
             android:src="@drawable/ic_eye_view" />
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_below="@+id/ev_password"
             android:fontFamily="@font/arial"
-            android:textColor="#88AFDF"
+            android:textColor="#0B7FFA"
             android:textSize="@dimen/_11ssp" />
 
         <TextView
@@ -135,7 +135,7 @@
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="or continue with"
                 android:textSize="@dimen/_11ssp"
-                android:textColor="#88C2C0C0"
+                android:textColor="#C2C0C0"
                 android:fontFamily="@font/arial" />
 
             <View
@@ -222,7 +222,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="First time here? "
-                        android:textColor="#ffffff"
+                        android:textColor="#80000000"
                         android:fontFamily="@font/arial"
                         android:textSize="@dimen/_11ssp" />
 
@@ -233,7 +233,7 @@
                         android:layout_toRightOf="@id/tv_text"
                         android:text=" Sign up."
                         android:fontFamily="@font/arial"
-                        android:textColor="#88AFDF"
+                        android:textColor="#0B7FFA"
                         android:textSize="@dimen/_11ssp" />
 
                 </RelativeLayout>
@@ -251,7 +251,7 @@
                         android:layout_height="wrap_content"
                         android:text="Want to explore more,"
                         android:fontFamily="@font/arial"
-                        android:textColor="#ffffff"
+                        android:textColor="#80000000"
                         android:textSize="@dimen/_11ssp" />
 
                     <TextView
@@ -261,7 +261,7 @@
                         android:layout_toRightOf="@id/tv_text"
                         android:text=" Take a tour!"
                         android:fontFamily="@font/arial"
-                        android:textColor="#88AFDF"
+                        android:textColor="#0B7FFA"
                         android:textSize="@dimen/_11ssp" />
                 </RelativeLayout>
             </RelativeLayout>
@@ -281,7 +281,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffff"
+                android:textColor="#80000000"
                 android:text="By signing in, you agree to our"
                 android:fontFamily="@font/arial"
                 android:textSize="@dimen/_11ssp" />
@@ -290,15 +290,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_text"
+                android:layout_marginTop="@dimen/_2sdp"
                 android:layout_centerHorizontal="true">
 
                 <TextView
                     android:id="@+id/tv_terms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="terms &amp; conditions"
+                    android:layout_alignParentTop="true"
                     android:fontFamily="@font/arial"
-                    android:textColor="#88AFDF"
+                    android:text="terms &amp; conditions"
+                    android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
 
                 <TextView
@@ -308,7 +310,7 @@
                     android:text=" | "
                     android:layout_toRightOf="@+id/tv_terms"
                     android:fontFamily="@font/arial"
-                    android:textColor="#ffffff"
+                    android:textColor="#80000000"
                     android:textSize="@dimen/_11ssp" />
 
                 <TextView
@@ -318,7 +320,7 @@
                     android:text="privacy policy"
                     android:layout_toRightOf="@+id/tv_text"
                     android:fontFamily="@font/arial"
-                    android:textColor="#88AFDF"
+                    android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
             </RelativeLayout>
 
@@ -328,7 +330,7 @@
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/pcircle"
-        app:indicatorColor="#88AFDF"
+        app:indicatorColor="#0B7FFA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

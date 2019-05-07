@@ -95,12 +95,12 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
         if(flag==0) {
             tv_total.setText("3");
             tv_upload_text.setText("Upload a profile picture");
-            iv_profile.setImageResource(R.drawable.ic_user_white);
+            iv_profile.setImageResource(R.drawable.ic_user);
         }
         else {
             tv_total.setText("2");
             tv_upload_text.setText("Upload a company logo");
-            iv_profile.setImageResource(R.drawable.ic_bulb_white);
+            iv_profile.setImageResource(R.drawable.ic_bulb);
         }
     }
 

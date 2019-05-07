@@ -106,7 +106,7 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (position != 3) {
-                        ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
                     }
                 }
 
@@ -158,7 +158,7 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (position != 25) {
-                        ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
                     }
                 }
 
@@ -188,7 +188,7 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
             sp_experience.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (position != 4) {
-                        ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
                     }
                 }
 

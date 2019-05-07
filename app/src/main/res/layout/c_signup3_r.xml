@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_gradient"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <ImageView
@@ -12,7 +12,7 @@
         android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:src="@drawable/ic_back_white" />
+        android:src="@drawable/ic_back" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:text="New\nAccount"
                 android:layout_centerVertical="true"
                 android:textSize="@dimen/_26ssp"
-                android:textColor="#ffffff"
+                android:textColor="#000000"
                 android:fontFamily="@font/arial_bold" />
 
             <RelativeLayout
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:text="2"
                     android:textSize="@dimen/_18ssp"
-                    android:textColor="#ffffff"
+                    android:textColor="#000000"
                     android:fontFamily="@font/arial_bold" />
 
                 <TextView
@@ -60,7 +60,7 @@
                     android:text=" / "
                     android:layout_alignBottom="@+id/tv_step_count"
                     android:layout_toRightOf="@+id/tv_step_count"
-                    android:textColor="#ffffff"
+                    android:textColor="#000000"
                     android:paddingBottom="@dimen/_3sdp"
                     android:fontFamily="@font/arial"
                     android:textSize="@dimen/_10ssp" />
@@ -72,7 +72,7 @@
                     android:text="2"
                     android:layout_alignBottom="@+id/tv_step_count"
                     android:layout_toRightOf="@+id/tv_text1"
-                    android:textColor="#ffffff"
+                    android:textColor="#000000"
                     android:paddingBottom="@dimen/_3sdp"
                     android:fontFamily="@font/arial_bold"
                     android:textSize="@dimen/_10ssp" />
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:text="STEPS"
                     android:layout_below="@+id/tv_step_count"
-                    android:textColor="#ffffff"
+                    android:textColor="#000000"
                     android:fontFamily="@font/arial_bold"
                     android:textSize="@dimen/_8ssp" />
 
@@ -111,11 +111,11 @@
             android:layout_toRightOf="@+id/iv_organisation"
             android:layout_below="@+id/layout0"
             android:layout_marginTop="@dimen/_30sdp"
-            android:background="#515769"
+            android:background="#F1F3F4"
             android:singleLine="true"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:fontFamily="@font/arial"
-            android:textColorHint="#88C2C0C0"
+            android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
         <ImageView
@@ -138,11 +138,11 @@
             android:layout_toRightOf="@+id/iv_location"
             android:layout_below="@+id/ev_organisation"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="#515769"
+            android:background="#F1F3F4"
             android:singleLine="true"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:fontFamily="@font/arial"
-            android:textColorHint="#88C2C0C0"
+            android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
         <ImageView
@@ -165,11 +165,11 @@
             android:layout_toRightOf="@+id/iv_designation"
             android:layout_below="@+id/ev_location"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="#515769"
-            android:textColor="#ffffff"
+            android:background="#F1F3F4"
+            android:textColor="#000000"
             android:singleLine="true"
             android:fontFamily="@font/arial"
-            android:textColorHint="#88C2C0C0"
+            android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
         <ImageView
@@ -192,11 +192,11 @@
             android:layout_toRightOf="@+id/iv_mobile"
             android:layout_below="@+id/ev_designation"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="#515769"
+            android:background="#F1F3F4"
             android:maxLength="10"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:fontFamily="@font/arial"
-            android:textColorHint="#88C2C0C0"
+            android:textColorHint="#43000000"
             android:textSize="@dimen/_13ssp" />
 
         <TextView
@@ -225,7 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffff"
+                android:textColor="#80000000"
                 android:text="By signing up, you agree to our"
                 android:fontFamily="@font/arial"
                 android:textSize="@dimen/_11ssp" />
@@ -234,6 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_text"
+                android:layout_marginTop="@dimen/_2sdp"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -242,7 +243,7 @@
                     android:layout_height="wrap_content"
                     android:text="terms &amp; conditions"
                     android:fontFamily="@font/arial"
-                    android:textColor="#88AFDF"
+                    android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
 
                 <TextView
@@ -252,7 +253,7 @@
                     android:text=" | "
                     android:layout_toRightOf="@+id/tv_terms"
                     android:fontFamily="@font/arial"
-                    android:textColor="#ffffff"
+                    android:textColor="#80000000"
                     android:textSize="@dimen/_11ssp" />
 
                 <TextView
@@ -262,7 +263,7 @@
                     android:text="privacy policy"
                     android:layout_toRightOf="@+id/tv_text"
                     android:fontFamily="@font/arial"
-                    android:textColor="#88AFDF"
+                    android:textColor="#0B7FFA"
                     android:textSize="@dimen/_11ssp" />
             </RelativeLayout>
 
@@ -272,7 +273,7 @@
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/pcircle"
-        app:indicatorColor="#88AFDF"
+        app:indicatorColor="#0B7FFA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
