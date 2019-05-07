@@ -12,6 +12,7 @@
         android:layout_height="@dimen/_100sdp"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_centerHorizontal="true"
+
         android:src="@drawable/app_icon_white" />
 
     <RelativeLayout
@@ -97,12 +98,12 @@
         <TextView
             android:id="@+id/tv_login"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_65sdp"
+            android:layout_height="@dimen/_55sdp"
             android:text="Login"
             android:layout_below="@+id/ev_password"
             android:layout_marginTop="@dimen/_40sdp"
-            android:paddingBottom="@dimen/_12sdp"
-            android:textSize="@dimen/_24ssp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textSize="@dimen/_18ssp"
             android:textColor="#ffffff"
             android:gravity="center"
             android:fontFamily="@font/arial_bold"
@@ -113,6 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
+
             android:layout_below="@+id/tv_login">
 
             <View
@@ -160,6 +162,7 @@
                 android:layout_height="@dimen/_40sdp"
                 android:src="@drawable/ic_google"
                 android:padding="@dimen/_1sdp"
+
                 android:background="@drawable/referral_gradient_solid"/>
 
             <ImageView
@@ -170,6 +173,7 @@
                 android:padding="@dimen/_1sdp"
                 android:layout_toRightOf="@+id/iv_app1"
                 android:layout_marginLeft="@dimen/_6sdp"
+
                 android:background="@drawable/referral_gradient_solid"/>
 
             <ImageView
@@ -180,6 +184,7 @@
                 android:padding="@dimen/_1sdp"
                 android:layout_toRightOf="@+id/iv_app2"
                 android:layout_marginLeft="@dimen/_6sdp"
+
                 android:background="@drawable/referral_gradient_solid"/>
 
             <ImageView

@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -29,6 +30,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.File;
@@ -59,7 +62,7 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
     AVLoadingIndicatorView pcircle;
     CircleImageView iv_profile;
     EditText ev_email,ev_first_name1,ev_last_name1,ev_password;
-    ImageView iv_edit,iv_back,iv_eye;
+    ImageView iv_edit,iv_back,iv_eye,iv_first_name1,iv_last_name1,iv_email,iv_password;
     TextView tv_total,tv_upload_text,tv_next;
 
     Dialog dialog;
@@ -102,6 +105,45 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
     }
 
     /************************************************************************************/
+
+    private class animations extends AsyncTask<Void,Void,Void> {
+        Handler handler=new Handler();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            iv_first_name1 = findViewById(R.id.iv_first_name1);
+            iv_last_name1 = findViewById(R.id.iv_last_name1);
+            iv_email = findViewById(R.id.iv_email);
+            iv_password = findViewById(R.id.iv_password);
+
+            tv_next.setVisibility(View.INVISIBLE);
+            iv_profile.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    iv_profile.setVisibility(View.VISIBLE);
+                    YoYo.with(Techniques.BounceIn).duration(800).playOn(iv_profile);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            tv_next.setVisibility(View.VISIBLE);
+                            YoYo.with(Techniques.SlideInUp).duration(500).playOn(tv_next);
+                        }
+                    },500);
+                }
+            },300);
+
+            return null;
+        }
+    }
 
     private void uploadProfilePic() {
         File storageDir = getApplicationContext().getExternalCacheDir();
@@ -196,21 +238,32 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
                 onBackPressed();
                 break;
             case R.id.tv_next:
-                if (ev_first_name1.getEditableText().toString().trim().length() == 0)
+                if (ev_first_name1.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tFirst name cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_last_name1.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_first_name1);
+                }
+                else if (ev_last_name1.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tLast name cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_email.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_last_name1);
+                }
+                else if (ev_email.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tEmail id cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (flag==1 && (ev_email.getEditableText().toString().trim().contains("gmail") || ev_email.getEditableText().toString().trim().contains("yahoo")))
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_email);
+                }
+                else if (flag==1 && (ev_email.getEditableText().toString().trim().contains("gmail") || ev_email.getEditableText().toString().trim().contains("yahoo"))) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tPlease use your business email", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_password.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_email);
+                }
+                else if (ev_password.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tPassword cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_password);
+                }
                 else if(SharedPref.getString(getApplicationContext(),"profile_file_name") == null || (!SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("user") && !SharedPref.getString(getApplicationContext(),"profile_file_name").startsWith("avatars"))){
                     if(flag==0)
                         CommonUtils.setSnackBar(getWindow().getDecorView(), "\tPlease upload your profile picture", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
                     else
                         CommonUtils.setSnackBar(getWindow().getDecorView(), "\tPlease upload your company logo", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
+                    YoYo.with(Techniques.Tada).duration(500).playOn(iv_profile);
                 }
                 else {
                     if(flag==0)
@@ -253,8 +306,6 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    /************************************************************************************/
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -273,6 +324,8 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
+
+        new animations().execute();
 
         if (SharedPref.getString(getApplicationContext(),"signup","f_name") != null)
             ev_first_name1.setText(SharedPref.getString(getApplicationContext(),"signup","f_name"));
@@ -303,6 +356,8 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
             }
         }
     }
+
+    /************************************************************************************/
 
     @Override
     protected void onActivityResult(int  requestCode, int resultCode, Intent data) {

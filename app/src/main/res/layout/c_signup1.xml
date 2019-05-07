@@ -126,23 +126,12 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#ffffff"
-            android:fontFamily="@font/arial"
-            android:layout_below="@+id/layout0"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:textSize="@dimen/_11ssp" />
-
-        <TextView
             android:id="@+id/tv_next"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_65sdp"
+            android:layout_height="@dimen/_55sdp"
             android:text="Next"
-            android:paddingBottom="@dimen/_12sdp"
-            android:textSize="@dimen/_24ssp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textSize="@dimen/_18ssp"
             android:textColor="#ffffff"
             android:gravity="center"
             android:visibility="gone"

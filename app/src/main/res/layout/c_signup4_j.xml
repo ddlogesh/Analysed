@@ -154,10 +154,10 @@
         <TextView
             android:id="@+id/tv_signup"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_65sdp"
+            android:layout_height="@dimen/_55sdp"
             android:text="Finish"
-            android:paddingBottom="@dimen/_12sdp"
-            android:textSize="@dimen/_24ssp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textSize="@dimen/_18ssp"
             android:textColor="#ffffff"
             android:gravity="center"
             android:visibility="invisible"

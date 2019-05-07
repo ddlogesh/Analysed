@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -70,6 +72,40 @@ public class signup4_j extends AppCompatActivity implements View.OnClickListener
 
     /************************************************************************************/
 
+    private class animations extends AsyncTask<Void,Void,Void> {
+        Handler handler=new Handler();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            tv_resume.setVisibility(View.INVISIBLE);
+            iv_upload_status.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    iv_upload_status.setVisibility(View.VISIBLE);
+                    YoYo.with(Techniques.FadeInDown).duration(800).playOn(iv_upload_status);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            tv_resume.setVisibility(View.VISIBLE);
+                            YoYo.with(Techniques.BounceIn).duration(500).playOn(tv_resume);
+                        }
+                    },500);
+                }
+            },300);
+
+            return null;
+        }
+    }
+
     public void filePicker(){
         DialogProperties properties = new DialogProperties();
         properties.selection_mode = DialogConfigs.SINGLE_MODE;
@@ -112,7 +148,7 @@ public class signup4_j extends AppCompatActivity implements View.OnClickListener
 
     private void isResume(){
         if(SharedPref.getString(getApplicationContext(), "signup","resume_file_name") == null){
-            YoYo.with(Techniques.SlideOutDown).duration(500).playOn(tv_signup);
+            YoYo.with(Techniques.ZoomOutDown).duration(500).playOn(tv_signup);
             tv_signup.setEnabled(false);
 
             tv_resume.setText("Upload Resume");
@@ -129,7 +165,7 @@ public class signup4_j extends AppCompatActivity implements View.OnClickListener
             iv_upload_status.setImageResource(R.drawable.resume_remove);
 
             tv_signup.setVisibility(View.VISIBLE);
-            YoYo.with(Techniques.SlideInUp).duration(500).playOn(tv_signup);
+            YoYo.with(Techniques.ZoomInUp).duration(500).playOn(tv_signup);
             tv_signup.setEnabled(true);
         }
     }
@@ -403,6 +439,8 @@ public class signup4_j extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
+
+        new animations().execute();
         isResume();
     }
 

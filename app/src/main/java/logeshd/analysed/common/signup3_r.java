@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import logeshd.analysed.R;
@@ -32,7 +36,7 @@ public class signup3_r extends AppCompatActivity implements View.OnClickListener
     AVLoadingIndicatorView pcircle;
     TextView tv_terms,tv_privacy,tv_signup;
     EditText ev_organisation,ev_designation,ev_location,ev_mobile;
-    ImageView iv_back;
+    ImageView iv_back,iv_organisation,iv_designation,iv_location,iv_mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,36 @@ public class signup3_r extends AppCompatActivity implements View.OnClickListener
     }
 
     /************************************************************************************/
+
+    private class animations extends AsyncTask<Void,Void,Void> {
+        Handler handler=new Handler();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            iv_organisation = findViewById(R.id.iv_organisation);
+            iv_designation = findViewById(R.id.iv_designation);
+            iv_location = findViewById(R.id.iv_location);
+            iv_mobile = findViewById(R.id.iv_mobile);
+
+            tv_signup.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    tv_signup.setVisibility(View.VISIBLE);
+                    YoYo.with(Techniques.SlideInUp).duration(500).playOn(tv_signup);
+                }
+            },100);
+
+            return null;
+        }
+    }
 
     private void checkForSignupApi(users u){
         MainRepository.getService().checkForSignupApi(u).enqueue(new Callback<status>() {
@@ -176,14 +210,22 @@ public class signup3_r extends AppCompatActivity implements View.OnClickListener
                 Bungee.slideUp(signup3_r.this);
                 break;
             case R.id.tv_signup:
-                if (ev_organisation.getEditableText().toString().trim().length() == 0)
+                if (ev_organisation.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tCompany name cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_designation.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_organisation);
+                }
+                else if (ev_designation.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tDesignation cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_location.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_designation);
+                }
+                else if (ev_location.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tCompany location cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_mobile.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_location);
+                }
+                else if (ev_mobile.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tMobile number cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_mobile);
+                }
                 else{
                     if(startProgress()){
                         users u=new users(SharedPref.getString(getApplicationContext(),"signup","ev_email"),SharedPref.getString(getApplicationContext(),"signup","ev_password"),Integer.toString(SharedPref.getInt(getApplicationContext(),"signup","user_role")),1);
@@ -211,6 +253,8 @@ public class signup3_r extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
+
+        new animations().execute();
 
         if (SharedPref.getString(getApplicationContext(),"signup","ev_organisation") != null)
             ev_organisation.setText(SharedPref.getString(getApplicationContext(),"signup","ev_organisation"));

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -30,7 +33,7 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
     EditText ev_mobile,ev_skills,ev_location;
     TextView tv_next;
     Spinner sp_qualification,sp_year_passing,sp_experience;
-    ImageView iv_back;
+    ImageView iv_back,iv_mobile,iv_skills,iv_location,iv_qualification,iv_year_passing,iv_experience;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,39 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
         iv_back = findViewById(R.id.iv_back);   iv_back.setOnClickListener(this);
 
         new signUpUpdates().execute();
+    }
+
+    /************************************************************************************/
+
+    private class animations extends AsyncTask<Void,Void,Void> {
+        Handler handler=new Handler();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            iv_mobile = findViewById(R.id.iv_mobile);
+            iv_skills = findViewById(R.id.iv_skills);
+            iv_location = findViewById(R.id.iv_location);
+            iv_qualification = findViewById(R.id.iv_qualification);
+            iv_year_passing = findViewById(R.id.iv_year_passing);
+            iv_experience = findViewById(R.id.iv_experience);
+
+            tv_next.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    tv_next.setVisibility(View.VISIBLE);
+                    YoYo.with(Techniques.SlideInUp).duration(500).playOn(tv_next);
+                }
+            },100);
+
+            return null;
+        }
     }
 
     public class signUpUpdates extends AsyncTask<Void,Void,Void> {
@@ -164,6 +200,8 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
         }
     }
 
+    /************************************************************************************/
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -171,18 +209,30 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
                 onBackPressed();
                 break;
             case R.id.tv_next:
-                if ((sp_qualification.getSelectedItem().toString()).equals("Qualification"))
+                if ((sp_qualification.getSelectedItem().toString()).equals("Qualification")) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tSelect qualification", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if ((sp_year_passing.getSelectedItem().toString()).equals("Year Of Passing"))
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_qualification);
+                }
+                else if ((sp_year_passing.getSelectedItem().toString()).equals("Year Of Passing")) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tSelect year of passing", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if ((sp_experience.getSelectedItem().toString()).equals("Experience"))
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_year_passing);
+                }
+                else if ((sp_experience.getSelectedItem().toString()).equals("Experience")) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tSelect experience", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_skills.getEditableText().toString().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_experience);
+                }
+                else if (ev_skills.getEditableText().toString().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tSkills cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_location.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_skills);
+                }
+                else if (ev_location.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tLocation cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if (ev_mobile.getEditableText().toString().trim().length() == 0)
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_location);
+                }
+                else if (ev_mobile.getEditableText().toString().trim().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tMobile number cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_mobile);
+                }
                 else {
                     startActivity(new Intent(getApplicationContext(), signup4_j.class));
                     Bungee.slideLeft(signup3_j.this);
@@ -221,6 +271,8 @@ public class signup3_j extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
+
+        new animations().execute();
 
         if (SharedPref.getString(getApplicationContext(),"signup","ev_mobile") != null)
             ev_mobile.setText(SharedPref.getString(getApplicationContext(),"signup","ev_mobile"));

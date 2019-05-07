@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +41,50 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener {
 
         layout_tab1 = findViewById(R.id.layout_tab1);   layout_tab1.setOnClickListener(this);
         layout_tab2 = findViewById(R.id.layout_tab2);   layout_tab2.setOnClickListener(this);
+    }
+
+    private class animations extends AsyncTask<Void,Void,Void> {
+        Handler handler=new Handler();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            tv_signin.setVisibility(View.INVISIBLE);
+            layout_tab1.setVisibility(View.INVISIBLE);
+            layout_tab2.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    layout_tab1.setVisibility(View.VISIBLE);
+                    layout_tab2.setVisibility(View.VISIBLE);
+                    YoYo.with(Techniques.BounceInLeft).duration(1500).playOn(layout_tab1);
+                    YoYo.with(Techniques.BounceInRight).duration(1500).playOn(layout_tab2);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            tv_signin.setVisibility(View.VISIBLE);
+                            YoYo.with(Techniques.BounceIn).duration(500).playOn(tv_signin);
+                        }
+                    },1000);
+                }
+            },100);
+
+            return null;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        new animations().execute();
     }
 
     @Override

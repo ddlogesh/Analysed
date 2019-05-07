@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -17,11 +19,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.File;
@@ -45,7 +50,8 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     AVLoadingIndicatorView pcircle;
     EditText ev_name, ev_password;
     TextView tv_forgot, tv_login, tv_terms, tv_signup, tv_tour, tv_privacy;
-    ImageView iv_eye;
+    ImageView iv_eye,iv_logo,iv_app1,iv_app2,iv_app3,iv_app4,iv_name,iv_password;
+    RelativeLayout layout_social;
 
     static boolean flag_eye=true;
 
@@ -64,10 +70,84 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         tv_privacy = findViewById(R.id.tv_privacy); tv_privacy.setOnClickListener(this);
 
         iv_eye = findViewById(R.id.iv_eye);         iv_eye.setOnClickListener(this);
+        iv_logo = findViewById(R.id.iv_logo);
+
         pcircle = findViewById(R.id.pcircle);
     }
 
     /*******************************************************************/
+
+    private class animations extends AsyncTask<Void,Void,Void>{
+        Handler handler=new Handler();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            iv_name = findViewById(R.id.iv_name);
+            iv_password = findViewById(R.id.iv_password);
+
+            iv_app1 = findViewById(R.id.iv_app1);
+            iv_app2 = findViewById(R.id.iv_app2);
+            iv_app3 = findViewById(R.id.iv_app3);
+            iv_app4 = findViewById(R.id.iv_app4);
+
+            layout_social = findViewById(R.id.layout_social);
+
+            iv_logo.setVisibility(View.INVISIBLE);
+            tv_login.setVisibility(View.INVISIBLE);
+            layout_social.setVisibility(View.INVISIBLE);
+            iv_app1.setVisibility(View.INVISIBLE);
+            iv_app2.setVisibility(View.INVISIBLE);
+            iv_app3.setVisibility(View.INVISIBLE);
+            iv_app4.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    iv_logo.setVisibility(View.VISIBLE);
+                    YoYo.with(Techniques.BounceIn).duration(500).playOn(iv_logo);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            tv_login.setVisibility(View.VISIBLE);
+                            YoYo.with(Techniques.ZoomInUp).duration(500).playOn(tv_login);
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    layout_social.setVisibility(View.VISIBLE);
+                                    YoYo.with(Techniques.ZoomIn).duration(500).playOn(layout_social);
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+
+                                            iv_app1.setVisibility(View.VISIBLE);
+                                            iv_app2.setVisibility(View.VISIBLE);
+                                            iv_app3.setVisibility(View.VISIBLE);
+                                            iv_app4.setVisibility(View.VISIBLE);
+
+                                            YoYo.with(Techniques.BounceIn).duration(500).playOn(iv_app1);
+                                            YoYo.with(Techniques.BounceIn).duration(550).playOn(iv_app2);
+                                            YoYo.with(Techniques.BounceIn).duration(600).playOn(iv_app3);
+                                            YoYo.with(Techniques.BounceIn).duration(650).playOn(iv_app4);
+                                        }
+                                    },500);
+                                }
+                            },500);
+                        }
+                    },500);
+                }
+            },100);
+
+            return null;
+        }
+    }
 
     private void loginApi(String username, String password){
 
@@ -187,7 +267,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 else {
                     pcircle.setVisibility(View.GONE);
                     tv_login.setEnabled(true);
-                    CommonUtils.setSnackBar(getWindow().getDecorView(), "\tInvalid Username or Password", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "\tERR-0001: Invalid Username or Password", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
                 }
             }
 
@@ -195,7 +275,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             public void onFailure(Call<userDetails> call, Throwable t) {
                 pcircle.setVisibility(View.GONE);
                 tv_login.setEnabled(true);
-                CommonUtils.setSnackBar(getWindow().getDecorView(),"\tServer error, please try again later!",R.drawable.ic_alert_white,"#ff0000",Color.WHITE);
+                CommonUtils.setSnackBar(getWindow().getDecorView(),"\tERR-0002: Invalid Username or Password",R.drawable.ic_alert_white,"#ff0000",Color.WHITE);
             }
         });
     }
@@ -214,6 +294,8 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
 
+        new animations().execute();
+
         if (SharedPref.getString(getApplicationContext(),"login","ev_name") != null)
             ev_name.setText(SharedPref.getString(getApplicationContext(),"login","ev_name"));
         if (SharedPref.getString(getApplicationContext(),"login","ev_password") != null)
@@ -230,9 +312,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.tv_terms:
                 if (ev_name.getEditableText().toString().trim().length() > 0)
-                    SharedPref.putString(getApplicationContext(),"login", "ev_name", ev_name.getEditableText().toString().trim());
+                    SharedPref.putString(getApplicationContext(), "login", "ev_name", ev_name.getEditableText().toString().trim());
                 if (ev_password.getEditableText().toString().trim().length() > 0)
-                    SharedPref.putString(getApplicationContext(),"login", "ev_password", ev_password.getEditableText().toString().trim());
+                    SharedPref.putString(getApplicationContext(), "login", "ev_password", ev_password.getEditableText().toString().trim());
                 SharedPref.putInt(getApplicationContext(),"back_flag",0);
 
                 startActivity(new Intent(getApplicationContext(),terms.class));
@@ -278,10 +360,14 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 flag_eye=!flag_eye;
                 break;
             case R.id.tv_login:
-                if(ev_name.getEditableText().toString().length() == 0)
+                if(ev_name.getEditableText().toString().length() == 0) {
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tEmail id cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
-                else if(ev_password.getEditableText().toString().length() == 0)
-                    CommonUtils.setSnackBar(getWindow().getDecorView(),"\tPassword cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_name);
+                }
+                else if(ev_password.getEditableText().toString().length() == 0) {
+                    CommonUtils.setSnackBar(getWindow().getDecorView(), "\tPassword cannot be empty", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
+                    YoYo.with(Techniques.Swing).duration(500).playOn(iv_password);
+                }
                 else {
                     if ((ContextCompat.checkSelfPermission(login.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(login.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
                         if(startProgress())
