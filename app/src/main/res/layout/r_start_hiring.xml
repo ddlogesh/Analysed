@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#eeeeee">
+    android:background="#ffffff">
 
     <RelativeLayout
         android:id="@id/layout0"
@@ -26,6 +26,7 @@
             android:padding="@dimen/_5sdp"
             android:layout_toRightOf="@+id/iv_home"
             android:text="Start hiring!"
+            android:fontFamily="@font/lato_bold"
             android:textColor="#000000"
             android:textSize="@dimen/_16ssp" />
     </RelativeLayout>
@@ -41,14 +42,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/button_white_solid">
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:scrollbars="none">
 
@@ -59,104 +60,89 @@
                     <EditText
                         android:id="@+id/ev_recruiter_name1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/text_bg_grey_curve"
+                        android:layout_height="@dimen/_40sdp"
                         android:hint="Recruiters Name"
+                        android:paddingLeft="@dimen/_10sdp"
                         android:enabled="false"
-                        android:paddingLeft="@dimen/_11sdp"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingRight="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
+                        android:background="#F1F3F4"
                         android:textColor="#000000"
+                        android:fontFamily="@font/lato"
+                        android:textColorHint="#43000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
                         android:id="@+id/ev_organization_name1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_below="@id/ev_recruiter_name1"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/text_bg_grey_curve"
-                        android:hint="Organization name"
+                        android:hint="Organization Name"
+                        android:paddingLeft="@dimen/_10sdp"
                         android:enabled="false"
-                        android:paddingLeft="@dimen/_11sdp"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingRight="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
+                        android:background="#F1F3F4"
                         android:textColor="#000000"
+                        android:fontFamily="@font/lato"
+                        android:textColorHint="#43000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
                         android:id="@+id/ev_designation"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_below="@id/ev_organization_name1"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/text_bg_grey_curve"
                         android:hint="Designation"
+                        android:paddingLeft="@dimen/_10sdp"
                         android:enabled="false"
-                        android:paddingLeft="@dimen/_11sdp"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingRight="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
+                        android:background="#F1F3F4"
                         android:textColor="#000000"
+                        android:fontFamily="@font/lato"
+                        android:textColorHint="#43000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
                         android:id="@+id/ev_position"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_below="@id/ev_designation"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/text_bg_grey_curve"
                         android:hint="Position"
-                        android:inputType="text"
-                        android:paddingLeft="@dimen/_11sdp"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingRight="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
-                        android:textColorHint="#4a000000"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:enabled="false"
+                        android:background="#F1F3F4"
                         android:textColor="#000000"
+                        android:fontFamily="@font/lato"
+                        android:textColorHint="#43000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
                         android:id="@+id/ev_skill"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_below="@id/ev_position"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/text_bg_grey_curve"
                         android:hint="Skills"
-                        android:inputType="text"
-                        android:paddingLeft="@dimen/_11sdp"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingRight="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
-                        android:textColorHint="#4a000000"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:enabled="false"
+                        android:background="#F1F3F4"
                         android:textColor="#000000"
+                        android:fontFamily="@font/lato"
+                        android:textColorHint="#43000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
                         android:id="@id/ev_qualification"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_below="@id/ev_skill"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/text_bg_grey_curve"
                         android:hint="Qualification"
-                        android:inputType="text"
-                        android:paddingLeft="@dimen/_11sdp"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingRight="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
-                        android:textColorHint="#4a000000"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:enabled="false"
+                        android:background="#F1F3F4"
                         android:textColor="#000000"
+                        android:fontFamily="@font/lato"
+                        android:textColorHint="#43000000"
                         android:textSize="@dimen/_13ssp" />
 
                     <EditText
@@ -168,6 +154,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Experience"
+                        android:fontFamily="@font/lato"
                         android:inputType="text"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
@@ -186,6 +173,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Job Location"
+                        android:fontFamily="@font/lato"
                         android:inputType="text"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
@@ -204,6 +192,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Package"
+                        android:fontFamily="@font/lato"
                         android:inputType="text"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
@@ -222,6 +211,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Job Timings"
+                        android:fontFamily="@font/lato"
                         android:inputType="text"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
@@ -241,6 +231,7 @@
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/text_bg_grey_curve"
                         android:hint="Job Description"
+                        android:fontFamily="@font/lato"
                         android:inputType="text"
                         android:paddingLeft="@dimen/_11sdp"
                         android:paddingTop="@dimen/_6sdp"
@@ -258,6 +249,7 @@
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
             android:src="@drawable/add_button" />
     </RelativeLayout>
 

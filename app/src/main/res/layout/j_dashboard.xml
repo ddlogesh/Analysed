@@ -65,6 +65,7 @@
                         android:layout_marginBottom="@dimen/_7sdp"
                         android:padding="@dimen/_2sdp"
                         android:text="@string/nav_header_title"
+                        android:fontFamily="@font/lato_bold"
                         android:textColor="#ff000000"
                         android:textSize="@dimen/_14ssp"
                         android:textStyle="bold" />

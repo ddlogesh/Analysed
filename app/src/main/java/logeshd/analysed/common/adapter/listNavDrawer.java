@@ -23,13 +23,12 @@ public class listNavDrawer extends ArrayAdapter<drawer> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.c_list_nav_drawer, parent, false);
         }
-        Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(), "fonts/arial_rounded.ttf");
+
         TextView tv_menu_title = (TextView) convertView.findViewById(R.id.tv_menu_title);
         tv_menu_title.setText(p.getTitle());
-        tv_menu_title.setTypeface(custom_font);
 
         if (position == 0) {
-            tv_menu_title.setTextColor(Color.parseColor("#458DDF"));
+            tv_menu_title.setTextColor(Color.parseColor("#0B7FFA"));
         } else {
             tv_menu_title.setTextColor(Color.parseColor("#000000"));
         }

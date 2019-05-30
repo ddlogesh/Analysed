@@ -122,22 +122,16 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                                 public void run() {
 
                                     layout_social.setVisibility(View.VISIBLE);
+                                    iv_app1.setVisibility(View.VISIBLE);
+                                    iv_app2.setVisibility(View.VISIBLE);
+                                    iv_app3.setVisibility(View.VISIBLE);
+                                    iv_app4.setVisibility(View.VISIBLE);
+
                                     YoYo.with(Techniques.ZoomIn).duration(500).playOn(layout_social);
-                                    handler.postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-
-                                            iv_app1.setVisibility(View.VISIBLE);
-                                            iv_app2.setVisibility(View.VISIBLE);
-                                            iv_app3.setVisibility(View.VISIBLE);
-                                            iv_app4.setVisibility(View.VISIBLE);
-
-                                            YoYo.with(Techniques.BounceIn).duration(500).playOn(iv_app1);
-                                            YoYo.with(Techniques.BounceIn).duration(550).playOn(iv_app2);
-                                            YoYo.with(Techniques.BounceIn).duration(600).playOn(iv_app3);
-                                            YoYo.with(Techniques.BounceIn).duration(650).playOn(iv_app4);
-                                        }
-                                    },500);
+                                    YoYo.with(Techniques.BounceIn).duration(500).playOn(iv_app1);
+                                    YoYo.with(Techniques.BounceIn).duration(550).playOn(iv_app2);
+                                    YoYo.with(Techniques.BounceIn).duration(600).playOn(iv_app3);
+                                    YoYo.with(Techniques.BounceIn).duration(650).playOn(iv_app4);
                                 }
                             },500);
                         }

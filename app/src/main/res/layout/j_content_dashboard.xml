@@ -27,6 +27,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/iv_menu"
             android:text="Dashboard"
+            android:fontFamily="@font/lato_bold"
             android:textColor="#ff000000"
             android:textSize="@dimen/_16ssp" />
     </RelativeLayout>
@@ -38,7 +39,8 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/iv_dash_card"

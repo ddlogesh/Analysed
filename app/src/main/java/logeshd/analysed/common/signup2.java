@@ -191,12 +191,14 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
 
                             pcircle.setVisibility(View.GONE);
                             iv_edit.setEnabled(true);
+                            iv_profile.setEnabled(true);
                             tv_next.setEnabled(true);
                         }
                         else {
                             Log.d("ddlogesh", a.getMessage());
                             pcircle.setVisibility(View.GONE);
                             iv_edit.setEnabled(true);
+                            iv_profile.setEnabled(true);
                             tv_next.setEnabled(true);
                             CommonUtils.setSnackBar(getWindow().getDecorView(), "\tProfile picture uploading failed", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
                         }
@@ -205,6 +207,7 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
                         Log.d("ddlogesh", "Failed");
                         pcircle.setVisibility(View.GONE);
                         iv_edit.setEnabled(true);
+                        iv_profile.setEnabled(true);
                         tv_next.setEnabled(true);
                         CommonUtils.setSnackBar(getWindow().getDecorView(), "\tServer error, please try again later!", R.drawable.ic_alert_white, "#ff0000", Color.WHITE);
                     }
@@ -215,6 +218,7 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
                     Log.d("ddlogesh", "Nope: " + t.getMessage());
                     pcircle.setVisibility(View.GONE);
                     iv_edit.setEnabled(true);
+                    iv_profile.setEnabled(true);
                     tv_next.setEnabled(true);
                     CommonUtils.setSnackBar(getWindow().getDecorView(), "\tServer error, please try again later!", R.drawable.ic_alert_white, "#ff0000", Color.WHITE);
                 }
@@ -224,6 +228,7 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
             Log.d("ddlogesh", "Failed");
             pcircle.setVisibility(View.GONE);
             iv_edit.setEnabled(true);
+            iv_profile.setEnabled(true);
             tv_next.setEnabled(true);
             CommonUtils.setSnackBar(getWindow().getDecorView(), "\tProfile picture uploading failed", R.drawable.ic_alert_white, "#21242C", Color.WHITE);
         }
@@ -286,6 +291,7 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
                 }
                 flag_eye=!flag_eye;
                 break;
+            case R.id.iv_profile:
             case R.id.iv_edit:
                 if ((ContextCompat.checkSelfPermission(signup2.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(signup2.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
                     startActivityForResult(CommonUtils.getPickImageChooserIntent(getApplicationContext()),200);
@@ -414,6 +420,7 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
         else {
             pcircle.setVisibility(View.VISIBLE);
             iv_edit.setEnabled(false);
+            iv_profile.setEnabled(false);
             tv_next.setEnabled(false);
             return true;
         }
@@ -423,7 +430,6 @@ public class signup2 extends AppCompatActivity implements View.OnClickListener {
 
 /*
 /var/www/analysed.in/analysed/Pages/jobseeker/documents
-
 /var/www/analysed.in/analysed/Pages/jobseeker
 /var/www/analysed.in/analysed/Pages
 */

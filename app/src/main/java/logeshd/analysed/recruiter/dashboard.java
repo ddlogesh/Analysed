@@ -74,12 +74,6 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
         tv_issue2 = (TextView) findViewById(R.id.tv_issue2);        tv_issue2.setOnClickListener(this);
 
         new updates().execute();
-
-        Typeface custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/arial_rounded.ttf");
-        Typeface custom_font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lato_bold.ttf");
-
-        tv_dashboard.setTypeface(custom_font2);
-        tv_name.setTypeface(custom_font1);
     }
 
     public class dpUpdate extends AsyncTask<Void,Void,Void>{

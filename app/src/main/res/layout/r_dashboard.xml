@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
@@ -23,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/nav_drawer_bg" />
+            android:src="@drawable/nav_drawer_bg"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:id="@id/layout0"
@@ -40,6 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:visibility="gone"
                     android:src="@drawable/facino_icon" />
 
                 <RelativeLayout
@@ -53,9 +56,9 @@
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
                         android:layout_above="@id/tv_name"
-                        app:civ_border_color="#ff33adff"
+                        app:civ_border_color="#0B7FFA"
                         app:civ_border_width="@dimen/_1sdp"
-                        android:src="@drawable/icon_profile"/>
+                        android:src="@drawable/ic_user"/>
 
                     <TextView
                         android:id="@id/tv_name"
@@ -64,6 +67,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="@dimen/_7sdp"
                         android:padding="@dimen/_2sdp"
+                        android:fontFamily="@font/lato_bold"
                         android:textColor="#ff000000"
                         android:textSize="@dimen/_14ssp"
                         android:textStyle="bold" />
@@ -121,6 +125,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
                             android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/lato"
                             android:text="Having issues or have some feedback?"
                             android:textSize="@dimen/_9ssp" />
 
@@ -133,8 +138,9 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:layout_marginBottom="@dimen/_5sdp"
                             android:text="Contact our support team"
-                            android:textColor="#ff458ddf"
-                            android:textSize="@dimen/_9ssp"
+                            android:fontFamily="@font/lato_bold"
+                            android:textColor="#0B7FFA"
+                            android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />
                     </RelativeLayout>
                 </RelativeLayout>

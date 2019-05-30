@@ -24,6 +24,7 @@
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_toLeftOf="@id/iv_next"
         android:layout_toRightOf="@id/iv_icon"
+        android:fontFamily="@font/lato_bold"
         android:text="Sign In"
         android:textColor="#ff000000"
         android:textSize="@dimen/_14ssp" />

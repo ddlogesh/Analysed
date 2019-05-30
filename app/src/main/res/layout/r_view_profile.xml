@@ -29,7 +29,9 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/icon_profile"/>
+                app:civ_border_color="#0B7FFA"
+                app:civ_border_width="@dimen/_1sdp"
+                android:src="@drawable/ic_user_white"/>
 
             <ImageView
                 android:id="@+id/iv_edit"

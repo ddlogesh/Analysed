@@ -37,11 +37,5 @@ public class splashScreen extends AppCompatActivity {
 /var/www/analysed.in/analysed/webservices/common
 /var/www/analysed.in/analysed/webservices/jobseeker
 /var/www/analysed.in/analysed/webservices/recruiter
-
 /var/www/analysed.in/analysed/Pages/dashboard
-
-cd C:\Users\Logesh Dinakaran\AppData\Local\Android\Sdk\platform-tools
-adb tcpip 5555
-adb shell ifconfig
-adb connect 10.228.181.128:5555
  */
